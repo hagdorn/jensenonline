@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en" data-ng-app="onlinePlatform" data-ng-controller="onlinePlatformCtrl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,17 @@
 <body>
 <!-- ÄNDRA FILEN TILL .PHP NÄR BACKEND SKA SKRIVAS -->
 
+<ul>
+    <li data-ng-repeat="item in mainMenu" data-ng-switch on="item">{{item}}
+        
+        
+        <ul data-ng-switch-when="Mina sidor">
+            <li data-ng-repeat="subitem in subMenu.myPages">{{subitem}}</li>
+        </ul>
+    </li>
+</ul>    
+
+    
 
 <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->  
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
