@@ -17,7 +17,8 @@ body {
     width: 12.5%;
     display: inline-block;
     text-align: center;
-    font-weight: bold; }
+    font-weight: bold;
+    position: relative; }
     #main-menu li ul {
       position: absolute;
       display: none;
@@ -31,11 +32,5 @@ body {
         text-align: left;
         font-size: 0.8em;
         padding-left: 10px; }
-  #main-menu li:nth-child(4) {
-    position: relative;
-    /*&:hover ul {
-        position: absolute;
-        display: block;
-    }*/ }
 
 /*# sourceMappingURL=style.css.map */

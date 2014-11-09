@@ -1,5 +1,5 @@
 /* To watch the files: sass --watch style.scss:style.css */
-$white: #fff;
+$primary-menu-color: #fff;
 $primary-color: #00425C;
 $maxWidth: 100%;
 $fontFamily: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -27,7 +27,7 @@ body {
     @extend %no-margins;
     list-style: none;
     background: $primary-color;
-    color: $white;
+    color: $primary-menu-color;
     
     li {
         @include vertAlign(40px);
@@ -35,6 +35,7 @@ body {
         display: inline-block;
         text-align: center;
         font-weight: bold;
+        position: relative;
         
         ul {
             @extend %no-margins;
@@ -52,15 +53,5 @@ body {
                 padding-left: 10px;
             }
         }
-    }
-    
-    li:nth-child(4) {
-        
-        position: relative;
-        
-        /*&:hover ul {
-            position: absolute;
-            display: block;
-        }*/
     }
 }
