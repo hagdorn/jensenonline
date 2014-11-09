@@ -1,20 +1,30 @@
 /* To watch the files: sass --watch style.scss:style.css */
-body, #main-menu, #main-menu li ul {
+body, #main-menu li ul {
   margin: 0;
   padding: 0; }
+
+a:link, a:visited, a:focus, a:hover, a:active {
+  color: black; }
 
 body {
   width: 100%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+a {
+  text-decoration: none; }
+
 #main-menu {
   list-style: none;
-  background: #00425C;
-  color: #fff; }
+  color: #fff;
+  margin-top: 140px;
+  padding: 0; }
+  #main-menu a {
+    color: #fff; }
   #main-menu li {
     height: 40px;
     line-height: 40px;
     width: 12.5%;
+    background: #00425C;
     display: inline-block;
     text-align: center;
     font-weight: bold;
@@ -27,10 +37,10 @@ body {
       #main-menu li ul li {
         height: 25px;
         line-height: 25px;
-        width: inherit;
+        width: 90%;
         display: block;
         text-align: left;
         font-size: 0.8em;
-        padding-left: 10px; }
+        padding-left: 5%; }
 
 /*# sourceMappingURL=style.css.map */

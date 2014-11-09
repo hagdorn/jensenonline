@@ -12,9 +12,9 @@
 <!-- ÄNDRA FILEN TILL .PHP NÄR BACKEND SKA SKRIVAS -->
 
 <ul id="main-menu">
-    <li data-ng-repeat="item in mainMenu" data-ng-switch on="item">{{item}}
+    <li data-ng-repeat="item in mainMenu" data-ng-switch on="item"><a href="{{item}}.php">{{item}}</a>
         <ul data-ng-switch-when="Mina sidor">
-            <li data-ng-repeat="subitem in subMenu.myPages">{{subitem}}</li>
+            <li data-ng-repeat="subitem in subMenu.myPages"><a href="{{subitem}}.php">{{subitem}}</a></li>
         </ul>
     </li>
 </ul>    

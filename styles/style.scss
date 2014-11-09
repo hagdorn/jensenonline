@@ -1,4 +1,5 @@
 /* To watch the files: sass --watch style.scss:style.css */
+
 $primary-menu-color: #fff;
 $primary-color: #00425C;
 $maxWidth: 100%;
@@ -12,6 +13,10 @@ $big-font: 1.2em;
     padding: 0;
 }
 
+%link-color {
+    color: black;
+}
+
 @mixin vertAlign($height, $lineHeight: $height) {
     height: $height;
     line-height: $lineHeight;
@@ -23,15 +28,28 @@ body {
     font-family: $fontFamily;
 }
 
+a {
+    text-decoration: none;
+    
+    &:link, &:visited, &:focus, &:hover, &:active {
+        @extend %link-color; 
+    }
+}
+
 #main-menu {
-    @extend %no-margins;
     list-style: none;
-    background: $primary-color;
     color: $primary-menu-color;
+    margin-top: 140px;
+    padding: 0;
+    
+    a {
+        color: $primary-menu-color;
+    }
     
     li {
         @include vertAlign(40px);
         width: ($maxWidth / 8);
+        background: $primary-color;
         display: inline-block;
         text-align: center;
         font-weight: bold;
@@ -46,11 +64,11 @@ body {
             
             li {
                 @include vertAlign(25px);
-                width: inherit;
+                width: $maxWidth - 10;
                 display: block;
                 text-align: left;
                 font-size: $small-font;
-                padding-left: 10px;
+                padding-left: 5%;
             }
         }
     }

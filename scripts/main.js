@@ -1,8 +1,19 @@
 $(document).ready(function() {
-   
-    $('#main-menu li:nth-child(4)').hover(function() {
-            
-        $('#main-menu li:nth-child(4) ul').slideToggle();
+    
+    $('#main-menu li').hover(function() {
+        $(this).stop().animate({ top: 5 }, 'fast');
+        }, function() {
+            $(this).stop().animate({ top: 0 }, 'fast');
+    });
+    
+    $('#main-menu li ul li').hover(function() {
+        $(this).stop().animate({ left: 10 }, 'fast');
+    }, function() {
+        $(this).stop().animate({ left: 0 }, 'fast');
+    });
+    
+    $('#main-menu li:nth-child(4)').hover(function() {     
+        $('#main-menu li:nth-child(4) ul').stop().slideToggle();
     });
     
     
