@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
     $('#main-menu li').hover(function() {
-        $(this).stop().animate({ top: 5 }, 'fast');
+        $(this).stop().animate({ top: 7 }, 'fast');
         }, function() {
             $(this).stop().animate({ top: 0 }, 'fast');
     });
