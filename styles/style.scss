@@ -1,2 +1,66 @@
 /* To watch the files: sass --watch style.scss:style.css */
+$white: #fff;
+$primary-color: #00425C;
+$maxWidth: 100%;
+$fontFamily: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$small-font: 0.8em;
+$normal-font: 1em;
+$big-font: 1.2em;
 
+%no-margins {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin vertAlign($height, $lineHeight: $height) {
+    height: $height;
+    line-height: $lineHeight;
+}
+
+body {
+    @extend %no-margins;
+    width: $maxWidth;
+    font-family: $fontFamily;
+}
+
+#main-menu {
+    @extend %no-margins;
+    list-style: none;
+    background: $primary-color;
+    color: $white;
+    
+    li {
+        @include vertAlign(40px);
+        width: ($maxWidth / 8);
+        display: inline-block;
+        text-align: center;
+        font-weight: bold;
+        
+        ul {
+            @extend %no-margins;
+            position: absolute;
+            display: none;
+            width: $maxWidth;
+            background: $primary-color;
+            
+            li {
+                @include vertAlign(25px);
+                width: inherit;
+                display: block;
+                text-align: left;
+                font-size: $small-font;
+                padding-left: 10px;
+            }
+        }
+    }
+    
+    li:nth-child(4) {
+        
+        position: relative;
+        
+        /*&:hover ul {
+            position: absolute;
+            display: block;
+        }*/
+    }
+}

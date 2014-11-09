@@ -1,2 +1,41 @@
 /* To watch the files: sass --watch style.scss:style.css */
+body, #main-menu, #main-menu li ul {
+  margin: 0;
+  padding: 0; }
+
+body {
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+#main-menu {
+  list-style: none;
+  background: #00425C;
+  color: #fff; }
+  #main-menu li {
+    height: 40px;
+    line-height: 40px;
+    width: 12.5%;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold; }
+    #main-menu li ul {
+      position: absolute;
+      display: none;
+      width: 100%;
+      background: #00425C; }
+      #main-menu li ul li {
+        height: 25px;
+        line-height: 25px;
+        width: inherit;
+        display: block;
+        text-align: left;
+        font-size: 0.8em;
+        padding-left: 10px; }
+  #main-menu li:nth-child(4) {
+    position: relative;
+    /*&:hover ul {
+        position: absolute;
+        display: block;
+    }*/ }
+
 /*# sourceMappingURL=style.css.map */

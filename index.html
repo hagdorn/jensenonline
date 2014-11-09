@@ -11,10 +11,8 @@
 <body>
 <!-- ÄNDRA FILEN TILL .PHP NÄR BACKEND SKA SKRIVAS -->
 
-<ul>
+<ul id="main-menu">
     <li data-ng-repeat="item in mainMenu" data-ng-switch on="item">{{item}}
-        
-        
         <ul data-ng-switch-when="Mina sidor">
             <li data-ng-repeat="subitem in subMenu.myPages">{{subitem}}</li>
         </ul>
@@ -23,7 +21,7 @@
 
     
 
-<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 <script src="angular/controllers.js"></script>
 <script src="scripts/main.js"></script>
