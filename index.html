@@ -12,20 +12,10 @@
 <!-- ÄNDRA FILEN TILL .PHP NÄR BACKEND SKA SKRIVAS -->
 
 <ul id="main-menu">
-    <li data-ng-repeat="item in mainMenu" data-ng-switch on="item"><a href="{{item}}.php">{{item}}</a>
-        
-        <ul data-ng-switch-when="Meddelanden">
-            <li data-ng-repeat="subitem in subMenu.messages"><a href="{{subitem}}.php">{{subitem}}</a></li>
+    <li data-ng-repeat="menu in menus"><a href="{{menu.title}}.php">{{menu.title}}</a>
+        <ul ng-if="menu.items">
+            <li data-ng-repeat="subitem in menu.items"><a href="{{subitem}}.php">{{subitem}}</a></li>
         </ul>
-        
-        <ul data-ng-switch-when="Mina sidor">
-            <li data-ng-repeat="subitem in subMenu.myPages"><a href="{{subitem}}.php">{{subitem}}</a></li>
-        </ul>
-        
-        <ul data-ng-switch-when="Verktyg">
-            <li data-ng-repeat="subitem in subMenu.tools"><a href="{{subitem}}.php">{{subitem}}</a></li>
-        </ul>
-        
     </li>
 </ul>
 
