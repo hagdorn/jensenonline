@@ -1,27 +1,38 @@
 $(document).ready(function() {
     
-    $('#main-menu li').hover(function() {
-        $(this).stop().animate({ top: 7 }, 'fast');
-        }, function() {
-            $(this).stop().animate({ top: 0 }, 'fast');
-    });
+    function init () {
+        mainMenu.toggleDropDown(3);
+        mainMenu.toggleDropDown(4);
+        mainMenu.toggleDropDown(7);
+        mainMenu.mainHoverEffect(7);
+        mainMenu.subMenuHoverEffect(10);
+    }
     
-    $('#main-menu li ul li').hover(function() {
-        $(this).stop().animate({ left: 10 }, 'fast');
-    }, function() {
-        $(this).stop().animate({ left: 0 }, 'fast');
-    });
+    var mainMenu = {
     
-    $('#main-menu li:nth-child(4)').hover(function() {
-        $('#main-menu li:nth-child(4) ul').stop().slideToggle();
-    });
+        toggleDropDown: function (num) {
+
+            $('#main-menu li:nth-child(' + num + ')').hover(function() {
+                $('#main-menu li:nth-child(' + num + ') ul').stop().slideToggle();
+            });
+        },
+        mainHoverEffect: function (margin) {
+
+            $('#main-menu li').hover(function() {
+                $(this).stop().animate({ top: margin }, 'fast');
+            }, function() {
+                $(this).stop().animate({ top: 0 }, 'fast');
+            });
+        },
+        subMenuHoverEffect: function (margin) {
+
+            $('#main-menu li ul li').hover(function() {
+                $(this).stop().animate({ left: margin }, 'fast');
+            }, function() {
+                $(this).stop().animate({ left: 0 }, 'fast');
+            });
+        }
+    }
     
-    $('#main-menu li:nth-child(3)').hover(function() {
-        $('#main-menu li:nth-child(3) ul').stop().slideToggle();
-    });
-    
-    $('#main-menu li:nth-child(7)').hover(function() {
-        $('#main-menu li:nth-child(7) ul').stop().slideToggle();
-    });
-    
+    window.onload = init;
 });
