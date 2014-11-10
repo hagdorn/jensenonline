@@ -14,13 +14,43 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
         },
         {
             title: 'Meddelanden',
-            items: ['Inkorg', 'Skickade meddelanden', 'Borttagna meddelanden'],
+            items: [
+                {
+                    title: 'Inkorg',
+                    URL: 'inbox'
+                },
+                {
+                    title: 'Skickade meddelanden',
+                    URL: 'sentmsg'
+                },
+                {   
+                    title: 'Borttagna meddelanden',
+                    URL: 'removedmsg'
+                }
+            ],
             URL: 'messages',
             id: 'msg'
         },
         {
             title: 'Mina sidor',
-            items: ['Mina kurser', 'Mitt schema', 'Klasslista', 'Anteckningar'],
+            items: [
+                {
+                    title: 'Mina kurser',
+                    URL: 'courses'
+                },
+                {
+                    title: 'Mitt schema',
+                    URL: 'schedule'
+                },
+                {
+                    title: 'Klasslista',
+                    URL: 'classlist'
+                },
+                {
+                    title: 'Anteckningar',
+                    URL: 'notes'
+                }
+            ],
             URL: 'mypages',
             id: 'mypages'
         },
@@ -34,7 +64,12 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
         },
         {
             title: 'Verktyg',
-            items: ['Ladda ner Dreamspark produkter'],
+            items: [
+                {
+                    title: 'Ladda ner Dreamspark produkter',
+                    URL: 'dreamspark'
+                }
+            ],
             URL: 'tools',
             id: 'tools'
         },
