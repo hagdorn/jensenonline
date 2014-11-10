@@ -14,7 +14,7 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
         },
         {
             title: 'Meddelanden',
-            items: ['Inkorg', 'Skickade meddelanden', 'Borttagna meddelande'],
+            items: ['Inkorg', 'Skickade meddelanden', 'Borttagna meddelanden'],
             URL: 'messages',
             id: 'msg'
         },
