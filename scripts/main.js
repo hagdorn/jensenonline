@@ -12,10 +12,16 @@ $(document).ready(function() {
         $(this).stop().animate({ left: 0 }, 'fast');
     });
     
-    $('#main-menu li:nth-child(4)').hover(function() {     
+    $('#main-menu li:nth-child(4)').hover(function() {
         $('#main-menu li:nth-child(4) ul').stop().slideToggle();
     });
     
+    $('#main-menu li:nth-child(3)').hover(function() {
+        $('#main-menu li:nth-child(3) ul').stop().slideToggle();
+    });
     
+    $('#main-menu li:nth-child(7)').hover(function() {
+        $('#main-menu li:nth-child(7) ul').stop().slideToggle();
+    });
     
 });

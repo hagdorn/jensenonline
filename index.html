@@ -13,13 +13,21 @@
 
 <ul id="main-menu">
     <li data-ng-repeat="item in mainMenu" data-ng-switch on="item"><a href="{{item}}.php">{{item}}</a>
+        
+        <ul data-ng-switch-when="Meddelanden">
+            <li data-ng-repeat="subitem in subMenu.messages"><a href="{{subitem}}.php">{{subitem}}</a></li>
+        </ul>
+        
         <ul data-ng-switch-when="Mina sidor">
             <li data-ng-repeat="subitem in subMenu.myPages"><a href="{{subitem}}.php">{{subitem}}</a></li>
         </ul>
+        
+        <ul data-ng-switch-when="Verktyg">
+            <li data-ng-repeat="subitem in subMenu.tools"><a href="{{subitem}}.php">{{subitem}}</a></li>
+        </ul>
+        
     </li>
-</ul>    
-
-    
+</ul>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
