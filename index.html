@@ -13,7 +13,7 @@
 
 <ul id="main-menu">
     <li data-ng-repeat="menu in menus" id="{{menu.id}}"><a href="{{menu.title}}.php">{{menu.title}}</a>
-        <ul ng-if="menu.items">
+        <ul data-ng-if="menu.items">
             <li data-ng-repeat="subitem in menu.items"><a href="{{subitem.URL}}.php">{{subitem}}</a></li>
         </ul>
     </li>
