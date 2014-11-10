@@ -32,6 +32,7 @@ $(document).ready(function() {
                 $(this).stop().animate({ left: 0 }, 'fast');
             });
         }
+        
     }
     
     window.onload = init;
