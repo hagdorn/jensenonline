@@ -1,19 +1,19 @@
 $(document).ready(function() {
     
     function init () {
-        mainMenu.toggleDropDown(3);
-        mainMenu.toggleDropDown(4);
-        mainMenu.toggleDropDown(7);
+        mainMenu.toggleDropDown('msg');
+        mainMenu.toggleDropDown('mypages');
+        mainMenu.toggleDropDown('tools');
         mainMenu.mainHoverEffect(7);
         mainMenu.subMenuHoverEffect(10);
     }
     
     var mainMenu = {
     
-        toggleDropDown: function (num) {
+        toggleDropDown: function (id) {
 
-            $('#main-menu li:nth-child(' + num + ')').hover(function() {
-                $('#main-menu li:nth-child(' + num + ') ul').stop().slideToggle();
+            $('#main-menu' + ' #' + id + '').hover(function() {
+                $('#' + id + ' ul').stop().slideToggle();
             });
         },
         mainHoverEffect: function (margin) {

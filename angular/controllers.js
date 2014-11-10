@@ -5,31 +5,42 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
     $scope.menus = [
         
         {
-            title: 'Startsida'    
+            title: 'Startsida',
+            URL: 'home',
         },
         {
-            title: 'Nyheter'    
+            title: 'Nyheter',
+            URL: 'news'
         },
         {
             title: 'Meddelanden',
-            items: ['Inkorg', 'Skickade meddelanden', 'Borttagna meddelande']
+            items: ['Inkorg', 'Skickade meddelanden', 'Borttagna meddelande'],
+            URL: 'messages',
+            id: 'msg'
         },
         {
             title: 'Mina sidor',
-            items: ['Mina kurser', 'Mitt schema', 'Klasslista', 'Anteckningar']
+            items: ['Mina kurser', 'Mitt schema', 'Klasslista', 'Anteckningar'],
+            URL: 'mypages',
+            id: 'mypages'
         },
         {
-            title: 'Forum'
+            title: 'Forum',
+            URL: 'forum'
         },
         {
-            title: 'Kalender'    
+            title: 'Kalender',
+            URL: 'calender'
         },
         {
             title: 'Verktyg',
-            items: ['Ladda ner Dreamspark produkter']
+            items: ['Ladda ner Dreamspark produkter'],
+            URL: 'tools',
+            id: 'tools'
         },
         {
-            title: 'Hjälp'    
+            title: 'Hjälp',
+            URL: 'help'
         }
         
     ]
