@@ -11,7 +11,7 @@ html, body, main {
 
 body {
   width: 100%;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: Arial, sans-serif; }
 
 a {
   text-decoration: none; }
@@ -20,15 +20,36 @@ a {
   width: 50%;
   margin: 0 auto;
   min-height: 100%;
-  position: relative;
-  background: yellow; }
+  position: relative; }
   #login-container table {
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
     transform: translateY(-50%);
     transform: translateX(-50%);
-    background: pink; }
+    width: 25%;
+    text-align: center; }
+    #login-container table tr:nth-child(1) td, #login-container table tr:nth-child(3) td {
+      text-align: left; }
+    #login-container table tr:nth-child(2) td, #login-container table tr:nth-child(4) td {
+      padding-bottom: 15px; }
+    #login-container table label {
+      font-size: 1.3em; }
+    #login-container table input {
+      width: 100%;
+      height: 30px; }
+    #login-container table #submit {
+      width: 35%;
+      height: 30px;
+      margin-top: 20px;
+      font-weight: bold;
+      border-radius: 0; }
+    #login-container table a {
+      font-size: 1em;
+      color: #0097ef;
+      font-weight: bold; }
+      #login-container table a:hover {
+        color: #38b6ff; }
 
 #main-menu {
   list-style: none;
@@ -50,7 +71,8 @@ a {
       position: absolute;
       display: none;
       width: 100%;
-      background: #00425C; }
+      background: #00425C;
+      z-index: 500; }
       #main-menu li ul li {
         height: 25px;
         line-height: 25px;

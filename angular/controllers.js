@@ -2,11 +2,13 @@ var onlinePlatform = angular.module('onlinePlatform', []);
 
 onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
     
-    $scope.menus = [
+    $scope.adminMenu = [],
+    $scope.teacherMenu = [],
+    $scope.studentMenu = [
         
         {
             title: 'Startsida',
-            URL: 'home',
+            URL: 'home'
         },
         {
             title: 'Nyheter',
@@ -77,8 +79,6 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
             title: 'Hjälp',
             URL: 'help'
         }
-        
     ]
-
 });
 
