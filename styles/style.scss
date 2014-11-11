@@ -2,11 +2,12 @@
 
 $primary-menu-color: #fff;
 $primary-color: #00425C;
-$maxWidth: 100%;
+$maxPercentage: 100%;
 $fontFamily: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $small-font: 0.8em;
 $normal-font: 1em;
 $big-font: 1.2em;
+$center: 0 auto;
 
 %no-margins {
     margin: 0;
@@ -22,10 +23,27 @@ $big-font: 1.2em;
     line-height: $lineHeight;
 }
 
+@mixin center {
+    position: absolute;
+    top: $maxPercentage - 50;
+    left: $maxPercentage - 50;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+}
+
+html {
+    height: $maxPercentage;
+}
+
 body {
     @extend %no-margins;
-    width: $maxWidth;
+    @extend html;
+    width: $maxPercentage;
     font-family: $fontFamily;
+}
+
+main {
+    @extend html;
 }
 
 a {
@@ -33,6 +51,20 @@ a {
     
     &:link, &:visited, &:focus, &:hover, &:active {
         @extend %link-color; 
+    }
+}
+
+#login-container {
+    
+    width: $maxPercentage - 50;
+    margin: $center;
+    min-height: 100%;
+    position: relative;
+    background: yellow;
+    
+    table {
+        @include center;
+        background: pink;
     }
 }
 
@@ -48,7 +80,7 @@ a {
     
     li {
         @include vertAlign(40px);
-        width: ($maxWidth / 8);
+        width: ($maxPercentage / 8);
         background: $primary-color;
         display: inline-block;
         text-align: center;
@@ -59,12 +91,12 @@ a {
             @extend %no-margins;
             position: absolute;
             display: none;
-            width: $maxWidth;
+            width: $maxPercentage;
             background: $primary-color;
             
             li {
                 @include vertAlign(25px);
-                width: $maxWidth - 10;
+                width: $maxPercentage - 10;
                 display: block;
                 text-align: left;
                 font-size: $small-font;
