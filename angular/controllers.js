@@ -1,11 +1,9 @@
 var onlinePlatform = angular.module('onlinePlatform', []);
 
 onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
-    
-    $scope.adminMenu = [],
-    $scope.teacherMenu = [],
-    $scope.studentMenu = [
-        
+
+    $scope.menus = [
+
         {
             title: 'Startsida',
             URL: 'home'
@@ -34,27 +32,79 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
             id: 'msg'
         },
         {
-            title: 'Mina sidor',
-            items: [
-                {
-                    title: 'Mina kurser',
-                    URL: 'courses'
-                },
-                {
-                    title: 'Mitt schema',
-                    URL: 'schedule'
-                },
-                {
-                    title: 'Klasslista',
-                    URL: 'classlist'
-                },
-                {
-                    title: 'Anteckningar',
-                    URL: 'notes'
-                }
-            ],
-            URL: 'mypages',
-            id: 'mypages'
+            admin: {
+                        title: 'Administration',
+                        items: [
+                            {
+                                title: 'Hantera utbildningar',
+                                URL: 'mngprograms'
+                            },
+                            {
+                                title: 'Hantera kurser',
+                                URL: 'mngcourses'
+                            },
+                            {
+                                title: 'Hantera lärare',
+                                URL: 'mngteachers'
+                            },
+                            {
+                                title: 'Hantera studenter',
+                                URL: 'mngstudents'
+                            }
+                        ],
+                        URL: 'administration',
+                        id: 'administration'
+            },
+            teacher: {
+                        title: 'Utbildning',
+                        items: [
+                            {
+                                title: 'Kurser överblick',
+                                URL: 'coursesoverview'
+                            },
+                            {
+                                title: 'Sätt eller ändra betyg',
+                                URL: 'editgrades'
+                            },
+                            {
+                                title: 'Boka eller avboka lokaler',
+                                URL: 'classroombooking'
+                            }
+                        ],
+                        URL: 'utbildning',
+                        id: 'utbildning'
+            },
+            student: {
+                        title: 'Mina sidor',
+                        items: [
+                            {
+                                title: 'Mina kurser',
+                                URL: 'mycourses'
+                            },
+                            {
+                                title: 'Mitt schema',
+                                URL: 'myschedule'
+                            },
+                            {
+                                title: 'Mina betyg',
+                                URL: 'mygrades'
+                            },
+                            {
+                                title: 'Mina kontaktuppgifter',
+                                URL: 'mycontactinfo'
+                            },
+                            {
+                                title: 'Klasslista',
+                                URL: 'classlist'
+                            },
+                            {
+                                title: 'Anteckningar',
+                                URL: 'notes'
+                            }
+                        ],
+                        URL: 'mypages',
+                        id: 'mypages'
+            }
         },
         {
             title: 'Forum',
@@ -62,23 +112,65 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
         },
         {
             title: 'Kalender',
-            URL: 'calender'
+            URL: 'calendar'
         },
         {
-            title: 'Verktyg',
-            items: [
-                {
-                    title: 'Ladda ner Dreamspark produkter',
-                    URL: 'dreamspark'
-                }
-            ],
-            URL: 'tools',
-            id: 'tools'
+            admin: {
+                title: 'Enkäter',
+                items: [
+                    {
+                        title: 'Skapa enkät',
+                        URL: 'createsurvey'
+                    },
+                    {
+                        title: 'Visa tidigare enkäter',
+                        URL: 'previussurveys'
+                    }
+                ],
+                URL: 'surveys',
+                id: 'surveys'
+            },
+            teacher: {
+                title: 'Kontaktuppgifter',
+                items: [
+                    {
+                        title: 'Profil',
+                        URL: 'profile'
+                    },
+                    {
+                        title: 'Redigera kontaktuppgifter',
+                        URL: 'editcontactinfo'
+                    }
+                ],
+                URL: 'contactinfo',
+                id: 'contactinfo'
+            },
+            student: {
+                title: 'Verktyg',
+                items: [
+                    {
+                        title: 'Ladda ner Dreamspark produkter',
+                        URL: 'dreamspark'
+                    }
+                ],
+                URL: 'tools',
+                id: 'tools'
+            }
         },
         {
             title: 'Hjälp',
-            URL: 'help'
+            items: [
+                {
+                    title: 'Vanliga frågor',
+                    URL: 'faq'
+                },
+                {
+                    title: 'JENSEN kontaktuppgifter',
+                    URL: 'contactinfo'
+                }
+            ],
+            URL: 'help',
+            id: 'help'
         }
     ]
 });
-
