@@ -31,11 +31,13 @@ function checkUserNameAndPassword($un, $pwd){
         $ps = $db->prepare($query);  //Prepared statement
         $ps->execute(array('username'=>$un, 'password'=>$pwd));
         $loggedIn = $ps -> fetch(PDO::FETCH_ASSOC); // Assosiative array
-		
+
 		if($loggedIn){
 			$_SESSION['id'] = $loggedIn['id'];
 			$_SESSION['type'] = $loggedIn['type'];
 			$_SESSION['username'] = $loggedIn['username'];
+			$_SESSION['firstname'] = $loggedIn['firstname'];
+			$_SESSION['lastname'] = $loggedIn['lastname'];
 		}
 					 
 	}

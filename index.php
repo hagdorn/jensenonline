@@ -7,7 +7,7 @@
 
 <main>
 <h1>Inloggad</h1>
-<div>Hej <?php echo($_SESSION['username']);?></div>
+<div>Hej <?php echo($_SESSION['firstname'] . " " .$_SESSION['lastname'] );?></div>
 
 	
 
