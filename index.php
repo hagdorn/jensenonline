@@ -1,10 +1,6 @@
 <?php
     include('includes/header.php');
 ?>
-<!-- Menu needs to be modified to fit login page -->
-<?php
-    include('includes/menu.php');
-?>
 
 <main>
 

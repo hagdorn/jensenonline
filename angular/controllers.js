@@ -2,7 +2,7 @@ var onlinePlatform = angular.module('onlinePlatform', []);
 
 onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
 
-    $scope.menus = [
+    $scope.adminmenu = [
 
         {
             title: 'Startsida',
@@ -32,30 +32,69 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
             id: 'msg'
         },
         {
-            admin: {
-                        title: 'Administration',
-                        items: [
-                            {
-                                title: 'Hantera utbildningar',
-                                URL: 'mngprograms'
-                            },
-                            {
-                                title: 'Hantera kurser',
-                                URL: 'mngcourses'
-                            },
-                            {
-                                title: 'Hantera lärare',
-                                URL: 'mngteachers'
-                            },
-                            {
-                                title: 'Hantera studenter',
-                                URL: 'mngstudents'
-                            }
-                        ],
-                        URL: 'administration',
-                        id: 'administration'
-            },
-            teacher: {
+            title: 'Administration',
+            items: [
+                {
+                    title: 'Hantera utbildningar',
+                    URL: 'mngprograms'
+                },
+                {
+                    title: 'Hantera kurser',
+                    URL: 'mngcourses'
+                },
+                {
+                    title: 'Hantera lärare',
+                    URL: 'mngteachers'
+                },
+                {
+                    title: 'Hantera studenter',
+                    URL: 'mngstudents'
+                }
+            ],
+            URL: 'administration',
+            id: 'administration'
+        },
+        {
+            title: 'Forum',
+            URL: 'forum'
+        },
+        {
+            title: 'Kalender',
+            URL: 'calendar'
+        },
+        {
+            title: 'Enkäter',
+            items: [
+                {
+                    title: 'Skapa enkät',
+                    URL: 'createsurvey'
+                },
+                {
+                    title: 'Visa tidigare enkäter',
+                    URL: 'previussurveys'
+                }
+            ],
+            URL: 'surveys',
+            id: 'surveys'
+        },
+        {
+            title: 'Hjälp',
+            items: [
+                {
+                    title: 'Vanliga frågor',
+                    URL: 'faq'
+                },
+                {
+                    title: 'JENSEN kontaktuppgifter',
+                    URL: 'contactinfo'
+                }
+            ],
+            URL: 'help',
+            id: 'help'
+        }
+    ]/*,
+    $scope.teachermenu = [
+                      {
                         title: 'Utbildning',
                         items: [
                             {
@@ -73,8 +112,25 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                         ],
                         URL: 'utbildning',
                         id: 'utbildning'
+                        },
+                          {
+                title: 'Kontaktuppgifter',
+                items: [
+                    {
+                        title: 'Profil',
+                        URL: 'profile'
+                    },
+                    {
+                        title: 'Redigera kontaktuppgifter',
+                        URL: 'editcontactinfo'
+                    }
+                ],
+                URL: 'contactinfo',
+                id: 'contactinfo'
             },
-            student: {
+                          ],
+    $scope.studentmenu = [
+                    {
                         title: 'Mina sidor',
                         items: [
                             {
@@ -105,72 +161,16 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                         URL: 'mypages',
                         id: 'mypages'
             }
-        },
-        {
-            title: 'Forum',
-            URL: 'forum'
-        },
-        {
-            title: 'Kalender',
-            URL: 'calendar'
-        },
-        {
-            admin: {
-                title: 'Enkäter',
-                items: [
                     {
-                        title: 'Skapa enkät',
-                        URL: 'createsurvey'
-                    },
-                    {
-                        title: 'Visa tidigare enkäter',
-                        URL: 'previussurveys'
-                    }
-                ],
-                URL: 'surveys',
-                id: 'surveys'
-            },
-            teacher: {
-                title: 'Kontaktuppgifter',
-                items: [
-                    {
-                        title: 'Profil',
-                        URL: 'profile'
-                    },
-                    {
-                        title: 'Redigera kontaktuppgifter',
-                        URL: 'editcontactinfo'
-                    }
-                ],
-                URL: 'contactinfo',
-                id: 'contactinfo'
-            },
-            student: {
-                title: 'Verktyg',
-                items: [
-                    {
-                        title: 'Ladda ner Dreamspark produkter',
-                        URL: 'dreamspark'
-                    }
-                ],
-                URL: 'tools',
-                id: 'tools'
-            }
-        },
-        {
-            title: 'Hjälp',
-            items: [
-                {
-                    title: 'Vanliga frågor',
-                    URL: 'faq'
-                },
-                {
-                    title: 'JENSEN kontaktuppgifter',
-                    URL: 'contactinfo'
-                }
-            ],
-            URL: 'help',
-            id: 'help'
-        }
-    ]
+                        title: 'Verktyg',
+                        items: [
+                            {
+                                title: 'Ladda ner Dreamspark produkter',
+                                URL: 'dreamspark'
+                            }
+                        ],
+                        URL: 'tools',
+                        id: 'tools'
+                    }                      
+    ]*/
 });
