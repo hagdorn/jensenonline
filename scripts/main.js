@@ -4,6 +4,11 @@ $(document).ready(function() {
         mainMenu.toggleDropDown('msg');
         mainMenu.toggleDropDown('mypages');
         mainMenu.toggleDropDown('tools');
+        mainMenu.toggleDropDown('administration');
+        mainMenu.toggleDropDown('contactinfo');
+        mainMenu.toggleDropDown('utbildning');
+        mainMenu.toggleDropDown('surveys');
+        mainMenu.toggleDropDown('help');
         mainMenu.mainHoverEffect(7);
         mainMenu.subMenuHoverEffect(10);
     }
