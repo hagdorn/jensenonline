@@ -1,4 +1,5 @@
 <?php
+	session_start();
     include('includes/header.php');
 ?>
 
@@ -8,7 +9,7 @@
         
         <table>
 
-            <form method="post" action="login.php">
+            <form method="post" action="index.php">
                 <tr>
                     <td>
                         <label for="username">Användarnamn:</label>
