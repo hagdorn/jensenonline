@@ -1,7 +1,7 @@
 <?php
-	session_start();
-	require_once('db.php');
-    include('includes/header.php');
+    session_start();
+    require_once('db.php');
+	include('includes/header.php');
 ?>
 
 <main>
@@ -10,7 +10,7 @@
         
         <table>
 
-            <form method="post" action="">
+            <form method="post" action="index.php">
                 <tr>
                     <td>
                         <label for="username">Användarnamn:</label>
