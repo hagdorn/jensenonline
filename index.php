@@ -10,28 +10,28 @@
         
         <table>
 
-            <form method="post" action="index.php">
+            <form method="post" action="">
                 <tr>
                     <td>
-                        <label for="username">Användarnamn:</label>
+                        <label for="username">AnvÃ¤ndarnamn:</label>
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="username" id="username" alt="Skriv ditt användarnamn"></td>
+                    <td><input type="text" name="username" id="username" alt="Skriv ditt anvÃ¤ndarnamn"></td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="password">Lösenord:</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="password" name="password" id="password" alt="Skriv ditt lösenord">
+                        <label for="password">LÃ¶senord:</label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="#">Glömt lösenord?</a>
+                        <input type="password" name="password" id="password" alt="Skriv ditt lÃ¶senord">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">GlÃ¶mt lÃ¶senord?</a>
                     </td>
                 </tr>
                 <tr>
