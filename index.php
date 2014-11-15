@@ -2,8 +2,6 @@
 	session_start();
 	require_once('db.php');
     include('includes/header.php');
-
-    $basename = substr(strtolower(basename($_SERVER['PHP_SELF'])),0,strlen(basename($_SERVER['PHP_SELF']))-4);
 ?>
 
 <main>

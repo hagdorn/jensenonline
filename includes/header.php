@@ -10,7 +10,6 @@
 
 <body>
 
-
 <form method="post" action="includes/header.php">
     <input type="submit" name="logout" value="Logga ut">
 </form>
