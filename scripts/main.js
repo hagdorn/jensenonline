@@ -11,7 +11,9 @@ $(document).ready(function() {
         mainMenu.toggleDropDown('help');
         mainMenu.mainHoverEffect(7);
         mainMenu.subMenuHoverEffect(10);
-        setEventListener();
+        
+        var input = document.getElementById('search');
+            input.addEventListener('keyup', setEventListener);
     }
     
     function setEventListener(e) {
