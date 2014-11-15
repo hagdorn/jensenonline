@@ -9,3 +9,14 @@
 </head>
 
 <body>
+
+<form method="post" action="includes/header.php">
+    <input type="submit" name="logout" value="Logga ut">
+</form>
+
+<?php
+    if (isset($_POST['logout'])) {
+        session_unset();
+        session_destroy();
+        header('../login.php');
+    }

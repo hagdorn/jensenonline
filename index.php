@@ -1,15 +1,9 @@
 <?php
 	session_start();
 	require_once('db.php');
-
     include('includes/header.php');
+    include('includes/typeaccess.php');
 ?>
-
-<main>
-<h1>Inloggad</h1>
-<div>Hej <?php echo($_SESSION['firstname'] . " " .$_SESSION['lastname'] );?></div>
-
-	
 
 <?php
     include('includes/footer.php');
