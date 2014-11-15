@@ -1,4 +1,4 @@
-<header>
+<nav>
       <ul id='main-menu'>
           <li ng-repeat='menu in adminmenu' id='{{menu.id}}'><a href='{{menu.URL}}.php'>{{menu.title}}</a>
               <ul ng-if='menu.items'>
@@ -6,4 +6,4 @@
               </ul>
           </li>
       </ul>
-</header>
+</nav>

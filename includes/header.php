@@ -9,14 +9,21 @@
 </head>
 
 <body>
-
-<form method="post" action="includes/header.php">
-    <input type="submit" name="logout" value="Logga ut">
-</form>
-
+    
 <?php
+    $basename = substr(strtolower(basename($_SERVER['PHP_SELF'])),0,strlen(basename($_SERVER['PHP_SELF']))-4);
+
+    if ($basename != 'login') {
+        echo "<header>
+                <form method='post' action='includes/header.php'>
+                    <input type='submit' name='logout' value='Logga ut' id='logout'>
+                </form>
+            </header>";
+    }
+
     if (isset($_POST['logout'])) {
         session_unset();
         session_destroy();
         header('Location: ../login.php');
     }
+?>

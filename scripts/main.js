@@ -11,6 +11,7 @@ $(document).ready(function() {
         mainMenu.toggleDropDown('help');
         mainMenu.mainHoverEffect(7);
         mainMenu.subMenuHoverEffect(10);
+        mainMenu.enlargeElement();
     }
     
     var mainMenu = {
@@ -35,6 +36,13 @@ $(document).ready(function() {
                 $(this).stop().animate({ left: margin }, 'fast');
             }, function() {
                 $(this).stop().animate({ left: 0 }, 'fast');
+            });
+        },
+        enlargeElement: function() {
+            $('#logout').hover(function() {
+                $(this).stop().animate({ width: 85, height: 35 }, 'fast');
+            }, function() {
+                $(this).stop().animate({ width: 80, height: 30 }, 'fast');    
             });
         }
         
