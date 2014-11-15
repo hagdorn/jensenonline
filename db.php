@@ -14,7 +14,7 @@
 
 
 	if(!isset($_SESSION['id'])){
-		header( 'Location: index.php' );
+		header( 'Location: login.php' );
 	}
 	
 
@@ -38,7 +38,6 @@ function checkUserNameAndPassword($un, $pwd){
 			$_SESSION['username'] = $loggedIn['username'];
 			$_SESSION['firstname'] = $loggedIn['firstname'];
 			$_SESSION['lastname'] = $loggedIn['lastname'];
-            header('location: home.php');
 		}
 					 
 	}
