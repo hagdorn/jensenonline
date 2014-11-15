@@ -13,25 +13,25 @@
             <form method="post" action="index.php">
                 <tr>
                     <td>
-                        <label for="username">AnvÃ¤ndarnamn:</label>
+                        <label for="username">Användarnamn:</label>
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="username" id="username" alt="Skriv ditt anvÃ¤ndarnamn"></td>
+                    <td><input type="text" name="username" id="username" alt="Skriv ditt användarnamn"></td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="password">LÃ¶senord:</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="password" name="password" id="password" alt="Skriv ditt lÃ¶senord">
+                        <label for="password">Lösenord:</label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="#">GlÃ¶mt lÃ¶senord?</a>
+                        <input type="password" name="password" id="password" alt="Skriv ditt lösenord">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">Glömt lösenord?</a>
                     </td>
                 </tr>
                 <tr>
