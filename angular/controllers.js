@@ -287,5 +287,5 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
             id: 'help'
         }
     ],
-        $scope.names = ['hans', 'jonas'];
+        $scope.names = ['Hans', 'Jonas', 'Gurra', 'Snurre sprätt', 'Torsten', 'Xerxes', 'Christian', 'Christoffer'];
 });
