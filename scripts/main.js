@@ -11,7 +11,36 @@ $(document).ready(function() {
         mainMenu.toggleDropDown('help');
         mainMenu.mainHoverEffect(7);
         mainMenu.subMenuHoverEffect(10);
-        mainMenu.enlargeElement();
+        setEventListener();
+    }
+    
+    function setEventListener(e) {
+        
+        var input = document.getElementById('search');
+        var scope = angular.element(document.getElementById('site-search')).scope();
+        var searchHits = document.getElementById('search-hits');
+        
+        var keyValue = String.fromCharCode(e.keyCode);
+            keyValue = keyValue.toLowerCase() + keyValue.slice(1);    
+                
+                for (i = 0; i < scope.names.length; i++) {
+
+                    if (scope.names[i].indexOf(keyValue) === -1) {
+                        searchHits.style.display = 'none';
+
+                        if (e.keyCode === 8 && input.value.length === 0) {
+                            searchHits.style.display = 'none';
+                        }
+                        else if (e.keyCode === 8) {
+                            searchHits.style.display = 'block';
+                            return;
+                        }
+                    }
+                    else {
+                        searchHits.style.display = 'block';
+                        return;
+                    }
+                }
     }
     
     var mainMenu = {
@@ -37,15 +66,7 @@ $(document).ready(function() {
             }, function() {
                 $(this).stop().animate({ left: 0 }, 'fast');
             });
-        },
-        enlargeElement: function() {
-            $('#logout').hover(function() {
-                $(this).stop().animate({ width: 85, height: 35 }, 'fast');
-            }, function() {
-                $(this).stop().animate({ width: 80, height: 30 }, 'fast');    
-            });
         }
-        
     }
     
     window.onload = init;

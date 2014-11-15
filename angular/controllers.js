@@ -87,6 +87,10 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 {
                     title: 'JENSEN kontaktuppgifter',
                     URL: 'contactinfo'
+                },
+                {
+                    title: 'Om oss',
+                    URL: 'about'
                 }
             ],
             URL: 'help',
@@ -174,6 +178,10 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 {
                     title: 'JENSEN kontaktuppgifter',
                     URL: 'contactinfo'
+                },
+                {
+                    title: 'Om oss',
+                    URL: 'about'
                 }
             ],
             URL: 'help',
@@ -269,10 +277,15 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 {
                     title: 'JENSEN kontaktuppgifter',
                     URL: 'contactinfo'
+                },
+                {
+                    title: 'Om oss',
+                    URL: 'about'
                 }
             ],
             URL: 'help',
             id: 'help'
         }
-    ]
+    ],
+        $scope.names = ['hans', 'jonas'];
 });
