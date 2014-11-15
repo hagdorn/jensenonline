@@ -19,7 +19,7 @@
         
         <div id="search-hits">
             <ul id="site-search">
-                <li data-ng-repeat="name in names | filter: query | orderBy: 'toString()'">{{name}}</li>
+                <li data-ng-repeat="name in names | filter: query | orderBy: 'toString()'"><a href="#">{{name}}</a></li>
             </ul>
         </div>
     </form>
