@@ -1,7 +1,7 @@
 /* To watch the files: sass --watch style.scss:style.css */
 
 $primary-menu-color: #fff;
-$primary-color: #00425C;
+$primary-color: #003b65;
 $maxPercentage: 100%;
 $fontFamily: Arial, sans-serif;
 $small-font: 0.8em;
@@ -57,8 +57,33 @@ a {
 header {
     margin: 0;
     width: 100%;
-    height: 140px;
+    height: 160px;
     position: relative;
+    
+    img {
+        width: 8.5%;
+        height: 90%;
+        top: 20px;
+        left: 80px;
+        position: absolute;
+    }
+    
+    span {
+        position: absolute;
+        color: $primary-color;
+        left: 15%;
+    }
+    
+    span:nth-child(2) {
+        font-size: 2.3em;
+        font-weight: bold;
+        top: 40%;    
+    }
+    
+    span:nth-child(3) {
+        font-size: 1.4em;
+        top: 68%;    
+    }
     
     #logout {
         position: absolute;
@@ -126,7 +151,7 @@ header {
 #main-menu {
     list-style: none;
     color: $primary-menu-color;
-    margin: 0;
+    margin-top: 20px;
     padding: 0;
     
     a {

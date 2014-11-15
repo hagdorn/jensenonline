@@ -9,16 +9,18 @@
 </head>
 
 <body>
-    
+<header>
+    <img src="img/logo.jpg" no-repeat>
+    <span>JENSEN Yrkeshögskola</span>
+    <span>Träning för verkligheten</span>
 <?php
     $basename = substr(strtolower(basename($_SERVER['PHP_SELF'])),0,strlen(basename($_SERVER['PHP_SELF']))-4);
 
     if ($basename != 'login') {
-        echo "<header>
-                <form method='post' action='includes/header.php'>
+        echo "  <form method='post' action='includes/header.php'>
                     <input type='submit' name='logout' value='Logga ut' id='logout'>
                 </form>
-            </header>";
+             ";
     }
 
     if (isset($_POST['logout'])) {
@@ -27,3 +29,4 @@
         header('Location: ../login.php');
     }
 ?>
+</header>
