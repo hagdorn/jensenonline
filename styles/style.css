@@ -146,4 +146,19 @@ header {
         font-size: 0.8em;
         padding-left: 5%; }
 
+#msg-center {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  background: yellow; }
+  #msg-center form {
+    width: 50%;
+    margin: 0 auto;
+    background: pink; }
+    #msg-center form td:nth-child(1) {
+      width: 5%; }
+    #msg-center form textarea {
+      width: 450px;
+      height: 380px; }
+
 /*# sourceMappingURL=style.css.map */

@@ -20,6 +20,10 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'inbox'
                 },
                 {
+                    title: 'Skicka meddelande',
+                    URL: 'sendmsg'
+                },
+                {
                     title: 'Skickade meddelanden',
                     URL: 'sentmsg'
                 },
@@ -115,6 +119,10 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'inbox'
                 },
                 {
+                    title: 'Skicka meddelande',
+                    URL: 'sendmsg'
+                },
+                {
                     title: 'Skickade meddelanden',
                     URL: 'sentmsg'
                 },
@@ -206,6 +214,10 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'inbox'
                 },
                 {
+                    title: 'Skicka meddelande',
+                    URL: 'sendmsg'
+                },
+                {
                     title: 'Skickade meddelanden',
                     URL: 'sentmsg'
                 },
@@ -237,11 +249,11 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'mycontactinfo'
                 },
                 {
-                    title: 'Klasslista',
+                    title: 'Min klasslista',
                     URL: 'classlist'
                 },
                 {
-                    title: 'Anteckningar',
+                    title: 'Mina anteckningar',
                     URL: 'notes'
                 }
             ],

@@ -227,3 +227,26 @@ header {
         }
     }
 }
+
+#msg-center {
+    width: $maxPercentage - 20%;
+    height: 100%;
+    margin: $center;
+    background: yellow;
+    
+    form {
+        width: $maxPercentage - 50;
+        margin: $center;
+        background: pink;
+
+        td:nth-child(1) {
+            width: 5%;
+        }
+
+        textarea {
+            width: 450px;
+            height: 380px;
+        }
+    }
+    
+}

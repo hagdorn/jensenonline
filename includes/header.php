@@ -15,7 +15,7 @@
     <span>Träning för verkligheten</span>
     
 <?php
-    //Get the page we're currently on
+    //Get the page we're currently on without the .php extension
     $basename = substr(strtolower(basename($_SERVER['PHP_SELF'])),0,strlen(basename($_SERVER['PHP_SELF']))-4);
 
     if ($basename != 'login') {
