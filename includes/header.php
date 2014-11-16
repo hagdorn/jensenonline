@@ -14,20 +14,21 @@
     <span>JENSEN Yrkeshögskola</span>
     <span>Träning för verkligheten</span>
     
-    <form id="search-form">
-        <input type="text" name="search" id="search" placeholder="Sök på webbplatsen" data-ng-model="query">
-        
-        <div id="search-hits">
-            <ul id="site-search">
-                <li data-ng-repeat="name in names | filter: query | orderBy: 'toString()'"><a href="#">{{name}}</a></li>
-            </ul>
-        </div>
-    </form>
 <?php
+    //Get the page we're currently on
     $basename = substr(strtolower(basename($_SERVER['PHP_SELF'])),0,strlen(basename($_SERVER['PHP_SELF']))-4);
 
     if ($basename != 'login') {
-        echo "  <form method='post' action='includes/header.php'>
+        echo "  <form id='search-form'>
+                    <input type='text' name='search' id='search' placeholder='Sök på webbplatsen' data-ng-model='query'>
+                    <div id='search-hits'>
+                        <ul id='site-search'>
+                            <li data-ng-repeat='name in names | filter: query | orderBy:" . '"toString()"' . "'><a href='#'>{{name}}</a></li>
+                        </ul>
+                    </div>
+                </form>
+                
+                <form method='post' action='includes/header.php'>
                     <input type='submit' name='logout' value='Logga ut' id='logout'>
                 </form>
              ";
