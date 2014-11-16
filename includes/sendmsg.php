@@ -2,9 +2,9 @@
     
     <ul>
         <li>Inkorg</li>
-        <li>Nytt meddelande</li>
-        <li>Skickade</li>
+        <li>Skicka</li>
         <li>Borttagna</li>
+        <li>Skickade</li>
     </ul>
     
     <form>

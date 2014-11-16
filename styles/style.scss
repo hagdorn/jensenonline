@@ -229,13 +229,32 @@ header {
 }
 
 #msg-center {
-    width: $maxPercentage - 20%;
+    width: $maxPercentage - 50;
     height: 100%;
     margin: $center;
     background: yellow;
     
+    ul {
+        width: $maxPercentage - 60;
+        margin: 0 0 20px;
+        padding: 0;
+        list-style: none;
+        display: table;
+        
+        li {
+            @include vertAlign(35px);
+            width: 10%;
+            display: table-cell;
+            text-align: center;
+            background: $primary-color;
+            color: $primary-menu-color;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    
     form {
-        width: $maxPercentage - 50;
+        width: $maxPercentage;
         margin: $center;
         background: pink;
 

@@ -147,12 +147,28 @@ header {
         padding-left: 5%; }
 
 #msg-center {
-  width: 80%;
+  width: 50%;
   height: 100%;
   margin: 0 auto;
   background: yellow; }
+  #msg-center ul {
+    width: 40%;
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+    display: table; }
+    #msg-center ul li {
+      height: 35px;
+      line-height: 35px;
+      width: 10%;
+      display: table-cell;
+      text-align: center;
+      background: #003b65;
+      color: #fff;
+      margin: 0;
+      padding: 0; }
   #msg-center form {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     background: pink; }
     #msg-center form td:nth-child(1) {
