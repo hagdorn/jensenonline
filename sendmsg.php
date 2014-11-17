@@ -11,16 +11,17 @@
 <!-- body starts here -->
 
 <main>
-    <div id="msg-center">
-        <div id="menu-container">
-            <ul>
-                <li><a href="#">Inkorg</a></li>
-                <li><a href="#">Skicka nytt</a></li>
-                <li><a href="#">Skickade</a></li>
-                <li><a href="#">Borttagna</a></li>
-            </ul>
+    <div id="msg-center" class="msg-menu msg-container">
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="#">Inkorg</a></li>
+                    <li><a href="#">Skicka nytt</a></li>
+                    <li><a href="#">Skickade</a></li>
+                    <li><a href="#">Borttagna</a></li>
+                </ul>
+            </nav>
         </div>
-        
         <form>
             <table>
                 <tr>
@@ -56,7 +57,6 @@
                 </tr>
             </table>
         </form>
-        
     </div>
 </main>
 

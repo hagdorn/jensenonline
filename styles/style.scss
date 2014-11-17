@@ -232,17 +232,20 @@ header {
     }
 }
 
-#msg-center {
-    width: $maxPercentage - 60;
+.msg-container {
+    width: $maxPercentage - 40;
     height: 100%;
     margin: $center;
     padding: 1% 5% 0;
     border-left: 1px solid lightgrey;
     border-right: 1px solid lightgrey;
     border-top: 1px solid lightgrey;
+}
+
+.msg-menu {
     
-    #menu-container {
-        margin-bottom: 20px;
+    div:first-child {
+        margin-bottom: 40px;
         border-bottom: 1px solid lightgrey;
         
         ul {
@@ -272,6 +275,10 @@ header {
             }
         }
     }
+}
+
+#msg-center {
+
     form {
         width: $maxPercentage;
         margin: $center;
@@ -310,6 +317,40 @@ header {
         input[type="submit"] {
             height: 25px;
             font-weight: bold;
+        }
+    }
+}
+
+#inbox {
+    width: $maxPercentage;
+    height: $maxPercentage - 10;
+    border: 1px solid lightgrey;
+    margin: $center;
+    position: relative;
+    
+    footer {
+        width: $maxPercentage;
+        position: absolute;
+        bottom: 0;
+        width: $maxPercentage;
+        
+        ul {
+            margin: 0 30px 0;
+            padding: 0;
+            height: 25px;
+            float: right;
+            
+            li:first-child {
+                width: auto;    
+            }
+            
+            li {
+                width: 30px;
+                border: 0;
+                display: inline-block;
+                text-align: center;
+                font-weight: bold;
+            }
         }
     }
 }

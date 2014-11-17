@@ -149,55 +149,82 @@ header {
         font-size: 0.8em;
         padding-left: 5%; }
 
-#msg-center {
-  width: 40%;
+.msg-container {
+  width: 60%;
   height: 100%;
   margin: 0 auto;
   padding: 1% 5% 0;
   border-left: 1px solid lightgrey;
   border-right: 1px solid lightgrey;
   border-top: 1px solid lightgrey; }
-  #msg-center #menu-container {
-    margin-bottom: 20px;
-    border-bottom: 1px solid lightgrey; }
-    #msg-center #menu-container ul {
-      width: 50%;
+
+.msg-menu div:first-child {
+  margin-bottom: 40px;
+  border-bottom: 1px solid lightgrey; }
+  .msg-menu div:first-child ul {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: table; }
+    .msg-menu div:first-child ul li {
+      height: 35px;
+      line-height: 35px;
+      width: auto;
+      display: table-cell;
+      text-align: center;
       margin: 0;
-      padding: 0;
-      list-style: none;
-      display: table; }
-      #msg-center #menu-container ul li {
-        height: 35px;
-        line-height: 35px;
-        width: auto;
-        display: table-cell;
-        text-align: center;
-        margin: 0;
-        padding: 0 2.5%;
-        font-weight: bold;
-        border-right: 1px solid lightgrey; }
-        #msg-center #menu-container ul li a {
-          color: #003b65; }
-      #msg-center #menu-container ul li:nth-child(1) {
-        border-left: 1px solid lightgrey; }
-  #msg-center form {
+      padding: 0 2.5%;
+      font-weight: bold;
+      border-right: 1px solid lightgrey; }
+      .msg-menu div:first-child ul li a {
+        color: #003b65; }
+    .msg-menu div:first-child ul li:nth-child(1) {
+      border-left: 1px solid lightgrey; }
+
+#msg-center form {
+  width: 100%;
+  margin: 0 auto; }
+  #msg-center form tr:nth-child(1) td:nth-child(1), #msg-center form tr:nth-child(1) td:nth-child(2), #msg-center form tr:nth-child(2) td:nth-child(1), #msg-center form tr:nth-child(2) td:nth-child(2) {
+    padding-bottom: 10px; }
+  #msg-center form tr:nth-child(1) td:nth-child(1), #msg-center form tr:nth-child(2) td:nth-child(1) {
+    text-align: right;
+    width: 5%; }
+  #msg-center form tr:nth-child(1) td:nth-child(2) input, #msg-center form tr:nth-child(2) td:nth-child(2) input {
+    width: 43%;
+    height: 25px; }
+  #msg-center form label {
+    font-weight: bold; }
+  #msg-center form textarea {
+    width: 98%;
+    height: 380px; }
+  #msg-center form input[type="submit"] {
+    height: 25px;
+    font-weight: bold; }
+
+#inbox {
+  width: 100%;
+  height: 90%;
+  border: 1px solid lightgrey;
+  margin: 0 auto;
+  position: relative; }
+  #inbox footer {
     width: 100%;
-    margin: 0 auto; }
-    #msg-center form tr:nth-child(1) td:nth-child(1), #msg-center form tr:nth-child(1) td:nth-child(2), #msg-center form tr:nth-child(2) td:nth-child(1), #msg-center form tr:nth-child(2) td:nth-child(2) {
-      padding-bottom: 10px; }
-    #msg-center form tr:nth-child(1) td:nth-child(1), #msg-center form tr:nth-child(2) td:nth-child(1) {
-      text-align: right;
-      width: 5%; }
-    #msg-center form tr:nth-child(1) td:nth-child(2) input, #msg-center form tr:nth-child(2) td:nth-child(2) input {
-      width: 43%;
-      height: 25px; }
-    #msg-center form label {
-      font-weight: bold; }
-    #msg-center form textarea {
-      width: 98%;
-      height: 380px; }
-    #msg-center form input[type="submit"] {
+    position: absolute;
+    bottom: 0;
+    width: 100%; }
+    #inbox footer ul {
+      margin: 0 30px 0;
+      padding: 0;
       height: 25px;
-      font-weight: bold; }
+      float: right; }
+      #inbox footer ul li:first-child {
+        width: auto; }
+      #inbox footer ul li {
+        width: 30px;
+        border: 0;
+        display: inline-block;
+        text-align: center;
+        font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */
