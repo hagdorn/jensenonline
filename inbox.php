@@ -24,41 +24,35 @@
         </div>
         
         <div id="inbox">
-            <ul>
-                <li><a href="#">Inkorg</a></li>
-                <li><a href="#">Skicka nytt</a></li>
-                <li><a href="#">Skickade</a></li>
-                <li><a href="#">Borttagna</a></li>
-                <li><a href="#">Inkorg</a></li>
-                <li><a href="#">Skicka nytt</a></li>
-                <li><a href="#">Skickade</a></li>
-                <li><a href="#">Borttagna</a></li>
-                <li><a href="#">Inkorg</a></li>
-                <li><a href="#">Skicka nytt</a></li>
-                <li><a href="#">Skickade</a></li>
-                <li><a href="#">Borttagna</a></li>
-                <li><a href="#">Inkorg</a></li>
-                <li><a href="#">Skicka nytt</a></li>
-                <li><a href="#">Skickade</a></li>
-                <li><a href="#">Borttagna</a></li>
-                <li><a href="#">Inkorg</a></li>
-                <li><a href="#">Skicka nytt</a></li>
-                <li><a href="#">Skickade</a></li>
-                <li><a href="#">Borttagna</a></li>
-                <li><a href="#">Inkorg</a></li>
-                <li><a href="#">Skicka nytt</a></li>
-                <li><a href="#">Skickade</a></li>
-                <li><a href="#">Borttagna</a></li>
-                <li><a href="#">Inkorg</a></li>
-                <li><a href="#">Skicka nytt</a></li>
-                <li><a href="#">Skickade</a></li>
-                <li><a href="#">Borttagna</a></li>
-                <li><a href="#">Inkorg</a></li>
-                <li><a href="#">Skicka nytt</a></li>
-                <li><a href="#">Skickade</a></li>
-                <li><a href="#">Borttagna</a></li>
-                <li><a href="#">Inkorg</a></li>
-                <li><a href="#">Skicka nytt</a></li>
+            <ul id="first-ul">
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
+                <li><a href="#">Sed ut perspiciatis unde omnis iste natus error...</a></li>
             </ul>
             <footer>
                     <ul>

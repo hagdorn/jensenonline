@@ -328,6 +328,26 @@ header {
     margin: $center;
     position: relative;
     
+    #first-ul {
+        margin: 0;
+        padding: 10px 0 0 15px;
+        list-style: none;
+        
+        li:nth-child(odd) {
+            background: #f7f7f7;
+        }
+        
+        li {
+            @include vertAlign(30px);
+            font-weight: bold;
+            font-size: $normal-font - 0.1;
+        }
+        
+        a {
+            color: $primary-color;    
+        }
+    }
+    
     footer {
         width: $maxPercentage;
         position: absolute;

@@ -208,6 +208,19 @@ header {
   border: 1px solid lightgrey;
   margin: 0 auto;
   position: relative; }
+  #inbox #first-ul {
+    margin: 0;
+    padding: 10px 0 0 15px;
+    list-style: none; }
+    #inbox #first-ul li:nth-child(odd) {
+      background: #f7f7f7; }
+    #inbox #first-ul li {
+      height: 30px;
+      line-height: 30px;
+      font-weight: bold;
+      font-size: 0.9em; }
+    #inbox #first-ul a {
+      color: #003b65; }
   #inbox footer {
     width: 100%;
     position: absolute;
