@@ -175,10 +175,11 @@ header {
       text-align: center;
       margin: 0;
       padding: 0 2.5%;
-      font-weight: bold;
-      border-right: 1px solid lightgrey; }
+      font-weight: bold; }
       .msg-menu div:first-child ul li a {
         color: #003b65; }
+    .msg-menu div:first-child ul li:hover {
+      background: #f7f7f7; }
     .msg-menu div:first-child ul li:nth-child(1) {
       border-left: 1px solid lightgrey; }
 
@@ -208,6 +209,8 @@ header {
   border: 1px solid lightgrey;
   margin: 0 auto;
   position: relative; }
+  #inbox a {
+    color: #003b65; }
   #inbox #first-ul {
     margin: 0;
     padding: 10px 0 0 15px;
@@ -219,8 +222,6 @@ header {
       line-height: 30px;
       font-weight: bold;
       font-size: 0.9em; }
-    #inbox #first-ul a {
-      color: #003b65; }
   #inbox footer {
     width: 100%;
     position: absolute;

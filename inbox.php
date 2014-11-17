@@ -56,11 +56,11 @@
             </ul>
             <footer>
                     <ul>
-                        <li>Sida 1</li>
-                        <li>|<</li>
-                        <li><</li>
-                        <li>></li>
-                        <li>>|</li>
+                        <li><a href="#">Sida 1</a></li>
+                        <li><a href="#">|<</a></li>
+                        <li><a href="#"><</a></li>
+                        <li><a href="#">></a></li>
+                        <li><a href="#">>|</a></li>
                     </ul>
             </footer>
         </div>

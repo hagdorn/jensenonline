@@ -263,11 +263,14 @@ header {
                 margin: 0;
                 padding: 0 2.5%;
                 font-weight: bold;
-                border-right: 1px solid lightgrey;
                 
                 a {
                     color: $primary-color;
                 }
+            }
+            
+            li:hover {
+                background: #f7f7f7;
             }
 
             li:nth-child(1) {
@@ -328,6 +331,10 @@ header {
     margin: $center;
     position: relative;
     
+    a {
+            color: $primary-color;    
+        }
+    
     #first-ul {
         margin: 0;
         padding: 10px 0 0 15px;
@@ -341,10 +348,6 @@ header {
             @include vertAlign(30px);
             font-weight: bold;
             font-size: $normal-font - 0.1;
-        }
-        
-        a {
-            color: $primary-color;    
         }
     }
     
