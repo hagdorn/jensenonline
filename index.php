@@ -11,9 +11,5 @@
 <!-- body starts here -->
 
 <?php
-    include('includes/sendmsg.php');
-?>
-
-<?php
     include('includes/footer.php');
 ?>

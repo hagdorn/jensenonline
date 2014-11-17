@@ -16,6 +16,9 @@ body {
 a {
   text-decoration: none; }
 
+.active {
+  border-bottom: 0; }
+
 header {
   margin: 0;
   width: 100%;
@@ -118,7 +121,7 @@ header {
 #main-menu {
   list-style: none;
   color: #fff;
-  margin-top: 20px;
+  margin: 20px 0 60px;
   padding: 0; }
   #main-menu a {
     color: #fff; }
@@ -147,12 +150,14 @@ header {
         padding-left: 5%; }
 
 #msg-center {
-  width: 50%;
+  width: 40%;
   height: 100%;
   margin: 0 auto;
-  background: yellow; }
+  padding: 0 5%;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey; }
   #msg-center ul {
-    width: 40%;
+    width: 50%;
     margin: 0 0 20px;
     padding: 0;
     list-style: none;
@@ -160,21 +165,30 @@ header {
     #msg-center ul li {
       height: 35px;
       line-height: 35px;
-      width: 10%;
+      width: auto;
       display: table-cell;
       text-align: center;
-      background: #003b65;
-      color: #fff;
+      color: #003b65;
       margin: 0;
-      padding: 0; }
+      padding: 0;
+      font-weight: bold;
+      border-bottom: 1px solid lightgrey;
+      border-right: 1px solid lightgrey; }
   #msg-center form {
     width: 100%;
-    margin: 0 auto;
-    background: pink; }
-    #msg-center form td:nth-child(1) {
+    margin: 0 auto; }
+    #msg-center form tr:nth-child(1) td:nth-child(1), #msg-center form tr:nth-child(1) td:nth-child(2), #msg-center form tr:nth-child(2) td:nth-child(1), #msg-center form tr:nth-child(2) td:nth-child(2) {
+      padding-bottom: 10px; }
+    #msg-center form tr:nth-child(1) td:nth-child(1), #msg-center form tr:nth-child(2) td:nth-child(1) {
+      text-align: right;
       width: 5%; }
+    #msg-center form tr:nth-child(1) td:nth-child(2) input, #msg-center form tr:nth-child(2) td:nth-child(2) input {
+      width: 40%;
+      height: 25px; }
+    #msg-center form label {
+      font-weight: bold; }
     #msg-center form textarea {
-      width: 450px;
+      width: 98%;
       height: 380px; }
 
 /*# sourceMappingURL=style.css.map */

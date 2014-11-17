@@ -54,6 +54,10 @@ a {
     }
 }
 
+.active {
+    border-bottom: 0;
+}
+
 header {
     margin: 0;
     width: 100%;
@@ -192,7 +196,7 @@ header {
 #main-menu {
     list-style: none;
     color: $primary-menu-color;
-    margin-top: 20px;
+    margin: 20px 0 60px;
     padding: 0;
     
     a {
@@ -229,13 +233,15 @@ header {
 }
 
 #msg-center {
-    width: $maxPercentage - 50;
+    width: $maxPercentage - 60;
     height: 100%;
     margin: $center;
-    background: yellow;
+    padding: 0 5%;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
     
     ul {
-        width: $maxPercentage - 60;
+        width: $maxPercentage - 50;
         margin: 0 0 20px;
         padding: 0;
         list-style: none;
@@ -243,27 +249,50 @@ header {
         
         li {
             @include vertAlign(35px);
-            width: 10%;
+            width: auto;
             display: table-cell;
             text-align: center;
-            background: $primary-color;
-            color: $primary-menu-color;
+            color: $primary-color;
             margin: 0;
             padding: 0;
+            font-weight: bold;
+            border-bottom: 1px solid lightgrey;
+            border-right: 1px solid lightgrey;
         }
     }
     
     form {
         width: $maxPercentage;
         margin: $center;
-        background: pink;
 
-        td:nth-child(1) {
-            width: 5%;
+        tr:nth-child(1), tr:nth-child(2) {
+            
+            %spaceUnder {
+                padding-bottom: 10px;    
+            }
+            
+            td:nth-child(1) {
+                @extend %spaceUnder;
+                text-align: right;
+                width: 5%;
+            }
+            
+            td:nth-child(2) {
+                @extend %spaceUnder;
+                
+                input {
+                    width: 40%;
+                    height: 25px;
+                }
+            }
         }
-
+        
+        label {
+            font-weight: bold;  
+        }
+        
         textarea {
-            width: 450px;
+            width: $maxPercentage - 2;
             height: 380px;
         }
     }
