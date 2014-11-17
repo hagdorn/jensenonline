@@ -215,13 +215,16 @@ header {
     margin: 0;
     padding: 10px 0 0 15px;
     list-style: none; }
-    #inbox #first-ul li:nth-child(odd) {
+    #inbox #first-ul li:nth-child(even) {
       background: #f7f7f7; }
     #inbox #first-ul li {
       height: 30px;
       line-height: 30px;
       font-weight: bold;
       font-size: 0.9em; }
+    #inbox #first-ul span {
+      float: right;
+      margin-right: 20px; }
   #inbox footer {
     width: 100%;
     position: absolute;
@@ -232,13 +235,16 @@ header {
       padding: 0;
       height: 25px;
       float: right; }
-      #inbox footer ul li:first-child {
-        width: auto; }
       #inbox footer ul li {
         width: 30px;
         border: 0;
         display: inline-block;
         text-align: center;
-        font-weight: bold; }
+        font-weight: bold;
+        font-size: 0.8em;
+        border-left: 1px solid lightgrey; }
+      #inbox footer ul #first-li {
+        width: 50px;
+        border: 0; }
 
 /*# sourceMappingURL=style.css.map */

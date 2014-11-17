@@ -340,7 +340,7 @@ header {
         padding: 10px 0 0 15px;
         list-style: none;
         
-        li:nth-child(odd) {
+        li:nth-child(even) {
             background: #f7f7f7;
         }
         
@@ -348,6 +348,11 @@ header {
             @include vertAlign(30px);
             font-weight: bold;
             font-size: $normal-font - 0.1;
+        }
+        
+        span {
+            float: right;
+            margin-right: 20px;
         }
     }
     
@@ -363,16 +368,19 @@ header {
             height: 25px;
             float: right;
             
-            li:first-child {
-                width: auto;    
-            }
-            
             li {
                 width: 30px;
                 border: 0;
                 display: inline-block;
                 text-align: center;
                 font-weight: bold;
+                font-size: $small-font;
+                border-left: 1px solid lightgrey; 
+            }
+            
+            #first-li {
+                width: 50px;
+                border: 0;
             }
         }
     }
