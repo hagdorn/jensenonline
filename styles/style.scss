@@ -55,7 +55,7 @@ a {
 }
 
 .active {
-    border-bottom: 0;
+    border-bottom: 1px solid white;
 }
 
 header {
@@ -236,31 +236,42 @@ header {
     width: $maxPercentage - 60;
     height: 100%;
     margin: $center;
-    padding: 0 5%;
+    padding: 1% 5% 0;
     border-left: 1px solid lightgrey;
     border-right: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
     
-    ul {
-        width: $maxPercentage - 50;
-        margin: 0 0 20px;
-        padding: 0;
-        list-style: none;
-        display: table;
+    #menu-container {
+        margin-bottom: 20px;
+        border-bottom: 1px solid lightgrey;
         
-        li {
-            @include vertAlign(35px);
-            width: auto;
-            display: table-cell;
-            text-align: center;
-            color: $primary-color;
+        ul {
+            width: $maxPercentage - 50;
             margin: 0;
             padding: 0;
-            font-weight: bold;
-            border-bottom: 1px solid lightgrey;
-            border-right: 1px solid lightgrey;
+            list-style: none;
+            display: table;
+
+            li {
+                @include vertAlign(35px);
+                width: auto;
+                display: table-cell;
+                text-align: center;
+                margin: 0;
+                padding: 0 2.5%;
+                font-weight: bold;
+                border-right: 1px solid lightgrey;
+                
+                a {
+                    color: $primary-color;
+                }
+            }
+
+            li:nth-child(1) {
+                border-left: 1px solid lightgrey;    
+            }
         }
     }
-    
     form {
         width: $maxPercentage;
         margin: $center;
@@ -281,7 +292,7 @@ header {
                 @extend %spaceUnder;
                 
                 input {
-                    width: 40%;
+                    width: 43%;
                     height: 25px;
                 }
             }
@@ -295,6 +306,10 @@ header {
             width: $maxPercentage - 2;
             height: 380px;
         }
+        
+        input[type="submit"] {
+            height: 25px;
+            font-weight: bold;
+        }
     }
-    
 }

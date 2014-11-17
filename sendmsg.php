@@ -12,14 +12,15 @@
 
 <main>
     <div id="msg-center">
-
-        <ul>
-            <li>Inkorg</li>
-            <li>Skicka</li>
-            <li>Borttagna</li>
-            <li>Skickade</li>
-        </ul>
-
+        <div id="menu-container">
+            <ul>
+                <li><a href="#">Inkorg</a></li>
+                <li><a href="#">Skicka nytt</a></li>
+                <li><a href="#">Skickade</a></li>
+                <li><a href="#">Borttagna</a></li>
+            </ul>
+        </div>
+        
         <form>
             <table>
                 <tr>

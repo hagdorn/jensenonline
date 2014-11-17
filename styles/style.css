@@ -17,7 +17,7 @@ a {
   text-decoration: none; }
 
 .active {
-  border-bottom: 0; }
+  border-bottom: 1px solid white; }
 
 header {
   margin: 0;
@@ -153,27 +153,33 @@ header {
   width: 40%;
   height: 100%;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 1% 5% 0;
   border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey; }
-  #msg-center ul {
-    width: 50%;
-    margin: 0 0 20px;
-    padding: 0;
-    list-style: none;
-    display: table; }
-    #msg-center ul li {
-      height: 35px;
-      line-height: 35px;
-      width: auto;
-      display: table-cell;
-      text-align: center;
-      color: #003b65;
+  border-right: 1px solid lightgrey;
+  border-top: 1px solid lightgrey; }
+  #msg-center #menu-container {
+    margin-bottom: 20px;
+    border-bottom: 1px solid lightgrey; }
+    #msg-center #menu-container ul {
+      width: 50%;
       margin: 0;
       padding: 0;
-      font-weight: bold;
-      border-bottom: 1px solid lightgrey;
-      border-right: 1px solid lightgrey; }
+      list-style: none;
+      display: table; }
+      #msg-center #menu-container ul li {
+        height: 35px;
+        line-height: 35px;
+        width: auto;
+        display: table-cell;
+        text-align: center;
+        margin: 0;
+        padding: 0 2.5%;
+        font-weight: bold;
+        border-right: 1px solid lightgrey; }
+        #msg-center #menu-container ul li a {
+          color: #003b65; }
+      #msg-center #menu-container ul li:nth-child(1) {
+        border-left: 1px solid lightgrey; }
   #msg-center form {
     width: 100%;
     margin: 0 auto; }
@@ -183,12 +189,15 @@ header {
       text-align: right;
       width: 5%; }
     #msg-center form tr:nth-child(1) td:nth-child(2) input, #msg-center form tr:nth-child(2) td:nth-child(2) input {
-      width: 40%;
+      width: 43%;
       height: 25px; }
     #msg-center form label {
       font-weight: bold; }
     #msg-center form textarea {
       width: 98%;
       height: 380px; }
+    #msg-center form input[type="submit"] {
+      height: 25px;
+      font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */
