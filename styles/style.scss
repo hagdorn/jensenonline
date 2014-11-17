@@ -375,6 +375,8 @@ header {
         position: absolute;
         bottom: 0;
         width: $maxPercentage;
+        padding-top: 5px;
+        border-top: 1px solid lightgrey;
         
         ul {
             margin: 0 30px 0;

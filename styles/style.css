@@ -238,7 +238,9 @@ header {
     width: 100%;
     position: absolute;
     bottom: 0;
-    width: 100%; }
+    width: 100%;
+    padding-top: 5px;
+    border-top: 1px solid lightgrey; }
     #inbox footer ul {
       margin: 0 30px 0;
       padding: 0;
