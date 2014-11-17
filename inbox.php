@@ -29,7 +29,7 @@
                     <form method="" action="">
                         <input type="checkbox" id="checkbox{{i}}"><label for="checkbox{{i}}">Christoffer Skogh</label>
                     </form>
-                    <a href="#">Sed ut perspiciatis unde omnis iste natus error... 
+                    <a href="#">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...
                         <span><?php echo date('Y-m-d'); ?></span>
                     </a>
                 </li>
