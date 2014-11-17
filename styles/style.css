@@ -222,9 +222,18 @@ header {
       line-height: 30px;
       font-weight: bold;
       font-size: 0.9em; }
-    #inbox #first-ul span {
-      float: right;
-      margin-right: 20px; }
+      #inbox #first-ul li input {
+        width: 15px;
+        height: 15px;
+        margin: 8px 10px 0;
+        float: left; }
+      #inbox #first-ul li span {
+        float: right;
+        margin-right: 20px; }
+      #inbox #first-ul li label {
+        float: left;
+        margin-right: 50px;
+        color: #003b65; }
   #inbox footer {
     width: 100%;
     position: absolute;

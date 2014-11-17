@@ -348,12 +348,26 @@ header {
             @include vertAlign(30px);
             font-weight: bold;
             font-size: $normal-font - 0.1;
+            
+            input {
+                width: 15px;
+                height: 15px;
+                margin: 8px 10px 0 ;
+                float: left;
+            }
+            
+            span {
+                float: right;
+                margin-right: 20px;
+            }
+            
+            label {
+                float: left;
+                margin-right: 50px;
+                color: $primary-color;
+            }
         }
         
-        span {
-            float: right;
-            margin-right: 20px;
-        }
     }
     
     footer {
