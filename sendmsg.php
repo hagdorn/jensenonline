@@ -12,16 +12,7 @@
 
 <main>
     <div id="msg-center" class="msg-menu msg-container">
-        <div>
-            <nav>
-                <ul>
-                    <li><a href="#">Inkorg</a></li>
-                    <li><a href="#">Skicka nytt</a></li>
-                    <li><a href="#">Skickade</a></li>
-                    <li><a href="#">Borttagna</a></li>
-                </ul>
-            </nav>
-        </div>
+        <?php include('includes/msgmenu.php'); ?>
         <form>
             <table>
                 <tr>

@@ -32,7 +32,7 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'removedmsg'
                 }
             ],
-            URL: 'messages',
+            URL: 'inbox',
             id: 'msg'
         },
         {
@@ -131,7 +131,7 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'removedmsg'
                 }
             ],
-            URL: 'messages',
+            URL: 'inbox',
             id: 'msg'
         },
         {
@@ -226,7 +226,7 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'removedmsg'
                 }
             ],
-            URL: 'messages',
+            URL: 'inbox',
             id: 'msg'
         },
         {
