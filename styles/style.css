@@ -81,6 +81,7 @@ header {
     width: 80px;
     height: 32px;
     font-weight: bold;
+    font-size: 0.9em;
     cursor: pointer; }
 
 #login-container {
@@ -195,7 +196,8 @@ header {
     width: 43%;
     height: 25px; }
   #msg-center form label {
-    font-weight: bold; }
+    font-weight: bold;
+    margin-right: 5px; }
   #msg-center form textarea {
     width: 98%;
     height: 380px; }
