@@ -241,6 +241,7 @@ header {
     border-left: 1px solid lightgrey;
     border-right: 1px solid lightgrey;
     border-top: 1px solid lightgrey;
+    position: relative;
 }
 
 .msg-menu {
@@ -331,7 +332,6 @@ header {
     height: $maxPercentage - 10;
     border: 1px solid lightgrey;
     margin: $center;
-    position: relative;
     
     a {
         color: $primary-color;    
@@ -371,21 +371,23 @@ header {
         }
         
     }
-    
+}
+
+.msg-container {
+    padding-left: -5%;
     footer {
         width: $maxPercentage;
         position: absolute;
         bottom: 0;
-        width: $maxPercentage;
         padding-top: 5px;
         border-top: 1px solid lightgrey;
-        
+
         ul {
             margin: 0 30px 0;
             padding: 0;
             height: 25px;
             float: right;
-            
+
             li {
                 width: 30px;
                 border: 0;
@@ -395,11 +397,11 @@ header {
                 font-size: $small-font;
                 border-left: 1px solid lightgrey; 
             }
-            
+
             #first-li {
                 width: 50px;
                 border: 0;
             }
         }
-    }
+    }  
 }
