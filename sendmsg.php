@@ -8,12 +8,18 @@
     include('includes/typeaccess.php');
 ?>
 
+<?php
+	if(isset($_POST['sendmessage'])){
+		require_once('php/pm/send.php');
+	}
+?>
+
 <!-- body starts here -->
 
 <main>
     <div id="msg-center" class="msg-menu msg-container">
         <?php include('includes/msgmenu.php'); ?>
-        <form>
+        <form action="sendmsg.php" method="POST">
             <table>
                 <tr>
                     <td>
@@ -38,7 +44,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <textarea name="message" id="msg" alt=""></textarea>
+                        <textarea name="message" id="message" alt=""></textarea>
                     </td>
                 </tr>
                 <tr>
