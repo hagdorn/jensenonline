@@ -3,15 +3,15 @@
 		require_once('php/pdoConnect.php');
 		
         $query = "SELECT * ";
-        $query .= "FROM pm ";
+        $query .= "FROM pm LEFT JOIN useraccounts ON (pm.fromuser = useraccounts.id) ";
         $query .= "WHERE touser = " .$_SESSION['id'];
      
 		$result = $db->query($query);
-		
 		while ($message = $result->fetch()){
+			
 			//echo "<br>".$row['message'];
 			echo("<li>");
-			echo("<form method='' action=''>  <input type='checkbox' id='" .$message['id'] ."'><label for='" .$message['id'] ."'>" .$message['fromuser'] ."</label></form>");
+			echo("<form method='' action=''>  <input type='checkbox' id='" .$message['id'] ."'><label for='" .$message['id'] ."'>" .$message['firstname'] . " " . $message['lastname'] ."</label></form>");
 			echo("<a href='#'>".$message['subject']);
 			echo("<span>" .$message['datetime'] ."</span></a></li>");
 		}
