@@ -4,11 +4,16 @@
 		
         $query = "SELECT * ";
         $query .= "FROM pm ";
-        $query .= "WHERE touser = " .$_SESSION['id'];
+        $query .= "WHERE touser = :touser";
      
-		$result = $db->query($query);
+		$ps = $db->prepare($query);  //Prepared statement
+        $ps->execute(array('touser' => $_SESSION['id']));
+        $result = $ps -> fetch(PDO::FETCH_ASSOC); // Assosiative array
 		
-		while ($message = $result->fetch()){
+		var_dump($result);
+		die;
+		
+		foreach ($result as $message){
 			//echo "<br>".$row['message'];
 			echo("<li>");
 			echo("<form method='' action=''>  <input type='checkbox' id='" .$message['id'] ."'><label for='" .$message['id'] ."'>" .$message['fromuser'] ."</label></form>");
