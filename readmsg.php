@@ -13,10 +13,10 @@
 <main>
     <div id="inbox-container" class="msg-menu msg-container">
         <?php include('includes/msgmenu.php'); ?>
-        <!--<div id="inbox">            
-            
-        </div>-->
-        <?php include('includes/msgfooter.php'); ?>
+        <div id="inbox">            
+            <?php include('includes/msgfooter.php'); ?>
+        </div>
+        
     </div>
 </main>
 

@@ -371,38 +371,34 @@ header {
             }
         }
         
+        footer {
+            width: $maxPercentage;
+            position: absolute;
+            bottom: 0;
+            padding-top: 5px;
+            border-top: 1px solid lightgrey;
+
+            ul {
+                margin: 0 30px 0;
+                padding: 0;
+                height: 25px;
+                float: right;
+
+                li {
+                    width: 30px;
+                    border: 0;
+                    display: inline-block;
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: $small-font;
+                    border-left: 1px solid lightgrey; 
+                }
+
+                #first-li {
+                    width: 50px;
+                    border: 0;
+                }
+            }
+        } 
     }
-}
-
-.msg-container {
-    
-    footer {
-        width: 85%;
-        position: absolute;
-        bottom: 0;
-        padding-top: 5px;
-        border-top: 1px solid lightgrey;
-
-        ul {
-            margin: 0 30px 0;
-            padding: 0;
-            height: 25px;
-            float: right;
-
-            li {
-                width: 30px;
-                border: 0;
-                display: inline-block;
-                text-align: center;
-                font-weight: bold;
-                font-size: $small-font;
-                border-left: 1px solid lightgrey; 
-            }
-
-            #first-li {
-                width: 50px;
-                border: 0;
-            }
-        }
-    }  
 }
