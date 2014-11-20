@@ -43,7 +43,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" name="submit" id="submit" alt="" value="Skicka">
+                        <input type="submit" name="sendmessage" id="sendmessage" alt="" value="Skicka">
                     </td>
                 </tr>
             </table>
