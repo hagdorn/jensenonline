@@ -3,11 +3,11 @@
 	$_SESSION['id'] = "addUser";
 	
 	if(isset($_POST['adduser'])){
-		require_once('hash.php');
+		require_once('php/hash/hash.php');
 		$hash = new Hash;
 		$encPassword  = $hash -> passwordEncrypt($_POST['username'], $_POST['password']);
 		
-		require_once('db.php');
+		require_once('php/db.php');
 		addUser($_POST['username'],$encPassword,$_POST['email'],$_POST['usertype']);
 		
 	unset($_SESSION['id']);

@@ -4,7 +4,7 @@
 	if(isset($_POST['submit'])){
 		
 		//kryptera lösen innan koll
-		require_once('hash.php');
+		require_once('hash/hash.php');
 		$hash = new Hash;
 		$encPassword = $hash->passwordEncrypt($_POST['username'],$_POST['password']);
 			
