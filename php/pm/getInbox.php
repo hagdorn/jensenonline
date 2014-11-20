@@ -11,10 +11,10 @@
 		$result = $db->query($query);
 		while ($message = $result->fetch()){
 			
-			echo("<li>");
-			echo("<form method='' action=''>  <input type='checkbox' id='" .$message['0'] ."'><label for='" .$message['0'] ."'>" .$message['firstname'] . " " . $message['lastname'] ."</label></form>");
-			echo("<a href='#'>".$message['subject']);
-			echo("<span>" .$message['datetime'] ."</span></a></li>");
+			echo("<tr>");
+			echo("<td><form method='' action=''><input type='checkbox' id='" .$message['0'] ."'></td><td><label for='" .$message['0'] ."'>" .$message['firstname'] . " " . $message['lastname'] ."</label></form></td>");
+			echo("<td><a href='#'>".$message['subject']);
+			echo("</td><td><span>" .$message['datetime'] ."</span></a></td></tr>");
 		}
 	}
 	catch(Exception $exception){
