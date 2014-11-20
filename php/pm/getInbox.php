@@ -4,7 +4,9 @@
 		
         $query = "SELECT * ";
         $query .= "FROM pm LEFT JOIN useraccounts ON (pm.fromuser = useraccounts.id) ";
-        $query .= "WHERE touser = " .$_SESSION['id'];
+        $query .= "WHERE touser = " .$_SESSION['id'] ;
+        $query .= " ORDER BY datetime DESC" ;
+		
      
 		$result = $db->query($query);
 		while ($message = $result->fetch()){
