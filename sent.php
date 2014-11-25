@@ -7,8 +7,8 @@
 <?php
     include('includes/typeaccess.php');
 
-	//Sätt box till inbox
-	$_SESSION['box']  = 'inbox';
+	//Sätt box till sent
+	$_SESSION['box']  = 'sent';
 ?>
 
 <!-- body starts here -->

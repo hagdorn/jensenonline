@@ -8,7 +8,7 @@
     include('includes/typeaccess.php');
 
 	//Sätt box till inbox
-	$_SESSION['box']  = 'inbox';
+	$_SESSION['box']  = 'deleted';
 ?>
 
 <!-- body starts here -->
