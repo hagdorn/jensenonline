@@ -323,16 +323,16 @@ header {
 
 /* line 410, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #deleteButton {
-  width: 120px;
   position: absolute;
   right: 18px;
   bottom: 0; }
 
-/* line 417, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+/* line 416, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #header {
   width: 84%;
   margin: 5% 8% 20px;
-  position: relative; }
+  position: relative;
+  z-index: -1; }
 
 /* line 423, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #pop-up {
@@ -393,32 +393,34 @@ header {
     width: 10%;
     height: 130px;
     border: 1px solid black;
-    position: relative; }
-    /* line 491, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+    position: relative;
+    background: #f9f9f9; }
+    /* line 492, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #calendar-container td span:nth-child(1) {
       font-size: 2.3em;
       position: absolute;
       left: 5px;
       top: 0;
-      font-weight: normal; }
-    /* line 499, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+      font-weight: normal;
+      color: #003b65; }
+    /* line 501, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #calendar-container td p {
       position: absolute;
       left: 10px;
       font-size: 1.1em; }
-      /* line 506, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+      /* line 508, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td p:nth-child(4) {
         top: 30px; }
-      /* line 506, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+      /* line 508, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td p:nth-child(5) {
         top: 50px; }
-      /* line 506, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+      /* line 508, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td p:nth-child(6) {
         top: 70px; }
-      /* line 506, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+      /* line 508, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td p:nth-child(7) {
         top: 90px; }
-    /* line 517, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+    /* line 519, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #calendar-container td button {
       width: 50px;
       height: 20px;
@@ -429,30 +431,30 @@ header {
       right: 10px;
       top: 5px;
       font-weight: bold; }
-      /* line 528, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+      /* line 530, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td button:hover {
         color: #1ca0b4;
         cursor: pointer; }
-      /* line 533, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+      /* line 535, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td button:nth-child(2) {
         right: 50px; }
-  /* line 539, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+  /* line 541, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #calendar-container #btt {
     position: absolute;
     bottom: 30px;
     right: 20px;
     font-size: 1.3em;
     cursor: pointer; }
-  /* line 547, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+  /* line 549, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #calendar-container h1 {
     font-size: 3em;
     margin-top: 30px;
     margin-bottom: 40px;
     color: #003b65; }
-  /* line 554, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+  /* line 556, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #calendar-container button {
     color: #003b65; }
-  /* line 566, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+  /* line 568, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #calendar-container #button {
     background: linear-gradient(white, #c9c9c9);
     font-weight: bold;

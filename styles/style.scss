@@ -408,7 +408,6 @@ header {
 }
 
 #deleteButton {
-    width: 120px;
     position: absolute;
     right: 18px;
     bottom: 0;
@@ -418,6 +417,7 @@ header {
     width: 84%;
     margin: 5% 8% 20px;
     position: relative;
+    z-index: -1;
 }
 
 #pop-up {
@@ -487,6 +487,7 @@ header {
         height: 130px;
         border: 1px solid black;
         position: relative;
+        background: #f9f9f9;
         
         span:nth-child(1) {
             font-size: 2.3em;
@@ -494,6 +495,7 @@ header {
             left: 5px;
             top: 0;
             font-weight: normal;
+            color: $primary-color;
         }
         
         p {
