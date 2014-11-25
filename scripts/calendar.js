@@ -8,7 +8,7 @@ myDataRef.on('child_added', function(snapshot) {
 });
 
 var theParent; 
-var container = document.getElementById('container');
+var container = document.getElementById('calendar-container');
 
 //An object containing any raw data
 var dataModel = {
