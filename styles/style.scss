@@ -18,6 +18,10 @@ $center: 0 auto;
     color: black;
 }
 
+%outlining {
+    outline: 0;    
+}
+
 @mixin vertAlign($height, $lineHeight: $height) {
     height: $height;
     line-height: $lineHeight;
@@ -400,5 +404,171 @@ header {
                 }
             }
         } 
+    }
+}
+
+#deleteButton {
+    width: 120px;
+    position: absolute;
+    right: 18px;
+    bottom: 0;
+}
+
+#header {
+    width: 84%;
+    margin: 5% 8% 20px;
+    position: relative;
+}
+
+#container {
+    max-width: 84%;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 1px;
+    
+    table {
+        width: 100%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        
+        &:last-child {
+            margin-bottom: 150px;
+        }
+    }
+    
+    td {
+        width: $maxPercentage - 90;
+        height: 130px;
+        border: 1px solid black;
+        position: relative;
+        
+        span:nth-child(1) {
+            font-size: 2.3em;
+            position: absolute;
+            left: 5px;
+            top: 0;
+            font-weight: normal;
+        }
+        
+        p {
+            position: absolute;
+            left: 10px;
+            font-size: 1.1em;
+            
+            @mixin paraTop($top, $child) {
+                
+                &:nth-child(#{$child}) {
+                    top: $top;   
+                }
+            }
+            
+            @include paraTop($top: 30px, $child: 4);
+            @include paraTop($top: 50px, $child: 5);
+            @include paraTop($top: 70px, $child: 6);
+            @include paraTop($top: 90px, $child: 7);
+        }
+        
+        button {
+            width: 50px;
+            height: 20px;
+            background: none;
+            border: 0;
+            font-size: 0.8em;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            font-weight: bold;
+            
+            &:hover {
+                color: #1ca0b4;
+                cursor: pointer;
+            }
+            
+            &:nth-child(2) {
+                right: 50px;    
+            }
+        }
+    }
+    
+    #btt {
+        position: absolute;
+        bottom: 30px;
+        right: 20px;
+        font-size: 1.3em;
+        cursor: pointer;
+    }
+    
+    h1 {
+        font-size: 3em;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        color: $primary-color;
+    }
+    
+    button {
+        color: $primary-color;
+        
+        &:focus {
+            @extend %outlining;
+        }
+    }
+    
+    input:focus {
+        @extend %outlining; 
+    }
+    
+    #pop-up {
+        @include center();
+        width: 30%;
+        height: 300px;
+        z-index: 1;
+        visibility: hidden;
+        position: fixed;
+        background: #041122;
+        color: $primary-menu-color;
+        border-radius: 15px;
+        
+        table {
+            margin: 40px auto;
+            
+            tbody {
+                tr:nth-child(5) {
+                    td {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        
+        td:nth-child(2n+1) {
+            text-align: right;
+        }
+        
+        input {
+            height: 20px;
+            border: 1px solid black;
+            border-radius: 2px;
+        }
+        
+        label {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2.1em;
+        }
+    }
+    
+    #button {
+        background: linear-gradient(white, #c9c9c9);
+        font-weight: bold;
+        margin-top: 30px;
+        width: 100px;
+        min-height: 30px;
+        cursor: pointer;
     }
 }
