@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 //The database reference
 var myDataRef = new Firebase('https://event-calender.firebaseio.com/events'); 
 
@@ -10,7 +12,6 @@ myDataRef.on('child_added', function(snapshot) {
 var theParent; 
 var container = document.getElementById('calendar-container');
 
-//An object containing any raw data
 var dataModel = {
 
     months: ['January', 'February', 'Marsch', 'April', 'May', 'June',
@@ -339,3 +340,5 @@ var calendar = {
 } //End of calender object
 
 window.onload = calendar.init;
+    
+});

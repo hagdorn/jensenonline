@@ -61,7 +61,7 @@
         <button id="deleteButton">Delete all events</button>
     </div>
 
-    <div id="container">
+    <div id="calendar-container">
         <span id="btt">Back to top</span>
     </div>
 </main>
