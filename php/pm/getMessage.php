@@ -3,18 +3,24 @@
 	try{
 		require_once('php/pdoConnect.php');
 			
-		$query = "SELECT * ";
-		$query .= "FROM pm LEFT JOIN useraccounts ON (pm.fromuser = useraccounts.id) ";
-		$query .= "WHERE pm.touser = :user AND pm.id = :id OR pm.fromuser = :user AND pm.id = :id ";
-		//$query .= "WHERE id = 5"; //OR fromuser = :user AND id = :id
-
+		$query = "SELECT CONCAT(fromU.firstname,' ', fromU.lastname)  as 'to', CONCAT (toU.firstname, ' ', toU.lastname) as 'from', message, subject, datetime, status, replied, replieddatetime ";
+		$query .= "FROM useraccounts AS fromU ";
+		$query .= "LEFT JOIN pm ON (fromU.id = pm.touser) ";
+		$query .= "LEFT JOIN useraccounts AS toU ON ( pm.fromuser = toU.id) ";
+		$query .= "WHERE (fromU.id = :user OR toU.id = :user) AND pm.id = :msg";
+	
 		$ps = $db->prepare($query); 
-		$ps->execute(array('user'=>$_SESSION['id'], 'id'=>$_GET['message']));
+		$ps->execute(array('user'=>$_SESSION['id'], 'msg'=>$_GET['message']));
 		$result = $ps -> fetch(PDO::FETCH_ASSOC);
 		
-		//print_r($result);
-		echo ("<div>To: " .$result['touser'] ."</div>");
-		echo ("<div>From: " .$result['fromuser'] ."</div>");
+		?>
+<PRE>
+	<?PHP	print_r($result);?>
+</PRE><?PHP
+		
+		
+		echo ("<div>To: " .$result['to'] ."</div>");
+		echo ("<div>From: " .$result['from'] ."</div>");
 		echo ("<div>Subject: " .$result['subject'] ."</div> <br>");
 		echo ("<div> ".$result['message'] ."</div>");
 		
