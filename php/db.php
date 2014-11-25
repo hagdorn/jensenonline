@@ -66,4 +66,12 @@ function addUser($username, $password, $email, $type){
 	}
 }
 
+function printVariable($varToPrint){
+	?>
+	<PRE>
+	<?PHP	print_r($varToPrint);?>
+	</PRE><?PHP
+	
+}
+
 ?>
