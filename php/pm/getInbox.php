@@ -35,7 +35,7 @@
 			
 			echo("<tr>");
 			echo("<td><form method='' action=''><input type='checkbox' id='" .$message['0'] ."'></td><td><label for='" .$message['0'] ."'>" .$message['firstname'] . " " . $message['lastname'] ."</label></form></td>");
-			echo("<td><a href='#'>".$message['subject']);
+			echo("<td><a href='readmsg.php?message=".$message['0'] ."'>".$message['subject']);
 			echo("</td><td><span>" .$message['datetime'] ."</span></a></td></tr>");
 		}
 	echo("</table>");

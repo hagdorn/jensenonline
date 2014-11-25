@@ -13,9 +13,10 @@
 <main>
     <div id="inbox-container" class="msg-menu msg-container">
         <?php include('includes/msgmenu.php'); ?>
-        <div id="inbox">            
-            <?php include('includes/msgfooter.php'); ?>
-        </div>
+        
+			<?php require_once('php/pm/getMessage.php'); ?>
+			
+            <?php //include('includes/msgfooter.php'); ?>
         
     </div>
 </main>
