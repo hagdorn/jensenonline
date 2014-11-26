@@ -95,10 +95,10 @@ var calendarView = {
                             button.innerHTML = calendarModel.buttonTexts[m];
 
                         if (button.innerHTML === 'Add') {
-                            button.addEventListener('click', calendarController.showEventAddWindow); 
+                            button.addEventListener('click', calendarController.toggleAddWindow); 
                         }
                         else {
-                            button.addEventListener('click', calendarController.deleteEvent); 
+                            button.addEventListener('click', calendarController.deleteSingle); 
                         }
 
                         td.appendChild(button);
@@ -126,7 +126,7 @@ var calendarView = {
 
                     createOptions('years', selectYear);
                     createOptions('months', selectMonth);
-                })(),
+                }()),
 }
 
 var calendarController = {
@@ -186,20 +186,20 @@ var calendarController = {
                 function() {
                     
                     var userInput = [
-                                document.getElementById('event').value,
-                                document.getElementById('time').value,
-                                document.getElementById('location').value,    
-                                document.getElementById('address').value, 
-                                calendarModel.currentParent.id
+                        document.getElementById('event').value,
+                        document.getElementById('time').value,
+                        document.getElementById('location').value,    
+                        document.getElementById('address').value, 
+                        calendarModel.currentParent.id
                     ];
                      
-                    var newRef = calendarModel.fbRef.child(eventInfo[4]);
+                    var newRef = calendarModel.fbRef.child(userInput[4]);
                         newRef.set({
-                            eventType: eventInfo[0], 
-                            eventTime: eventInfo[1], 
-                            eventLocation: eventInfo[2], 
-                            eventAddress: eventInfo[3], 
-                            eventDay: eventInfo[4]
+                            eventType: userInput[0], 
+                            eventTime: userInput[1], 
+                            eventLocation: userInput[2], 
+                            eventAddress: userInput[3], 
+                            eventDay: userInput[4]
                         });
                     
                     //Check if any input values are too long
