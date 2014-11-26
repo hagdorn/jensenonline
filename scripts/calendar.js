@@ -79,7 +79,6 @@ var calendarView = {
                     else if (calendarModel.daysInMonth[i] === 30 && j === 3 && k > 5) {
                         td.style.display = 'none';
                     }
-                    //If leap year
                     else if (calendarModel.daysInMonth[i] === 29 && j === 3 && k > 4) { 
                         td.style.display = 'none';
                     }
@@ -89,10 +88,10 @@ var calendarView = {
 
                     tr.appendChild(td); 
 
-                    for (m = 0; m < 2; m++) { 
+                    for (b = 0; b < 2; b++) { 
 
                         var button = document.createElement('button');
-                            button.innerHTML = calendarModel.buttonTexts[m];
+                            button.innerHTML = calendarModel.buttonTexts[b];
 
                         if (button.innerHTML === 'Add') {
                             button.addEventListener('click', calendarController.toggleAddWindow); 
@@ -220,8 +219,6 @@ var calendarController = {
                             + ' is too long.');
                             return;
                         }
-                        
-                        
                     } 
                 },
     toggleAddWindow: 
@@ -263,16 +260,17 @@ var calendarController = {
                             dayElement.appendChild(p); 
                     }
                 },
+    deleteNodes: 
+                function(paragraphs) {
+                    for (i = paragraphs.length-1; i>=0; i--) { 
+                        paragraphs[i].parentNode.removeChild(paragraphs[i]); 
+                    }
+                },
     deleteAll: 
                 function() {
-
-                    //Remove all events from the page
-                    var p_list = document.getElementsByTagName('p');
-
-                    for (i = p_list.length-1; i>=0; i--) { 
-                        p_list[i].parentNode.removeChild(p_list[i]); 
-                    }
-
+                    var paragraphs = document.getElementsByTagName('p');
+                    
+                    calendarController.deleteNodes(paragraphs);
                     calendarModel.fbRef.remove();
                 },
     deleteSingle: 
@@ -280,14 +278,10 @@ var calendarController = {
 
                     var parent = this.parentNode; 
                     var parentId = parent.id; 
-
-                    //Remove the event from the specific td
-                    var p_list = parent.getElementsByTagName('p');
-
-                    for (i = p_list.length-1; i>=0; i--) { 
-                        p_list[i].parentNode.removeChild(p_list[i]);
-                    }
-
+                    var paragraphs = parent.getElementsByTagName('p');
+                    
+                    calendarController.deleteNodes(paragraphs);
+                    
                     //Create a new Firebase reference that matches the parent ID
                     //And remove the data at this location
                     var removeData = new Firebase('https://event-calender.firebaseio.com/events/' + parentId);
@@ -325,8 +319,8 @@ var calendarController = {
 
                     calendarController.removeYearDiv();
 
-                    calendarController.createCalendar(index);
-                    calendarModel.redDays(selectedYear);
+                    calendarView.createCalendar(index);
+                    calendarModel.getRedDaysFromAPI(selectedYear);
 
                     $('html, body').animate({
                         scrollTop: $('#' + selectedYear + selectedMonth).offset().top

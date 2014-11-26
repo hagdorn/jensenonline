@@ -1,74 +1,59 @@
 /* To watch the files: sass --watch style.scss:style.css */
-/* line 12, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 body, #main-menu li ul {
   margin: 0;
   padding: 0; }
 
-/* line 17, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 a:link, a:visited, a:focus, a:hover, a:active {
   color: black; }
 
-/* line 21, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #calendar-container button:focus, #calendar-container input:focus {
   outline: 0; }
 
-/* line 38, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 html, body, main {
   height: 100%; }
 
-/* line 42, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 body {
   width: 100%;
   font-family: Arial, sans-serif; }
 
-/* line 53, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 a {
   text-decoration: none; }
 
-/* line 61, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 .active {
   border-bottom: 1px solid white; }
 
-/* line 65, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 header {
   margin: 0;
   width: 100%;
   height: 160px;
   position: relative; }
-  /* line 71, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   header img {
     width: 8.5%;
     height: 90%;
     top: 20px;
     left: 80px;
     position: absolute; }
-  /* line 79, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   header span {
     position: absolute;
     color: #003b65;
     left: 15%; }
-  /* line 85, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   header span:nth-child(2) {
     font-size: 2.3em;
     font-weight: bold;
     top: 40%; }
-  /* line 91, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   header span:nth-child(3) {
     font-size: 1.4em;
     top: 68%; }
-  /* line 96, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   header #search-form {
     position: absolute;
     top: 20px;
     right: 140px; }
-    /* line 101, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     header #search-form input {
       width: 250px;
       height: 30px;
       padding: 0 0 0 10px;
       border: 1px solid black;
       outline: 0; }
-    /* line 109, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     header #search-form div {
       width: 260px;
       max-height: 300px;
@@ -78,12 +63,10 @@ header {
       background: linear-gradient(white, #f2f2f2);
       border-right: 1px solid black;
       border-left: 1px solid black; }
-      /* line 120, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       header #search-form div ul {
         list-style: none;
         padding: 0;
         margin: 0; }
-        /* line 125, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
         header #search-form div ul li {
           height: 30px;
           line-height: 30px;
@@ -91,7 +74,6 @@ header {
           padding-left: 10px;
           border-bottom: 1px solid black;
           cursor: pointer; }
-  /* line 136, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   header #logout {
     position: absolute;
     right: 30px;
@@ -105,13 +87,11 @@ header {
     font-size: 0.9em;
     cursor: pointer; }
 
-/* line 151, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #login-container {
   width: 50%;
   margin: 0 auto;
   min-height: 100%;
   position: relative; }
-  /* line 158, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #login-container table {
     position: absolute;
     top: 25%;
@@ -120,45 +100,35 @@ header {
     transform: translateX(-50%);
     width: 25%;
     text-align: center; }
-    /* line 163, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #login-container table tr:nth-child(1) td, #login-container table tr:nth-child(3) td {
       text-align: left; }
-    /* line 167, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #login-container table tr:nth-child(2) td, #login-container table tr:nth-child(4) td {
       padding-bottom: 15px; }
-    /* line 171, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #login-container table label {
       font-size: 1.3em; }
-    /* line 175, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #login-container table input {
       width: 100%;
       height: 30px; }
-    /* line 181, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #login-container table #submit {
       width: 35%;
       height: 30px;
       margin-top: 20px;
       font-weight: bold;
       border-radius: 0; }
-    /* line 189, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #login-container table a {
       font-size: 1em;
       color: #0097ef;
       font-weight: bold; }
-      /* line 194, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #login-container table a:hover {
         color: #38b6ff; }
 
-/* line 201, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #main-menu {
   list-style: none;
   color: #fff;
   margin: 20px 0 60px;
   padding: 0; }
-  /* line 207, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #main-menu a {
     color: #fff; }
-  /* line 211, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #main-menu li {
     height: 40px;
     line-height: 40px;
@@ -168,14 +138,12 @@ header {
     text-align: center;
     font-weight: bold;
     position: relative; }
-    /* line 220, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #main-menu li ul {
       position: absolute;
       display: none;
       width: 100%;
       background: #003b65;
       z-index: 500; }
-      /* line 228, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #main-menu li ul li {
         height: 25px;
         line-height: 25px;
@@ -185,7 +153,6 @@ header {
         font-size: 0.8em;
         padding-left: 5%; }
 
-/* line 240, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 .msg-container {
   width: 60%;
   height: 100%;
@@ -196,18 +163,15 @@ header {
   border-top: 1px solid lightgrey;
   position: relative; }
 
-/* line 253, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 .msg-menu div:first-child {
   margin-bottom: 40px;
   border-bottom: 1px solid lightgrey; }
-  /* line 257, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   .msg-menu div:first-child ul {
     width: 50%;
     margin: 0;
     padding: 0;
     list-style: none;
     display: table; }
-    /* line 264, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     .msg-menu div:first-child ul li {
       height: 35px;
       line-height: 35px;
@@ -217,97 +181,76 @@ header {
       margin: 0;
       padding: 0 2.5%;
       font-weight: bold; }
-      /* line 273, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       .msg-menu div:first-child ul li a {
         color: #003b65; }
-    /* line 278, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     .msg-menu div:first-child ul li:hover {
       background: #f7f7f7; }
-    /* line 282, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     .msg-menu div:first-child ul li:nth-child(1) {
       border-left: 1px solid lightgrey; }
 
-/* line 291, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #msg-center form {
   width: 100%;
   margin: 0 auto; }
-  /* line 297, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #msg-center form tr:nth-child(1) td:nth-child(1), #msg-center form tr:nth-child(1) td:nth-child(2), #msg-center form tr:nth-child(2) td:nth-child(1), #msg-center form tr:nth-child(2) td:nth-child(2) {
     padding-bottom: 10px; }
-  /* line 301, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #msg-center form tr:nth-child(1) td:nth-child(1), #msg-center form tr:nth-child(2) td:nth-child(1) {
     text-align: right;
     width: 5%; }
-  /* line 310, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #msg-center form tr:nth-child(1) td:nth-child(2) input, #msg-center form tr:nth-child(2) td:nth-child(2) input {
     width: 43%;
     height: 25px; }
-  /* line 317, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #msg-center form label {
     font-weight: bold;
     margin-right: 5px; }
-  /* line 322, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #msg-center form textarea {
     width: 98%;
     height: 380px; }
-  /* line 327, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #msg-center form input[type="submit"] {
     height: 25px;
     font-weight: bold; }
 
-/* line 334, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #inbox {
   width: 100%;
   height: 90%;
   border: 1px solid lightgrey;
   margin: 0 auto; }
-  /* line 340, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #inbox a {
     color: #003b65; }
-  /* line 344, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #inbox #first-ul {
     margin: 0;
     padding: 10px 0 0 15px;
     list-style: none; }
-    /* line 349, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #inbox #first-ul li:nth-child(even) {
       background: #f7f7f7; }
-    /* line 353, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #inbox #first-ul li {
       height: 30px;
       line-height: 30px;
       font-weight: bold;
       font-size: 0.9em; }
-      /* line 358, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #inbox #first-ul li input {
         width: 15px;
         height: 15px;
         margin: 8px 10px 0;
         float: left; }
-      /* line 365, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #inbox #first-ul li span {
         float: right;
         margin-right: 20px; }
-      /* line 370, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #inbox #first-ul li label {
         width: auto;
         float: left;
         margin-right: 50px;
         color: #003b65; }
-    /* line 378, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #inbox #first-ul footer {
       width: 100%;
       position: absolute;
       bottom: 0;
       padding-top: 5px;
       border-top: 1px solid lightgrey; }
-      /* line 385, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #inbox #first-ul footer ul {
         margin: 0 30px 0;
         padding: 0;
         height: 25px;
         float: right; }
-        /* line 391, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
         #inbox #first-ul footer ul li {
           width: 30px;
           border: 0;
@@ -316,25 +259,23 @@ header {
           font-weight: bold;
           font-size: 0.8em;
           border-left: 1px solid lightgrey; }
-        /* line 401, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
         #inbox #first-ul footer ul #first-li {
           width: 50px;
           border: 0; }
 
-/* line 410, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #deleteButton {
   position: absolute;
   right: 18px;
-  bottom: 0; }
+  bottom: 0;
+  font-weight: bold; }
 
-/* line 416, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #header {
   width: 84%;
   margin: 5% 8% 20px;
-  position: relative;
-  z-index: -1; }
+  position: relative; }
+  #header button {
+    font-weight: bold; }
 
-/* line 423, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #pop-up {
   position: absolute;
   top: 40%;
@@ -346,56 +287,52 @@ header {
   position: fixed;
   z-index: 1;
   visibility: hidden;
-  background: #041122;
+  background: #003b65;
   color: #fff;
   border-radius: 15px; }
-  /* line 434, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #pop-up table {
     margin: 40px auto; }
-    /* line 439, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #pop-up table tbody tr:nth-child(5) td {
       text-align: center; }
-  /* line 446, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #pop-up td:nth-child(2n+1) {
     text-align: right; }
-  /* line 450, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #pop-up input {
     height: 20px;
     border: 1px solid black;
-    border-radius: 2px; }
-  /* line 456, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
+    border-radius: 2px;
+    color: black; }
   #pop-up label {
     font-size: 1.3em;
     font-weight: bold;
     margin-right: 5px; }
-  /* line 462, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #pop-up h2 {
     text-align: center;
     margin-top: 30px;
     font-size: 2.1em; }
+  #pop-up #button {
+    background: linear-gradient(white, #c9c9c9);
+    margin-top: 30px;
+    width: 100px;
+    min-height: 30px;
+    cursor: pointer; }
 
-/* line 469, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
 #calendar-container {
   max-width: 84%;
   margin: 0 auto;
   position: relative;
   padding-bottom: 1px; }
-  /* line 475, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #calendar-container table {
     width: 100%;
     margin: 0 auto;
     border-collapse: collapse; }
-    /* line 480, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #calendar-container table:last-child {
       margin-bottom: 150px; }
-  /* line 485, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #calendar-container td {
     width: 10%;
     height: 130px;
     border: 1px solid black;
     position: relative;
     background: #f9f9f9; }
-    /* line 492, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #calendar-container td span:nth-child(1) {
       font-size: 2.3em;
       position: absolute;
@@ -403,24 +340,18 @@ header {
       top: 0;
       font-weight: normal;
       color: #003b65; }
-    /* line 501, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #calendar-container td p {
       position: absolute;
       left: 10px;
       font-size: 1.1em; }
-      /* line 508, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td p:nth-child(4) {
         top: 30px; }
-      /* line 508, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td p:nth-child(5) {
         top: 50px; }
-      /* line 508, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td p:nth-child(6) {
         top: 70px; }
-      /* line 508, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td p:nth-child(7) {
         top: 90px; }
-    /* line 519, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
     #calendar-container td button {
       width: 50px;
       height: 20px;
@@ -431,36 +362,23 @@ header {
       right: 10px;
       top: 5px;
       font-weight: bold; }
-      /* line 530, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td button:hover {
         color: #1ca0b4;
         cursor: pointer; }
-      /* line 535, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
       #calendar-container td button:nth-child(2) {
         right: 50px; }
-  /* line 541, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #calendar-container #btt {
     position: absolute;
     bottom: 30px;
     right: 20px;
     font-size: 1.3em;
     cursor: pointer; }
-  /* line 549, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #calendar-container h1 {
     font-size: 3em;
     margin-top: 30px;
     margin-bottom: 40px;
     color: #003b65; }
-  /* line 556, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
   #calendar-container button {
     color: #003b65; }
-  /* line 568, C:/xampp/htdocs/Webb/jensenonline/styles/style.scss */
-  #calendar-container #button {
-    background: linear-gradient(white, #c9c9c9);
-    font-weight: bold;
-    margin-top: 30px;
-    width: 100px;
-    min-height: 30px;
-    cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */
