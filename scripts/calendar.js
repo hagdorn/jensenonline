@@ -6,13 +6,13 @@ var calendarModel = {
     currentParent: '',
     siteContainer: document.getElementById('calendar-container'),
     
-    months: ['January', 'February', 'March', 'April', 'May', 'June',
-             'July', 'August', 'September', 'October', 'November', 'December'
+    months: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni',
+             'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'
             ],
     daysInMonth: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], 
     years: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
-    buttonTexts: ['Add', 'Delete'],
-    inputErrorSnippets: ['type of event', 'location of the event', 'address of the event'],
+    buttonTexts: ['Lägg till', 'Ta bort'],
+    inputErrorSnippets: ['typ av händelse', 'plats för händelsen', 'address för händelsen'],
     getRedDaysFromAPI: 
             function(year) {
                 var xhr = new XMLHttpRequest();
@@ -93,7 +93,7 @@ var calendarView = {
                         var button = document.createElement('button');
                             button.innerHTML = calendarModel.buttonTexts[b];
 
-                        if (button.innerHTML === 'Add') {
+                        if (button.innerHTML === 'Lägg till') {
                             button.addEventListener('click', calendarController.toggleAddWindow); 
                         }
                         else {
@@ -191,33 +191,37 @@ var calendarController = {
                         document.getElementById('address').value, 
                         calendarModel.currentParent.id
                     ];
-                     
-                    var newRef = calendarModel.fbRef.child(userInput[4]);
-                        newRef.set({
-                            eventType: userInput[0], 
-                            eventTime: userInput[1], 
-                            eventLocation: userInput[2], 
-                            eventAddress: userInput[3], 
-                            eventDay: userInput[4]
-                        });
+                    
+                    function alertUser(snippet) {
+                        alert('Informationen du angivit för ' + snippet + ' är för lång.');
+                    }
                     
                     //Check if any input values are too long
                     for (i = 0; i < calendarModel.inputErrorSnippets.length; i++) {
 
-                        if (userInput[0].length > 21) {
-                            alert('The information you have entered for ' + calendarModel.inputErrorSnippets[0]
-                            + ' is too long.');
+                        if (userInput[0].length > 15) {
+                            
                             return;
                         }
-                        else if (userInput[1].length > 21) {
-                            alert('The information you have entered for ' + calendarModel.inputErrorSnippets[1]
-                            + ' is too long.');
+                        else if (userInput[1].length > 15) {
+                            alert('Informationen du angivit för '
+                            + calendarModel.inputErrorSnippets[1] + ' är för lång.');
                             return;
                         }
-                        else if (userInput[2].length > 21) {
-                            alert('The information you have entered for ' + calendarModel.inputErrorSnippets[2]
-                            + ' is too long.');
+                        else if (userInput[2].length > 15) {
+                            alert('Informationen du angivit för '
+                            + calendarModel.inputErrorSnippets[2] + ' är för lång.');
                             return;
+                        }
+                        else {
+                            var newRef = calendarModel.fbRef.child(userInput[4]);
+                                newRef.set({
+                                    eventType: userInput[0], 
+                                    eventTime: userInput[1], 
+                                    eventLocation: userInput[2], 
+                                    eventAddress: userInput[3], 
+                                    eventDay: userInput[4]
+                                });
                         }
                     } 
                 },
@@ -241,9 +245,14 @@ var calendarController = {
                         popup.style.visibility = 'hidden';
                     }
                     else {
-                        popup.style.visibility = 'visible'; 
+                        popup.style.visibility = 'visible';
                     }
-
+                    
+                    var span = popup.getElementsByTagName('span');
+                        span[0].addEventListener('click', function () {
+                            popup.style.visibility = 'hidden';
+                        });
+                                                 
                     calendarModel.currentParent = parent; 
                 },
     showAddedEvent: 
@@ -290,7 +299,7 @@ var calendarController = {
     confirmDelete: 
                 function() {
         
-                    var conf = confirm('You are about to delete all events, this cannot be undone. Are you sure you want to continue?');
+                    var conf = confirm('Du håller på att ta bort alla händelser, detta kan inte göras ogjort. Är du säker att du vill fortsätta?');
 
                     switch (conf) {
 

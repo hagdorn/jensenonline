@@ -265,15 +265,16 @@ header {
 
 #deleteButton {
   position: absolute;
-  right: 18px;
+  right: 0;
   bottom: 0;
-  font-weight: bold; }
+  font-weight: bold;
+  font-size: 1em; }
 
-#header {
+#calendar-header {
   width: 84%;
-  margin: 5% 8% 20px;
+  margin: 0 8% 20px;
   position: relative; }
-  #header button {
+  #calendar-header button {
     font-weight: bold; }
 
 #pop-up {
@@ -285,17 +286,24 @@ header {
   width: 30%;
   height: 300px;
   position: fixed;
-  z-index: 1;
   visibility: hidden;
+  z-index: 1;
   background: #003b65;
   color: #fff;
   border-radius: 15px; }
+  #pop-up span {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    cursor: pointer; }
   #pop-up table {
     margin: 40px auto; }
     #pop-up table tbody tr:nth-child(5) td {
       text-align: center; }
   #pop-up td:nth-child(2n+1) {
-    text-align: right; }
+    text-align: right;
+    font-size: 0.8em; }
   #pop-up input {
     height: 20px;
     border: 1px solid black;
@@ -308,13 +316,14 @@ header {
   #pop-up h2 {
     text-align: center;
     margin-top: 30px;
-    font-size: 2.1em; }
+    font-size: 1.9em; }
   #pop-up #button {
     background: linear-gradient(white, #c9c9c9);
     margin-top: 30px;
     width: 100px;
     min-height: 30px;
-    cursor: pointer; }
+    cursor: pointer;
+    font-weight: bold; }
 
 #calendar-container {
   max-width: 84%;
@@ -353,26 +362,27 @@ header {
       #calendar-container td p:nth-child(7) {
         top: 90px; }
     #calendar-container td button {
-      width: 50px;
+      width: auto;
       height: 20px;
       background: none;
       border: 0;
       font-size: 0.8em;
       position: absolute;
-      right: 10px;
-      top: 5px;
+      right: 5px;
+      top: 22px;
       font-weight: bold; }
       #calendar-container td button:hover {
         color: #1ca0b4;
         cursor: pointer; }
       #calendar-container td button:nth-child(2) {
-        right: 50px; }
+        top: 5px; }
   #calendar-container #btt {
     position: absolute;
     bottom: 30px;
     right: 20px;
     font-size: 1.3em;
-    cursor: pointer; }
+    cursor: pointer;
+    color: #003b65; }
   #calendar-container h1 {
     font-size: 3em;
     margin-top: 30px;

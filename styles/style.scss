@@ -409,14 +409,15 @@ header {
 
 #deleteButton {
     position: absolute;
-    right: 18px;
+    right: 0;
     bottom: 0;
     font-weight: bold;
+    font-size: $normal-font;
 }
 
-#header {
+#calendar-header {
     width: 84%;
-    margin: 5% 8% 20px;
+    margin: 0 8% 20px;
     position: relative;
     
     button {
@@ -429,12 +430,20 @@ header {
         width: 30%;
         height: 300px;
         position: fixed;
-        z-index: 1;
         visibility: hidden;
+        z-index: 1;
         background: $primary-color;
         color: $primary-menu-color;
         border-radius: 15px;
         
+        span {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            cursor: pointer;
+        }
+    
         table {
             margin: 40px auto;
             
@@ -449,6 +458,7 @@ header {
         
         td:nth-child(2n+1) {
             text-align: right;
+            font-size: $small-font;
         }
         
         input {
@@ -467,7 +477,7 @@ header {
         h2 {
             text-align: center;
             margin-top: 30px;
-            font-size: 2.1em;
+            font-size: 1.9em;
         }
     
         #button {
@@ -476,11 +486,12 @@ header {
             width: 100px;
             min-height: 30px;
             cursor: pointer;
+            font-weight: bold;
         }
 }
 
 #calendar-container {
-    max-width: 84%;
+    max-width: $maxPercentage - 16;
     margin: 0 auto;
     position: relative;
     padding-bottom: 1px;
@@ -530,14 +541,14 @@ header {
         }
         
         button {
-            width: 50px;
+            width: auto;
             height: 20px;
             background: none;
             border: 0;
             font-size: 0.8em;
             position: absolute;
-            right: 10px;
-            top: 5px;
+            right: 5px;
+            top: 22px;
             font-weight: bold;
             
             &:hover {
@@ -546,7 +557,7 @@ header {
             }
             
             &:nth-child(2) {
-                right: 50px;    
+                top: 5px;
             }
         }
     }
@@ -557,6 +568,7 @@ header {
         right: 20px;
         font-size: 1.3em;
         cursor: pointer;
+        color: $primary-color;
     }
     
     h1 {
@@ -581,3 +593,4 @@ header {
         }
     }
 }
+

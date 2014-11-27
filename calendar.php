@@ -12,11 +12,12 @@
 <main>
     <div id="pop-up">
 
-        <h2>Event information</h2>
+        <h2>Fyll i ny händelse</h2>
+        <span>Stäng</span>
         <table>
             <tr>
                 <td>
-                    <label for="event">Type of event:</label>
+                    <label for="event">Vad:</label>
                 </td>
                 <td>
                     <input type="text" name="event" id="event">
@@ -24,7 +25,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="time">Time of event:</label>
+                    <label for="time">Tid:</label>
                 </td>
                 <td>
                     <input type="time" name="time" id="time">
@@ -32,7 +33,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="location">Event location:</label>
+                    <label for="location">Plats:</label>
                 </td>
                 <td>
                     <input type="text" name="location" id="location">
@@ -40,7 +41,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="Address">Event address:</label>
+                    <label for="Address">Address:</label>
                 </td>
                 <td>
                     <input type="text" name="address" id="address">
@@ -48,21 +49,21 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="button" name="button" id="button" value="Add event!">
+                    <input type="button" name="button" id="button" value="Lägg till">
                 </td>
             </tr>
         </table>
     </div>
 
-    <div id="header">
+    <div id="calendar-header">
         <select id="month"></select>
         <select id="year"></select>
-        <button id="showButton">Show</button>
-        <button id="deleteButton">Delete all events</button>
+        <button id="showButton">Visa</button>
+        <button id="deleteButton">Radera alla händelser</button>
     </div>
 
     <div id="calendar-container">
-        <span id="btt">Back to top</span>
+        <span id="btt">Gå till toppen av sidan</span>
     </div>
 </main>
 
