@@ -4,8 +4,7 @@ var calendarModel = {
     
     fbRef: new Firebase('https://event-calender.firebaseio.com/events'),
     currentParent: '',
-    siteContainer: document.getElementById('calendar-container'),
-    
+    siteContainer: $('#calendar-container'),
     months: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni',
              'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'
             ],
@@ -29,78 +28,78 @@ var calendarView = {
 
         var num = 1; 
         
-        var yearContainer = document.createElement('div');
-            calendarModel.siteContainer.appendChild(yearContainer);
-            yearContainer.setAttribute('id', calendarModel.years[year]);
+        var yearContainer = $('<div></div>');
+            calendarModel.siteContainer.append(yearContainer);
+            yearContainer.attr('id', calendarModel.years[year]);
         
         for (i = 0; i < calendarModel.months.length; i++) {
             
-            var h1 = document.createElement('h1');
-                h1.setAttribute('id', calendarModel.years[year] + calendarModel.months[i]); 
-                h1.innerHTML = calendarModel.months[i] + ' ' + calendarModel.years[year];
-                yearContainer.appendChild(h1); 
+            var h1 = $('<h1></h1>');
+                h1.attr('id', calendarModel.years[year] + calendarModel.months[i]); 
+                h1.html(calendarModel.months[i] + ' ' + calendarModel.years[year]);
+                yearContainer.append(h1); 
 
-            var table = document.createElement('table');
-                yearContainer.appendChild(table);
+            var table = $('<table></table>');
+                yearContainer.append(table);
 
             for (j = 0; j < 4; j++) {
-                var tr = document.createElement('tr'); 
-                    table.appendChild(tr);
+                var tr = $('<tr></tr>'); 
+                    table.append(tr);
 
                 for (k = 0; k < 8; k++) {
-                    var td = document.createElement('td');
+                    var td = $('<td></td>');
                         
                         if (i < 9) {
                             if (num < 10) {
-                                td.setAttribute('id', calendarModel.years[year] + '-' + 0 + (i + 1) + '-' + 0 + num);
+                                td.attr('id', calendarModel.years[year] + '-' + 0 + (i + 1) + '-' + 0 + num);
                             }
                             else {
-                                td.setAttribute('id', calendarModel.years[year] + '-' + 0 + (i + 1) + '-' + num);
+                                td.attr('id', calendarModel.years[year] + '-' + 0 + (i + 1) + '-' + num);
                             }
                         }
                         else {
                             if (num < 10) {
-                                td.setAttribute('id', calendarModel.years[year] + '-' + (i + 1) + '-' + 0 + num);
+                                td.attr('id', calendarModel.years[year] + '-' + (i + 1) + '-' + 0 + num);
                             }
                             else {
-                                td.setAttribute('id', calendarModel.years[year] + '-' + (i + 1) + '-' + num);
+                                td.attr('id', calendarModel.years[year] + '-' + (i + 1) + '-' + num);
                             }
                         }
                     
-                    var span = document.createElement('span'); 
-                        span.innerHTML = num;
-                        td.appendChild(span);
+                    var span = $('<span></span>'); 
+                        span.html(num);
+                        td.append(span);
                         num++;
                     
                     //Hide the spare tds depending on how many days the current month has
                     if (calendarModel.daysInMonth[i] === 31 && j === 3 && k > 6) {
-                        td.style.display = 'none';
+                        td.css('display', 'none');
                     }
                     else if (calendarModel.daysInMonth[i] === 30 && j === 3 && k > 5) {
-                        td.style.display = 'none';
+                        td.css('display', 'none');
                     }
                     else if (calendarModel.daysInMonth[i] === 29 && j === 3 && k > 4) { 
-                        td.style.display = 'none';
+                        td.css('display', 'none');
                     }
                     else if (calendarModel.daysInMonth[i] === 28 && j === 3 && k > 3) { 
-                        td.style.display = 'none';
+                        td.css('display', 'none');
                     }
 
-                    tr.appendChild(td); 
+                    tr.append(td); 
 
                     for (b = 0; b < 2; b++) { 
 
-                        var button = document.createElement('button');
-                            button.innerHTML = calendarModel.buttonTexts[b];
-
-                        if (button.innerHTML === 'Lägg till') {
-                            button.addEventListener('click', calendarController.toggleAddWindow); 
+                        var button = $('<button></button>');
+                            button.html(calendarModel.buttonTexts[b]);
+                        
+                        if (button.html() === 'Lägg till') {
+                            button.on('click', calendarController.toggleAddWindow); 
                         }
                         else {
-                            button.addEventListener('click', calendarController.deleteSingle); 
+                            button.on('click', calendarController.deleteSingle); 
                         }
 
-                        td.appendChild(button);
+                        td.append(button);
                     }
                 }
             }
@@ -110,16 +109,16 @@ var calendarView = {
     fillSelects: 
                 (function() {
                     
-                    var selectMonth = document.getElementById('month');
-                    var selectYear = document.getElementById('year');
+                    var selectMonth = $('#month');
+                    var selectYear = $('#year');
                     
                     function createOptions(category, element) {
 
                         for (i = 0; i < calendarModel[category].length; i++) {
-                            var option = document.createElement('option');
-                                option.innerHTML = calendarModel[category][i];
-                                option.value = option.innerHTML;
-                                element.appendChild(option);
+                            var option = $('<option></option>');
+                                option.html(calendarModel[category][i]);
+                                option.val = option.html;
+                                element.append(option);
                         }
                     }
 
@@ -157,9 +156,9 @@ var calendarController = {
                                 var redDay = propertyObject[subitem];
                                 
                                 if (redDay === 'Ja') {
-                                    var currentDate = document.getElementById(propertyObject.datum);
-                                    var firstSpan = currentDate.getElementsByTagName('span')[0];
-                                        firstSpan.style.color = 'red';
+                                    var currentDate = $('#' + propertyObject.datum + '');
+                                    var firstSpan = $('span:first', currentDate);
+                                        firstSpan.css('color', 'red');
                                     break;
                                 }
                             }
@@ -169,48 +168,46 @@ var calendarController = {
     addEventListnrs: 
                 function() {
 
-                    var addEventButton = document.getElementById('button'); 
-                        addEventButton.addEventListener('click', calendarController.validateInput);
+                    var addEventButton = $('#button'); 
+                        addEventButton.on('click', calendarController.validateInput);
 
-                    var deleteButton = document.getElementById('deleteButton');
-                        deleteButton.addEventListener('click', calendarController.confirmDelete);
+                    var deleteButton = $('#deleteButton');
+                        deleteButton.on('click', calendarController.confirmDelete);
 
-                    var showButton = document.getElementById('showButton');
-                        showButton.addEventListener('click', calendarController.scrollToMonth);
+                    var showButton = $('#showButton');
+                        showButton.on('click', calendarController.scrollToMonth);
 
-                    var backToTopButton = document.getElementById('btt');
-                        backToTopButton.addEventListener('click', calendarController.scrollToTop);
+                    var backToTopButton = $('#btt');
+                        backToTopButton.on('click', calendarController.scrollToTop);
                 },
     validateInput: 
                 function() {
                     
                     var userInput = [
-                        document.getElementById('event').value,
-                        document.getElementById('time').value,
-                        document.getElementById('location').value,    
-                        document.getElementById('address').value, 
-                        calendarModel.currentParent.id
+                        $('#event').val(),
+                        $('#time').val(),
+                        $('#location').val(),
+                        $('#address').val(),
+                        $(calendarModel.currentParent).attr('id')
                     ];
                     
                     function alertUser(snippet) {
-                        alert('Informationen du angivit för ' + snippet + ' är för lång.');
+                        alert('Informationen du angivit för ' + snippet + ' är för lång (max 15 tecken).');
                     }
                     
                     //Check if any input values are too long
                     for (i = 0; i < calendarModel.inputErrorSnippets.length; i++) {
 
                         if (userInput[0].length > 15) {
-                            
+                            alertUser(calendarModel.inputErrorSnippets[0]);
                             return;
                         }
                         else if (userInput[1].length > 15) {
-                            alert('Informationen du angivit för '
-                            + calendarModel.inputErrorSnippets[1] + ' är för lång.');
+                            alertUser(calendarModel.inputErrorSnippets[1]);
                             return;
                         }
                         else if (userInput[2].length > 15) {
-                            alert('Informationen du angivit för '
-                            + calendarModel.inputErrorSnippets[2] + ' är för lång.');
+                            alertUser(calendarModel.inputErrorSnippets[2]);
                             return;
                         }
                         else {
@@ -228,29 +225,29 @@ var calendarController = {
     toggleAddWindow: 
                 function() {
 
-                    var parent = this.parentNode;
-                    var popup = document.getElementById('pop-up');
-                    var typeOfEvent = document.getElementById('event');
-                    var timeOfEvent = document.getElementById('time');
-                    var locationOfEvent = document.getElementById('location');   
-                    var addressOfEvent = document.getElementById('address'); 
+                    var parent = $(this).parent();
+                    var popup = $('#pop-up');
+                    var typeOfEvent = $('#event');
+                    var timeOfEvent = $('#time');
+                    var locationOfEvent = $('#location');   
+                    var addressOfEvent = $('#address'); 
 
                     //Set the inputs to be empty when we open popup window
-                    typeOfEvent.value = '';
-                    timeOfEvent.value = '';
-                    locationOfEvent.value = '';
-                    addressOfEvent.value = '';
+                    typeOfEvent.val('');
+                    timeOfEvent.val('');
+                    locationOfEvent.val('');
+                    addressOfEvent.val('');
 
-                    if (popup.style.visibility === 'visible') {
-                        popup.style.visibility = 'hidden';
+                    if (popup.css('visibility') === 'visible') {
+                        popup.css('visibility', 'hidden');
                     }
                     else {
-                        popup.style.visibility = 'visible';
+                        popup.css('visibility', 'visible');
                     }
                     
-                    var span = popup.getElementsByTagName('span');
-                        span[0].addEventListener('click', function () {
-                            popup.style.visibility = 'hidden';
+                    var span = $('span:first', popup);
+                        span.on('click', function () {
+                            popup.css('visibility', 'hidden');
                         });
                                                  
                     calendarModel.currentParent = parent; 
@@ -259,25 +256,25 @@ var calendarController = {
                 function(eventType, eventTime, eventLocation, eventAddress, dayOfEvent) {
 
                     var eventInfo = [eventType, eventTime, eventLocation, eventAddress];
-                    var dayElement = document.getElementById(dayOfEvent); 
-                    var popup = document.getElementById('pop-up');
-                        popup.style.visibility = 'hidden'; 
+                    var dayElement = $('#' + dayOfEvent);
+                    var popup = $('#pop-up');
+                        popup.css('visibility', 'hidden'); 
 
                     for (i = 0; i < 4; i++) {
-                        var p = document.createElement('p');
-                            p.innerHTML = eventInfo[i];
-                            dayElement.appendChild(p); 
+                        var p = $('<p></p>');
+                            p.html(eventInfo[i]);
+                            dayElement.append(p); 
                     }
                 },
     deleteNodes: 
                 function(paragraphs) {
-                    for (i = paragraphs.length-1; i>=0; i--) { 
-                        paragraphs[i].parentNode.removeChild(paragraphs[i]); 
+                    for (i = paragraphs.length-1; i>=0; i--) {
+                        paragraphs[i].remove(); 
                     }
                 },
     deleteAll: 
                 function() {
-                    var paragraphs = document.getElementsByTagName('p');
+                    var paragraphs = $('p', document).get();
                     
                     calendarController.deleteNodes(paragraphs);
                     calendarModel.fbRef.remove();
@@ -285,9 +282,9 @@ var calendarController = {
     deleteSingle: 
                 function() {
 
-                    var parent = this.parentNode; 
-                    var parentId = parent.id; 
-                    var paragraphs = parent.getElementsByTagName('p');
+                    var parent = $(this).parent(); 
+                    var parentId = parent.attr('id'); 
+                    var paragraphs = $('p', parent);
                     
                     calendarController.deleteNodes(paragraphs);
                     
@@ -312,18 +309,15 @@ var calendarController = {
                 },
     removeYearDiv: 
                 function() {
-        
-                    while (calendarModel.siteContainer.firstChild) {
-                        calendarModel.siteContainer.removeChild(calendarModel.siteContainer.firstChild);
-                    }    
+                    
+                        calendarModel.siteContainer.children().not('#btt').remove();
+                    
                 },
     scrollToMonth: 
                 function() {
         
-                    var y = document.getElementById('year');
-                    var selectedYear = y.options[y.selectedIndex].value;
-                    var m = document.getElementById('month'); 
-                    var selectedMonth = m.options[m.selectedIndex].value;
+                    var selectedYear = $('#year').find(':selected').text();
+                    var selectedMonth = $('#month').find(':selected').text();
                     var index = calendarModel.years.indexOf(selectedYear);
 
                     calendarController.removeYearDiv();
@@ -337,7 +331,7 @@ var calendarController = {
                 },
     scrollToTop: 
                 function() {
-                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
                 }
 }
 
