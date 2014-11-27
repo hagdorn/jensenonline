@@ -1,6 +1,6 @@
 $(document).ready(function() {
     
-    function init () {
+    function init() {
         mainMenu.toggleDropDown('msg');
         mainMenu.toggleDropDown('mypages');
         mainMenu.toggleDropDown('tools');
@@ -12,7 +12,7 @@ $(document).ready(function() {
         mainMenu.mainHoverEffect(7);
         mainMenu.subMenuHoverEffect(10);
         
-        var input = document.getElementById('search');
+        var input = $('#search');
             input.addEventListener('keyup', setEventListener);
     }
     

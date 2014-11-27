@@ -319,9 +319,8 @@ var calendarController = {
                     var selectedYear = $('#year').find(':selected').text();
                     var selectedMonth = $('#month').find(':selected').text();
                     var index = calendarModel.years.indexOf(selectedYear);
-
+                    
                     calendarController.removeYearDiv();
-
                     calendarView.createCalendar(index);
                     calendarModel.getRedDaysFromAPI(selectedYear);
 
