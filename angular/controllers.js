@@ -150,8 +150,8 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'classroombooking'
                 }
             ],
-            URL: 'utbildning',
-            id: 'utbildning'
+            URL: 'education',
+            id: 'education'
         },
         {
             title: 'Forum',
@@ -299,5 +299,5 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
             id: 'help'
         }
     ],
-        $scope.names = ['Hans', 'Jonas', 'Gurra', 'Snurre sprätt', 'Torsten', 'Xerxes', 'Christian', 'Christoffer'];
+        $scope.names = ['Hans', 'Jonas', 'Gurra', 'Snurre sprätt', 'Torsten', 'Xerxes', 'Christian', 'Christoffer']; //Test data only
 });

@@ -21,7 +21,7 @@
 
     if ($basename != 'login') {
         echo "  <form id='search-form'>
-                    <input type='text' name='search' id='search' placeholder='Sök på webbplatsen' data-ng-model='query'>
+                    <input type='text' name='search' id='search-input' placeholder='Sök på webbplatsen' data-ng-model='query'>
                     <div id='search-hits'>
                         <ul id='site-search'>
                             <li data-ng-repeat='name in names | filter: query | orderBy:" . '"toString()"' . "'><a href='#'>{{name}}</a></li>
