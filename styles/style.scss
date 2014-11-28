@@ -594,3 +594,36 @@ header {
     }
 }
 
+#booking-container {
+    width: $maxPercentage;
+    height: 100%;
+    position: relative;
+    
+    table {
+        width: 50%;
+        height: 100%;
+        margin: $center 100px;
+        
+        tr {
+            
+            td:nth-child(6n+1) {
+                border: 0;
+                font-weight: bold;
+                background: white;
+                text-align: right;
+                padding-right: 2%;
+            }
+            
+            td, td.available {
+                width: $maxPercentage / 6;
+                height: 200px;
+                border: 1px solid black;
+                background: #8cf178;
+            }
+            
+            td.booked {
+                background: #c80d0d;
+            }
+        }
+    }
+}

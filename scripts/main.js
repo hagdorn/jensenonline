@@ -417,5 +417,93 @@ $(document).ready(function() {
         }
     }
     
+/****** BOOKING SYSTEM ******/
+    
+    var bookingModel = {
+        
+        bookingContainer: $('#booking-container'),
+        days: ['', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag'],
+        hours: ['08.00 - 09.00', '09.00 - 10.00', '10.00 - 11.00', '11.00 - 12.00', '12.00 - 13.00', 
+                '13.00 - 14.00', '14.00 - 15.00', '15.00 - 16.00', '16.00 - 17.00', '17.00 - 18.00']
+    }
+    
+    var bookingView = {
+        
+        createScheme: (function() {
+            
+            var table = $('<table></table>');
+                table.appendTo(bookingModel.bookingContainer);
+            
+            for (i = 0; i < 11; i++) {
+                
+                var tr = $('<tr></tr>');
+                    tr.appendTo(table);
+                
+                if (i === 0) {
+                    
+                    for (j = 0; j < 6; j++) {
+                        
+                        var th = $('<th></th>');
+                            th.html(bookingModel.days[j]);
+                            th.appendTo(tr);
+                    }
+                }
+                else {
+                
+                    for (j = 0; j < 6; j++) {
+
+                        var td = $('<td></td>');
+                        
+                        if (i != 0 && j === 0) {
+                            td.html(bookingModel.hours[i - 1]);
+                        }
+                        else {
+                            td.on('click', function() {
+                                $(this).addClass('booked');
+                            });
+                        }
+                            td.appendTo(tr);
+                    }
+                }
+            }
+            
+            
+            
+        }())
+    }
+
+    var bookingController = {
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     window.onload = init;
 });
