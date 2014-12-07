@@ -1,211 +1,120 @@
 /* To watch the files: sass --watch style.scss:style.css */
-body, #main-menu li ul {
+/***** IMPORTED FILES *****/
+body, #matches-list, #dropdown-nav {
   margin: 0;
   padding: 0; }
-
-a:link, a:visited, a:focus, a:hover, a:active {
-  color: black; }
 
 #calendar-container button:focus, #calendar-container input:focus {
   outline: 0; }
 
-html, body, main {
-  height: 100%; }
-
-body {
-  width: 100%;
-  font-family: Arial, sans-serif; }
-
-a {
-  text-decoration: none; }
-
-.active {
-  border-bottom: 1px solid white; }
-
-header {
+/***** LOGIN.PHP *****/
+body, #matches-list, #dropdown-nav {
   margin: 0;
-  width: 100%;
-  height: 160px;
-  position: relative; }
-  header img {
-    width: 8.5%;
-    height: 90%;
-    top: 20px;
-    left: 80px;
-    position: absolute; }
-  header span {
-    position: absolute;
-    color: #003b65;
-    left: 15%; }
-  header span:nth-child(2) {
-    font-size: 2.3em;
-    font-weight: bold;
-    top: 40%; }
-  header span:nth-child(3) {
-    font-size: 1.4em;
-    top: 68%; }
-  header #search-form {
-    position: absolute;
-    top: 20px;
-    right: 140px; }
-    header #search-form input {
-      width: 250px;
-      height: 30px;
-      padding: 0 0 0 10px;
-      border: 1px solid black;
-      outline: 0; }
-    header #search-form div {
-      width: 260px;
-      max-height: 300px;
-      z-index: 9999;
-      display: none;
-      position: relative;
-      background: linear-gradient(white, #f2f2f2);
-      border-right: 1px solid black;
-      border-left: 1px solid black; }
-      header #search-form div ul {
-        list-style: none;
-        padding: 0;
-        margin: 0; }
-        header #search-form div ul li {
-          height: 30px;
-          line-height: 30px;
-          width: inherit;
-          padding-left: 10px;
-          border-bottom: 1px solid black;
-          cursor: pointer; }
-  header #logout {
-    position: absolute;
-    right: 30px;
-    top: 20px;
-    background: #003b65;
-    color: #fff;
-    border: none;
-    width: 80px;
-    height: 32px;
-    font-weight: bold;
-    font-size: 0.9em;
-    cursor: pointer; }
-
-#login-container {
-  width: 50%;
-  margin: 0 auto;
-  min-height: 100%;
-  position: relative; }
-  #login-container table {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateY(-50%);
-    transform: translateX(-50%);
-    width: 25%;
-    text-align: center; }
-    #login-container table tr:nth-child(1) td, #login-container table tr:nth-child(3) td {
-      text-align: left; }
-    #login-container table tr:nth-child(2) td, #login-container table tr:nth-child(4) td {
-      padding-bottom: 15px; }
-    #login-container table label {
-      font-size: 1.3em; }
-    #login-container table input {
-      width: 100%;
-      height: 30px; }
-    #login-container table #submit {
-      width: 35%;
-      height: 30px;
-      margin-top: 20px;
-      font-weight: bold;
-      border-radius: 0; }
-    #login-container table a {
-      font-size: 1em;
-      color: #0097ef;
-      font-weight: bold; }
-      #login-container table a:hover {
-        color: #38b6ff; }
-
-#main-menu {
-  list-style: none;
-  color: #fff;
-  margin: 20px 0 60px;
   padding: 0; }
-  #main-menu a {
-    color: #fff; }
-  #main-menu li {
-    height: 40px;
-    line-height: 40px;
-    width: 12.5%;
-    background: #003b65;
-    display: inline-block;
-    text-align: center;
-    font-weight: bold;
-    position: relative; }
-    #main-menu li ul {
-      position: absolute;
-      display: none;
-      width: 100%;
-      background: #003b65;
-      z-index: 500; }
-      #main-menu li ul li {
-        height: 25px;
-        line-height: 25px;
-        width: 90%;
-        display: block;
-        text-align: left;
-        font-size: 0.8em;
-        padding-left: 5%; }
 
+#calendar-container button:focus, #calendar-container input:focus {
+  outline: 0; }
+
+/***** MAIN CONTENT -> LOGIN *****/
+#login-container {
+  position: relative;
+  width: 50%;
+  min-height: 100%;
+  margin: 0 auto; }
+
+#login-form input {
+  width: inherit;
+  height: 30px; }
+#login-form label {
+  font-size: 20px; }
+#login-form table {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  width: 25%;
+  text-align: center; }
+  #login-form table td.space-down {
+    padding-bottom: 15px; }
+  #login-form table a {
+    text-decoration: none; }
+    #login-form table a:link, #login-form table a:visited, #login-form table a:focus, #login-form table a:active {
+      color: #0097ef; }
+    #login-form table a:hover {
+      color: #38b6ff; }
+
+#login-btn {
+  width: 35%;
+  height: 30px;
+  margin-top: 20px;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: bold; }
+
+/***** INBOX.PHP, SENDMSG.PHP, READMSG.PHP, REMOVED.PHP, SENT.PHP *****/
 .msg-container {
+  position: relative;
   width: 60%;
   height: 100%;
   margin: 0 auto;
   padding: 1% 5% 0;
-  border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey;
-  border-top: 1px solid lightgrey;
-  position: relative; }
+  border-left: 1px solid #D3D3D3;
+  border-right: 1px solid #D3D3D3;
+  border-top: 1px solid #D3D3D3; }
 
-.msg-menu div:first-child {
+#msg-menu-container {
   margin-bottom: 40px;
-  border-bottom: 1px solid lightgrey; }
-  .msg-menu div:first-child ul {
-    width: 50%;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: table; }
-    .msg-menu div:first-child ul li {
-      height: 35px;
-      line-height: 35px;
-      width: auto;
-      display: table-cell;
-      text-align: center;
-      margin: 0;
-      padding: 0 2.5%;
-      font-weight: bold; }
-      .msg-menu div:first-child ul li a {
-        color: #003b65; }
-    .msg-menu div:first-child ul li:hover {
-      background: #f7f7f7; }
-    .msg-menu div:first-child ul li:nth-child(1) {
-      border-left: 1px solid lightgrey; }
+  border-bottom: 1px solid #D3D3D3; }
 
-#msg-center form {
+#msg-menu {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  display: table;
+  list-style: none; }
+
+.msg-items {
+  width: auto;
+  height: 35px;
+  line-height: 35px;
+  margin: 0;
+  padding: 0 2.5%;
+  display: table-cell;
+  text-align: center;
+  font-weight: bold; }
+  .msg-items a {
+    text-decoration: none; }
+    .msg-items a:link, .msg-items a:visited, .msg-items a:focus, .msg-items a:hover, .msg-items a:active {
+      color: #003b65; }
+  .msg-items:first-child {
+    border-left: 1px solid #D3D3D3; }
+  .msg-items:hover {
+    background: #f7f7f7; }
+
+#send-msg-form {
   width: 100%;
   margin: 0 auto; }
-  #msg-center form tr:nth-child(1) td:nth-child(1), #msg-center form tr:nth-child(1) td:nth-child(2), #msg-center form tr:nth-child(2) td:nth-child(1), #msg-center form tr:nth-child(2) td:nth-child(2) {
+  #send-msg-form table {
+    width: inherit; }
+  #send-msg-form td.space-down {
     padding-bottom: 10px; }
-  #msg-center form tr:nth-child(1) td:nth-child(1), #msg-center form tr:nth-child(2) td:nth-child(1) {
+  #send-msg-form td.labels {
+    width: 5%;
+    height: 25px;
+    line-height: 25px;
+    padding-right: 5px;
     text-align: right;
-    width: 5%; }
-  #msg-center form tr:nth-child(1) td:nth-child(2) input, #msg-center form tr:nth-child(2) td:nth-child(2) input {
-    width: 43%;
-    height: 25px; }
-  #msg-center form label {
-    font-weight: bold;
-    margin-right: 5px; }
-  #msg-center form textarea {
-    width: 98%;
+    font-weight: bold; }
+  #send-msg-form td.column-two {
+    width: 95%; }
+  #send-msg-form .input {
+    width: 40%;
+    height: 20px; }
+  #send-msg-form #message-area {
+    width: 100%;
     height: 380px; }
-  #msg-center form input[type="submit"] {
+  #send-msg-form #send-msg-btn {
     height: 25px;
     font-weight: bold; }
 
@@ -226,7 +135,7 @@ header {
       height: 30px;
       line-height: 30px;
       font-weight: bold;
-      font-size: 0.9em; }
+      font-size: 15px; }
       #inbox #first-ul li input {
         width: 15px;
         height: 15px;
@@ -257,18 +166,139 @@ header {
           display: inline-block;
           text-align: center;
           font-weight: bold;
-          font-size: 0.8em;
+          font-size: 15px;
           border-left: 1px solid lightgrey; }
         #inbox #first-ul footer ul #first-li {
           width: 50px;
           border: 0; }
 
+/***** GENERAL STYLES *****/
+html, body, main {
+  height: 100%; }
+
+body {
+  width: 100%;
+  font-family: Arial, sans-serif; }
+
+/***** HEADER *****/
+#site-header {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  margin: 0; }
+
+/***** HEADER -> LOGO SECTION *****/
+#school-logo {
+  position: absolute;
+  top: 20px;
+  left: 80px;
+  width: 8.5%;
+  height: 90%; }
+
+.logo-text {
+  position: absolute;
+  left: 15%;
+  color: #003b65; }
+
+#school-name {
+  top: 40%;
+  font-size: 38px;
+  font-weight: bold; }
+
+#slogan {
+  top: 68%;
+  font-size: 1.4em; }
+
+/***** HEADER -> SITE SEARCH SECTION *****/
+#search-form {
+  position: absolute;
+  top: 20px;
+  right: 140px; }
+
+#search-input {
+  width: 250px;
+  height: 30px;
+  padding: 0 0 0 10px;
+  border: 1px solid #000; }
+
+#dropdown-container {
+  position: relative;
+  width: 260px;
+  max-height: 300px;
+  display: none;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+  background: linear-gradient(white, #f2f2f2);
+  z-index: 9999; }
+
+#matches-list {
+  list-style: none; }
+
+.search-matches {
+  width: inherit;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+  cursor: pointer; }
+
+/***** HEADER -> LOGOUT SECTION *****/
+#logout {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  width: 80px;
+  height: 32px;
+  border: none;
+  background: #003b65;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer; }
+
+/***** HEADER -> MAIN MENU SECTION *****/
+#main-nav {
+  margin: 20px 0 60px;
+  padding: 0;
+  list-style: none; }
+  #main-nav a {
+    text-decoration: none; }
+    #main-nav a:link, #main-nav a:visited, #main-nav a:focus, #main-nav a:hover, #main-nav a:active {
+      color: white; }
+
+.nav-items {
+  position: relative;
+  width: 12.5%;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  background: #003b65; }
+
+#dropdown-nav {
+  position: absolute;
+  width: 100%;
+  display: none;
+  background: #003b65;
+  z-index: 500; }
+
+.dropdown-items {
+  height: 25px;
+  line-height: 25px;
+  width: 90%;
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  padding-left: 5%; }
+
+/***** END OF HEADER *****/
+/***** MAIN CONTENT *****/
 #deleteButton {
   position: absolute;
   right: 0;
   bottom: 0;
-  font-weight: bold;
-  font-size: 1em; }
+  font-weight: bold; }
 
 #calendar-header {
   width: 84%;
@@ -303,7 +333,7 @@ header {
       text-align: center; }
   #pop-up td:nth-child(2n+1) {
     text-align: right;
-    font-size: 0.8em; }
+    font-size: 15px; }
   #pop-up input {
     height: 20px;
     border: 1px solid black;

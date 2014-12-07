@@ -1,0 +1,74 @@
+//Colors
+$white: #fff;
+$soft-grey: #f7f7f7;
+$dark-blue: #003b65;
+$light-blue: #38b6ff;
+$ocean-blue: #0097ef;
+
+//Borders
+$thin-solid: 1px solid;
+$thin-black: $thin-solid #000;
+$thin-lightgrey: $thin-solid #D3D3D3;
+
+//Measurements
+$max: 100%;
+
+//Font styles
+$small-font: 15px;
+$big-font: 20px;
+$fontFamily: Arial, sans-serif;
+
+//Other
+$center: 0 auto;
+
+//Placeholders
+%no-margins {
+    margin: 0;
+    padding: 0;
+}
+
+%outlining {
+    outline: 0;    
+}
+
+//Mixins
+@mixin vertAlign($height) {
+    height: $height;
+    line-height: $height;
+}
+
+@mixin center($top: 50%) {
+    position: absolute;
+    top: $top;
+    left: $max - 50;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+}
+
+@mixin link-colors($color: #000, $decoration: none, $hover-color: null) {
+    
+    @if $hover-color == null {
+        a {
+            text-decoration: $decoration;
+    
+            &:link, &:visited, &:focus, &:hover, &:active {
+                color: $color; 
+            }
+        }
+    }
+    @else {
+        a {
+            text-decoration: $decoration;
+    
+            &:link, &:visited, &:focus, &:active {
+                color: $color; 
+            }
+            
+            &:hover {
+                color: $hover-color;
+            }
+        }
+    }
+    
+}
+

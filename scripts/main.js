@@ -419,7 +419,7 @@ $(document).ready(function() {
     
 /****** BOOKING SYSTEM ******/
     
-    var bookingModel = {
+    /*var bookingModel = {
         
         bookingContainer: $('#booking-container'),
         days: ['', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag'],
@@ -475,7 +475,7 @@ $(document).ready(function() {
     var bookingController = {
         
         
-    }
+    }*/
     
     
     

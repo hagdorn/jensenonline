@@ -1,48 +1,21 @@
 /* To watch the files: sass --watch style.scss:style.css */
 
-$primary-menu-color: #fff;
-$primary-color: #003b65;
-$maxPercentage: 100%;
-$fontFamily: Arial, sans-serif;
-$small-font: 0.8em;
-$normal-font: 1em;
-$big-font: 1.2em;
-$center: 0 auto;
+/***** IMPORTED FILES *****/
 
-%no-margins {
-    margin: 0;
-    padding: 0;
-}
+@import "data";
+@import "login";
+@import "messages";
 
-%link-color {
-    color: black;
-}
-
-%outlining {
-    outline: 0;    
-}
-
-@mixin vertAlign($height, $lineHeight: $height) {
-    height: $height;
-    line-height: $lineHeight;
-}
-
-@mixin center($top: 50%) {
-    position: absolute;
-    top: $top;
-    left: $maxPercentage - 50;
-    transform: translateY(-50%);
-    transform: translateX(-50%);
-}
+/***** GENERAL STYLES *****/
 
 html {
-    height: $maxPercentage;
+    height: $max;
 }
 
 body {
     @extend %no-margins;
     @extend html;
-    width: $maxPercentage;
+    width: $max;
     font-family: $fontFamily;
 }
 
@@ -50,369 +23,147 @@ main {
     @extend html;
 }
 
-a {
-    text-decoration: none;
-    
-    &:link, &:visited, &:focus, &:hover, &:active {
-        @extend %link-color; 
-    }
-}
+/***** HEADER *****/
 
-.active {
-    border-bottom: 1px solid white;
-}
-
-header {
-    margin: 0;
+#site-header {
+    position: relative;
     width: 100%;
     height: 160px;
-    position: relative;
-    
-    img {
-        width: 8.5%;
-        height: 90%;
-        top: 20px;
-        left: 80px;
-        position: absolute;
-    }
-    
-    span {
-        position: absolute;
-        color: $primary-color;
-        left: 15%;
-    }
-    
-    span:nth-child(2) {
-        font-size: 2.3em;
-        font-weight: bold;
-        top: 40%;    
-    }
-    
-    span:nth-child(3) {
-        font-size: 1.4em;
-        top: 68%;    
-    }
-    
-    #search-form {
-        position: absolute;
-        top: 20px;
-        right: 140px;
-        
-        input {
-            width: 250px;
-            height: 30px;
-            padding: 0 0 0 10px;
-            border: 1px solid black;
-            outline: 0;
-        }
-        
-        div {
-            width: 260px;
-            max-height: 300px;
-            z-index: 9999;
-            display: none;
-            position: relative;
-            background: linear-gradient(white, #f2f2f2);
-            border-right: 1px solid black;
-            border-left: 1px solid black;
-            
-            
-            ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                
-                li {
-                    @include vertAlign(30px);
-                    width: inherit;
-                    padding-left: 10px;
-                    border-bottom: 1px solid black;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
-    
-    #logout {
-        position: absolute;
-        right: 30px;
-        top: 20px;
-        background: $primary-color;
-        color: $primary-menu-color;
-        border: none;
-        width: 80px;
-        height: 32px;
-        font-weight: bold;
-        font-size: $normal-font - 0.1;
-        cursor: pointer;
-    }
+    margin: 0;
 }
 
-#login-container {
-    
-    width: $maxPercentage - 50;
-    margin: $center;
-    min-height: 100%;
-    position: relative;
-    
-    table {
-        @include center($top: 25%);
-        width: $maxPercentage - 75;
-        text-align: center;
-        
-        tr:nth-child(1) td, tr:nth-child(3) td {
-            text-align: left;
-        }
-        
-        tr:nth-child(2) td, tr:nth-child(4) td {
-            padding-bottom: 15px;
-        }
-        
-        label {
-            font-size: $big-font + 0.1;
-        }
-        
-        input {
-            width: $maxPercentage;
-            height: 30px;
-           
-        }
-        
-        #submit {
-            width: 35%;
-            height: 30px;
-            margin-top: 20px;
-            font-weight: bold;
-            border-radius: 0;
-        }
-        
-        a {
-            font-size: $normal-font;
-            color: #0097ef;
-            font-weight: bold;
-            
-            &:hover {
-                color: #38b6ff;    
-            }
-        }
-    }
+/***** HEADER -> LOGO SECTION *****/
+
+#school-logo {
+    position: absolute;
+    top: 20px;
+    left: 80px;
+    width: 8.5%;
+    height: 90%;
 }
 
-#main-menu {
+.logo-text {
+    position: absolute;
+    left: 15%;
+    color: $dark-blue;
+}
+
+#school-name {
+    top: 40%; 
+    font-size: 38px;
+    font-weight: bold;
+}
+
+#slogan {
+    top: 68%;
+    font-size: 1.4em;
+}
+
+/***** HEADER -> SITE SEARCH SECTION *****/
+
+#search-form {
+    position: absolute;
+    top: 20px;
+    right: 140px;
+}
+
+#search-input {
+    width: 250px;
+    height: 30px;
+    padding: 0 0 0 10px;
+    border: $thin-black;
+}
+
+#dropdown-container {
+    position: relative;
+    width: 260px;
+    max-height: 300px;
+    display: none;
+    border-right: $thin-black;
+    border-left: $thin-black;
+    background: linear-gradient(white, #f2f2f2);
+    z-index: 9999;
+}
+
+#matches-list {
+    @extend %no-margins;
     list-style: none;
-    color: $primary-menu-color;
+}
+                       
+.search-matches {
+    width: inherit;
+    @include vertAlign(30px);
+    padding-left: 10px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+/***** HEADER -> LOGOUT SECTION *****/
+
+#logout {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    width: 80px;
+    height: 32px;
+    border: none;
+    background: $dark-blue;
+    color: $white;
+    font-weight: bold;
+    font-size: $small-font;
+    cursor: pointer;
+}
+
+/***** HEADER -> MAIN MENU SECTION *****/
+
+#main-nav {
     margin: 20px 0 60px;
     padding: 0;
+    list-style: none;
     
-    a {
-        color: $primary-menu-color;
-    }
-    
-    li {
-        @include vertAlign(40px);
-        width: ($maxPercentage / 8);
-        background: $primary-color;
-        display: inline-block;
-        text-align: center;
-        font-weight: bold;
-        position: relative;
-        
-        ul {
-            @extend %no-margins;
-            position: absolute;
-            display: none;
-            width: $maxPercentage;
-            background: $primary-color;
-            z-index: 500;
-            
-            li {
-                @include vertAlign(25px);
-                width: $maxPercentage - 10;
-                display: block;
-                text-align: left;
-                font-size: $small-font;
-                padding-left: 5%;
-            }
-        }
-    }
+    @include link-colors($color: white);
 }
 
-.msg-container {
-    width: $maxPercentage - 40;
-    height: 100%;
-    margin: $center;
-    padding: 1% 5% 0;
-    border-left: 1px solid lightgrey;
-    border-right: 1px solid lightgrey;
-    border-top: 1px solid lightgrey;
+.nav-items {
     position: relative;
+    width: ($max / 8);
+    @include vertAlign(40px);
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    background: $dark-blue;
 }
 
-.msg-menu {
-    
-    div:first-child {
-        margin-bottom: 40px;
-        border-bottom: 1px solid lightgrey;
-        
-        ul {
-            width: $maxPercentage - 50;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: table;
-
-            li {
-                @include vertAlign(35px);
-                width: auto;
-                display: table-cell;
-                text-align: center;
-                margin: 0;
-                padding: 0 2.5%;
-                font-weight: bold;
-                
-                a {
-                    color: $primary-color;
-                }
-            }
-            
-            li:hover {
-                background: #f7f7f7;
-            }
-
-            li:nth-child(1) {
-                border-left: 1px solid lightgrey;    
-            }
-        }
-    }
+#dropdown-nav {
+    position: absolute;
+    width: $max;
+    @extend %no-margins;
+    display: none;
+    background: $dark-blue;
+    z-index: 500;
 }
 
-#msg-center {
-
-    form {
-        width: $maxPercentage;
-        margin: $center;
-
-        tr:nth-child(1), tr:nth-child(2) {
-            
-            %spaceUnder {
-                padding-bottom: 10px;    
-            }
-            
-            td:nth-child(1) {
-                @extend %spaceUnder;
-                text-align: right;
-                width: 5%;
-            }
-            
-            td:nth-child(2) {
-                @extend %spaceUnder;
-                
-                input {
-                    width: 43%;
-                    height: 25px;
-                }
-            }
-        }
-        
-        label {
-            font-weight: bold; 
-            margin-right: 5px;
-        }
-        
-        textarea {
-            width: $maxPercentage - 2;
-            height: 380px;
-        }
-        
-        input[type="submit"] {
-            height: 25px;
-            font-weight: bold;
-        }
-    }
+.dropdown-items {
+    @include vertAlign(25px);
+    width: $max - 10;
+    display: block;
+    text-align: left;
+    font-size: 13px;
+    padding-left: 5%;
 }
 
-#inbox {
-    width: $maxPercentage;
-    height: $maxPercentage - 10;
-    border: 1px solid lightgrey;
-    margin: $center;
-    
-    a {
-        color: $primary-color;
-    }
-    
-    #first-ul {
-        margin: 0;
-        padding: 10px 0 0 15px;
-        list-style: none;
-        
-        li:nth-child(even) {
-            background: #f7f7f7;
-        }
-        
-        li {
-            @include vertAlign(30px);
-            font-weight: bold;
-            font-size: $normal-font - 0.1;
-            
-            input {
-                width: 15px;
-                height: 15px;
-                margin: 8px 10px 0 ;
-                float: left;
-            }
-            
-            span {
-                float: right;
-                margin-right: 20px;
-            }
-            
-            label {
-                width: auto;
-                float: left;
-                margin-right: 50px;
-                color: $primary-color;
-            }
-        }
-        
-        footer {
-            width: $maxPercentage;
-            position: absolute;
-            bottom: 0;
-            padding-top: 5px;
-            border-top: 1px solid lightgrey;
+/***** END OF HEADER *****/
 
-            ul {
-                margin: 0 30px 0;
-                padding: 0;
-                height: 25px;
-                float: right;
 
-                li {
-                    width: 30px;
-                    border: 0;
-                    display: inline-block;
-                    text-align: center;
-                    font-weight: bold;
-                    font-size: $small-font;
-                    border-left: 1px solid lightgrey; 
-                }
+/***** MAIN CONTENT *****/
 
-                #first-li {
-                    width: 50px;
-                    border: 0;
-                }
-            }
-        } 
-    }
-}
+
 
 #deleteButton {
     position: absolute;
     right: 0;
     bottom: 0;
     font-weight: bold;
-    font-size: $normal-font;
 }
 
 #calendar-header {
@@ -432,8 +183,8 @@ header {
         position: fixed;
         visibility: hidden;
         z-index: 1;
-        background: $primary-color;
-        color: $primary-menu-color;
+        background: $dark-blue;
+        color: $white;
         border-radius: 15px;
         
         span {
@@ -491,7 +242,7 @@ header {
 }
 
 #calendar-container {
-    max-width: $maxPercentage - 16;
+    max-width: $max - 16;
     margin: 0 auto;
     position: relative;
     padding-bottom: 1px;
@@ -507,7 +258,7 @@ header {
     }
     
     td {
-        width: $maxPercentage - 90;
+        width: $max - 90;
         height: 130px;
         border: 1px solid black;
         position: relative;
@@ -519,7 +270,7 @@ header {
             left: 5px;
             top: 0;
             font-weight: normal;
-            color: $primary-color;
+            color: $dark-blue;
         }
         
         p {
@@ -568,18 +319,18 @@ header {
         right: 20px;
         font-size: 1.3em;
         cursor: pointer;
-        color: $primary-color;
+        color: $dark-blue;
     }
     
     h1 {
         font-size: 3em;
         margin-top: 30px;
         margin-bottom: 40px;
-        color: $primary-color;
+        color: $dark-blue;
     }
     
     button {
-        color: $primary-color;
+        color: $dark-blue;
         
         &:focus {
             @extend %outlining;
@@ -595,7 +346,7 @@ header {
 }
 
 #booking-container {
-    width: $maxPercentage;
+    width: $max;
     height: 100%;
     position: relative;
     
@@ -615,7 +366,7 @@ header {
             }
             
             td, td.available {
-                width: $maxPercentage / 6;
+                width: $max / 6;
                 height: 200px;
                 border: 1px solid black;
                 background: #8cf178;
