@@ -1,0 +1,39 @@
+/***** LOGIN.PHP *****/
+/***** MAIN CONTENT -> LOGIN *****/
+#login-container {
+  position: relative;
+  width: 50%;
+  min-height: 100%;
+  margin: 0 auto; }
+
+#login-form input {
+  width: inherit;
+  height: 30px; }
+#login-form label {
+  font-size: 20px; }
+#login-form table {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  width: 25%;
+  text-align: center; }
+  #login-form table td.space-down {
+    padding-bottom: 15px; }
+  #login-form table a {
+    text-decoration: none; }
+    #login-form table a:link, #login-form table a:visited, #login-form table a:focus, #login-form table a:active {
+      color: #0097ef; }
+    #login-form table a:hover {
+      color: #38b6ff; }
+
+#login-btn {
+  width: 35%;
+  height: 30px;
+  margin-top: 20px;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: bold; }
+
+/*# sourceMappingURL=login.css.map */

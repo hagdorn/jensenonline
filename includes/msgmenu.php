@@ -1,10 +1,10 @@
-<div>
+<div id="msg-menu-container">
     <nav>
-        <ul>
-            <li><a href="inbox.php">Inkorg</a></li>
-            <li><a href="sendmsg.php">Skicka nytt</a></li>
-            <li><a href="sent.php">Skickade</a></li>
-            <li><a href="removed.php">Borttaget</a></li>
+        <ul id="msg-menu">
+            <li class="msg-items"><a href="inbox.php">Inkorg</a></li>
+            <li class="msg-items"><a href="sendmsg.php">Skicka nytt</a></li>
+            <li class="msg-items"><a href="sent.php">Skickade</a></li>
+            <li class="msg-items"><a href="removed.php">Borttaget</a></li>
         </ul>
     </nav>
 </div>

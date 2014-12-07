@@ -1,8 +1,8 @@
 <nav>
-    <ul id='main-menu'>
-        <li ng-repeat='menu in teachermenu' id='{{menu.id}}'><a href='{{menu.URL}}.php'>{{menu.title}}</a>
-            <ul ng-if='menu.items'>
-                <li ng-repeat='subitem in menu.items'><a href='{{subitem.URL}}.php'>{{subitem.title}}</a></li>
+    <ul id='main-nav'>
+        <li id='{{menu.id}}' class='nav-items' ng-repeat='menu in teachermenu'><a href='{{menu.URL}}.php'>{{menu.title}}</a>
+            <ul id='dropdown-nav' ng-if='menu.items'>
+                <li class='dropdown-items' ng-repeat='subitem in menu.items'><a href='{{subitem.URL}}.php'>{{subitem.title}}</a></li>
             </ul>
         </li>
     </ul>

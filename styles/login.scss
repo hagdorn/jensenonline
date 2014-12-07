@@ -1,0 +1,46 @@
+/***** LOGIN.PHP *****/
+
+@import "data";
+
+/***** MAIN CONTENT -> LOGIN *****/
+
+#login-container {
+    position: relative;
+    width: $max - 50;
+    min-height: 100%;
+    margin: $center;
+}
+
+#login-form {
+    
+    input {
+        width: inherit;
+        height: 30px;
+    }
+    
+    label {
+        font-size: $big-font;
+    }
+    
+    table {
+        @include center($top: 25%);
+        width: $max - 75;
+        text-align: center;
+        
+        td.space-down {
+            padding-bottom: 15px;
+        }
+        
+        @include link-colors($color: $ocean-blue, $hover-color: $light-blue);
+    }
+}
+   
+#login-btn {
+    width: 35%;
+    height: 30px;
+    margin-top: 20px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
