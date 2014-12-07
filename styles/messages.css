@@ -1,20 +1,21 @@
 /*
 Error: Undefined variable: "$max".
-        on line 5 of messages.scss
+        on line 7 of messages.scss
 
-1: /***** INBOX.PHP, SENDMSG.PHP, READMSG.PHP, REMOVED.PHP, SENT.PHP *****\/
 2: 
-3: .msg-container {
-4:     position: relative;
-5:     width: $max - 40;
-6:     height: 100%;
-7:     margin: $center;
-8:     padding: 1% 5% 0;
-9:     border-left: $thin-lightgrey;
-10:     border-right: $thin-lightgrey;
+3: /***** MAIN CONTENT -> TEMPLATE STYLES *****\/
+4: 
+5: .msg-container {
+6:     position: relative;
+7:     width: $max - 40;
+8:     height: 100%;
+9:     margin: $center;
+10:     padding: 1% 5% 0;
+11:     border-left: $thin-lightgrey;
+12:     border-right: $thin-lightgrey;
 
 Backtrace:
-messages.scss:5
+messages.scss:7
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/script/tree/node.rb:50:in `perform'
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/script/tree/operation.rb:64:in `_perform'
@@ -68,4 +69,4 @@ C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/adapter.
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$max\".\A         on line 5 of messages.scss\A \A 1: /***** INBOX.PHP, SENDMSG.PHP, READMSG.PHP, REMOVED.PHP, SENT.PHP *****/\A 2: \A 3: .msg-container {\A 4:     position: relative;\A 5:     width: $max - 40;\A 6:     height: 100%;\A 7:     margin: $center;\A 8:     padding: 1% 5% 0;\A 9:     border-left: $thin-lightgrey;\A 10:     border-right: $thin-lightgrey;"; }
+  content: "Error: Undefined variable: \"$max\".\A         on line 7 of messages.scss\A \A 2: \A 3: /***** MAIN CONTENT -> TEMPLATE STYLES *****/\A 4: \A 5: .msg-container {\A 6:     position: relative;\A 7:     width: $max - 40;\A 8:     height: 100%;\A 9:     margin: $center;\A 10:     padding: 1% 5% 0;\A 11:     border-left: $thin-lightgrey;\A 12:     border-right: $thin-lightgrey;"; }
