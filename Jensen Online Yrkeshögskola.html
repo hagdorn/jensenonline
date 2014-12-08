@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://localhost/jensenonline/inbox.php -->
+<html lang="en" ng-app="onlinePlatform" ng-controller="onlinePlatformCtrl" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://localhost/jensenonline/styles/normalize.css">
+    <link rel="stylesheet" href="http://localhost/jensenonline/styles/style.css">
+    <!--<link rel="stylesheet" href="styles/responsive.css">-->
+    <script src="./Jensen Online Yrkeshögskola_files/firebase.js"></script>
+    <title>Jensen Online Yrkeshögskola</title>
+<style type="text/css"></style></head>
+
+<body>
+    <header id="site-header">
+        <img id="school-logo" src="./Jensen Online Yrkeshögskola_files/logo.jpg" no-repeat="">
+        <span id="school-name" class="logo-text">JENSEN Yrkeshögskola</span>
+        <span id="slogan" class="logo-text">Träning för verkligheten</span>
+
+      <form id="search-form" class="ng-pristine ng-valid">
+                        <input type="text" name="search" id="search-input" placeholder="Sök på webbplatsen" alt="Sökfält för att söka på webbsidan" ng-model="query" class="ng-pristine ng-valid">
+                        <div id="dropdown-container">
+                            <ul id="matches-list">
+                                <!-- ngRepeat: name in names | filter: query | orderBy:"toString()" --><li class="search-matches ng-scope" ng-repeat="name in names | filter: query | orderBy:&quot;toString()&quot;"><a href="http://localhost/jensenonline/inbox.php#" class="ng-binding">Christian</a></li><!-- end ngRepeat: name in names | filter: query | orderBy:"toString()" --><li class="search-matches ng-scope" ng-repeat="name in names | filter: query | orderBy:&quot;toString()&quot;"><a href="http://localhost/jensenonline/inbox.php#" class="ng-binding">Christoffer</a></li><!-- end ngRepeat: name in names | filter: query | orderBy:"toString()" --><li class="search-matches ng-scope" ng-repeat="name in names | filter: query | orderBy:&quot;toString()&quot;"><a href="http://localhost/jensenonline/inbox.php#" class="ng-binding">Gurra</a></li><!-- end ngRepeat: name in names | filter: query | orderBy:"toString()" --><li class="search-matches ng-scope" ng-repeat="name in names | filter: query | orderBy:&quot;toString()&quot;"><a href="http://localhost/jensenonline/inbox.php#" class="ng-binding">Hans</a></li><!-- end ngRepeat: name in names | filter: query | orderBy:"toString()" --><li class="search-matches ng-scope" ng-repeat="name in names | filter: query | orderBy:&quot;toString()&quot;"><a href="http://localhost/jensenonline/inbox.php#" class="ng-binding">Jonas</a></li><!-- end ngRepeat: name in names | filter: query | orderBy:"toString()" --><li class="search-matches ng-scope" ng-repeat="name in names | filter: query | orderBy:&quot;toString()&quot;"><a href="http://localhost/jensenonline/inbox.php#" class="ng-binding">Snurre sprätt</a></li><!-- end ngRepeat: name in names | filter: query | orderBy:"toString()" --><li class="search-matches ng-scope" ng-repeat="name in names | filter: query | orderBy:&quot;toString()&quot;"><a href="http://localhost/jensenonline/inbox.php#" class="ng-binding">Torsten</a></li><!-- end ngRepeat: name in names | filter: query | orderBy:"toString()" --><li class="search-matches ng-scope" ng-repeat="name in names | filter: query | orderBy:&quot;toString()&quot;"><a href="http://localhost/jensenonline/inbox.php#" class="ng-binding">Xerxes</a></li><!-- end ngRepeat: name in names | filter: query | orderBy:"toString()" -->
+                            </ul>
+                        </div>
+                    </form>
+
+                    <form method="post" action="http://localhost/jensenonline/includes/header.php" class="ng-pristine ng-valid">
+                        <input type="submit" name="logout" id="logout" value="Logga ut" alt="Knapp för att logga ut">
+                    </form>
+                     </header><nav>
+    <ul id="main-nav">
+        <!-- ngRepeat: menu in adminmenu --><li id="" class="nav-items ng-scope" ng-repeat="menu in adminmenu"><a href="http://localhost/jensenonline/home.php" class="ng-binding">Startsida</a>
+            <!-- ngIf: menu.items -->
+        </li><!-- end ngRepeat: menu in adminmenu --><li id="" class="nav-items ng-scope" ng-repeat="menu in adminmenu"><a href="http://localhost/jensenonline/news.php" class="ng-binding">Nyheter</a>
+            <!-- ngIf: menu.items -->
+        </li><!-- end ngRepeat: menu in adminmenu --><li id="msg" class="nav-items ng-scope" ng-repeat="menu in adminmenu"><a href="./Jensen Online Yrkeshögskola_files/Jensen Online Yrkeshögskola.html" class="ng-binding">Meddelanden</a>
+            <!-- ngIf: menu.items --><ul id="dropdown-nav" ng-if="menu.items" class="ng-scope">
+                <!-- ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="./Jensen Online Yrkeshögskola_files/Jensen Online Yrkeshögskola.html" class="ng-binding">Inkorg</a></li><!-- end ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/sendmsg.php" class="ng-binding">Skicka meddelande</a></li><!-- end ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/sentmsg.php" class="ng-binding">Skickade meddelanden</a></li><!-- end ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/removedmsg.php" class="ng-binding">Borttagna meddelanden</a></li><!-- end ngRepeat: subitem in menu.items -->
+            </ul><!-- end ngIf: menu.items -->
+        </li><!-- end ngRepeat: menu in adminmenu --><li id="administration" class="nav-items ng-scope" ng-repeat="menu in adminmenu"><a href="http://localhost/jensenonline/administration.php" class="ng-binding">Administration</a>
+            <!-- ngIf: menu.items --><ul id="dropdown-nav" ng-if="menu.items" class="ng-scope">
+                <!-- ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/mngprograms.php" class="ng-binding">Hantera utbildningar</a></li><!-- end ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/mngcourses.php" class="ng-binding">Hantera kurser</a></li><!-- end ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/mngteachers.php" class="ng-binding">Hantera lärare</a></li><!-- end ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/mngstudents.php" class="ng-binding">Hantera studenter</a></li><!-- end ngRepeat: subitem in menu.items -->
+            </ul><!-- end ngIf: menu.items -->
+        </li><!-- end ngRepeat: menu in adminmenu --><li id="" class="nav-items ng-scope" ng-repeat="menu in adminmenu"><a href="http://localhost/jensenonline/forum.php" class="ng-binding">Forum</a>
+            <!-- ngIf: menu.items -->
+        </li><!-- end ngRepeat: menu in adminmenu --><li id="" class="nav-items ng-scope" ng-repeat="menu in adminmenu"><a href="http://localhost/jensenonline/calendar.php" class="ng-binding">Kalender</a>
+            <!-- ngIf: menu.items -->
+        </li><!-- end ngRepeat: menu in adminmenu --><li id="surveys" class="nav-items ng-scope" ng-repeat="menu in adminmenu"><a href="http://localhost/jensenonline/surveys.php" class="ng-binding">Enkäter</a>
+            <!-- ngIf: menu.items --><ul id="dropdown-nav" ng-if="menu.items" class="ng-scope">
+                <!-- ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/createsurvey.php" class="ng-binding">Skapa enkät</a></li><!-- end ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/previussurveys.php" class="ng-binding">Visa tidigare enkäter</a></li><!-- end ngRepeat: subitem in menu.items -->
+            </ul><!-- end ngIf: menu.items -->
+        </li><!-- end ngRepeat: menu in adminmenu --><li id="help" class="nav-items ng-scope" ng-repeat="menu in adminmenu"><a href="http://localhost/jensenonline/help.php" class="ng-binding">Hjälp</a>
+            <!-- ngIf: menu.items --><ul id="dropdown-nav" ng-if="menu.items" class="ng-scope">
+                <!-- ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/faq.php" class="ng-binding">Vanliga frågor</a></li><!-- end ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/contactinfo.php" class="ng-binding">JENSEN kontaktuppgifter</a></li><!-- end ngRepeat: subitem in menu.items --><li class="dropdown-items ng-scope" ng-repeat="subitem in menu.items"><a href="http://localhost/jensenonline/about.php" class="ng-binding">Om oss</a></li><!-- end ngRepeat: subitem in menu.items -->
+            </ul><!-- end ngIf: menu.items -->
+        </li><!-- end ngRepeat: menu in adminmenu -->
+    </ul>
+</nav>
+<!-- body starts here -->
+
+<main>
+    <div class="msg-menu msg-container">
+    <div id="msg-menu-container">
+    <nav>
+        <ul id="msg-menu">
+            <li class="msg-items"><a href="./Jensen Online Yrkeshögskola_files/Jensen Online Yrkeshögskola.html">Inkorg</a></li>
+            <li class="msg-items"><a href="http://localhost/jensenonline/sendmsg.php">Skicka nytt</a></li>
+            <li class="msg-items"><a href="http://localhost/jensenonline/sent.php">Skickade</a></li>
+            <li class="msg-items"><a href="http://localhost/jensenonline/removed.php">Borttaget</a></li>
+        </ul>
+    </nav>
+</div>        <div id="inbox-container">
+            <table>
+                	
+<tbody><tr><td><form method="" action="" class="ng-pristine ng-valid"><input type="checkbox" id="&lt;a href=&quot;http://google.se&quot; title=&quot;google&quot; target=&quot;&quot;&gt;google&lt;/a&gt;"></form></td><td><label for="&lt;a href=&quot;http://google.se&quot; title=&quot;google&quot; target=&quot;&quot;&gt;google&lt;/a&gt;">Christian Hagdorn</label></td><td><a href="http://localhost/jensenonline/readmsg.php?message=%3Ca%20href=%22http://google.se%22%20title=%22google%22%20target=%22%22%3Egoogle%3C/a%3E">13</a></td><td><span>2014-12-08 13:47:16</span></td></tr><tr><td><form method="" action="" class="ng-pristine ng-valid"><input type="checkbox" id="&lt;b&gt;Tjena Svensson!&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Hur är läget dåda? Kolla min fantastiska länk nedan! &lt;/div&gt;&lt;div&gt;&lt;a href=&quot;http://www.google.se&quot; title=&quot;Google&quot; target=&quot;&quot;&gt;javascript:nicTemp();&lt;/a&gt;&lt;br&gt;&lt;/div&gt;"></form></td><td><label for="&lt;b&gt;Tjena Svensson!&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Hur är läget dåda? Kolla min fantastiska länk nedan! &lt;/div&gt;&lt;div&gt;&lt;a href=&quot;http://www.google.se&quot; title=&quot;Google&quot; target=&quot;&quot;&gt;javascript:nicTemp();&lt;/a&gt;&lt;br&gt;&lt;/div&gt;">Christian Hagdorn</label></td><td><a href="http://localhost/jensenonline/readmsg.php?message=%3Cb%3ETjena%20Svensson!%3C/b%3E%3Cdiv%3E%3Cb%3E%3Cbr%3E%3C/b%3E%3C/div%3E%3Cdiv%3EHur%20%C3%A4r%20l%C3%A4get%20d%C3%A5da?%20Kolla%20min%20fantastiska%20l%C3%A4nk%20nedan!%C2%A0%3C/div%3E%3Cdiv%3E%3Ca%20href=%22http://www.google.se%22%20title=%22Google%22%20target=%22%22%3Ejavascript:nicTemp();%3C/a%3E%3Cbr%3E%3C/div%3E">Hej på dig din jävel!!</a></td><td><span>2014-12-08 13:44:23</span></td></tr><tr><td><form method="" action="" class="ng-pristine ng-valid"><input type="checkbox" id="asdkjm &lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;askdlk&lt;font size=&quot;5&quot;&gt;asdlasmd&lt;/font&gt;&lt;/div&gt;"></form></td><td><label for="asdkjm &lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;askdlk&lt;font size=&quot;5&quot;&gt;asdlasmd&lt;/font&gt;&lt;/div&gt;">Christian Hagdorn</label></td><td><a href="http://localhost/jensenonline/readmsg.php?message=asdkjm%C2%A0%3Cdiv%3E%3Cbr%3E%3C/div%3E%3Cdiv%3E%3Cbr%3E%3C/div%3E%3Cdiv%3Easkdlk%3Cfont%20size=%225%22%3Easdlasmd%3C/font%3E%3C/div%3E">12</a></td><td><span>2014-12-08 13:28:06</span></td></tr><tr><td><form method="" action="" class="ng-pristine ng-valid"><input type="checkbox" id="Testar       att       ha    Spaces
+
+
+Och enters."></form></td><td><label for="Testar       att       ha    Spaces
+
+
+Och enters.">Christian Hagdorn</label></td><td><a href="http://localhost/jensenonline/readmsg.php?message=Testar%20%20%20%20%20%20%20att%20%20%20%20%20%20%20ha%20%20%20%20SpacesOch%20enters.">Hejj ee      lkas</a></td><td><span>2014-12-08 13:07:25</span></td></tr><tr><td><form method="" action="" class="ng-pristine ng-valid"><input type="checkbox" id="Welcome to XAMPP for OS X 1.8.3-5!
+
+Congratulations:
+You successfully installed XAMPP on this system!
+Now you can start using Apache and Co. Firstly you should try »Status« on the left navigation to make sure everything works fine.
+
+After testing you may take a look at the examples below the test link.
+
+If you want to start programming PHP or Perl (or whatever ;) please take a look at the XAMPP manual first and get more information about your XAMPP installation.
+
+Good luck,
+Kai &quot;Oswald&quot; Seidler + Kay Vogelgesang
+
+Install applications on XAMPP using BitNami
+
+Apache Friends and BitNami are cooperating to make dozens of open source applications available on XAMPP, for free. BitNami-packaged applications include Wordpress, Drupal, Joomla! and dozens of others and can be deployed with one-click installers. Visit the BitNami XAMPP page for details on the currently available apps."></form></td><td><label for="Welcome to XAMPP for OS X 1.8.3-5!
+
+Congratulations:
+You successfully installed XAMPP on this system!
+Now you can start using Apache and Co. Firstly you should try »Status« on the left navigation to make sure everything works fine.
+
+After testing you may take a look at the examples below the test link.
+
+If you want to start programming PHP or Perl (or whatever ;) please take a look at the XAMPP manual first and get more information about your XAMPP installation.
+
+Good luck,
+Kai &quot;Oswald&quot; Seidler + Kay Vogelgesang
+
+Install applications on XAMPP using BitNami
+
+Apache Friends and BitNami are cooperating to make dozens of open source applications available on XAMPP, for free. BitNami-packaged applications include Wordpress, Drupal, Joomla! and dozens of others and can be deployed with one-click installers. Visit the BitNami XAMPP page for details on the currently available apps.">Pelle Pop</label></td><td><a href="http://localhost/jensenonline/readmsg.php?message=Welcome%20to%20XAMPP%20for%20OS%20X%201.8.3-5!Congratulations:You%20successfully%20installed%20XAMPP%20on%20this%20system!Now%20you%20can%20start%20using%20Apache%20and%20Co.%20Firstly%20you%20should%20try%20%C2%BBStatus%C2%AB%20on%20the%20left%20navigation%20to%20make%20sure%20everything%20works%20fine.After%20testing%20you%20may%20take%20a%20look%20at%20the%20examples%20below%20the%20test%20link.If%20you%20want%20to%20start%20programming%20PHP%20or%20Perl%20(or%20whatever%20;)%20please%20take%20a%20look%20at%20the%20XAMPP%20manual%20first%20and%20get%20more%20information%20about%20your%20XAMPP%20installation.Good%20luck,Kai%20%22Oswald%22%20Seidler%20+%20Kay%20VogelgesangInstall%20applications%20on%20XAMPP%20using%20BitNamiApache%20Friends%20and%20BitNami%20are%20cooperating%20to%20make%20dozens%20of%20open%20source%20applications%20available%20on%20XAMPP,%20for%20free.%20BitNami-packaged%20applications%20include%20Wordpress,%20Drupal,%20Joomla!%20and%20dozens%20of%20others%20and%20can%20be%20deployed%20with%20one-click%20installers.%20Visit%20the%20BitNami%20XAMPP%20page%20for%20details%20on%20the%20currently%20available%20apps.">Hejje</a></td><td><span>2014-11-25 12:49:55</span></td></tr><tr><td><form method="" action="" class="ng-pristine ng-valid"><input type="checkbox" id="Hejj"></form></td><td><label for="Hejj">Christian Hagdorn</label></td><td><a href="http://localhost/jensenonline/readmsg.php?message=Hejj">Hej på dig</a></td><td><span>2014-11-25 12:03:06</span></td></tr><tr><td><form method="" action="" class="ng-pristine ng-valid"><input type="checkbox" id="Hej hej"></form></td><td><label for="Hej hej">Christoffer Skogh</label></td><td><a href="http://localhost/jensenonline/readmsg.php?message=Hej%20hej">Hejja</a></td><td><span>2014-11-20 13:03:18</span></td></tr><tr><td><form method="" action="" class="ng-pristine ng-valid"><input type="checkbox" id="Bajs"></form></td><td><label for="Bajs">Christoffer Skogh</label></td><td><a href="http://localhost/jensenonline/readmsg.php?message=Bajs">Hejjahejja</a></td><td><span>2014-11-20 13:02:26</span></td></tr></tbody></table>            
+        </div>
+    </div> <!-- Closes the template include -->
+</main>
+
+<script src="./Jensen Online Yrkeshögskola_files/jquery.min.js"></script>
+<script src="./Jensen Online Yrkeshögskola_files/angular.min.js"></script>
+<script src="./Jensen Online Yrkeshögskola_files/controllers.js"></script>
+<script src="./Jensen Online Yrkeshögskola_files/main.js"></script>
+
+</body></html>
