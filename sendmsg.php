@@ -12,6 +12,11 @@
 <!-- body starts here -->
 
 <main>
+	<script src="scripts/nicEdit.js"></script>
+	<script type="text/javascript">
+	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
+	
     <?php include('includes/msgtemplate.php'); ?>
         <form action="sendmsg.php" method="POST" id="send-msg-form">
             <table>
@@ -36,14 +41,14 @@
                         <label for="msg">Meddelande:</label>
                     </td>
                 </tr>
-                <tr>
+                <tr style="max-width: 100%;">
                     <td colspan="2">
                         <textarea name="message" id="message-area" alt="Fält för meddelande"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" name="sendmessage" id="send-msg-btn" alt="Knapp för att skicka iväg meddelandet" value="Skicka">
+                        <input type="submit" name="sendmessage"  id="send-msg-btn" alt="Knapp för att skicka iväg meddelandet" value="Skicka">
                     </td>
                 </tr>
             </table>

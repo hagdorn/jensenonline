@@ -8,19 +8,19 @@
 	
 		
 		if($_SESSION['box'] == 'inbox'){
-			$query = "SELECT * ";
+			$query = "SELECT pm.message, pm.subject, pm.datetime, pm.id, useraccounts.firstname, useraccounts.lastname ";
 			$query .= "FROM pm LEFT JOIN useraccounts ON (pm.fromuser = useraccounts.id) ";
 			$query .= "WHERE touser = :touser AND status != 'deleted' ";
 			$query .= "ORDER BY datetime DESC" ;	
 		}
 		else if($_SESSION['box'] == 'sent'){
-			$query = "SELECT * ";
-			$query .= "FROM pm LEFT JOIN useraccounts ON (pm.fromuser = useraccounts.id) ";
+			$query = "SELECT pm.message, pm.subject, pm.datetime, pm.id, useraccounts.firstname, useraccounts.lastname ";
+			$query .= "FROM pm LEFT JOIN useraccounts ON (pm.touser = useraccounts.id) ";
 			$query .= "WHERE fromuser = :touser ";
 			$query .= "ORDER BY datetime DESC" ;
 		}
 		else if($_SESSION['box'] == 'deleted'){
-			$query = "SELECT * ";
+			$query = "SELECT pm.message, pm.subject, pm.datetime, pm.id, useraccounts.firstname, useraccounts.lastname ";
 			$query .= "FROM pm LEFT JOIN useraccounts ON (pm.fromuser = useraccounts.id) ";
 			$query .= "WHERE touser = :touser AND status = 'deleted' ";
 			$query .= "ORDER BY datetime DESC" ;
@@ -34,8 +34,8 @@
 		foreach($result as $message){
 			
 			echo("<tr>");
-			echo("<td><form method='' action=''><input type='checkbox' id='" .$message['0'] ."'></td><td><label for='" .$message['0'] ."'>" .$message['firstname'] . " " . $message['lastname'] ."</label></form></td>");
-			echo("<td><a href='readmsg.php?message=".$message['0'] ."'>".$message['subject']);
+			echo("<td><form method='' action=''><input type='checkbox' id='" .$message['id'] ."'></td><td><label for='" .$message['id'] ."'>" .$message['firstname'] . " " . $message['lastname'] ."</label></form></td>");
+			echo("<td><a href='readmsg.php?message=".$message['id'] ."'>".$message['subject']);
 			echo("</td><td><span>" .$message['datetime'] ."</span></a></td></tr>");
 		}
 	echo("</table>");
