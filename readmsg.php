@@ -2,9 +2,6 @@
 	session_start();
 	require_once('php/db.php');
     include('includes/header.php');
-?>
-
-<?php
     include('includes/typeaccess.php');
 ?>
 

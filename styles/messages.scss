@@ -93,8 +93,8 @@
 #inbox-container {
     width: $max;
     height: $max;
-    border: 1px solid lightgrey;
     margin: $center;
+    border: $thin-lightgrey;
     
     @include link-colors($color: $dark-blue);
 }
