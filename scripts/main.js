@@ -9,6 +9,7 @@ $(document).ready(function() {
         calendarView.createCalendar(0);
         calendarModel.getRedDaysFromAPI(2015);
         calendarController.addEventListeners();
+        bookingView.createScheme();
     }
     
 /****** HEADER ******/
@@ -419,63 +420,96 @@ $(document).ready(function() {
     
 /****** BOOKING SYSTEM ******/
     
-    /*var bookingModel = {
+    var bookingModel = {
         
-        bookingContainer: $('#booking-container'),
+        bookingContainer: $('#scheme-table'),
+        footer: $('#scheme-footer'),
         days: ['', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag'],
         hours: ['08.00 - 09.00', '09.00 - 10.00', '10.00 - 11.00', '11.00 - 12.00', '12.00 - 13.00', 
-                '13.00 - 14.00', '14.00 - 15.00', '15.00 - 16.00', '16.00 - 17.00', '17.00 - 18.00']
+                '13.00 - 14.00', '14.00 - 15.00', '15.00 - 16.00', '16.00 - 17.00'],
+        classrooms: ['WUK', 'Cobol', 'PTK', 'IPK']
     }
     
     var bookingView = {
         
-        createScheme: (function() {
+        createScheme: function() {
             
-            var table = $('<table></table>');
-                table.appendTo(bookingModel.bookingContainer);
-            
-            for (i = 0; i < 11; i++) {
+            for (i = 0; i < 6; i++) {
+                var tr = $('<div></div>');
+                    tr.attr('class', 'scheme-row');
+                    tr.appendTo(bookingModel.bookingContainer);
                 
-                var tr = $('<tr></tr>');
-                    tr.appendTo(table);
-                
-                if (i === 0) {
-                    
-                    for (j = 0; j < 6; j++) {
-                        
-                        var th = $('<th></th>');
-                            th.html(bookingModel.days[j]);
-                            th.appendTo(tr);
-                    }
+                if (i === 0) { 
+                    tr.attr('id', 'scheme-head');
                 }
-                else {
                 
-                    for (j = 0; j < 6; j++) {
-
-                        var td = $('<td></td>');
+                if (i < 5) {
+                    for (j = 0; j < 10; j++) {
                         
-                        if (i != 0 && j === 0) {
-                            td.html(bookingModel.hours[i - 1]);
-                        }
-                        else {
-                            td.on('click', function() {
-                                $(this).addClass('booked');
-                            });
-                        }
+                        var td = $('<div></div>');
+                            td.attr('class', 'scheme-cell');
                             td.appendTo(tr);
+
+                        if (i === 0 && j === 0) {
+                            td.attr({id: 'scheme-date',
+                                     class: 'scheme-cell'
+                                    });
+
+                            //Store the AJAX call as a promise
+                            var promise = bookingController.grabInfo('bookinginfo');
+
+                            //Display the data in the promise
+                            bookingController.displayData(td, promise);
+                        }
+                        else if (j === 0) {
+                            td.attr('class', 'scheme-cell scheme-classroom');
+                            td.html(bookingModel.classrooms[i - 1]);
+                        }
+                        else if (i === 0 && j > 0) {
+                            td.attr('class', 'scheme-cell scheme-time');
+                            td.html(bookingModel.hours[j - 1]);
+                        }
+
+                        if (i > 0 && i < 5 && j > 0) {
+
+                            for (s = 0; s < 2; s++) {
+
+                                var span = $('<span></span>');
+                                    span.appendTo(td);
+
+                                if (s === 0) {
+                                    span.html('LEDIG');
+                                    span.attr('class', 'subject');
+                                }
+                                else {
+                                    span.html('Inte bokad');
+                                    span.attr('class', 'booked-by');
+                                }
+                            }
+                        }
                     }
                 }
             }
-            
-            
-            
-        }())
+        }
     }
 
     var bookingController = {
         
-        
-    }*/
+        grabInfo: function(filename) {
+            
+            //Return a promise
+            return $.ajax({
+                url : "ajax/" + filename + ".php",
+                type: "POST"
+            });
+        },
+        displayData: function(element, promise) {
+            //If the AJAX call executed properly, append the data
+            promise.done(function(data) {
+                element.append(data);
+            });
+        }
+    }
     
     
     

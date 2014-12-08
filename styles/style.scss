@@ -379,3 +379,104 @@ main {
         }
     }
 }
+
+/***** BOOKING SYSTEM *****/
+
+#booking-container {
+    width: $max - 10;
+    margin: $center;
+}
+
+#scheme-table {
+    width: $max;
+    height: 400px;
+    display: table;
+}
+
+#scheme-head {
+    height: 40px;
+    background: $dark-blue;
+}
+
+.scheme-row {
+    width: inherit;
+    display: table-row;
+}
+
+.scheme-cell {
+    position: relative;
+    width: 10%;
+    display: table-cell;
+    background-color: $soft-grey;
+    box-sizing: border-box;
+    border: 2px solid $white;
+}
+
+#scheme-date {
+    border: 0;
+    @include standardStyle;
+}
+
+.scheme-classroom {
+    width: 11%;
+    line-height: 90px;
+    border: $dark-blue;
+    border-right: 2px solid $white;
+    @include standardStyle;
+}
+
+.scheme-time {
+    line-height: 40px;
+    border: 0;
+    @include standardStyle;
+    font-size: 14px;
+}
+
+.subject {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 15px;
+}
+
+.booked-by {
+    position: absolute;
+    top: 35px;
+    left: 20px;
+    font-size: 14px;
+}
+
+#scheme-footer {
+    position: relative;
+    width: $max;
+    @include vertAlign(40px);
+    margin: 20px 0 0;
+    padding-left: 20px;
+    border: $thin-lightgrey;
+    box-sizing: padding-box;
+}
+
+#book-wrapper {
+    margin-right: 50px;
+    display: inline-block;
+}
+
+#cancel-wrapper {
+    display: inline-block;
+}
+
+.booking-btns {
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    color: $white;
+    background: $dark-blue;
+}
+
+.btn-labels {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+#booking-label {
+}

@@ -68,7 +68,11 @@ $center: 0 auto;
                 color: $hover-color;
             }
         }
-    }
-    
+    }  
 }
 
+@mixin standardStyle {
+    text-align: center;
+    color: $white;
+    background: $dark-blue;
+}
