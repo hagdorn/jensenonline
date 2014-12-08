@@ -16,8 +16,8 @@ $(document).ready(function() {
     var headerModel = {
         
         searchInput: $('#search-input'),
-        searchHitsDiv: $('#search-hits'),
-        ulScope: angular.element($('#site-search')).scope()
+        searchHitsDiv: $('#dropdown-container'),
+        ulScope: angular.element($('#matches-list')).scope()
     }
     
     var headerView = {
@@ -66,20 +66,20 @@ $(document).ready(function() {
     }
     
     var menuView = {
-        //This gets created via PHP instead
+        //This gets created via PHP
     }
     
     var menuController = {
         
         toggleDropDown: function (id) {
             
-            $('#main-menu' + ' #' + id + '').hover(function() {
+            $('#main-nav' + ' #' + id + '').hover(function() {
                 $('#' + id + ' ul').stop().slideToggle();
             });
         },
         mainHoverEffect: (function () {
             
-            $('#main-menu li').hover(function() {
+            $('.nav-items').hover(function() {
                 $(this).stop().animate({ top: 5 }, 'fast');
             }, function() {
                 $(this).stop().animate({ top: 0 }, 'fast');
@@ -87,7 +87,7 @@ $(document).ready(function() {
         }()),
         subMenuHoverEffect: (function () {
             
-            $('#main-menu li ul li').hover(function() {
+            $('.dropdown-items').hover(function() {
                 $(this).stop().animate({ left: 10 }, 'fast');
             }, function() {
                 $(this).stop().animate({ left: 0 }, 'fast');
