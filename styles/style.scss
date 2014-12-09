@@ -420,10 +420,6 @@ main {
     background: $dark-blue;
 }
 
-.mark-cell {
-    background: red;
-}
-
 #scheme-table {
     width: $max;
     height: 400px;
@@ -512,4 +508,8 @@ main {
 .btn-labels {
     margin-right: 5px;
     font-weight: bold;
+}
+
+.marked-cell {
+    background: #afafaf;
 }

@@ -531,15 +531,36 @@ $(document).ready(function() {
                 });
         },
         bindElements: function() {
+
+            var marked = false;
             
             var buttonsParent = $('#day-row');
                 buttonsParent.on('click', 'input', function() {
+                    
+                    buttonsParent.find('.active').removeClass('active');
                     $(this).addClass('active');
                 });
             
-            var cellParents = $('.scheme-click-row div:nth-child(1n+2');
+            var cellParents = $('.scheme-click-row');
+            var childrenOfRow = cellParents.children('div:nth-child(1n+2)');
+            
+                childrenOfRow.css({cursor: 'pointer'});
                 cellParents.on('click', 'div:nth-child(1n+2)', function() {
-                    $(this).addClass('mark-cell');
+                    
+                    if ($(this).hasClass('marked-cell')) {
+                        $(this).removeClass('marked-cell');
+                        marked = false;
+                    }
+                    else {
+                        
+                        if (marked === false) {
+                            $(this).addClass('marked-cell');
+                            marked = true;
+                        }
+                        else {
+                            return;   
+                        }
+                    }  
                 });
         },
         grabInfo: function(filename) {
