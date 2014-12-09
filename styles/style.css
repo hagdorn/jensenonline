@@ -489,26 +489,32 @@ body {
   height: 40px;
   line-height: 40px;
   margin: 20px 0 0;
-  padding-left: 200px;
   box-sizing: padding-box; }
 
 #book-wrapper {
-  margin-right: 50px;
+  position: absolute;
+  right: 80px;
   display: inline-block; }
+  #book-wrapper label {
+    font-weight: bold; }
 
 #cancel-wrapper {
-  display: inline-block; }
+  position: absolute;
+  right: 10px;
+  display: inline-block;
+  margin-left: 30px; }
 
 .booking-btns {
   height: 25px;
-  border-radius: 5px;
+  border-radius: 3px;
   border: none;
-  color: #fff;
-  background: #003b65; }
+  color: #fff; }
 
-.btn-labels {
-  margin-right: 5px;
-  font-weight: bold; }
+#book {
+  background: linear-gradient(#4fef00, #3db700); }
+
+#cancel-booking {
+  background: linear-gradient(#ff0a0a, #d10000); }
 
 .marked-cell {
   background: #afafaf; }

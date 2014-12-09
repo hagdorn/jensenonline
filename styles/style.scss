@@ -484,30 +484,39 @@ main {
     width: $max;
     @include vertAlign(40px);
     margin: 20px 0 0;
-    padding-left: 200px;
     box-sizing: padding-box;
 }
 
 #book-wrapper {
-    margin-right: 50px;
+    position: absolute;
+    right: 80px;
     display: inline-block;
+    
+    label {
+        font-weight: bold;
+    }
 }
 
 #cancel-wrapper {
+    position: absolute;
+    right: 10px;
     display: inline-block;
+    margin-left: 30px;
 }
 
 .booking-btns {
     height: 25px;
-    border-radius: 5px;
+    border-radius: 3px;
     border: none;
     color: $white;
-    background: $dark-blue;
 }
 
-.btn-labels {
-    margin-right: 5px;
-    font-weight: bold;
+#book {
+    background: linear-gradient(#4fef00, #3db700);
+}
+
+#cancel-booking {
+    background: linear-gradient(#ff0a0a, #d10000);
 }
 
 .marked-cell {

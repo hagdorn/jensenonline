@@ -27,12 +27,16 @@
         <div id="scheme-table"></div>
         <div id="scheme-footer">
             <div id="book-wrapper">
-                <label for="Boka" class="btn-labels">Klicka för att boka den markerade tiden:</label>
-                <input type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="booking-btns" value="Boka">
+                <form method="POST" action="">
+                    <label for="subject">Ange kurs:</label>
+                    <input type="text" name="subject" alt="Fyll i ämne" id="subject">
+                    <input type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="booking-btns" value="Boka">
+                </form>
             </div>
             <div id="cancel-wrapper">
-                <label class="btn-labels">Klicka för att avboka den markerade tiden:</label>
-                <input type="submit" name="cancel" alt="Knapp för att avboka ett klassrum" id="cancel-booking" class="booking-btns" value="Avboka">
+                <form method="POST" action="">
+                    <input type="submit" name="cancel" alt="Knapp för att avboka ett klassrum" id="cancel-booking" class="booking-btns" value="Avboka">
+                </form>
             </div>
         </div>
     </div>
