@@ -11,7 +11,7 @@ $(document).ready(function() {
         calendarController.addEventListeners();
         bookingView.createScheme();
         bookingController.currentDay();
-        bookingController.bindButtons();
+        bookingController.bindElements();
     }
     
 /****** HEADER ******/
@@ -472,10 +472,12 @@ $(document).ready(function() {
                             td.html(bookingModel.hours[j - 1]);
                         }
 
-                        if (i > 0 && i < 5 && j > 0) {
+                        if (i > 0 && j > 0) {
+                            
+                            tr.attr('class', 'scheme-row scheme-click-row');
 
                             for (s = 0; s < 2; s++) {
-
+                                
                                 var span = $('<span></span>');
                                     span.appendTo(td);
 
@@ -503,32 +505,41 @@ $(document).ready(function() {
                     
                     switch (data) {
                         
-                        case 'Mon': var button = $('#måndag');
+                        case 'Mon': var button = $('#Mon');
+                                        button.addClass('active');
                                     break;
                         
-                        case 'Tue': 
+                        case 'Tue': var button = $('#Tue');
+                                        button.addClass('active');
                                     break;
                             
-                        case 'Wed': 
+                        case 'Wed': var button = $('#Wed');
+                                        button.addClass('active');
                                     break;
                             
-                        case 'Thu': 
+                        case 'Thu': var button = $('#Thu');
+                                        button.addClass('active');
                                     break;
                             
-                        case 'Fri': 
+                        case 'Fri': var button = $('#Fri');
+                                        button.addClass('active');
                                     break;
                         
                         default:    
                                     break;
                     }
                 });
-            console.log(promise);
         },
-        bindButtons: function() {
+        bindElements: function() {
             
-            var parent = $('#day-row');
-                parent.on('click', 'input', function(event) {
+            var buttonsParent = $('#day-row');
+                buttonsParent.on('click', 'input', function() {
                     $(this).addClass('active');
+                });
+            
+            var cellParents = $('.scheme-click-row div:nth-child(1n+2');
+                cellParents.on('click', 'div:nth-child(1n+2)', function() {
+                    $(this).addClass('mark-cell');
                 });
         },
         grabInfo: function(filename) {
