@@ -491,17 +491,21 @@ main {
     position: absolute;
     right: 80px;
     display: inline-block;
-    
-    label {
-        font-weight: bold;
-    }
+}
+
+#course-label {
+    display: none;
+    font-weight: bold;
+}
+
+#subject {
+    display: none;
 }
 
 #cancel-wrapper {
     position: absolute;
     right: 10px;
     display: inline-block;
-    margin-left: 30px;
 }
 
 .booking-btns {
@@ -512,11 +516,11 @@ main {
 }
 
 #book {
-    background: linear-gradient(#4fef00, #3db700);
+    background: $green-gradient;
 }
 
 #cancel-booking {
-    background: linear-gradient(#ff0a0a, #d10000);
+    background: $red-gradient;
 }
 
 .marked-cell {

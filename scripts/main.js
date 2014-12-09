@@ -531,37 +531,61 @@ $(document).ready(function() {
                 });
         },
         bindElements: function() {
-
-            var marked = false;
             
+            var bookBtn = $('#book');
             var buttonsParent = $('#day-row');
-                buttonsParent.on('click', 'input', function() {
-                    
-                    buttonsParent.find('.active').removeClass('active');
-                    $(this).addClass('active');
-                });
-            
+            var cancelBookingBtn = $('#cancel-booking');
             var cellParents = $('.scheme-click-row');
             var childrenOfRow = cellParents.children('div:nth-child(1n+2)');
+            var courseLabel = $('#course-label');
+            var marked = false;
+            var subjectInput = $('#subject');
+            var schemeTable = $('#scheme-table');
             
-                childrenOfRow.css({cursor: 'pointer'});
-                cellParents.on('click', 'div:nth-child(1n+2)', function() {
+            function hideInput() {
+                courseLabel.stop().fadeOut();
+                subjectInput.stop().fadeOut();
+            }
+            
+            function markCell() {
+                
+                if ($(this).hasClass('marked-cell')) {
                     
-                    if ($(this).hasClass('marked-cell')) {
-                        $(this).removeClass('marked-cell');
-                        marked = false;
+                    $(this).removeClass('marked-cell');
+                    hideInput();
+                    marked = false;
+                }
+                else {
+                    if (marked === false) {
+                        
+                        $(this).addClass('marked-cell');
+                        courseLabel.stop().fadeIn();
+                        subjectInput.stop().fadeIn();
+                        marked = true;
                     }
                     else {
-                        
-                        if (marked === false) {
-                            $(this).addClass('marked-cell');
-                            marked = true;
-                        }
-                        else {
-                            return;   
-                        }
-                    }  
-                });
+                        return;   
+                    }
+                } 
+            }
+            
+            function selectDay() {
+                buttonsParent.find('.active').removeClass('active');
+                $(this).addClass('active');
+            }
+            
+            function unMark() {
+                schemeTable.find('.marked-cell').removeClass('marked-cell');
+                hideInput();
+                marked = false;
+            }
+            
+            childrenOfRow.css({cursor: 'pointer'});
+            
+            cancelBookingBtn.on('click', unMark);
+            cellParents.on('click', 'div:nth-child(1n+2)', markCell);
+            bookBtn.on('click', unMark);
+            buttonsParent.on('click', 'input', selectDay);
         },
         grabInfo: function(filename) {
             

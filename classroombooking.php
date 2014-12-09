@@ -28,7 +28,7 @@
         <div id="scheme-footer">
             <div id="book-wrapper">
                 <form method="POST" action="">
-                    <label for="subject">Ange kurs:</label>
+                    <label for="subject" id="course-label">Ange kurs:</label>
                     <input type="text" name="subject" alt="Fyll i ämne" id="subject">
                     <input type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="booking-btns" value="Boka">
                 </form>

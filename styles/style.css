@@ -495,14 +495,18 @@ body {
   position: absolute;
   right: 80px;
   display: inline-block; }
-  #book-wrapper label {
-    font-weight: bold; }
+
+#course-label {
+  display: none;
+  font-weight: bold; }
+
+#subject {
+  display: none; }
 
 #cancel-wrapper {
   position: absolute;
   right: 10px;
-  display: inline-block;
-  margin-left: 30px; }
+  display: inline-block; }
 
 .booking-btns {
   height: 25px;
