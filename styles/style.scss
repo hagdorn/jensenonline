@@ -387,6 +387,39 @@ main {
     margin: $center;
 }
 
+#days-wrapper {
+    width: $max;
+    margin: $center 30px;
+    
+    form {
+        width: $max - 50;
+        margin: $center;
+        display: table;
+    }
+}
+
+#day-row {
+    width: 100%;
+    display: table-row;
+}
+
+.day-btns {
+    width: 20%;
+    height: 30px;
+    display: table-cell;
+    border: 0;
+    color: $dark-blue;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background: none;
+}
+
+.active {
+    color: $white;
+    background: $dark-blue;
+}
+
 #scheme-table {
     width: $max;
     height: 400px;
@@ -451,8 +484,7 @@ main {
     width: $max;
     @include vertAlign(40px);
     margin: 20px 0 0;
-    padding-left: 20px;
-    border: $thin-lightgrey;
+    padding-left: 200px;
     box-sizing: padding-box;
 }
 

@@ -10,6 +10,8 @@ $(document).ready(function() {
         calendarModel.getRedDaysFromAPI(2015);
         calendarController.addEventListeners();
         bookingView.createScheme();
+        bookingController.currentDay();
+        bookingController.bindButtons();
     }
     
 /****** HEADER ******/
@@ -456,7 +458,7 @@ $(document).ready(function() {
                                     });
 
                             //Store the AJAX call as a promise
-                            var promise = bookingController.grabInfo('bookinginfo');
+                            var promise = bookingController.grabInfo('week');
 
                             //Display the data in the promise
                             bookingController.displayData(td, promise);
@@ -495,6 +497,40 @@ $(document).ready(function() {
 
     var bookingController = {
         
+        currentDay: function() {
+            var promise = bookingController.grabInfo('day');
+                promise.done(function(data) {
+                    
+                    switch (data) {
+                        
+                        case 'Mon': var button = $('#måndag');
+                                    break;
+                        
+                        case 'Tue': 
+                                    break;
+                            
+                        case 'Wed': 
+                                    break;
+                            
+                        case 'Thu': 
+                                    break;
+                            
+                        case 'Fri': 
+                                    break;
+                        
+                        default:    
+                                    break;
+                    }
+                });
+            console.log(promise);
+        },
+        bindButtons: function() {
+            
+            var parent = $('#day-row');
+                parent.on('click', 'input', function(event) {
+                    $(this).addClass('active');
+                });
+        },
         grabInfo: function(filename) {
             
             //Return a promise
