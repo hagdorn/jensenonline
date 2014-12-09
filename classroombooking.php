@@ -2,6 +2,11 @@
     session_start();
     include('includes/header.php');
     include('includes/typeaccess.php');
+
+	if ($_SESSION['type'] != 2){
+		header('Location: index.php');
+	}
+
 ?>
 
 <!-- body starts here -->

@@ -1,6 +1,6 @@
 <?php
 	//Antal meddelanden per sida. Kanske ska sättas någon annanstans senare med tanke på design.
-	$messagesPerPage = 10;
+	$messagesPerPage = 5;
 
 	try{
 		require_once('php/pdoConnect.php');
@@ -31,12 +31,34 @@
 		$ps->execute(array('touser'=>$_SESSION['id']));
 		$result = $ps->fetchAll();
 		
-		foreach($result as $message){
+		if (isset($_GET['page'])){
+			$pageNumber = $_GET['page'];
+			echo $_GET['page'];
+		}
+		if (!isset($pageNumber)){
+			$pageNumber = 1;
+		}
+
+		
+		$i = 0 + ($messagesPerPage * ($pageNumber - 1));
+		
+		while($i < $messagesPerPage * $pageNumber){
 			
-			echo("<tr>");
-			echo("<td><form method='' action=''><input type='checkbox' id='" .$message['id'] ."'></td><td><label for='" .$message['id'] ."'>" .$message['firstname'] . " " . $message['lastname'] ."</label></form></td>");
-			echo("<td><a href='readmsg.php?message=".$message['id'] ."'>".$message['subject']);
-			echo("</td><td><span>" .$message['datetime'] ."</span></a></td></tr>");
+			
+			if(isset($result[$i]['id'])){
+				echo("<tr>");
+				echo("<td><form method='' action=''><input type='checkbox' id='" .$result[$i]['id'] ."'></td><td><label for='" .$result[$i]['id'] ."'>" .$result[$i]['firstname'] . " " . $result[$i]['lastname'] ."</label></form></td>");
+				echo("<td><a href='readmsg.php?message=".$result[$i]['id'] ."'>".$result[$i]['subject']);
+				echo("</td><td><span>" .$result[$i]['datetime'] ."</span></a></td></tr>");
+			}
+			else{
+				echo("<tr>");
+				echo("<td> </td>");
+				echo("<td> </td><td><span> </span></a></td></tr>");		
+			}
+			
+			
+			$i ++;
 		}
 	echo("</table>");
 		
@@ -53,7 +75,7 @@
 		echo ("<a href='#'><li id='first-li'>Sida 1</li></a>");
 		echo ("<a href='#'><li>|<</li></a>");
 		echo ("<a href='#'><li><</li></a>");
-		echo ("<a href='#'><li>></li></a>");
+		echo ("<a href='page='".($pageNumber + 1). "''><li>></li></a>");
 		echo ("<a href='#'><li>>|</li></a>");
 		echo ("</ul>");
 	}
