@@ -12,10 +12,7 @@
 <!-- body starts here -->
 
 <main>
-	<script src="scripts/nicEdit.js"></script>
-	<script type="text/javascript">
-	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-</script>
+
 	
     <?php include('includes/msgtemplate.php'); ?>
         <form action="sendmsg.php" method="POST" id="send-msg-form">
@@ -43,7 +40,7 @@
                 </tr>
                 <tr style="max-width: 100%;">
                     <td colspan="2">
-                        <textarea name="message" id="message-area" alt="Fält för meddelande"></textarea>
+                        <textarea name="message" id="message-area" alt="Fält för meddelande" ></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -56,6 +53,14 @@
     </div> <!-- Closes the template include -->
 </main>
 
+	
+<script src="scripts/nicEdit.js"></script>
+	<script type="text/javascript">
+	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
+
+
 <?php
     include('includes/footer.php');
 ?>
+
