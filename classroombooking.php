@@ -7,6 +7,8 @@
 		header('Location: index.php');
 	}
 
+	include('dbBookings.php');
+	
 ?>
 
 <!-- body starts here -->
