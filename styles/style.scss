@@ -132,7 +132,7 @@ main {
     display: inline-block;
     text-align: center;
     font-weight: bold;
-    background: $dark-blue;
+    background: $blue-gradient;
 }
 
 #dropdown-nav {
@@ -419,7 +419,7 @@ main {
 
 .active {
     color: $white;
-    background: $green-gradient;
+    background: $dark-blue;
 }
 
 #scheme-table {
@@ -430,7 +430,6 @@ main {
 
 #scheme-head {
     height: 40px;
-    background: $dark-blue;
 }
 
 .scheme-row {

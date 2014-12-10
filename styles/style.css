@@ -227,7 +227,7 @@ body {
   display: inline-block;
   text-align: center;
   font-weight: bold;
-  background: #003b65; }
+  background: linear-gradient(#0097ef, #003b65); }
 
 #dropdown-nav {
   position: absolute;
@@ -427,7 +427,7 @@ body {
 
 .active {
   color: #fff;
-  background: linear-gradient(#4fef00, #3db700); }
+  background: #003b65; }
 
 #scheme-table {
   width: 100%;
@@ -435,8 +435,7 @@ body {
   margin-top: 50px; }
 
 #scheme-head {
-  height: 40px;
-  background: #003b65; }
+  height: 40px; }
 
 .scheme-row {
   width: inherit;
