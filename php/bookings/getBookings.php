@@ -1,6 +1,5 @@
 <?php
-	    //Sätt på utf8
-		$db->exec("SET NAMES 'utf8'");
+	    
 
 	try{
 		$date = date('Y-m-d');
@@ -12,7 +11,8 @@
 		<?php
 			
 		require_once('php/pdoConnect.php');
-
+		$db->exec("SET NAMES 'utf8'");
+		
 		$query = "SELECT roombookings.room, roombookings.hour, roombookings.description, rooms.name "; 
 		$query .= "FROM roombookings LEFT JOIN rooms ON (roombookings.room = rooms.id) ";
 		$query .= "WHERE roombookings.date = :date " ;
