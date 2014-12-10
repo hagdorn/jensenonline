@@ -1,5 +1,6 @@
 <?php
 	try{
+		$date = date('Y-m-d');
 		$currentRoom = "";
 		?>
 		<script>
@@ -16,7 +17,7 @@
 		
 		$ps = $db->prepare($query);
 		$ps->execute([
-			'date'=>date('Y-m-d')
+			'date'=>$date
 		]);
 		$result = $ps -> fetchAll();
 	
@@ -32,7 +33,6 @@
 				</script><?php				
 				$currentRoom = $row['name'];
 			}
-			
 			//correct hour to js array format
 			$row['hour'] -= 7;
 			$roomDay[$row['hour']] = $row['description'];
@@ -48,40 +48,39 @@
 	catch(Exception $e){
 		echo ("Error<br><br>" .$e);
 	}
-	
 	//Add empty rooms
-	/*
 	try{
-		
+		?><script>
+		var roomsToPush = [];
+		</script><?php
+	
 		$result = $db->query("SELECT name FROM rooms");		
 		foreach($result as $name){
 			?><script>
-				var roomName = '<?php echo $name['name']; ?>';
+				var roomName = '<?php echo $name['name'];?>';
 				var foundName = 0;
-				var roomsToPush = [];
-
+			
 				for(var i = 0; i < rooms.length; i++){
-					rooms[1].push(roomName);
-					if (rooms[0][0] == roomName){
+					if (rooms[i][0] == roomName){
 						foundName = 1;
 					}
-					if(foundName == 0){
-						var roomArray = [roomName,'','','','','','','',''];
-						var roomsToPush.push(roomArray);
-					}
 				}
-				for(var i = 0; i < roomsToPush.length; i++){
-					rooms.push(roomsToPush[i]);
+				if(foundName == 0){
+						var roomArray = [roomName,'','','','','','','','',''];
+						roomsToPush.push(roomArray);
 				}
 			</script><?php
 			
 		}
 		
+		?><script>
+		for(var i = 0; i < roomsToPush.length; i++){
+			rooms.push(roomsToPush[i]);
+		}
+		</script><?php
+		
 	}
 	catch(Exception $e){
 		echo ("Error<br><br>" .$e);
 	}
-*/
-
-
 ?>
