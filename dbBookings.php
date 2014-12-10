@@ -28,7 +28,7 @@
 					</script><?php
 				}
 				?><script>
-					var roomDay = ['<?php echo $row['name']; ?>','','','','','','','',''];
+					var roomDay = ['<?php echo $row['name']; ?>','','','','','','','','',''];
 				</script><?php				
 				$currentRoom = $row['name'];
 			}

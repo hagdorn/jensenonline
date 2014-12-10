@@ -11,7 +11,6 @@ $(document).ready(function() {
         calendarController.addEventListeners();
         bookingView.createScheme();
         bookingView.fillSelects();
-        bookingView.loadClassrooms();
         bookingController.currentDay();
         bookingController.bindElements();
     }
@@ -430,21 +429,14 @@ $(document).ready(function() {
         footer: $('#scheme-footer'),
         days: ['', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag'],
         hours: ['08.00 - 09.00', '09.00 - 10.00', '10.00 - 11.00', '11.00 - 12.00', '12.00 - 13.00', 
-                '13.00 - 14.00', '14.00 - 15.00', '15.00 - 16.00', '16.00 - 17.00'],
-        classrooms: ['WUK', 'Cobol', 'PTK', 'IPK']
+                '13.00 - 14.00', '14.00 - 15.00', '15.00 - 16.00', '16.00 - 17.00']
     }
     
     var bookingView = {
-        loadClassrooms: function() {
-              
-            var promiseRooms = bookingController.grabInfo('dbBookings');
-                promiseRooms.done(function(data) {
-                    console.log(data);
-                });
-        },
         createScheme: function() {
             
-            for (i = 0; i < 6; i++) {
+            for (i = 0; i < 1 + rooms.length; i++) {
+                
                 var tr = $('<div></div>');
                     tr.attr('class', 'scheme-row');
                     tr.appendTo(bookingModel.bookingContainer);
@@ -453,7 +445,8 @@ $(document).ready(function() {
                     tr.attr('id', 'scheme-head');
                 }
                 
-                if (i < 5) {
+                if (i < 1 + rooms.length) {
+                    
                     for (j = 0; j < 10; j++) {
                         
                         var td = $('<div></div>');
@@ -473,7 +466,7 @@ $(document).ready(function() {
                         }
                         else if (j === 0) {
                             td.attr('class', 'scheme-cell scheme-classroom');
-                            td.html(bookingModel.classrooms[i - 1]);
+                            td.html(rooms[i - 1][0]);
                         }
                         else if (i === 0 && j > 0) {
                             td.attr('class', 'scheme-cell scheme-time');
@@ -490,7 +483,13 @@ $(document).ready(function() {
                                     span.appendTo(td);
 
                                 if (s === 0) {
-                                    span.html('LEDIG');
+                                    if (rooms[i - 1][j] != "") {
+                                        span.html(rooms[i - 1][j]);
+                                    }
+                                    else {
+                                        span.html('LEDIG');
+                                    }
+                                    
                                     span.attr('class', 'subject');
                                 }
                                 else {
@@ -500,7 +499,7 @@ $(document).ready(function() {
                             }
                         }
                     }
-                }
+                }   
             }
         },
         fillSelects: function() {
@@ -633,8 +632,7 @@ $(document).ready(function() {
             //Return a promise
             return $.ajax({
                 url : "ajax/" + filename + ".php",
-                type: "POST",
-                dataType: "json"
+                type: "POST"
             });
         },
         displayData: function(element, promise) {
