@@ -33,7 +33,6 @@
 		
 		if (isset($_GET['page'])){
 			$pageNumber = $_GET['page'];
-			echo $_GET['page'];
 		}
 		if (!isset($pageNumber)){
 			$pageNumber = 1;
@@ -69,19 +68,46 @@
 	$numberOfPages =  ceil($numberOfMessages / $messagesPerPage);
 	
 		
-	//Kod för att kunna växla mellan sidor. Ska ändras.
+	//Kod för att kunna växla mellan sidor.
 	if ($numberOfPages > 1){
 		echo ("<ul>");
-		echo ("<a href='#'><li id='first-li'>Sida 1</li></a>");
-		echo ("<a href='#'><li>|<</li></a>");
-		echo ("<a href='#'><li><</li></a>");
-		echo ("<a href='#'><li>>|</li></a>");
+		echo ("<li>Sida " . $pageNumber . " av " . $numberOfPages);
+		
+		//Första sidan
+		if ($pageNumber > 1){
+			echo ("<a href='?page=1'><li>|<</li></a>");
+		}
+		else{
+			echo ("<li>|<</li>");
+		}
+		//Bakåt en sida
+		if ($pageNumber > 1){
+			echo ("<a href='?page=" . ($pageNumber - 1) ."'><li><</li></a>");
+		}
+		else{
+			echo ("<li><</li>");
+		}
+		//Framåt en sida
+		if ($pageNumber < $numberOfPages){
+			echo ("<a href='?page=" .($pageNumber + 1) ."'><li>></li></a>");
+		}
+		else{
+			echo ("<li>></li>");
+		}
+		
+		
+		//Sista sidan
+		if ($pageNumber < $numberOfPages){
+			echo ("<a href='?page=" . $numberOfPages ."'><li>>|</li></a>");
+		}
+		else{
+			echo("<li>>|</li>");
+		}
+			
+			
 		echo ("</ul>");
 	}
 	
-	
-		
-		
 		
 	}
 	catch(Exception $exception){
