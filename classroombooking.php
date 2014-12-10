@@ -25,6 +25,10 @@
                     <input type="submit" name="friday" id="Fri" class="day-btns" value="fredag">
                 </div>
             </form>
+            <form method="POST" action="">
+                <select id="sel-week"></select>
+                <select id="sel-year"></select>
+            </form>
         </div>
         <div id="scheme-table"></div>
         <div id="scheme-footer">

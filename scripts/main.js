@@ -10,6 +10,7 @@ $(document).ready(function() {
         calendarModel.getRedDaysFromAPI(2015);
         calendarController.addEventListeners();
         bookingView.createScheme();
+        bookingView.fillSelects();
         bookingController.currentDay();
         bookingController.bindElements();
     }
@@ -494,6 +495,47 @@ $(document).ready(function() {
                     }
                 }
             }
+        },
+        fillSelects: function() {
+            
+            var weeks = $('#sel-week');
+            var years = $('#sel-year');
+            
+            var promiseWeek = bookingController.grabInfo('week');
+                promiseWeek.done(function(week) {
+                    
+                    $('#sel-week').children('option').each(function(i) { 
+                        $(this).val('snopp');
+                    });
+                });
+            
+            var promiseYear = bookingController.grabInfo('year');
+                promiseYear.then(function(year) {
+                    
+                    for (i = 1; i < 53; i++) {
+
+                        var option = $('<option></option>');
+                            option.html('Vecka ' + i);
+                            option.appendTo(weeks);
+                        
+                        /*var promiseWeek = bookingController.grabInfo('week');
+                            promiseWeek.done(function(week) {
+                                option.val(week);
+                            });*/
+                            //option.val(year);
+                            
+                    }
+
+                    for (i = 0; i < 3; i++) {
+
+                        var option = $('<option></option>');
+                            option.text(parseInt(year) + i);
+                            option.val(parseInt(year) + i);
+                            option.appendTo(years);
+                    }
+                });
+            
+            
         }
     }
 
