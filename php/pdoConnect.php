@@ -4,8 +4,6 @@
         $db = new PDO("mysql:dbname=jensenOnline;host=localhost", "root", "");
 		//sätt på exception. Default av.
 		$db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    	//Sätt på utf8
-		$db->exec("SET NAMES 'utf8'");
     }
     catch(Exception $exception){
         echo("error <br><br>" . $exception);

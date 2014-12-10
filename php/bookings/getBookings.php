@@ -1,4 +1,7 @@
 <?php
+	    //Sätt på utf8
+		$db->exec("SET NAMES 'utf8'");
+
 	try{
 		$date = date('Y-m-d');
 		$currentRoom = "";
