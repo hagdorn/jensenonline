@@ -2,32 +2,35 @@
 	$rooms = array();
 	
 	$roomDay = ([
-		'name'=> '',
+		'0'=> '',
+		'1'=> '',
+		'2'=> '',
+		'3'=> '',
+		'4'=> '',
+		'5'=> '',
+		'6'=> '',
+		'7'=> '',
 		'8'=> '',
 		'9'=> '',
-		'10'=> '',
-		'11'=> '',
-		'12'=> '',
-		'13'=> '',
-		'14'=> '',
-		'15'=> '',
-		'16'=> '',
 	]);		
 	
-	$roomDay['name']="WUK";
-	$roomDay['12']="Robert";
-	$roomDay['13']="Robert";
-	$roomDay['14']="Robert";
+	$roomDay['0']="WUK";
+	$roomDay['3']="Robert";
+	$roomDay['4']="Robert";
+	$roomDay['5']="Robert";
 	array_push($rooms, $roomDay);
 	
 	
-	$roomDay['name']="COK";
-	$roomDay['12']="Julmingel";
-	$roomDay['13']="Julmingel";
-	$roomDay['14']="Julmingel";
-	$roomDay['15']="Julmingel";
-	$roomDay['16']="Julmingel";
+	$roomDay['0']="COK";
+	$roomDay['3']="Julmingel";
+	$roomDay['4']="Julmingel";
+	$roomDay['5']="Julmingel";
+	$roomDay['6']="Julmingel";
+	$roomDay['7']="Julmingel";
 	array_push($rooms, $roomDay);
+
+	
+
 ?>
 
 <script>
