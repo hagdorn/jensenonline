@@ -539,37 +539,6 @@ $(document).ready(function() {
 
     var bookingController = {
         
-        currentDay: function() {
-            var promise = bookingController.grabInfo('day');
-                promise.done(function(data) {
-                    
-                    switch (data) {
-                        
-                        case 'Mon': var button = $('#Mon');
-                                        button.addClass('active');
-                                    break;
-                        
-                        case 'Tue': var button = $('#Tue');
-                                        button.addClass('active');
-                                    break;
-                            
-                        case 'Wed': var button = $('#Wed');
-                                        button.addClass('active');
-                                    break;
-                            
-                        case 'Thu': var button = $('#Thu');
-                                        button.addClass('active');
-                                    break;
-                            
-                        case 'Fri': var button = $('#Fri');
-                                        button.addClass('active');
-                                    break;
-                        
-                        default:    
-                                    break;
-                    }
-                });
-        },
         bindElements: function() {
             
             var bookBtn = $('#book');
@@ -627,6 +596,43 @@ $(document).ready(function() {
             bookBtn.on('click', unMark);
             buttonsParent.on('click', 'input', selectDay);
         },
+        currentDay: function() {
+            var promise = bookingController.grabInfo('day');
+                promise.done(function(data) {
+                    
+                    switch (data) {
+                        
+                        case 'Mon': var button = $('#Mon');
+                                        bookingController.setActiveDay(button);
+                                    break;
+                        
+                        case 'Tue': var button = $('#Tue');
+                                        bookingController.setActiveDay(button);
+                                    break;
+                            
+                        case 'Wed': var button = $('#Wed');
+                                        bookingController.setActiveDay(button);
+                                    break;
+                            
+                        case 'Thu': var button = $('#Thu');
+                                        bookingController.setActiveDay(button);
+                                    break;
+                            
+                        case 'Fri': var button = $('#Fri');
+                                        bookingController.setActiveDay(button);
+                                    break;
+                        
+                        default:    
+                                    break;
+                    }
+                });
+        },
+        displayData: function(element, promise) {
+            //If the AJAX call executed properly, append the data
+            promise.done(function(data) {
+                element.append('Vecka ' + data);
+            });
+        },
         grabInfo: function(filename) {
             
             //Return a promise
@@ -635,11 +641,8 @@ $(document).ready(function() {
                 type: "POST"
             });
         },
-        displayData: function(element, promise) {
-            //If the AJAX call executed properly, append the data
-            promise.done(function(data) {
-                element.append('Vecka ' + data);
-            });
+        setActiveDay: function(button) {
+            button.addClass('active');
         }
     }
     
