@@ -11,6 +11,7 @@ $(document).ready(function() {
         calendarController.addEventListeners();
         bookingView.createScheme();
         bookingView.fillSelects();
+        bookingView.loadClassrooms();
         bookingController.currentDay();
         bookingController.bindElements();
     }
@@ -436,7 +437,10 @@ $(document).ready(function() {
     var bookingView = {
         loadClassrooms: function() {
               
-            var 
+            var promiseRooms = bookingController.grabInfo('dbBookings');
+                promiseRooms.done(function(data) {
+                    console.log(data);
+                });
         },
         createScheme: function() {
             
@@ -629,7 +633,8 @@ $(document).ready(function() {
             //Return a promise
             return $.ajax({
                 url : "ajax/" + filename + ".php",
-                type: "POST"
+                type: "POST",
+                dataType: "json"
             });
         },
         displayData: function(element, promise) {
