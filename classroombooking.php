@@ -7,7 +7,7 @@
 		header('Location: index.php');
 	}
 
-	include('dbBookings.php');
+	include('php/bookings/getBookings.php');
 	
 ?>
 
