@@ -75,7 +75,6 @@
 		echo ("<a href='#'><li id='first-li'>Sida 1</li></a>");
 		echo ("<a href='#'><li>|<</li></a>");
 		echo ("<a href='#'><li><</li></a>");
-		echo ("<a href='page='".($pageNumber + 1). "''><li>></li></a>");
 		echo ("<a href='#'><li>>|</li></a>");
 		echo ("</ul>");
 	}
