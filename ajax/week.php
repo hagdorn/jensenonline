@@ -1,1 +1,1 @@
-<?php echo 'Vecka ' . date('W'); ?>
+<?php echo date('W'); ?>

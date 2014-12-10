@@ -8,7 +8,7 @@ $ocean-blue: #0097ef;
 //Gradient colors
 $green-gradient: linear-gradient(#4fef00, #3db700);
 $red-gradient: linear-gradient(#ff0a0a, #d10000);
-
+$blue-gradient: linear-gradient($ocean-blue, $dark-blue);
 //Borders
 $thin-solid: 1px solid;
 $thin-black: $thin-solid #000;
@@ -75,8 +75,8 @@ $center: 0 auto;
     }  
 }
 
-@mixin standardStyle {
+@mixin standardStyle($color) {
     text-align: center;
     color: $white;
-    background: $dark-blue;
+    background: $color;
 }

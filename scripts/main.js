@@ -434,7 +434,10 @@ $(document).ready(function() {
     }
     
     var bookingView = {
-        
+        loadClassrooms: function() {
+              
+            var 
+        },
         createScheme: function() {
             
             for (i = 0; i < 6; i++) {
@@ -504,28 +507,20 @@ $(document).ready(function() {
             var promiseWeek = bookingController.grabInfo('week');
                 promiseWeek.done(function(week) {
                     
-                    $('#sel-week').children('option').each(function(i) { 
-                        $(this).val('snopp');
-                    });
-                });
-            
-            var promiseYear = bookingController.grabInfo('year');
-                promiseYear.then(function(year) {
-                    
                     for (i = 1; i < 53; i++) {
 
                         var option = $('<option></option>');
                             option.html('Vecka ' + i);
+                            option.val(i);
                             option.appendTo(weeks);
-                        
-                        /*var promiseWeek = bookingController.grabInfo('week');
-                            promiseWeek.done(function(week) {
-                                option.val(week);
-                            });*/
-                            //option.val(year);
-                            
                     }
-
+                    
+                    weeks.val(week);
+                });
+            
+            var promiseYear = bookingController.grabInfo('year');
+                promiseYear.done(function(year) {
+                    
                     for (i = 0; i < 3; i++) {
 
                         var option = $('<option></option>');
@@ -640,7 +635,7 @@ $(document).ready(function() {
         displayData: function(element, promise) {
             //If the AJAX call executed properly, append the data
             promise.done(function(data) {
-                element.append(data);
+                element.append('Vecka ' + data);
             });
         }
     }

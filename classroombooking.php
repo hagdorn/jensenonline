@@ -25,9 +25,10 @@
                     <input type="submit" name="friday" id="Fri" class="day-btns" value="fredag">
                 </div>
             </form>
-            <form method="POST" action="">
-                <select id="sel-week"></select>
-                <select id="sel-year"></select>
+            <form method="POST" action="" id="selects-wrapper">
+                <select id="sel-week" class="dropdown-selects"></select>
+                <select id="sel-year" class="dropdown-selects"></select>
+                <input type="submit" name="show-week" id="show-week" class="booking-btns" value="Visa">
             </form>
         </div>
         <div id="scheme-table"></div>

@@ -107,7 +107,8 @@ main {
     width: 80px;
     height: 32px;
     border: none;
-    background: $dark-blue;
+    border-radius: 3px;
+    background: $red-gradient;
     color: $white;
     font-weight: bold;
     font-size: $small-font;
@@ -388,10 +389,11 @@ main {
 }
 
 #days-wrapper {
+    position: relative;
     width: $max;
     margin: $center 30px;
     
-    form {
+    form:first-child {
         width: $max - 50;
         margin: $center;
         display: table;
@@ -417,13 +419,14 @@ main {
 
 .active {
     color: $white;
-    background: $dark-blue;
+    background: $green-gradient;
 }
 
 #scheme-table {
     width: $max;
     height: 400px;
     display: table;
+    margin-top: 50px;
 }
 
 #scheme-head {
@@ -447,7 +450,9 @@ main {
 
 #scheme-date {
     border: 0;
-    @include standardStyle;
+    font-weight: bold;
+    font-size: 18px;
+    @include standardStyle($color: $dark-blue);
 }
 
 .scheme-classroom {
@@ -455,14 +460,15 @@ main {
     line-height: 90px;
     border: $dark-blue;
     border-right: 2px solid $white;
-    @include standardStyle;
+    font-weight: bold;
+    @include standardStyle($color: $dark-blue);
 }
 
 .scheme-time {
     line-height: 40px;
     border: 0;
-    @include standardStyle;
-    font-size: 14px;
+    @include standardStyle($color: $dark-blue);
+    font-size: 15px;
 }
 
 .subject {
@@ -499,6 +505,7 @@ main {
 }
 
 #subject {
+    height: 24px;
     display: none;
 }
 
@@ -509,7 +516,7 @@ main {
 }
 
 .booking-btns {
-    height: 25px;
+    height: 30px;
     border-radius: 3px;
     border: none;
     color: $white;
@@ -525,4 +532,20 @@ main {
 
 .marked-cell {
     background: #afafaf;
+}
+
+#selects-wrapper {
+    position: absolute;
+    right: 0;
+}
+
+.dropdown-selects {
+    height: 30px;
+    font-weight: bold;
+}
+
+#show-week {
+    height: 30px;
+    font-weight: bold;
+    background: $green-gradient;
 }
