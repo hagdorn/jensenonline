@@ -11,7 +11,7 @@ $(document).ready(function() {
         calendarController.addEventListeners();
         bookingView.createScheme();
         bookingView.fillSelects();
-        bookingController.currentDay();
+        bookingController.setCurrentDay();
         bookingController.bindElements();
     }
     
@@ -426,13 +426,12 @@ $(document).ready(function() {
     var bookingModel = {
         
         bookingContainer: $('#scheme-table'),
-        footer: $('#scheme-footer'),
-        days: ['', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag'],
         hours: ['08.00 - 09.00', '09.00 - 10.00', '10.00 - 11.00', '11.00 - 12.00', '12.00 - 13.00', 
                 '13.00 - 14.00', '14.00 - 15.00', '15.00 - 16.00', '16.00 - 17.00']
     }
     
     var bookingView = {
+        
         createScheme: function() {
             
             for (i = 0; i < 1 + rooms.length; i++) {
@@ -507,8 +506,8 @@ $(document).ready(function() {
             var weeks = $('#sel-week');
             var years = $('#sel-year');
             
-            var promiseWeek = bookingController.grabInfo('week');
-                promiseWeek.done(function(week) {
+            var weekPromise = bookingController.grabInfo('week');
+                weekPromise.done(function(week) {
                     
                     for (i = 1; i < 53; i++) {
 
@@ -521,19 +520,16 @@ $(document).ready(function() {
                     weeks.val(week);
                 });
             
-            var promiseYear = bookingController.grabInfo('year');
-                promiseYear.done(function(year) {
+            var yearPromise = bookingController.grabInfo('year');
+                yearPromise.done(function(year) {
                     
                     for (i = 0; i < 3; i++) {
 
                         var option = $('<option></option>');
-                            option.text(parseInt(year) + i);
-                            option.val(parseInt(year) + i);
+                            option.val = option.text(parseInt(year) + i);
                             option.appendTo(years);
                     }
                 });
-            
-            
         }
     }
 
@@ -551,9 +547,14 @@ $(document).ready(function() {
             var subjectInput = $('#subject');
             var schemeTable = $('#scheme-table');
             
-            function hideInput() {
+            function hideElements() {
                 courseLabel.stop().fadeOut();
                 subjectInput.stop().fadeOut();
+            }
+            
+            function showElements() {
+                courseLabel.stop().fadeIn();
+                subjectInput.stop().fadeIn();
             }
             
             function markCell() {
@@ -561,15 +562,14 @@ $(document).ready(function() {
                 if ($(this).hasClass('marked-cell')) {
                     
                     $(this).removeClass('marked-cell');
-                    hideInput();
+                    hideElements();
                     marked = false;
                 }
                 else {
                     if (marked === false) {
                         
                         $(this).addClass('marked-cell');
-                        courseLabel.stop().fadeIn();
-                        subjectInput.stop().fadeIn();
+                        showElements();
                         marked = true;
                     }
                     else {
@@ -585,7 +585,7 @@ $(document).ready(function() {
             
             function unMark() {
                 schemeTable.find('.marked-cell').removeClass('marked-cell');
-                hideInput();
+                hideElements();
                 marked = false;
             }
             
@@ -596,7 +596,7 @@ $(document).ready(function() {
             bookBtn.on('click', unMark);
             buttonsParent.on('click', 'input', selectDay);
         },
-        currentDay: function() {
+        setCurrentDay: function() {
             var promise = bookingController.grabInfo('day');
                 promise.done(function(data) {
                     
