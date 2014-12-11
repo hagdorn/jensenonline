@@ -63,8 +63,8 @@ $(document).ready(function() {
 /****** MENU ******/
     
     var menuModel = {
-        itemsWithDropDown: ['msg', 'mypages', 'tools', 'administration',
-                            'contactinfo', 'education', 'surveys', 'help'
+        itemsWithDropDown: ['msg', 'mypages', 'tools', 'administration', 'help',
+                            'contactinfo', 'education', 'applications', 'surveys'
                            ]
         //See controllers.js for menu data
     }

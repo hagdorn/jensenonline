@@ -63,12 +63,23 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
             id: 'administration'
         },
         {
-            title: 'Forum',
-            URL: 'forum'
+            title: 'Applikationer',
+            items: [
+                {
+                    title: 'Forum',
+                    URL: 'forum'
+                },
+                {
+                    title: 'Kalender',
+                    URL: 'calendar'
+                }
+            ],
+            id: 'applications'
         },
         {
-            title: 'Kalender',
-            URL: 'calendar'
+            title: 'Boka lokal',
+            URL: 'classroombooking',
+            id: 'bookclassroom'
         },
         {
             title: 'Enkäter',
