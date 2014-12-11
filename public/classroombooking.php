@@ -3,7 +3,7 @@
 	require_once('../includes/functions/functions.php');
     include_header_files();
 
-	if ($_SESSION['type'] != 2){
+	if ($_SESSION['type'] != 2 && $_SESSION['type'] != 1) {
 		header('Location: index.php');
 	}
 
