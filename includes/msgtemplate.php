@@ -1,2 +1,2 @@
 <div class="msg-menu msg-container">
-    <?php include('includes/msgmenu.php'); ?>
+    <?php include_once('msgmenu.php'); ?>

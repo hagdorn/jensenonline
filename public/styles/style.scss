@@ -1,0 +1,549 @@
+/* To watch the files: sass --watch style.scss:style.css */
+
+/***** IMPORTED FILES *****/
+
+@import "data";
+@import "login";
+@import "messages";
+
+/***** GENERAL STYLES *****/
+
+html {
+    height: $max;
+}
+
+body {
+    @extend %no-margins;
+    @extend html;
+    width: $max;
+    font-family: $fontFamily;
+}
+
+main {
+    @extend html;
+}
+
+/***** HEADER *****/
+
+#site-header {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    margin: 0;
+}
+
+/***** HEADER -> LOGO SECTION *****/
+
+#school-logo {
+    position: absolute;
+    top: 20px;
+    left: 80px;
+    width: 8.5%;
+    height: 90%;
+}
+
+.logo-text {
+    position: absolute;
+    left: 15%;
+    color: $dark-blue;
+}
+
+#school-name {
+    top: 40%; 
+    font-size: 38px;
+    font-weight: bold;
+}
+
+#slogan {
+    top: 68%;
+    font-size: 1.4em;
+}
+
+/***** HEADER -> SITE SEARCH SECTION *****/
+
+#search-form {
+    position: absolute;
+    top: 20px;
+    right: 140px;
+}
+
+#search-input {
+    width: 250px;
+    height: 30px;
+    padding: 0 0 0 10px;
+    border: $thin-black;
+}
+
+#dropdown-container {
+    position: relative;
+    width: 260px;
+    max-height: 300px;
+    display: none;
+    border-right: $thin-black;
+    border-left: $thin-black;
+    background: linear-gradient(white, #f2f2f2);
+    z-index: 9999;
+}
+
+#matches-list {
+    @extend %no-margins;
+    list-style: none;
+}
+                       
+.search-matches {
+    width: inherit;
+    @include vertAlign(30px);
+    padding-left: 10px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+/***** HEADER -> LOGOUT SECTION *****/
+
+#logout {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    width: 80px;
+    height: 32px;
+    border: none;
+    border-radius: 3px;
+    background: $red-gradient;
+    color: $white;
+    font-weight: bold;
+    font-size: $small-font;
+    cursor: pointer;
+}
+
+/***** HEADER -> MAIN MENU SECTION *****/
+
+#main-nav {
+    margin: 20px 0 60px;
+    padding: 0;
+    list-style: none;
+    
+    @include link-colors($color: white);
+}
+
+.nav-items {
+    position: relative;
+    width: ($max / 8);
+    @include vertAlign(40px);
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    background: $blue-gradient;
+}
+
+#dropdown-nav {
+    position: absolute;
+    width: $max;
+    @extend %no-margins;
+    display: none;
+    background: $dark-blue;
+    z-index: 500;
+}
+
+.dropdown-items {
+    @include vertAlign(25px);
+    width: $max - 10;
+    display: block;
+    text-align: left;
+    font-size: 13px;
+    padding-left: 5%;
+}
+
+/***** END OF HEADER *****/
+
+
+/***** MAIN CONTENT *****/
+
+#deleteButton {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-weight: bold;
+}
+
+#calendar-header {
+    width: 84%;
+    margin: 0 8% 20px;
+    position: relative;
+    
+    button {
+        font-weight: bold;
+    }
+}
+
+#pop-up {
+        @include center($top: 40%);
+        width: 30%;
+        height: 300px;
+        position: fixed;
+        visibility: hidden;
+        z-index: 1;
+        background: $dark-blue;
+        color: $white;
+        border-radius: 15px;
+        
+        span {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            cursor: pointer;
+        }
+    
+        table {
+            margin: 40px auto;
+            
+            tbody {
+                tr:nth-child(5) {
+                    td {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        
+        td:nth-child(2n+1) {
+            text-align: right;
+            font-size: $small-font;
+        }
+        
+        input {
+            height: 20px;
+            border: 1px solid black;
+            border-radius: 2px;
+            color: black;
+        }
+        
+        label {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.9em;
+        }
+    
+        #button {
+            background: linear-gradient(white, #c9c9c9);
+            margin-top: 30px;
+            width: 100px;
+            min-height: 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+}
+
+#calendar-container {
+    max-width: $max - 16;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 1px;
+    
+    table {
+        width: 100%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        
+        &:last-child {
+            margin-bottom: 150px;
+        }
+    }
+    
+    td {
+        width: $max - 90;
+        height: 130px;
+        border: 1px solid black;
+        position: relative;
+        background: #f9f9f9;
+        
+        span:nth-child(1) {
+            font-size: 2.3em;
+            position: absolute;
+            left: 5px;
+            top: 0;
+            font-weight: normal;
+            color: $dark-blue;
+        }
+        
+        p {
+            position: absolute;
+            left: 10px;
+            font-size: 1.1em;
+            
+            @mixin paraTop($top, $child) {
+                
+                &:nth-child(#{$child}) {
+                    top: $top;   
+                }
+            }
+            
+            @include paraTop($top: 30px, $child: 4);
+            @include paraTop($top: 50px, $child: 5);
+            @include paraTop($top: 70px, $child: 6);
+            @include paraTop($top: 90px, $child: 7);
+        }
+        
+        button {
+            width: auto;
+            height: 20px;
+            background: none;
+            border: 0;
+            font-size: 0.8em;
+            position: absolute;
+            right: 5px;
+            top: 22px;
+            font-weight: bold;
+            
+            &:hover {
+                color: #1ca0b4;
+                cursor: pointer;
+            }
+            
+            &:nth-child(2) {
+                top: 5px;
+            }
+        }
+    }
+    
+    #btt {
+        position: absolute;
+        bottom: 30px;
+        right: 20px;
+        font-size: 1.3em;
+        cursor: pointer;
+        color: $dark-blue;
+    }
+    
+    h1 {
+        font-size: 3em;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        color: $dark-blue;
+    }
+    
+    button {
+        color: $dark-blue;
+        
+        &:focus {
+            @extend %outlining;
+        }
+    }
+    
+    input {
+        
+        &:focus {
+            @extend %outlining;
+        }
+    }
+}
+
+
+
+
+#booking-container {
+    width: $max;
+    height: 100%;
+    position: relative;
+    
+    table {
+        width: 50%;
+        height: 100%;
+        margin: $center 100px;
+        
+        tr {
+            
+            td:nth-child(6n+1) {
+                border: 0;
+                font-weight: bold;
+                background: white;
+                text-align: right;
+                padding-right: 2%;
+            }
+            
+            td, td.available {
+                width: $max / 6;
+                height: 200px;
+                border: 1px solid black;
+                background: #8cf178;
+            }
+            
+            td.booked {
+                background: #c80d0d;
+            }
+        }
+    }
+}
+
+/***** BOOKING SYSTEM *****/
+
+#booking-container {
+    width: $max - 10;
+    margin: $center;
+}
+
+#days-wrapper {
+    position: relative;
+    width: $max;
+    margin: $center 30px;
+    
+    form:first-child {
+        width: $max - 50;
+        margin: $center;
+        display: table;
+    }
+}
+
+#day-row {
+    width: 100%;
+    display: table-row;
+}
+
+.day-btns {
+    width: 20%;
+    height: 30px;
+    display: table-cell;
+    border: 0;
+    color: $dark-blue;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background: none;
+}
+
+.active {
+    color: $white;
+    background: $dark-blue;
+}
+
+#scheme-table {
+    width: $max;
+    display: table;
+    margin-top: 50px;
+}
+
+#scheme-head {
+    height: 40px;
+}
+
+.scheme-row {
+    width: inherit;
+    display: table-row;
+}
+
+.scheme-cell {
+    position: relative;
+    width: 10%;
+    display: table-cell;
+    background-color: $soft-grey;
+    box-sizing: border-box;
+    border: 2px solid $white;
+}
+
+#scheme-date {
+    border: 0;
+    font-weight: bold;
+    font-size: 18px;
+    @include standardStyle($color: $dark-blue);
+}
+
+.scheme-classroom {
+    width: 11%;
+    line-height: 90px;
+    border: $dark-blue;
+    border-right: 2px solid $white;
+    font-weight: bold;
+    @include standardStyle($color: $dark-blue);
+}
+
+.scheme-time {
+    line-height: 40px;
+    border: 0;
+    @include standardStyle($color: $dark-blue);
+    font-size: 15px;
+}
+
+.subject {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 15px;
+}
+
+.booked-by {
+    position: absolute;
+    top: 35px;
+    left: 20px;
+    font-size: 14px;
+}
+
+#scheme-footer {
+    position: relative;
+    width: $max;
+    @include vertAlign(40px);
+    margin: 20px 0 0;
+    box-sizing: padding-box;
+}
+
+#book-wrapper {
+    position: absolute;
+    right: 80px;
+    display: inline-block;
+}
+
+#course-label {
+    display: none;
+    font-weight: bold;
+}
+
+#classSubject {
+    height: 24px;
+    display: none;
+}
+
+#cancel-wrapper {
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+}
+
+.booking-btns {
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    color: $white;
+}
+
+#book {
+    background: $green-gradient;
+}
+
+#cancel-booking {
+    background: $red-gradient;
+}
+
+.marked-cell {
+    background: #afafaf;
+}
+
+#selects-wrapper {
+    position: absolute;
+    right: 0;
+}
+
+.dropdown-selects {
+    height: 30px;
+    font-weight: bold;
+}
+
+#show-week {
+    height: 30px;
+    font-weight: bold;
+    background: $green-gradient;
+}
