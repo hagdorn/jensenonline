@@ -15,7 +15,7 @@
         <div id="inbox">
             <table>
                 <?php require_once('../includes/php/pm/getInbox.php');?>
-            </table>
+            
         </div>
     </div> <!-- Closes the template include -->
 </main>
