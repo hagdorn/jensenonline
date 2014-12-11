@@ -17,7 +17,7 @@
         <span id="slogan" class="logo-text">Träning för verkligheten</span>
 
     <?php
-        
+        include('functions/functions.php');
         $currentPage = check_current_page();
 
         if ($currentPage != 'login') {
@@ -31,6 +31,6 @@
             header('Location: ../public/login.php');
         }
 
-        include_once('php/security/autologout.php');
+        //include_once('php/security/autologout.php');
     ?>
     </header>

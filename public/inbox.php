@@ -1,6 +1,5 @@
 <?php
 	session_start();
-    require_once('../includes/functions/functions.php');
     include_header_files();
 
 	//Set the current box to be 'inbox'

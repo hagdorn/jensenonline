@@ -1,7 +1,6 @@
 <?php
     session_start();
-    include_once('../includes/header.php');
-    include_once('../includes/typeaccess.php');
+    include_header_files();
 
 	if ($_SESSION['type'] != 2){
 		header('Location: index.php');
