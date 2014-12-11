@@ -1,8 +1,7 @@
 <?php
 	session_start();
-	require_once('../includes/php/connections/db.php');
-    include_once('../includes/header.php');
-    include_once('../includes/typeaccess.php');
+    require_once('../includes/functions/functions.php');
+    include_header_files();
 
 	if(isset($_POST['sendmessage'])){
 		require_once('..includes/php/pm/send.php');
@@ -12,9 +11,9 @@
 <!-- body starts here -->
 
 <main>
-
 	
-    <?php include('../includes/msgtemplate.php'); ?>
+    <?php include_msg_template(); ?>
+    
         <form action="sendmsg.php" method="POST" id="send-msg-form">
             <table>
                 <tr>
@@ -61,6 +60,6 @@
 
 
 <?php
-    include('../includes/footer.php');
+    include_footer_files();
 ?>
 

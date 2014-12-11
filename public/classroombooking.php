@@ -8,7 +8,6 @@
 	}
 
 	include_once('../includes/php/getBookings.php');
-	
 ?>
 
 <!-- body starts here -->

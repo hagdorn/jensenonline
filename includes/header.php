@@ -17,10 +17,10 @@
         <span id="slogan" class="logo-text">Träning för verkligheten</span>
 
     <?php
-        //Get the page we're currently on without the .php extension
-        $basename = substr(strtolower(basename($_SERVER['PHP_SELF'])),0,strlen(basename($_SERVER['PHP_SELF']))-4);
+        
+        $currentPage = check_current_page();
 
-        if ($basename != 'login') {
+        if ($currentPage != 'login') {
             include_once('searchfield.php');
             include_once('logoutbutton.php');
         }
@@ -30,5 +30,7 @@
             session_destroy();
             header('Location: ../public/login.php');
         }
+
+        include_once('php/security/autologout.php');
     ?>
     </header>

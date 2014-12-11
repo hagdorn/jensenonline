@@ -1,12 +1,12 @@
 <?php
+
 	session_start();
-	require_once('../includes/php/connections/db.php');
-    include_once('../includes/header.php');
-    include_once('../includes/typeaccess.php');
+    require_once('../includes/functions/functions.php');
+    include_header_files();
 ?>
 
 <!-- body starts here -->
 
 <?php
-    include('../includes/footer.php');
+    include_footer_files();
 ?>

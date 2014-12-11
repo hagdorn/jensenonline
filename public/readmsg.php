@@ -1,23 +1,21 @@
 <?php
 	session_start();
-	require_once('../includes/php/connections/db.php');
-    include_once('../includes/header.php');
-    include_once('../includes/typeaccess.php');
+    require_once('../includes/functions/functions.php');
+    include_header_files();
 ?>
 
 <!-- body starts here -->
 
 <main>
     <div id="inbox-container" class="msg-menu msg-container">
-        <?php include_once('../includes/msgmenu.php'); ?>
-        
-			<?php require_once('../includes/php/pm/getMessage.php'); ?>
-			
-            <?php //include('includes/msgfooter.php'); ?>
-        
+        <?php 
+            include_once('../includes/msgmenu.php');
+            require_once('../includes/php/pm/getMessage.php');
+            //include('includes/msgfooter.php');
+        ?>
     </div>
 </main>
 
 <?php
-    include_once('../includes/footer.php');
+    include_footer_files();
 ?>
