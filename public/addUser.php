@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	require_once('../includes/functions/functions.php');
 	$_SESSION['id'] = "addUser";
 	
 	if(isset($_POST['adduser'])){
