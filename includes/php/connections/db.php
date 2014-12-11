@@ -4,7 +4,7 @@
 	if(isset($_POST['submit'])){
 		
 		//kryptera lösen innan koll
-		require_once('/../security/hash.php');
+		require_once('../includes/php/security/hash.php');
 		$hash = new Hash;
 		$encPassword = $hash->passwordEncrypt($_POST['username'],$_POST['password']);
 			
@@ -21,7 +21,7 @@
 
 function checkUserNameAndPassword($un, $pwd){
 	try{
-		require_once('pdoConnect.php');
+		require_once('../includes/php/connections/pdoConnect.php');
 		
         $query = "SELECT * ";
         $query .= "FROM useraccounts ";
