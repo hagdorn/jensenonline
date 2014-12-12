@@ -98,7 +98,7 @@ $(document).ready(function() {
             });
         }())
     }
-    
+  
 /****** CALENDAR ******/
     
         var calendarModel = {
@@ -646,10 +646,221 @@ $(document).ready(function() {
         }
     }
     
+
+/****** CREATE SURVEY ******/
     
+var surveyModel = {
     
+    container: $('#survey-wrapper'),
+    select: $('#numOfQuestions')
+}
+
+var surveyView = {
     
+    fillSelect: (function() {
+        
+        for (i = 4; i < 31; i++) {
+            
+            var option = $('<option></option>');
+            
+            if (i === 4) {
+                option.text('-- Välj antal frågor --');
+            }
+            else {
+                option.text(i + ' frågor');
+                option.val(i);
+            }
+            
+            option.appendTo(surveyModel.select);
+        }
+    }()),
+    spawnQuestions: function(quantity) {
+        
+        //Remove existing questions
+        surveyModel.container.children('form').remove();
+        
+        var form = $('<form></form>');
+            form.attr({method: 'POST',
+                       action: ''
+                      });
+        var ol = $('<ol></ol>');
+        
+        form.fadeIn().appendTo(surveyModel.container);
+        ol.appendTo(form);
+        
+        for (i = 0; i < quantity; i++) {
+            
+            var li = $('<li></li>');
+                li.appendTo(ol);
+            
+            var label = $('<label></label>');
+                label.appendTo(li);
+                label.attr({for: i + 1,
+                            id: i + 1,
+                            class: 'question-label'
+                           });
+            
+            var input = $('<input>');
+                input.appendTo(li);
+                input.attr({type: 'text',
+                            name: 'question' + (i + 1),
+                            id: i + 1,
+                            class: 'question-input',
+                            placeholder: 'Skriv din fråga här'
+                           });
+                input.on('input', function() {
+                    
+                    var labelString = "";
+                    var keyValue = $(this).val();
+                    var matchingLabel = $(this).attr('id');
+                    
+                    $('#' + matchingLabel).html(labelString + keyValue);
+                });
+            
+            var ul = $('<ul></ul>');
+                ul.attr('class', 'radio-ul');
+                ul.appendTo(li);
+            
+            var table = $('<table></table>');
+                table.appendTo(ul);
+            
+            for (j = 0; j < 5; j++) {
+                
+                var tr = $('<tr></tr>');
+                    tr.attr('class', 'radio-row');
+                    tr.appendTo(table);
+                
+                for (k = 0; k < 5; k++) {
+                    
+                    var td = $('<td></td>');
+                        td.attr('class', 'radio-cell');
+                        td.appendTo(tr);
+
+                    var radioOptions = ['Mycket bra', 'Bra', 'Varken bra eller dåligt',
+                                        'Dåligt', 'Mycket dåligt'];
+                    
+                    switch (k) {
+                        
+                        case 0: 
+                            var input = $('<input>');
+                                input.attr({type: 'radio',
+                                            name: 'question' + i
+                                           });
+                                input.appendTo(td);
+                            break;
+                            
+                        case 1:
+                            var label = $('<label></label>');
+                                label.attr('class', 'radio-label');
+                                label.text(radioOptions[j]);
+                                label.appendTo(td);
+                            break;
+                            
+                        case 2:
+                            var span = $('<span></span>');
+                                span.html('Ta bort');
+                                span.attr({id: 'remove' + i,
+                                           class: 'radio-remove-button',
+                                          });
+                                span.on('click', function() {
+
+                                    var parent = $(this).parent();
+                                    var grandParent = parent.parent();
+                                    
+                                    grandParent.fadeOut(400, function() {
+                                        grandParent.remove();
+                                    });
+                                });
+                                span.appendTo(td);
+                            break;    
+                            
+                        case 3:
+                            var span = $('<span></span>');
+                                span.html('Redigera');
+                                span.attr({id: 'edit' + i,
+                                           class: 'radio-edit-button',
+                                          });
+                                span.on('click', function() {
+
+                                    var parent = $(this).parent();
+                                    var grandParent = parent.parent();
+                                    
+                                    grandParent.find('.edit-input').fadeToggle();
+                                });
+                                span.appendTo(td);
+                            break;
+                            
+                        case 4:
+                            var editInput = $('<input>');
+                                editInput.attr({type: 'text',
+                                                name: 'somename',
+                                                id: 'edit' + i,
+                                                class: 'edit-input',
+                                                placeholder: 'Tryck ENTER för att spara'
+                                               });
+                                editInput.on('keyup keypress', function(e) {
+                
+                                    var code = e.keyCode || e.which; 
+
+                                    if (code  == 13) {               
+                                        e.preventDefault();
+                                        return false;
+                                    }
+                                });
+                                editInput.on('keydown', function(e) {
+                                    
+                                    if (e.keyCode === 13) {
+                                        
+                                        var inputValue = $(this).val();
+                                        
+                                        var parent = $(this).parent();
+                                        var grandParent = parent.parent();
+                                            grandParent.find('.radio-label').html(inputValue);
+                                        
+                                        $(this).fadeOut();
+                                    }
+                                });
+                                editInput.appendTo(td);
+                            break;
+                    }
+                }
+            }
+        }
+        
+        var input = $('<input></input>');
+            input.attr({type: 'submit',
+                        name: 'saveSurvey',
+                        id: 'saveSurvey',
+                        value: 'Spara enkät'
+                       });
+            input.on('keyup keypress', function(e) {
+                
+                var code = e.keyCode || e.which; 
+                
+                if (code  == 13) {               
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            input.appendTo(form);
+            
+    }
+}
+
+var surveyController = {
     
+    bindElements: (function() {
+        
+        surveyModel.select.change(function() {
+            
+            var optionValue = $(this).val();
+            
+            surveyView.spawnQuestions(optionValue);
+        });
+    }())
+}
+
+
     
     
     

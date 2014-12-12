@@ -93,7 +93,6 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'previussurveys'
                 }
             ],
-            URL: 'surveys',
             id: 'surveys'
         },
         {
@@ -287,7 +286,7 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
             title: 'Verktyg',
             items: [
                 {
-                    title: 'Ladda ner Dreamspark produkter',
+                    title: 'Dreamspark produkter',
                     URL: 'dreamspark'
                 }
             ],
