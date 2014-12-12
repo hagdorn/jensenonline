@@ -547,3 +547,47 @@ main {
     font-weight: bold;
     background: $green-gradient;
 }
+
+/***** SURVEY CREATION *****/
+
+#survey-wrapper {
+    width: $max - 20;
+    margin: $center;
+    
+}
+
+.question-label {
+    margin-right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.question-input {
+    
+}
+
+.radio-cell {
+    height: 30px;
+    padding: 0;
+}
+
+.radio-label {
+    margin-left: 5px;
+}
+
+.radio-edit-button { //--DRY THIS
+    margin: 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.radio-remove-button { //--DRY THIS
+    margin: 0 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-input {
+    height: 24px;
+    display: none;
+}

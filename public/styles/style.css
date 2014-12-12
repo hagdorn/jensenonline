@@ -548,4 +548,35 @@ body {
   font-weight: bold;
   background: linear-gradient(#4fef00, #3db700); }
 
+/***** SURVEY CREATION *****/
+#survey-wrapper {
+  width: 80%;
+  margin: 0 auto; }
+
+.question-label {
+  margin-right: 10px;
+  font-size: 24px;
+  font-weight: bold; }
+
+.radio-cell {
+  height: 30px;
+  padding: 0; }
+
+.radio-label {
+  margin-left: 5px; }
+
+.radio-edit-button {
+  margin: 0;
+  font-weight: bold;
+  cursor: pointer; }
+
+.radio-remove-button {
+  margin: 0 10px;
+  font-weight: bold;
+  cursor: pointer; }
+
+.edit-input {
+  height: 24px;
+  display: none; }
+
 /*# sourceMappingURL=style.css.map */
