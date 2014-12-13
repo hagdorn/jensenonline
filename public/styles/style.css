@@ -551,46 +551,56 @@ body {
 /***** SURVEY CREATION *****/
 #survey-wrapper {
   width: 80%;
-  margin: 0 auto; }
+  margin: 0 auto 200px; }
 
 .question-label {
   margin-right: 10px;
   font-size: 24px;
   font-weight: bold; }
 
+.radio-label {
+  margin-left: 5px; }
+
+.choose-type-label {
+  margin-right: 10px; }
+
 .question-input {
   height: 25px; }
+
+.edit-input {
+  height: 24px;
+  display: none; }
+
+.radio-choose-type {
+  margin-right: 5px; }
 
 .radio-cell {
   height: 30px;
   padding: 0; }
-
-.radio-label {
-  margin-left: 5px; }
 
 .choose-type-ul {
   list-style: none;
   padding: 0;
   margin: 10px; }
 
-.choose-type-label {
-  margin-right: 10px; }
-
-.radio-choose-type {
-  margin-right: 5px; }
+.radio-edit-button, .radio-remove-button {
+  font-weight: bold;
+  cursor: pointer; }
 
 .radio-edit-button {
-  margin: 0 10px 0 0;
-  font-weight: bold;
-  cursor: pointer; }
+  margin: 0 10px 0 0; }
 
 .radio-remove-button {
-  margin: 0 10px;
-  font-weight: bold;
-  cursor: pointer; }
+  margin: 0 10px; }
 
-.edit-input {
-  height: 24px;
-  display: none; }
+.user-textfield {
+  width: 250px;
+  height: 100px; }
+
+fieldset {
+  margin-bottom: 30px; }
+
+legend {
+  font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */

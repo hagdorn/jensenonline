@@ -552,27 +552,42 @@ main {
 
 #survey-wrapper {
     width: $max - 20;
-    margin: $center;
-    
+    margin: $center 200px;
 }
 
+//Labels
 .question-label {
     margin-right: 10px;
     font-size: 24px;
     font-weight: bold;
 }
 
+.radio-label {
+    margin-left: 5px;
+}
+
+.choose-type-label {
+    margin-right: 10px;
+}
+
+//Inputs
 .question-input {
     height: 25px;
 }
 
+.edit-input {
+    height: 24px;
+    display: none;
+}
+
+.radio-choose-type {
+    margin-right: 5px;
+}
+
+//Other
 .radio-cell {
     height: 30px;
     padding: 0;
-}
-
-.radio-label {
-    margin-left: 5px;
 }
 
 .choose-type-ul {
@@ -581,27 +596,28 @@ main {
     margin: 10px;
 }
 
-.choose-type-label {
-    margin-right: 10px;
+.radio-edit-button, .radio-remove-button {
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.radio-choose-type {
-    margin-right: 5px;
-}
-
-.radio-edit-button { //--DRY THIS
+.radio-edit-button {
     margin: 0 10px 0 0;
-    font-weight: bold;
-    cursor: pointer;
 }
 
-.radio-remove-button { //--DRY THIS
+.radio-remove-button {
     margin: 0 10px;
-    font-weight: bold;
-    cursor: pointer;
 }
 
-.edit-input {
-    height: 24px;
-    display: none;
+.user-textfield {
+    width: 250px;
+    height: 100px;
+}
+
+fieldset {
+    margin-bottom: 30px;
+}
+
+legend {
+    font-weight: bold;
 }

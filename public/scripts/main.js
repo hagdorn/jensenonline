@@ -791,6 +791,7 @@ var surveyView = {
     createTextArea: function(parent) {
         
         var textarea = $('<textarea></textarea>');
+            textarea.attr('class', 'user-textfield');
             textarea.fadeIn().appendTo(parent);
         
     },
@@ -814,8 +815,15 @@ var surveyView = {
             var li = $('<li></li>');
                 li.appendTo(ol);
             
+            var fieldset = $('<fieldset></fieldset>');
+                fieldset.appendTo(li);
+            
+            var legend = $('<legend></legend>');
+                legend.html('Fråga ' + (i + 1));
+                legend.appendTo(fieldset);
+            
             var label = $('<label></label>');
-                label.appendTo(li);
+                label.appendTo(fieldset);
                 label.attr({for: i + 1,
                             id: i + 1,
                             class: 'question-label'
@@ -840,13 +848,13 @@ var surveyView = {
 
                         $('#' + matchingLabel).html(labelString + keyValue);
                     });
-                    input.appendTo(li);
+                    input.appendTo(fieldset);
                 }
                 else {
                     if (m === 1) {
                         var ul = $('<ul></ul>');
                             ul.attr({class: 'choose-type-ul'});
-                            ul.appendTo(li);
+                            ul.appendTo(fieldset);
                         
                         var subLi = $('<li></li>');
                             subLi.appendTo(ul);
