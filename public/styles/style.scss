@@ -563,7 +563,7 @@ main {
 }
 
 .question-input {
-    
+    height: 25px;
 }
 
 .radio-cell {
@@ -575,8 +575,22 @@ main {
     margin-left: 5px;
 }
 
+.choose-type-ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.choose-type-label {
+    margin-right: 10px;
+}
+
+.radio-choose-type {
+    margin-right: 5px;
+}
+
 .radio-edit-button { //--DRY THIS
-    margin: 0;
+    margin: 0 10px 0 0;
     font-weight: bold;
     cursor: pointer;
 }

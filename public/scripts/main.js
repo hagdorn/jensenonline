@@ -674,6 +674,126 @@ var surveyView = {
             option.appendTo(surveyModel.select);
         }
     }()),
+    createRadioInputs: function(parent) {
+        
+        var ul = $('<ul></ul>');
+            ul.attr('class', 'radio-ul');
+            ul.fadeIn().appendTo(parent);
+            
+        var table = $('<table></table>');
+            table.appendTo(ul);
+
+        for (j = 0; j < 5; j++) {
+
+            var tr = $('<tr></tr>');
+                tr.attr('class', 'radio-row');
+                tr.appendTo(table);
+
+            for (k = 0; k < 5; k++) {
+
+                var td = $('<td></td>');
+                    td.attr('class', 'radio-cell');
+                    td.appendTo(tr);
+
+                var radioOptions = ['Mycket bra', 'Bra', 'Varken bra eller dåligt',
+                                    'Dåligt', 'Mycket dåligt'];
+
+                switch (k) {
+
+                    case 0: 
+                        var input = $('<input>');
+                            input.attr({type: 'radio',
+                                        name: 'input' + i + (k + 1),
+                                        id: 'input' + i + j + (k + 1)
+                                       });
+                            input.appendTo(td);
+                        break;
+
+                    case 1:
+                        var label = $('<label></label>');
+                            label.attr({class: 'radio-label',
+                                        for: 'input' + i + j + k
+                                       });
+                            label.text(radioOptions[j]);
+                            label.appendTo(td);
+                        break;
+
+                    case 2:
+                        var span = $('<span></span>');
+                            span.html('Ta bort');
+                            span.attr({id: 'remove' + i,
+                                       class: 'radio-remove-button',
+                                      });
+                            span.on('click', function() {
+
+                                var parent = $(this).parent();
+                                var grandParent = parent.parent();
+
+                                grandParent.fadeOut(400, function() {
+                                    grandParent.remove();
+                                });
+                            });
+                            span.appendTo(td);
+                        break;    
+
+                    case 3:
+                        var span = $('<span></span>');
+                            span.html('Redigera');
+                            span.attr({id: 'edit' + i,
+                                       class: 'radio-edit-button',
+                                      });
+                            span.on('click', function() {
+
+                                var parent = $(this).parent();
+                                var grandParent = parent.parent();
+
+                                grandParent.find('.edit-input').fadeToggle();
+                            });
+                            span.appendTo(td);
+                        break;
+
+                    case 4:
+                        var editInput = $('<input>');
+                            editInput.attr({type: 'text',
+                                            name: 'somename',
+                                            id: 'edit' + i,
+                                            class: 'edit-input',
+                                            placeholder: 'Tryck ENTER för att spara'
+                                           });
+                            editInput.on('keyup keypress', function(e) {
+
+                                var code = e.keyCode || e.which; 
+
+                                if (code  == 13) {               
+                                    e.preventDefault();
+                                    return false;
+                                }
+                            });
+                            editInput.on('keydown', function(e) {
+
+                                if (e.keyCode === 13) {
+
+                                    var inputValue = $(this).val();
+
+                                    var parent = $(this).parent();
+                                    var grandParent = parent.parent();
+                                        grandParent.find('.radio-label').html(inputValue);
+
+                                    $(this).fadeOut();
+                                }
+                            });
+                            editInput.appendTo(td);
+                        break;
+                }
+            }
+        }
+    },
+    createTextArea: function(parent) {
+        
+        var textarea = $('<textarea></textarea>');
+            textarea.fadeIn().appendTo(parent);
+        
+    },
     spawnQuestions: function(quantity) {
         
         //Remove existing questions
@@ -683,6 +803,7 @@ var surveyView = {
             form.attr({method: 'POST',
                        action: ''
                       });
+        
         var ol = $('<ol></ol>');
         
         form.fadeIn().appendTo(surveyModel.container);
@@ -700,132 +821,89 @@ var surveyView = {
                             class: 'question-label'
                            });
             
-            var input = $('<input>');
-                input.appendTo(li);
-                input.attr({type: 'text',
-                            name: 'question' + (i + 1),
-                            id: i + 1,
-                            class: 'question-input',
-                            placeholder: 'Skriv din fråga här'
-                           });
-                input.on('input', function() {
-                    
-                    var labelString = "";
-                    var keyValue = $(this).val();
-                    var matchingLabel = $(this).attr('id');
-                    
-                    $('#' + matchingLabel).html(labelString + keyValue);
-                });
-            
-            var ul = $('<ul></ul>');
-                ul.attr('class', 'radio-ul');
-                ul.appendTo(li);
-            
-            var table = $('<table></table>');
-                table.appendTo(ul);
-            
-            for (j = 0; j < 5; j++) {
+            for (m = 0; m < 3; m++) {
                 
-                var tr = $('<tr></tr>');
-                    tr.attr('class', 'radio-row');
-                    tr.appendTo(table);
-                
-                for (k = 0; k < 5; k++) {
+                var input = $('<input>');
                     
-                    var td = $('<td></td>');
-                        td.attr('class', 'radio-cell');
-                        td.appendTo(tr);
+                if (m === 0) {
+                    input.attr({type: 'text',
+                                name: 'question' + (i + 1),
+                                id: i + 1,
+                                class: 'question-input',
+                                placeholder: 'Skriv din fråga här'
+                               });
+                    input.on('input', function() {
 
-                    var radioOptions = ['Mycket bra', 'Bra', 'Varken bra eller dåligt',
-                                        'Dåligt', 'Mycket dåligt'];
-                    
-                    switch (k) {
-                        
-                        case 0: 
-                            var input = $('<input>');
-                                input.attr({type: 'radio',
-                                            name: 'question' + i
-                                           });
-                                input.appendTo(td);
-                            break;
-                            
-                        case 1:
-                            var label = $('<label></label>');
-                                label.attr('class', 'radio-label');
-                                label.text(radioOptions[j]);
-                                label.appendTo(td);
-                            break;
-                            
-                        case 2:
-                            var span = $('<span></span>');
-                                span.html('Ta bort');
-                                span.attr({id: 'remove' + i,
-                                           class: 'radio-remove-button',
-                                          });
-                                span.on('click', function() {
+                        var labelString = "";
+                        var keyValue = $(this).val();
+                        var matchingLabel = $(this).attr('id');
 
-                                    var parent = $(this).parent();
-                                    var grandParent = parent.parent();
-                                    
-                                    grandParent.fadeOut(400, function() {
-                                        grandParent.remove();
-                                    });
-                                });
-                                span.appendTo(td);
-                            break;    
-                            
-                        case 3:
-                            var span = $('<span></span>');
-                                span.html('Redigera');
-                                span.attr({id: 'edit' + i,
-                                           class: 'radio-edit-button',
-                                          });
-                                span.on('click', function() {
-
-                                    var parent = $(this).parent();
-                                    var grandParent = parent.parent();
-                                    
-                                    grandParent.find('.edit-input').fadeToggle();
-                                });
-                                span.appendTo(td);
-                            break;
-                            
-                        case 4:
-                            var editInput = $('<input>');
-                                editInput.attr({type: 'text',
-                                                name: 'somename',
-                                                id: 'edit' + i,
-                                                class: 'edit-input',
-                                                placeholder: 'Tryck ENTER för att spara'
-                                               });
-                                editInput.on('keyup keypress', function(e) {
-                
-                                    var code = e.keyCode || e.which; 
-
-                                    if (code  == 13) {               
-                                        e.preventDefault();
-                                        return false;
-                                    }
-                                });
-                                editInput.on('keydown', function(e) {
-                                    
-                                    if (e.keyCode === 13) {
-                                        
-                                        var inputValue = $(this).val();
-                                        
-                                        var parent = $(this).parent();
-                                        var grandParent = parent.parent();
-                                            grandParent.find('.radio-label').html(inputValue);
-                                        
-                                        $(this).fadeOut();
-                                    }
-                                });
-                                editInput.appendTo(td);
-                            break;
-                    }
+                        $('#' + matchingLabel).html(labelString + keyValue);
+                    });
+                    input.appendTo(li);
                 }
-            }
-        }
+                else {
+                    if (m === 1) {
+                        var ul = $('<ul></ul>');
+                            ul.attr({class: 'choose-type-ul'});
+                            ul.appendTo(li);
+                        
+                        var subLi = $('<li></li>');
+                            subLi.appendTo(ul);
+                    }
+                    
+                    input.attr({type: 'radio',
+                                name: 'type' + i,
+                                id: 'type' + i + m,
+                                class: 'radio-choose-type'
+                               });
+                    
+                    if (m === 1) {
+                        input.attr('class', 'radio');
+                    }
+                    else {
+                        input.attr('class', 'input');
+                    }
+                    
+                    input.change(function() {
+                        
+                        //Outer li element
+                        var grandGrandParent = $(this).parent().parent().parent();
+                        
+                        //If THIS has the input class and a .radio-ul exists, 
+                        //remove the .radio-ul and add a textarea
+                        if ($(this).hasClass('input') && grandGrandParent.find('.radio-ul').length != 0) {
+                            
+                            grandGrandParent.find('.radio-ul').remove();
+                            surveyView.createTextArea(grandGrandParent);
+                        }
+                        else if ($(this).hasClass('radio')) {
+                            
+                            grandGrandParent.find('textarea').remove();
+                            surveyView.createRadioInputs(grandGrandParent);
+                        }
+                        else {
+                            surveyView.createTextArea(grandGrandParent);
+                        }
+                        
+                    });
+                    input.appendTo(subLi);
+                    
+                    var label = $('<label></label>');
+                        label.attr({for: 'type' + i + m,
+                                    class: 'choose-type-label'
+                                   });
+                    
+                        if (m === 1) {
+                            label.html('Checkboxes');
+                        }
+                        else if (m === 2) {
+                            label.html('Input');
+                        }
+                        label.appendTo(subLi);
+                }
+            } //End of m
+        } //End of i
         
         var input = $('<input></input>');
             input.attr({type: 'submit',
@@ -843,7 +921,7 @@ var surveyView = {
                 }
             });
             input.appendTo(form);
-            
+        
     }
 }
 
