@@ -637,7 +637,7 @@ $(document).ready(function() {
             
             //Return a promise
             return $.ajax({
-                url : "ajax/" + filename + ".php",
+                url: "ajax/" + filename + ".php",
                 type: "POST"
             });
         },
@@ -656,44 +656,72 @@ var surveyModel = {
 }
 
 var surveyView = {
-    
-    fillSelect: (function() {
+    addSingleQuestion: function(num, btnID) {
+        surveyView.spawnQuestions(1, btnID);
+    },
+    createElement: function(elementToCreate, elementToAppendTo, isFadeIn) {
         
-        for (i = 4; i < 31; i++) {
+        var noEndTagElements = ['input', 'option'];
+        
+        if (noEndTagElements.indexOf(elementToCreate) === -1) {
+            var element = $('<' + elementToCreate + '></' + elementToCreate + '');
+        }
+        else {
+            var element = $('<' + elementToCreate + '>');
+        }
+        
+        if (isFadeIn === true) {
+            element.fadeIn().appendTo(elementToAppendTo);
+        }
+        else if (isFadeIn === undefined || isFadeIn === false) {
+            element.appendTo(elementToAppendTo);
+        }
+        
+        return element;
+    },
+    checkFunctionCaller: function(quantity, clickedElement) {
+        
+        if (clickedElement === 'addOneQuestion') {
             
-            var option = $('<option></option>');
-            
-            if (i === 4) {
-                option.text('-- Välj antal frågor --');
+            if ($('#survey-wrapper').find('form').length === 0) {
+                return;
             }
             else {
-                option.text(i + ' frågor');
-                option.val(i);
+                surveyView.spawnQuestions(1);
             }
-            
-            option.appendTo(surveyModel.select);
         }
-    }()),
+        else {
+            //Remove existing questions
+            surveyModel.container.children('form').remove();
+            
+            var form = surveyView.createElement('form', surveyModel.container, true);
+                form.attr({method: 'POST',
+                           action: ''
+                          });
+        
+            var ol = surveyView.createElement('ol', form);
+            
+            surveyView.spawnQuestions(quantity);
+            
+            return ol;
+        }
+    },
     createRadioInputs: function(parent) {
         
-        var ul = $('<ul></ul>');
+        var ul = surveyView.createElement('ul', parent, true);
             ul.attr('class', 'radio-ul');
-            ul.fadeIn().appendTo(parent);
             
-        var table = $('<table></table>');
-            table.appendTo(ul);
+        var table = surveyView.createElement('table', ul);
 
         for (j = 0; j < 5; j++) {
 
-            var tr = $('<tr></tr>');
+            var tr = surveyView.createElement('tr', table);
                 tr.attr('class', 'radio-row');
-                tr.appendTo(table);
 
             for (k = 0; k < 5; k++) {
 
-                var td = $('<td></td>');
+                var td = surveyView.createElement('td', tr);
                     td.attr('class', 'radio-cell');
-                    td.appendTo(tr);
 
                 var radioOptions = ['Mycket bra', 'Bra', 'Varken bra eller dåligt',
                                     'Dåligt', 'Mycket dåligt'];
@@ -701,29 +729,25 @@ var surveyView = {
                 switch (k) {
 
                     case 0: 
-                        var input = $('<input>');
+                        var input = surveyView.createElement('input', td);
                             input.attr({type: 'radio',
                                         name: 'input' + i + (k + 1),
                                         id: 'input' + i + j + (k + 1)
                                        });
-                            input.appendTo(td);
                         break;
 
                     case 1:
-                        var label = $('<label></label>');
+                        var label = surveyView.createElement('label', td);
                             label.attr({class: 'radio-label',
                                         for: 'input' + i + j + k
                                        });
                             label.text(radioOptions[j]);
-                            label.appendTo(td);
                         break;
 
                     case 2:
-                        var span = $('<span></span>');
+                        var span = surveyView.createElement('span', td);
                             span.html('Ta bort');
-                            span.attr({id: 'remove' + i,
-                                       class: 'radio-remove-button',
-                                      });
+                            span.attr({class: 'radio-remove-button'});
                             span.on('click', function() {
 
                                 var parent = $(this).parent();
@@ -733,15 +757,12 @@ var surveyView = {
                                     grandParent.remove();
                                 });
                             });
-                            span.appendTo(td);
                         break;    
 
                     case 3:
-                        var span = $('<span></span>');
+                        var span = surveyView.createElement('span', td);
                             span.html('Redigera');
-                            span.attr({id: 'edit' + i,
-                                       class: 'radio-edit-button',
-                                      });
+                            span.attr({class: 'radio-edit-button'});
                             span.on('click', function() {
 
                                 var parent = $(this).parent();
@@ -749,169 +770,24 @@ var surveyView = {
 
                                 grandParent.find('.edit-input').fadeToggle();
                             });
-                            span.appendTo(td);
                         break;
 
                     case 4:
-                        var editInput = $('<input>');
+                        var editInput = surveyView.createElement('input', td);
                             editInput.attr({type: 'text',
                                             name: 'somename',
                                             id: 'edit' + i,
                                             class: 'edit-input',
                                             placeholder: 'Tryck ENTER för att spara'
                                            });
-                            editInput.on('keyup keypress', function(e) {
-
-                                var code = e.keyCode || e.which; 
-
-                                if (code  == 13) {               
-                                    e.preventDefault();
-                                    return false;
-                                }
-                            });
-                            editInput.on('keydown', function(e) {
-
-                                if (e.keyCode === 13) {
-
-                                    var inputValue = $(this).val();
-
-                                    var parent = $(this).parent();
-                                    var grandParent = parent.parent();
-                                        grandParent.find('.radio-label').html(inputValue);
-
-                                    $(this).fadeOut();
-                                }
-                            });
-                            editInput.appendTo(td);
+                            editInput.on('keyup keypress', surveyController.preventEnterSubmit);
+                            editInput.on('keydown', surveyController.updateRadioOption);
                         break;
                 }
             }
         }
     },
-    createTextArea: function(parent) {
-        
-        var textarea = $('<textarea></textarea>');
-            textarea.attr('class', 'user-textfield');
-            textarea.fadeIn().appendTo(parent);
-        
-    },
-    spawnQuestions: function(quantity) {
-        
-        //Remove existing questions
-        surveyModel.container.children('form').remove();
-        
-        var form = $('<form></form>');
-            form.attr({method: 'POST',
-                       action: ''
-                      });
-        
-        var ol = $('<ol></ol>');
-        
-        form.fadeIn().appendTo(surveyModel.container);
-        ol.appendTo(form);
-        
-        for (i = 0; i < quantity; i++) {
-            
-            var li = $('<li></li>');
-                li.appendTo(ol);
-            
-            var fieldset = $('<fieldset></fieldset>');
-                fieldset.appendTo(li);
-            
-            var legend = $('<legend></legend>');
-                legend.html('Fråga ' + (i + 1));
-                legend.appendTo(fieldset);
-            
-            var label = $('<label></label>');
-                label.appendTo(fieldset);
-                label.attr({for: i + 1,
-                            id: i + 1,
-                            class: 'question-label'
-                           });
-            
-            for (m = 0; m < 3; m++) {
-                
-                var input = $('<input>');
-                    
-                if (m === 0) {
-                    input.attr({type: 'text',
-                                name: 'question' + (i + 1),
-                                id: i + 1,
-                                class: 'question-input',
-                                placeholder: 'Skriv din fråga här'
-                               });
-                    input.on('input', function() {
-
-                        var labelString = "";
-                        var keyValue = $(this).val();
-                        var matchingLabel = $(this).attr('id');
-
-                        $('#' + matchingLabel).html(labelString + keyValue);
-                    });
-                    input.appendTo(fieldset);
-                }
-                else {
-                    if (m === 1) {
-                        var ul = $('<ul></ul>');
-                            ul.attr({class: 'choose-type-ul'});
-                            ul.appendTo(fieldset);
-                        
-                        var subLi = $('<li></li>');
-                            subLi.appendTo(ul);
-                    }
-                    
-                    input.attr({type: 'radio',
-                                name: 'type' + i,
-                                id: 'type' + i + m,
-                                class: 'radio-choose-type'
-                               });
-                    
-                    if (m === 1) {
-                        input.attr('class', 'radio');
-                    }
-                    else {
-                        input.attr('class', 'input');
-                    }
-                    
-                    input.change(function() {
-                        
-                        //Outer li element
-                        var grandGrandParent = $(this).parent().parent().parent();
-                        
-                        //If THIS has the input class and a .radio-ul exists, 
-                        //remove the .radio-ul and add a textarea
-                        if ($(this).hasClass('input') && grandGrandParent.find('.radio-ul').length != 0) {
-                            
-                            grandGrandParent.find('.radio-ul').remove();
-                            surveyView.createTextArea(grandGrandParent);
-                        }
-                        else if ($(this).hasClass('radio')) {
-                            
-                            grandGrandParent.find('textarea').remove();
-                            surveyView.createRadioInputs(grandGrandParent);
-                        }
-                        else {
-                            surveyView.createTextArea(grandGrandParent);
-                        }
-                        
-                    });
-                    input.appendTo(subLi);
-                    
-                    var label = $('<label></label>');
-                        label.attr({for: 'type' + i + m,
-                                    class: 'choose-type-label'
-                                   });
-                    
-                        if (m === 1) {
-                            label.html('Checkboxes');
-                        }
-                        else if (m === 2) {
-                            label.html('Input');
-                        }
-                        label.appendTo(subLi);
-                }
-            } //End of m
-        } //End of i
+    createSubmitBtn: function(form) {
         
         var input = $('<input></input>');
             input.attr({type: 'submit',
@@ -929,7 +805,124 @@ var surveyView = {
                 }
             });
             input.appendTo(form);
+    },
+    createTextArea: function(parent) {
         
+        var textarea = surveyView.createElement('textarea', parent, true);
+            textarea.attr('class', 'user-textfield');
+        
+    },
+    fillSelect: (function() {
+        
+        for (i = 4; i < 31; i++) {
+            
+            var option = $('<option></option>');
+            
+            if (i === 4) {
+                option.text('-- Välj antal frågor --');
+            }
+            else {
+                option.text(i + ' frågor');
+                option.val(i);
+            }
+            
+            option.appendTo(surveyModel.select);
+        }
+    }()),
+    getTemplate: function() {
+        
+        var promise = $.ajax({
+                        url: 'json/templateqa.json',
+                        type: 'GET',
+                        dataType: 'json'
+                      });
+        
+        return promise;
+    },
+    spawnQuestions: function(quantity) {
+        
+        var promise = surveyView.getTemplate();
+            promise.done(function(data) {
+                console.log(data);
+            });
+        console.log(promise);
+    
+        var form = $('#survey-wrapper').find('form');
+        var ol = $('#survey-wrapper').find('ol');
+            
+        for (i = 0; i < quantity; i++) {
+            
+            var li = surveyView.createElement('li', ol);
+            var fieldset = surveyView.createElement('fieldset', li);
+            
+            var legend = surveyView.createElement('legend', fieldset);
+                legend.html('Fråga ' + (i + 1));
+            
+            var label = surveyView.createElement('label', fieldset);
+                label.attr({for: i + 1,
+                            id: i + 1,
+                            class: 'question-label'
+                           });
+            
+            for (m = 0; m < 3; m++) {
+                
+                var input = $('<input>');
+                    
+                if (m === 0) {
+                    input.attr({type: 'text',
+                                name: 'question' + (i + 1),
+                                id: i + 1,
+                                class: 'question-input',
+                                placeholder: 'Skriv din fråga här'
+                               });
+                    input.on('input', surveyController.updateQuestion);
+                    input.appendTo(fieldset);
+                }
+                else {
+                    if (m === 1) {
+                        var ul = surveyView.createElement('ul', fieldset);
+                            ul.attr({class: 'choose-type-ul'});
+                        
+                        var subLi = surveyView.createElement('li', ul);
+                    }
+                    
+                    input.attr({type: 'radio',
+                                name: 'type' + i,
+                                id: 'type' + i + m,
+                                class: 'radio-choose-type'
+                               });
+                    
+                    if (m === 1) {
+                        input.attr('class', 'radio');
+                    }
+                    else {
+                        input.attr('class', 'input');
+                    }
+                    
+                    input.change(surveyController.changeTypeOfInput);
+                    input.appendTo(subLi);
+                    
+                    var label = surveyView.createElement('label', subLi);
+                        label.attr({for: 'type' + i + m,
+                                    class: 'choose-type-label'
+                                   });
+                    
+                    if (m === 1) {
+                        label.html('Kryssrutor');
+                    }
+                    else if (m === 2) {
+                        label.html('Textfält');
+                    }
+                }
+            } //End of m
+        } //End of i
+        
+        if ($('#survey-wrapper').find('#saveSurvey').length != 0) {
+            return;
+        }
+        else {
+            surveyView.createSubmitBtn(form);
+        }
     }
 }
 
@@ -937,15 +930,66 @@ var surveyController = {
     
     bindElements: (function() {
         
+        $('#addOneQuestion').on('click', function() {
+            surveyView.addSingleQuestion(1, $(this).attr('id'));
+        });
+        
         surveyModel.select.change(function() {
             
             var optionValue = $(this).val();
-            
-            surveyView.spawnQuestions(optionValue);
+            surveyView.checkFunctionCaller(optionValue, surveyModel.select);
         });
-    }())
-}
+    }()),
+    changeTypeOfInput: function() {
+        
+        //Outer li element
+        var grandGrandParent = $(this).parent().parent().parent();
 
+        //If THIS has the input class and a .radio-ul exists, 
+        //remove the .radio-ul and add a textarea
+        if ($(this).hasClass('input') && grandGrandParent.find('.radio-ul').length != 0) {
+
+            grandGrandParent.find('.radio-ul').remove();
+            surveyView.createTextArea(grandGrandParent);
+        }
+        else if ($(this).hasClass('radio')) {
+
+            grandGrandParent.find('textarea').remove();
+            surveyView.createRadioInputs(grandGrandParent);
+        }
+        else {
+            surveyView.createTextArea(grandGrandParent);
+        }
+    },
+    preventEnterSubmit: function(e) { //Prevent the user from accidentally submitting the survey with ENTER
+        
+        var code = e.keyCode || e.which; 
+
+        if (code  == 13) {               
+            e.preventDefault();
+            return false;
+        }
+    },
+    updateRadioOption: function(e) {
+        
+        if (e.keyCode === 13) {
+
+            var inputValue = $(this).val();
+            var grandParent = $(this).parent().parent();
+                grandParent.find('.radio-label').html(inputValue);
+
+            $(this).fadeOut();
+        }
+    },
+    updateQuestion: function() {
+        
+        var labelString = "";
+        var keyValue = $(this).val();
+        var matchingLabel = $(this).attr('id');
+
+        $('#' + matchingLabel).html(labelString + keyValue);
+    }
+}
 
     
     

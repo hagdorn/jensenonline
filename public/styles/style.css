@@ -601,6 +601,7 @@ fieldset {
   margin-bottom: 30px; }
 
 legend {
-  font-weight: bold; }
+  font-weight: bold;
+  padding: 0 5px; }
 
 /*# sourceMappingURL=style.css.map */

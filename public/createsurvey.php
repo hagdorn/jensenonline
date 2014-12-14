@@ -8,6 +8,7 @@
     <h1>Skapa enkät</h1>
     <h2>Välj hur enkäten ska se ut nedan.</h2>
     <select id="numOfQuestions"></select>
+    <button id="addOneQuestion">Lägg till en ny fråga</button>
 </div>
 
 <?php
