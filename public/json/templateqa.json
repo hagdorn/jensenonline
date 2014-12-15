@@ -1,55 +1,34 @@
-{'templateQA': {
-    
-    'question_info': {
-        'legend': 'Fråga 1', //i loop
-        'labelFor': '1', //i loop
-        'inputID': '1', //i loop
-        'inputName': 'question', //i loop
-    },
-    'input_type': {
-        
-        'type_radio': {
-            'labelFor': 'radio', //i loop
-            'labelText': 'Kryssrutor',
-            'inputID': 'radio', //i loop
-            'inputName': 'type' //i loop
+{
+    "templateQA": {
+        "question_info": {
+            "legend": "Fråga",
+            "labelFor": 0,
+            "inputID": 0,
+            "inputName": "question"
         },
-        'type_textarea': {
-            'labelFor': 'text', //i loop
-            'labelText': 'Textfält',
-            'inputID': 'text', //i loop
-            'inputName': 'type' //i loop
+        "input_type": {
+            "type_radio": {
+                "labelFor": "radio",
+                "labelText": "Kryssrutor",
+                "inputID": "radio",
+                "inputName": "type"
+            },
+            "type_textarea": {
+                "labelFor": "text",
+                "labelText": "Textfält",
+                "inputID": "text",
+                "inputName": "type"
+            }
+        },
+        "radio_choices": {
+            "choices": {
+                "labelFor": "choice",
+                "inputID": "choice",
+                "inputName": "choicesquestion"
+            }
+        },
+        "textarea": {
+            "inputName": "textarea"
         }
-    },
-    'radio_choices': {
-        
-        'first_choice': {
-            'labelFor': 'choice', //j loop
-            'inputID': 'choice', //j loop
-            'inputName': 'choicesquestion' //i loop
-        },
-        'second_choice': {
-            'labelFor': 'choice', //j loop
-            'inputID': 'choice', //j loop
-            'inputName': 'choicesquestion' //i loop
-        },
-        'third_choice': {
-            'labelFor': 'choice', //j loop
-            'inputID': 'choice', //j loop
-            'inputName': 'choicesquestion' //i loop
-        },
-        'fourth_choice': {
-            'labelFor': 'choice', //j loop
-            'inputID': 'choice', //j loop
-            'inputName': 'choicesquestion' //i loop
-        },
-        'fifth_choice': {
-            'labelFor': 'choice', //j loop
-            'inputID': 'choice', //j loop
-            'inputName': 'choicesquestion' //i loop
-        } 
-    },
-    'textarea': {
-        'inputName': 'textarea' //i loop
     }
-}}
+}

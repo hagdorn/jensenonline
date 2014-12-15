@@ -659,6 +659,79 @@ var surveyView = {
     addSingleQuestion: function(num, btnID) {
         surveyView.spawnQuestions(1, btnID);
     },
+    applyDataFromTemplate: function(affectedElement, whatToApply, currentIteration, promise, group) {
+        
+        promise.done(function(data) {
+             console.log(data);
+            
+            switch (group) {
+            
+                case 'question_info': 
+                    switch (whatToApply) {
+                
+                        case 'legend': affectedElement.html(data.templateQA.question_info.legend + ' ' +
+                                        currentIteration)
+                                        break;
+
+                        case 'inputID': affectedElement.attr({id: data.templateQA.question_info.inputID +
+                                        currentIteration});
+                                        break;
+
+                        case 'inputName': affectedElement.attr({name: data.templateQA.question_info.inputName +
+                                        currentIteration});
+                                        break;
+
+                        case 'labelFor': affectedElement.attr({for: data.templateQA.question_info.labelFor +
+                                        currentIteration});
+                                        break;
+
+                    }
+                    
+                case 'type_radio':
+                    
+                    switch (whatToApply) {
+                
+                        case 'inputID': affectedElement.attr({id: data.templateQA.input_type.type_radio.inputID + currentIteration});
+                                        break;
+
+                        case 'inputName': affectedElement.attr({name: data.templateQA.input_type.type_radio.inputName + currentIteration});
+                                        break;
+
+                        case 'labelFor': affectedElement.attr({for: data.templateQA.input_type.type_radio.labelFor + currentIteration});
+                                        break;
+
+                        case 'labelText': affectedElement.html(data.templateQA.input_type.type_radio.labelText);
+                                        break;
+                    }
+                    
+                case 'radio_choices':
+                    switch (whatToApply) {
+                
+                        case 'inputID': affectedElement.attr({id: data.templateQA.question_info.inputID +
+                                        currentIteration});
+                                        break;
+
+                        case 'inputName': affectedElement.attr({name: data.templateQA.question_info.inputName +
+                                        currentIteration});
+                                        break;
+
+                        case 'labelFor': affectedElement.attr({for: data.templateQA.question_info.labelFor +
+                                        currentIteration});
+                                        break;
+
+                    }
+                    
+                case 'textarea':
+                    switch (whatToApply) {
+                
+                        case 'inputName': affectedElement.attr({name: data.templateQA.question_info.inputName +
+                                        currentIteration});
+                                        break;
+
+                    }
+            }
+        });
+    },
     createElement: function(elementToCreate, elementToAppendTo, isFadeIn) {
         
         var noEndTagElements = ['input', 'option'];
@@ -841,37 +914,34 @@ var surveyView = {
     },
     spawnQuestions: function(quantity) {
         
+        //Add one since i will start at 1, preventing a *10 multiplication of the loop length
+        quantity++;
+        
         var promise = surveyView.getTemplate();
-            promise.done(function(data) {
-                console.log(data);
-            });
-        console.log(promise);
-    
+            
         var form = $('#survey-wrapper').find('form');
         var ol = $('#survey-wrapper').find('ol');
             
-        for (i = 0; i < quantity; i++) {
+        for (i = 1; i < quantity; i++) {
             
             var li = surveyView.createElement('li', ol);
             var fieldset = surveyView.createElement('fieldset', li);
             
             var legend = surveyView.createElement('legend', fieldset);
-                legend.html('Fråga ' + (i + 1));
+                surveyView.applyDataFromTemplate(legend, 'legend', i, promise, 'question_info');
             
             var label = surveyView.createElement('label', fieldset);
-                label.attr({for: i + 1,
-                            id: i + 1,
-                            class: 'question-label'
-                           });
+                surveyView.applyDataFromTemplate(label, 'labelFor', i, promise, 'question_info');
+                label.attr({id: i, class: 'question-label'});
             
             for (m = 0; m < 3; m++) {
                 
                 var input = $('<input>');
                     
                 if (m === 0) {
+                    surveyView.applyDataFromTemplate(input, 'inputID', i, promise, 'question_info');
+                    surveyView.applyDataFromTemplate(input, 'inputName', i, promise, 'question_info');
                     input.attr({type: 'text',
-                                name: 'question' + (i + 1),
-                                id: i + 1,
                                 class: 'question-input',
                                 placeholder: 'Skriv din fråga här'
                                });
@@ -886,9 +956,9 @@ var surveyView = {
                         var subLi = surveyView.createElement('li', ul);
                     }
                     
+                    surveyView.applyDataFromTemplate(input, 'inputName', i, promise, 'type_radio');
+                    surveyView.applyDataFromTemplate(input, 'inputID', i, promise, 'type_radio');
                     input.attr({type: 'radio',
-                                name: 'type' + i,
-                                id: 'type' + i + m,
                                 class: 'radio-choose-type'
                                });
                     
@@ -903,9 +973,8 @@ var surveyView = {
                     input.appendTo(subLi);
                     
                     var label = surveyView.createElement('label', subLi);
-                        label.attr({for: 'type' + i + m,
-                                    class: 'choose-type-label'
-                                   });
+                    surveyView.applyDataFromTemplate(label, 'labelFor', i, promise, 'type_radio');
+                        label.attr({class: 'choose-type-label'});
                     
                     if (m === 1) {
                         label.html('Kryssrutor');
