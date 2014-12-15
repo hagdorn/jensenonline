@@ -4,7 +4,7 @@
     include_header_files();
 
 	if(isset($_POST['sendmessage'])){
-		require_once('..includes/php/pm/send.php');
+		require_once('../includes/php/pm/send.php');
 	}
 ?>
 
