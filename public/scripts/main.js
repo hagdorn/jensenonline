@@ -878,9 +878,9 @@ var surveyView = {
             button.on('click', function() {
                 
                 var btnParent = $(this).parent().parent();
-                btnParent.fadeOut(400, function() {
-                    btnParent.remove();
-                });
+                    btnParent.fadeOut(400, function() {
+                        btnParent.remove();
+                    });
                 //$("#survey-wrapper form ol li input, #survey-wrapper form ol li label")
                 
                 btnParent.nextAll('li').find('input, label').each(function () {
