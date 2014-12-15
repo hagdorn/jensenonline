@@ -652,85 +652,25 @@ $(document).ready(function() {
 var surveyModel = {
     
     container: $('#survey-wrapper'),
-    select: $('#numOfQuestions')
+    select: $('#numOfQuestions'),
+    errorElement: $('#surveyErrorMsg')
 }
 
 var surveyView = {
     addSingleQuestion: function(num, btnID) {
-        surveyView.spawnQuestions(1, btnID);
-    },
-    applyDataFromTemplate: function(affectedElement, whatToApply, currentIteration, promise, group) {
         
-        promise.done(function(data) {
-             console.log(data);
-            
-            switch (group) {
-            
-                case 'question_info': 
-                    switch (whatToApply) {
-                
-                        case 'legend': affectedElement.html(data.templateQA.question_info.legend + ' ' +
-                                        currentIteration)
-                                        break;
-
-                        case 'inputID': affectedElement.attr({id: data.templateQA.question_info.inputID +
-                                        currentIteration});
-                                        break;
-
-                        case 'inputName': affectedElement.attr({name: data.templateQA.question_info.inputName +
-                                        currentIteration});
-                                        break;
-
-                        case 'labelFor': affectedElement.attr({for: data.templateQA.question_info.labelFor +
-                                        currentIteration});
-                                        break;
-
-                    }
-                    
-                case 'type_radio':
-                    
-                    switch (whatToApply) {
-                
-                        case 'inputID': affectedElement.attr({id: data.templateQA.input_type.type_radio.inputID + currentIteration});
-                                        break;
-
-                        case 'inputName': affectedElement.attr({name: data.templateQA.input_type.type_radio.inputName + currentIteration});
-                                        break;
-
-                        case 'labelFor': affectedElement.attr({for: data.templateQA.input_type.type_radio.labelFor + currentIteration});
-                                        break;
-
-                        case 'labelText': affectedElement.html(data.templateQA.input_type.type_radio.labelText);
-                                        break;
-                    }
-                    
-                case 'radio_choices':
-                    switch (whatToApply) {
-                
-                        case 'inputID': affectedElement.attr({id: data.templateQA.question_info.inputID +
-                                        currentIteration});
-                                        break;
-
-                        case 'inputName': affectedElement.attr({name: data.templateQA.question_info.inputName +
-                                        currentIteration});
-                                        break;
-
-                        case 'labelFor': affectedElement.attr({for: data.templateQA.question_info.labelFor +
-                                        currentIteration});
-                                        break;
-
-                    }
-                    
-                case 'textarea':
-                    switch (whatToApply) {
-                
-                        case 'inputName': affectedElement.attr({name: data.templateQA.question_info.inputName +
-                                        currentIteration});
-                                        break;
-
-                    }
-            }
-        });
+        //Find the last child of the ordered list and get it's question number
+        var lastChildNumber = $('#survey-wrapper').children('form').children('ol')
+        .children('li').last().children('fieldset').children('legend').html().match(/[\d]+$/);
+        
+        if (lastChildNumber > 29) {
+            surveyModel.errorElement.html('Du kan inte lägga till fler frågor. Max 30 frågor tillåtet.').css('color', 'red');
+            return;
+        }
+        else {
+            surveyModel.errorElement.html('');
+            surveyView.spawnQuestions(1, lastChildNumber, btnID);
+        }
     },
     createElement: function(elementToCreate, elementToAppendTo, isFadeIn) {
         
@@ -781,12 +721,14 @@ var surveyView = {
     },
     createRadioInputs: function(parent) {
         
+        var currentQuestion = surveyView.getCurrentQuestion(parent);
+        
         var ul = surveyView.createElement('ul', parent, true);
             ul.attr('class', 'radio-ul');
             
         var table = surveyView.createElement('table', ul);
 
-        for (j = 0; j < 5; j++) {
+        for (j = 1; j < 6; j++) {
 
             var tr = surveyView.createElement('tr', table);
                 tr.attr('class', 'radio-row');
@@ -804,17 +746,17 @@ var surveyView = {
                     case 0: 
                         var input = surveyView.createElement('input', td);
                             input.attr({type: 'radio',
-                                        name: 'input' + i + (k + 1),
-                                        id: 'input' + i + j + (k + 1)
+                                        name: 'questionchoices' + currentQuestion,
+                                        id: 'question' + currentQuestion + 'choice' + j
                                        });
                         break;
 
                     case 1:
                         var label = surveyView.createElement('label', td);
                             label.attr({class: 'radio-label',
-                                        for: 'input' + i + j + k
+                                        for: 'question' + currentQuestion + 'choice' + j
                                        });
-                            label.text(radioOptions[j]);
+                            label.text(radioOptions[j - 1]);
                         break;
 
                     case 2:
@@ -848,8 +790,6 @@ var surveyView = {
                     case 4:
                         var editInput = surveyView.createElement('input', td);
                             editInput.attr({type: 'text',
-                                            name: 'somename',
-                                            id: 'edit' + i,
                                             class: 'edit-input',
                                             placeholder: 'Tryck ENTER för att spara'
                                            });
@@ -881,8 +821,12 @@ var surveyView = {
     },
     createTextArea: function(parent) {
         
+        var currentQuestion = surveyView.getCurrentQuestion(parent);
+        
         var textarea = surveyView.createElement('textarea', parent, true);
-            textarea.attr('class', 'user-textfield');
+            textarea.attr({class: 'user-textfield',
+                           name: 'question' + currentQuestion
+                          });
         
     },
     fillSelect: (function() {
@@ -902,23 +846,22 @@ var surveyView = {
             option.appendTo(surveyModel.select);
         }
     }()),
-    getTemplate: function() {
+    getCurrentQuestion: function(parent) {
         
-        var promise = $.ajax({
-                        url: 'json/templateqa.json',
-                        type: 'GET',
-                        dataType: 'json'
-                      });
+        //Extract the number from the legend HTML to know the current question
+        var currentQuestion = parent.children('legend').html().match(/[\d]+$/);
         
-        return promise;
+        return currentQuestion;
     },
-    spawnQuestions: function(quantity) {
+    spawnQuestions: function(quantity, currentQuestion, btnID) {
+        
+        if (currentQuestion != undefined) {
+            var parsedInteger = parseInt(currentQuestion) + 1;
+        }
         
         //Add one since i will start at 1, preventing a *10 multiplication of the loop length
         quantity++;
         
-        var promise = surveyView.getTemplate();
-            
         var form = $('#survey-wrapper').find('form');
         var ol = $('#survey-wrapper').find('ol');
             
@@ -926,25 +869,73 @@ var surveyView = {
             
             var li = surveyView.createElement('li', ol);
             var fieldset = surveyView.createElement('fieldset', li);
-            
+            var button = surveyView.createElement('span', fieldset);
             var legend = surveyView.createElement('legend', fieldset);
-                surveyView.applyDataFromTemplate(legend, 'legend', i, promise, 'question_info');
-            
             var label = surveyView.createElement('label', fieldset);
-                surveyView.applyDataFromTemplate(label, 'labelFor', i, promise, 'question_info');
-                label.attr({id: i, class: 'question-label'});
+            
+                button.html('Ta bort fråga');
+                
+            button.on('click', function() {
+                
+                var btnParent = $(this).parent().parent();
+                btnParent.fadeOut(400, function() {
+                    btnParent.remove();
+                });
+                //$("#survey-wrapper form ol li input, #survey-wrapper form ol li label")
+                
+                btnParent.nextAll('li').find('input, label').each(function () {
+                    
+                    var self = $(this);
+
+                    $.each(this.attributes, function(i, attrib){
+                        var attribValue = attrib.value;
+                        var attribName = attrib.name;
+                        var intRegex = /[0-9 -()+]+$/;
+                        var originalNum = attribValue.match(intRegex);
+                        var newNum = originalNum;
+
+                        parseInt(newNum);
+                        newNum--;
+
+                        var newValue = attribValue.replace(originalNum, newNum);
+
+                        self.attr('' + attribName, newValue);
+                    });
+                });
+            });
+                          
+            if (btnID === undefined) {
+                legend.html('Fråga ' + i);
+                label.attr({for: i, id: i, class: 'question-label'});
+            }
+            else {
+                legend.html('Fråga ' + parsedInteger);
+                label.attr({for: parsedInteger, id: parsedInteger, class: 'question-label'});
+            }
             
             for (m = 0; m < 3; m++) {
                 
                 var input = $('<input>');
-                    
+                
+                
                 if (m === 0) {
-                    surveyView.applyDataFromTemplate(input, 'inputID', i, promise, 'question_info');
-                    surveyView.applyDataFromTemplate(input, 'inputName', i, promise, 'question_info');
-                    input.attr({type: 'text',
-                                class: 'question-input',
-                                placeholder: 'Skriv din fråga här'
-                               });
+                    
+                    if (btnID === undefined) {
+                        input.attr({id: i,
+                                    name: 'question' + i,
+                                    type: 'text',
+                                    class: 'question-input',
+                                    placeholder: 'Skriv din fråga här'
+                                   });
+                    }
+                    else {
+                        input.attr({id: parsedInteger,
+                                    name: 'question' + parsedInteger,
+                                    type: 'text',
+                                    class: 'question-input',
+                                    placeholder: 'Skriv din fråga här'
+                                   });
+                    }
                     input.on('input', surveyController.updateQuestion);
                     input.appendTo(fieldset);
                 }
@@ -956,31 +947,79 @@ var surveyView = {
                         var subLi = surveyView.createElement('li', ul);
                     }
                     
-                    surveyView.applyDataFromTemplate(input, 'inputName', i, promise, 'type_radio');
-                    surveyView.applyDataFromTemplate(input, 'inputID', i, promise, 'type_radio');
-                    input.attr({type: 'radio',
-                                class: 'radio-choose-type'
-                               });
+                    //This needs to be done for all the attr settings later
+                    function setAttr(num) {
+                        input.attr({id: 'radio' + num,
+                                    name: 'radio' + num,
+                                    type: 'radio',
+                                    class: 'radio-choose-type'
+                                   });
+                    }
                     
-                    if (m === 1) {
-                        input.attr('class', 'radio');
+                    if (btnID === undefined) {
+                        setAttr(i);
                     }
                     else {
-                        input.attr('class', 'input');
+                        setAttr(parsedInteger);
+                    }
+                    
+                    if (btnID === undefined) {
+                        if (m === 1) {
+                            input.attr({id: 'radio' + i,
+                                        name: 'type' + i,
+                                        type: 'radio',
+                                        class: 'radio-choose-type radio'
+                                       });
+                        }
+                        else {
+                            input.attr({id: 'text' + i,
+                                        name: 'type' + i,
+                                        type: 'radio',
+                                        class: 'radio-choose-type input'
+                                       });
+                        }
+                    }
+                    else {
+                        if (m === 1) {
+                            input.attr({id: 'radio' + parsedInteger,
+                                        name: 'type' + parsedInteger,
+                                        type: 'radio',
+                                        class: 'radio-choose-type radio'
+                                       });
+                        }
+                        else {
+                            input.attr({id: 'text' + parsedInteger,
+                                        name: 'type' + parsedInteger,
+                                        type: 'radio',
+                                        class: 'radio-choose-type input'
+                                       });
+                        }
                     }
                     
                     input.change(surveyController.changeTypeOfInput);
                     input.appendTo(subLi);
                     
                     var label = surveyView.createElement('label', subLi);
-                    surveyView.applyDataFromTemplate(label, 'labelFor', i, promise, 'type_radio');
-                        label.attr({class: 'choose-type-label'});
                     
-                    if (m === 1) {
-                        label.html('Kryssrutor');
+                    if (btnID === undefined) {
+                        if (m === 1) {
+                            label.attr({for: 'radio' + i, class: 'choose-type-label'});
+                            label.html('Kryssrutor');
+                        }
+                        else if (m === 2) {
+                            label.attr({for: 'text' + i, class: 'choose-type-label'});
+                            label.html('Textfält');
+                        }
                     }
-                    else if (m === 2) {
-                        label.html('Textfält');
+                    else {
+                        if (m === 1) {
+                            label.attr({for: 'radio' + parsedInteger, class: 'choose-type-label'});
+                            label.html('Kryssrutor');
+                        }
+                        else if (m === 2) {
+                            label.attr({for: 'text' + parsedInteger, class: 'choose-type-label'});
+                            label.html('Textfält');
+                        }
                     }
                 }
             } //End of m
