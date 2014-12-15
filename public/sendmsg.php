@@ -9,19 +9,55 @@
 ?>
 
 <!-- body starts here -->
+<script>
+	function nameClicked(){
+		console.log(this);
+		
+	}
+	
+	function showResult(str) {
+	  if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	  } else {  // code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			
+			document.getElementById("recievers").innerHTML=xmlhttp.responseText;
+			
+		}
+	  }
+	  xmlhttp.open("GET","../includes/php/pm/searchSender.php?q="+str,true);
+	  xmlhttp.send();
+	}
+
+	window.onload=showResult("");
+	
+
+</script>
+
+
+
 
 <main>
 	
     <?php include_msg_template(); ?>
     
-        <form action="sendmsg.php" method="POST" id="send-msg-form">
+        <form action="sendmsg.php" method="POST" id="send-msg-form" class="search">
             <table>
                 <tr>
                     <td class="space-down labels">
                         <label for="receiver">Mottagare:</label>
                     </td>
                     <td class="space-down column-two">
-                        <input type="text" name="receiver" id="receiver" class="input" alt="Fält för mottagare">
+                       
+                       	<datalist id="recievers"></datalist>
+                        <input type="text" name="receiver" list="recievers" id="receiver" class="input" alt="Fält för mottagare"  onkeyup="showResult(this.value)">
+                        
+                        <ul id="results" class="results"></ul>
+                        
                     </td>
                 </tr>
                 <tr>

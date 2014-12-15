@@ -4,6 +4,7 @@
     include_header_files();
 ?>
 
+
 <div id="survey-wrapper">
     <h1>Skapa enkät</h1>
     <h2>Välj hur enkäten ska se ut nedan.</h2>
