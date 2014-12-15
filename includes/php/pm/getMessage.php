@@ -20,7 +20,17 @@
 		echo ("<div>Subject: " .$result['subject'] ."</div> <br>");
 		echo ("<div> ".$result['message'] ."</div>");
 		
+		//If unread message, make it read
+		if($result['status'] == "unread"){
+			$query = "UPDATE pm ";	
+			$query .= "SET status = :read ";	
+			$query .= "WHERE id = :id";
+			
+			$ps = $db->prepare($query);
+			$ps->execute(['id'=>$_GET['message'], 'read'=>'read']);
+		}
+		
 	}
 	catch(Exception $exception){
-		echo('Error<br<br>' . $exception);
+		echo('Error<br><br>' . $exception);
 	}
