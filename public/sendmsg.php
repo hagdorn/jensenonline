@@ -10,11 +10,6 @@
 
 <!-- body starts here -->
 <script>
-	function nameClicked(){
-		console.log(this);
-		
-	}
-	
 	function showResult(str) {
 	  if (window.XMLHttpRequest) {
 		// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -24,18 +19,13 @@
 	  }
 	  xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			
 			document.getElementById("recievers").innerHTML=xmlhttp.responseText;
-			
 		}
 	  }
 	  xmlhttp.open("GET","../includes/php/pm/searchSender.php?q="+str,true);
 	  xmlhttp.send();
 	}
-
 	window.onload=showResult("");
-	
-
 </script>
 
 
