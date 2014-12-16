@@ -1,3 +1,6 @@
+<?php
+menuFunction();
+?>
 <nav>
     <ul id='main-nav'>
         <li id='{{menu.id}}' class='nav-items' ng-repeat='menu in studentmenu'><a href='{{menu.URL}}.php'>{{menu.title}}</a>

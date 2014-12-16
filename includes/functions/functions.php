@@ -36,4 +36,33 @@
     function include_msg_template() {
         include_once('../includes/msgtemplate.php');
     }
+
+	function checkUnreadMessages(){
+	global $db;
+	global $inboxText;
+	
+	$query = "SELECT status, toUser FROM pm WHERE toUser = :user AND status = :status";
+	$ps = $db->prepare($query);
+	$ps->execute(['user' => $_SESSION['id'],'status'=>'unread']);
+	$unread = $ps->fetchAll();
+	
+	if (sizeof($unread > 0)){
+		$inboxText = "Inkorg (" .sizeof($unread) .")";
+	}
+	else{
+		$inboxText = "Inkorg";
+	}	
+}
+	
+	function menuFunction(){
+	
+			checkUnreadMessages();
+			global $inboxText;
+
+			?>
+			<script>
+				var inboxText = '<?php echo $inboxText; ?>';
+			</script>
+			<?php
+	}
 ?>

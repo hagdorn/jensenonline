@@ -38,7 +38,7 @@ function checkUserNameAndPassword($un, $pwd){
 			$_SESSION['lastname'] = $loggedIn['lastname'];
             $_SESSION['timestamp'] = time();
 			
-			checkUnreadMessages();
+			
 		}
 					 
 	}
@@ -47,22 +47,7 @@ function checkUserNameAndPassword($un, $pwd){
 	}
 }
 
-function checkUnreadMessages(){
-	global $db;
-	global $inboxText;
-	
-	$query = "SELECT status, toUser FROM pm WHERE toUser = :user";
-	$ps = $db->prepare($query);
-	$ps->execute(['user' => $_SESSION['id']]);
-	$unread = $ps->fetchAll();
-	
-	if (sizeof($unread > 0)){
-		$inboxText = "Inkorg (" .sizeof($unread) .")";
-	}
-	else{
-		$inboxText = "Inkorg";
-	}
-}
+
 
 
 function addUser($username, $password, $email, $type){
