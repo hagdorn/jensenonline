@@ -882,32 +882,44 @@ var surveyView = {
                         btnParent.remove();
                     });
                 
-                btnParent.nextAll('li').find('input, label').each(function () {
+                btnParent.nextAll('li').find('input, label, legend').each(function () {
                     
                     var self = $(this);
-
+                    
+                    if (self.is('legend')) {
+                        
+                        var legendHtml = self.html();
+                        var currentQuestion = legendHtml.match(/\d+/g);
+                            currentQuestion--;
+                        
+                        self.html('Fråga ' + currentQuestion);
+                        
+                        var olLength = $('#survey-wrapper').find('ol').children('li');
+                        
+                        olLength.nextAll('li').each(function(h) {
+                            $(this).attr('value', h);
+                        });
+                        
+                        
+                    }
                     $.each(this.attributes, function(i, attrib){
                         var attribValue = attrib.value;
                         var attribName = attrib.name;
                         var intRegex = /\d+/g;
                         //var intRegex = /[0-9 -()+]+$/;
-                        var originalNum = attribValue.match(intRegex);
-                        var newNum = originalNum;
+                        var originalNumArray = attribValue.match(intRegex);
+                        var newNumArray = attribValue.match(intRegex);
                         var newValue;
                         
-                        console.log('The original value is: ' + attribValue + ' ' + typeof attribValue);
-                        console.log('The original num is: ' + originalNum + ' ' + typeof originalNum);
-                        
-                        
-                        if (newNum != null) {
-                            for (i = 0; i < newNum.length; i++) {
-                                originalNum = parseInt(originalNum[i]);
-                                console.log(originalNum[i]);
-                                parseInt(newNum[i]);
-                                newNum[i]--;
-                                newValue = attribValue.replace(originalNum[i], newNum[i]);
-                                console.log('The new num is: ' + newNum[i] + ' ' + typeof newNum[i]);
-                                console.log('The new value is: ' + newValue + ' ' + typeof newValue);
+                        if (newNumArray != null) {
+                            for (j = 0; j < newNumArray.length; j++) {
+                                
+                                newNumArray[j]--;
+                                
+                                newValue = attribValue.replace(originalNumArray[j], newNumArray[j]);
+                                console.log('The old value was: ' + attribValue);
+                                console.log('The new value is: ' + newValue);
+                                console.log(newNumArray);
                             }
                         }
                         console.log('DONE');
