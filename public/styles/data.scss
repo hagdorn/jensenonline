@@ -9,6 +9,7 @@ $ocean-blue: #0097ef;
 $green-gradient: linear-gradient(#4fef00, #3db700);
 $red-gradient: linear-gradient(#ff0a0a, #d10000);
 $blue-gradient: linear-gradient($ocean-blue, $dark-blue);
+$orange-gradient: linear-gradient(#ffba19, #ff7119);
 
 //Borders
 $thin-solid: 1px solid;
@@ -25,6 +26,7 @@ $fontFamily: Arial, sans-serif;
 
 //Other
 $center: 0 auto;
+$standard-radius: 3px;
 
 //Placeholders
 %no-margins {
@@ -34,6 +36,10 @@ $center: 0 auto;
 
 %outlining {
     outline: 0;    
+}
+
+%white-text {
+    color: $white;
 }
 
 //Mixins
@@ -80,4 +86,16 @@ $center: 0 auto;
     text-align: center;
     color: $white;
     background: $color;
+}
+
+.green-button {
+    background: $green-gradient;
+}
+
+.red-button {
+    background: $red-gradient;
+}
+
+.orange-button {
+    background: $orange-gradient;
 }

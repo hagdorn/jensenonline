@@ -1,0 +1,122 @@
+@import "data";
+
+.survey-buttons {
+    height: 24px;
+    border: 0;
+    border-radius: $standard-radius;
+    @extend %white-text;
+    font-weight: bold;
+}
+
+.choose-type-label {
+    font-weight: bold;
+}
+
+#survey-wrapper {
+    
+    h1, h2 {
+        color: $dark-blue;
+    }
+    
+    button {
+        @extend %white-text;
+    }
+    
+    input[type="submit"] {
+        @extend %white-text;
+    }
+    
+    fieldset {
+        margin-bottom: 30px;
+    }
+
+    legend {
+        font-weight: bold;
+        padding: 0 5px;
+    }
+}
+
+#submit-container {
+    float: right;
+}
+
+
+
+
+/***** SURVEY CREATION *****/
+
+#survey-wrapper {
+    width: $max - 20;
+    margin: $center 200px;
+}
+
+//Labels
+.question-label {
+    margin: 0 10px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    clear: both;
+}
+
+.radio-label {
+    margin-left: 5px;
+}
+
+.choose-type-label {
+    margin-right: 10px;
+}
+
+//Inputs
+.question-input {
+    height: 25px;
+}
+
+.edit-input {
+    height: 24px;
+    display: none;
+}
+
+.radio-choose-type {
+    margin-right: 5px;
+}
+
+//Other
+.radio-cell {
+    height: 30px;
+    padding: 0;
+}
+
+.choose-type-ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.radio-edit-button, .radio-remove-button {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.radio-edit-button {
+    margin: 0 10px 0 0;
+}
+
+.radio-remove-button {
+    margin: 0 10px;
+}
+
+.user-textfield {
+    margin-top: 20px;
+    width: 350px;
+    height: 170px;
+    float: left;
+}
+
+.radio-ul {
+    margin: 10px 10px 0;
+    padding: 0;
+}
+
+#submit-container {
+    display: none;
+}

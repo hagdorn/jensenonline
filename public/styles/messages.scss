@@ -1,5 +1,7 @@
 /***** INBOX.PHP, SENDMSG.PHP, READMSG.PHP, REMOVED.PHP, SENT.PHP *****/
 
+@import "data";
+
 /***** MAIN CONTENT -> TEMPLATE STYLES *****/
 
 .msg-container {
@@ -43,6 +45,14 @@
     
     &:hover {
         background: $soft-grey;
+    }
+    
+    span {
+        padding: 2px 6px;
+        border-radius: 12px;
+        box-sizing: padding-box;
+        color: $white;
+        background: $green-gradient;
     }
 }
 

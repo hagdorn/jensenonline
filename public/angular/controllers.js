@@ -89,8 +89,8 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'createsurvey'
                 },
                 {
-                    title: 'Visa tidigare enkäter',
-                    URL: 'previussurveys'
+                    title: 'Visa sparade enkäter',
+                    URL: 'savedsurveys'
                 }
             ],
             id: 'surveys'

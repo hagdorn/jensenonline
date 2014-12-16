@@ -664,7 +664,7 @@ var surveyView = {
         .children('li').last().children('fieldset').children('legend').html().match(/[\d]+$/);
         
         if (lastChildNumber > 29) {
-            surveyModel.errorElement.html('Du kan inte lägga till fler frågor. Max 30 frågor tillåtet.').css('color', 'red');
+            surveyModel.errorElement.html('Du kan inte lägga till fler frågor. Max 30 frågor tillåtet.').css({color: 'red', fontWeight: 'bold'});
             return;
         }
         else {
@@ -1000,13 +1000,29 @@ var surveyController = {
     
     bindElements: (function() {
         
-        $('#lock-in').on('click', function() {
+        $('#lock-survey').on('click', function() {
             $('#form-container').find('.removal').remove();
             $('#contentHolder').val($('#form-container').html());
+            
+            if ($('#numOfQuestions').is(':disabled')) {
+                $('#numOfQuestions').removeAttr('disabled').css('color', 'black');
+                $('#submit-container').stop().fadeOut();
+            }
+            else {
+                $('#numOfQuestions').attr('disabled', 'disabled').css('color', '#ccc');
+                $('#submit-container').stop().fadeIn();
+            }
+            
         });
         
         $('#addOneQuestion').on('click', function() {
-            surveyView.addSingleQuestion(1, $(this).attr('id'));
+            
+            if ($('#numOfQuestions').is(':disabled')) {
+                return;
+            }
+            else {
+                surveyView.addSingleQuestion(1, $(this).attr('id'));
+            }
         });
         
         surveyModel.select.change(function() {

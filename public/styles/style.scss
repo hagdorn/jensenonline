@@ -5,6 +5,7 @@
 @import "data";
 @import "login";
 @import "messages";
+@import "survey";
 
 /***** GENERAL STYLES *****/
 
@@ -546,79 +547,4 @@ main {
     height: 30px;
     font-weight: bold;
     background: $green-gradient;
-}
-
-/***** SURVEY CREATION *****/
-
-#survey-wrapper {
-    width: $max - 20;
-    margin: $center 200px;
-}
-
-//Labels
-.question-label {
-    margin-right: 10px;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.radio-label {
-    margin-left: 5px;
-}
-
-.choose-type-label {
-    margin-right: 10px;
-}
-
-//Inputs
-.question-input {
-    height: 25px;
-}
-
-.edit-input {
-    height: 24px;
-    display: none;
-}
-
-.radio-choose-type {
-    margin-right: 5px;
-}
-
-//Other
-.radio-cell {
-    height: 30px;
-    padding: 0;
-}
-
-.choose-type-ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px;
-}
-
-.radio-edit-button, .radio-remove-button {
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.radio-edit-button {
-    margin: 0 10px 0 0;
-}
-
-.radio-remove-button {
-    margin: 0 10px;
-}
-
-.user-textfield {
-    width: 250px;
-    height: 100px;
-}
-
-fieldset {
-    margin-bottom: 30px;
-}
-
-legend {
-    font-weight: bold;
-    padding: 0 5px;
 }
