@@ -1,7 +1,6 @@
 <?php
 
 	try{
-		require_once('../includes/php/connections/pdoConnect.php');
 			
 		$query = "SELECT CONCAT(fromU.firstname,' ', fromU.lastname)  as 'to', ";
 		$query .= "CONCAT (toU.firstname, ' ', toU.lastname) as 'from', ";

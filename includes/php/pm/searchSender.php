@@ -1,7 +1,6 @@
 <?php 
 	if($_GET['q']!== ""){
 		try{
-			require_once('../connections/pdoConnect.php');
 			$db->exec("SET NAMES 'utf8'");
 			
 			$query  = "SELECT * FROM useraccounts WHERE firstname LIKE :user";			

@@ -1,4 +1,6 @@
 <?php
+	require_once('../includes/php/connections/pdoConnect.php');
+	require_once('../includes/php/connections/db.php');
     
     function check_current_page() {
         $basename = substr(strtolower(basename($_SERVER['PHP_SELF'])),0,strlen(basename($_SERVER['PHP_SELF']))-4);
@@ -27,7 +29,6 @@
     }
     
     function include_header_files() {
-        require_once('../includes/php/connections/db.php');
         include_once('../includes/header.php');
         include_once('../includes/typeaccess.php');
     }

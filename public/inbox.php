@@ -10,10 +10,10 @@
 <!-- body starts here -->
 
 <main>
-    <?php include_once('../includes/msgtemplate.php'); ?>
+    <?php include('../includes/msgtemplate.php'); ?>
         <div id="inbox-container">
             <table>
-                <?php include_once('../includes/php/pm/getInbox.php');?>
+                <?php include('../includes/php/pm/getInbox.php');?>
             
         </div>
     </div> <!-- Closes the template include -->

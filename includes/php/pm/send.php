@@ -1,6 +1,5 @@
 <?
 	try{
-		require_once('../includes/php/connections/pdoConnect.php');
 		
 		$query = "SELECT firstname, lastname, id FROM useraccounts ";
 		$query .= "WHERE CONCAT(firstname, ' ' , lastname) = :name ";

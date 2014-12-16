@@ -21,7 +21,6 @@
 
 function checkUserNameAndPassword($un, $pwd){
 	try{
-		require_once('../includes/php/connections/pdoConnect.php');
 		
         $query = "SELECT * ";
         $query .= "FROM useraccounts ";
@@ -49,7 +48,6 @@ function checkUserNameAndPassword($un, $pwd){
 
 function addUser($username, $password, $email, $type){
 	try{	
-		require_once('pdoConnect.php');
 		
         $query = "INSERT INTO useraccounts ";
         $query .= "(username, password, email, type ) ";

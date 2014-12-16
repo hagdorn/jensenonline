@@ -3,7 +3,7 @@
 	$messagesPerPage = 5;
 
 	try{
-		require_once('../includes/php/connections/pdoConnect.php');
+		//require_once('../includes/php/connections/pdoConnect.php');
 		
 		if($_SESSION['box'] == 'inbox'){
 			$query = "SELECT pm.message, pm.subject, pm.datetime, pm.id, useraccounts.firstname, useraccounts.lastname ";
