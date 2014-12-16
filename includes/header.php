@@ -18,7 +18,7 @@
         <span id="slogan" class="logo-text">Träning för verkligheten</span>
 
     <?php
-        require_once('../includes/functions/functions.php');
+		require_once('../includes/functions/functions.php');
         $currentPage = check_current_page();
 
         if ($currentPage != 'login') {
