@@ -651,7 +651,7 @@ $(document).ready(function() {
     
 var surveyModel = {
     
-    container: $('#survey-wrapper'),
+    container: $('#form-container'),
     select: $('#numOfQuestions'),
     errorElement: $('#surveyErrorMsg')
 }
@@ -660,7 +660,7 @@ var surveyView = {
     addSingleQuestion: function(num, btnID) {
         
         //Find the last child of the ordered list and get it's question number
-        var lastChildNumber = $('#survey-wrapper').children('form').children('ol')
+        var lastChildNumber = $('#form-container').children('form').children('ol')
         .children('li').last().children('fieldset').children('legend').html().match(/[\d]+$/);
         
         if (lastChildNumber > 29) {
@@ -696,7 +696,7 @@ var surveyView = {
         
         if (clickedElement === 'addOneQuestion') {
             
-            if ($('#survey-wrapper').find('form').length === 0) {
+            if ($('#form-container').find('form').length === 0) {
                 return;
             }
             else {
@@ -709,7 +709,8 @@ var surveyView = {
             
             var form = surveyView.createElement('form', surveyModel.container, true);
                 form.attr({method: 'POST',
-                           action: ''
+                           action: 'savesurvey.php',
+                           id: 'survey-form'
                           });
         
             var ol = surveyView.createElement('ol', form);
@@ -762,7 +763,7 @@ var surveyView = {
                     case 2:
                         var span = surveyView.createElement('span', td);
                             span.html('Ta bort');
-                            span.attr({class: 'radio-remove-button'});
+                            span.attr({class: 'radio-remove-button removal'});
                             span.on('click', function() {
 
                                 var parent = $(this).parent();
@@ -777,7 +778,7 @@ var surveyView = {
                     case 3:
                         var span = surveyView.createElement('span', td);
                             span.html('Redigera');
-                            span.attr({class: 'radio-edit-button'});
+                            span.attr({class: 'radio-edit-button removal'});
                             span.on('click', function() {
 
                                 var parent = $(this).parent();
@@ -790,7 +791,7 @@ var surveyView = {
                     case 4:
                         var editInput = surveyView.createElement('input', td);
                             editInput.attr({type: 'text',
-                                            class: 'edit-input',
+                                            class: 'edit-input removal',
                                             placeholder: 'Tryck ENTER för att spara'
                                            });
                             editInput.on('keyup keypress', surveyController.preventEnterSubmit);
@@ -862,74 +863,16 @@ var surveyView = {
         //Add one since i will start at 1, preventing a *10 multiplication of the loop length
         quantity++;
         
-        var form = $('#survey-wrapper').find('form');
-        var ol = $('#survey-wrapper').find('ol');
+        var form = $('#form-container').find('form');
+        var ol = $('#form-container').find('ol');
             
         for (i = 1; i < quantity; i++) {
             
             var li = surveyView.createElement('li', ol);
             var fieldset = surveyView.createElement('fieldset', li);
-            var button = surveyView.createElement('span', fieldset);
             var legend = surveyView.createElement('legend', fieldset);
             var label = surveyView.createElement('label', fieldset);
-            
-                button.html('Ta bort fråga');
-                
-            button.on('click', function() {
-                
-                var btnParent = $(this).parent().parent();
-                    btnParent.fadeOut(400, function() {
-                        btnParent.remove();
-                    });
-                
-                btnParent.nextAll('li').find('input, label, legend').each(function () {
-                    
-                    var self = $(this);
-                    
-                    if (self.is('legend')) {
-                        
-                        var legendHtml = self.html();
-                        var currentQuestion = legendHtml.match(/\d+/g);
-                            currentQuestion--;
-                        
-                        self.html('Fråga ' + currentQuestion);
-                        
-                        var olLength = $('#survey-wrapper').find('ol').children('li');
-                        
-                        olLength.nextAll('li').each(function(h) {
-                            $(this).attr('value', h);
-                        });
-                        
-                        
-                    }
-                    $.each(this.attributes, function(i, attrib){
-                        var attribValue = attrib.value;
-                        var attribName = attrib.name;
-                        var intRegex = /\d+/g;
-                        //var intRegex = /[0-9 -()+]+$/;
-                        var originalNumArray = attribValue.match(intRegex);
-                        var newNumArray = attribValue.match(intRegex);
-                        var newValue;
-                        
-                        if (newNumArray != null) {
-                            for (j = 0; j < newNumArray.length; j++) {
-                                
-                                newNumArray[j]--;
-                                
-                                newValue = attribValue.replace(originalNumArray[j], newNumArray[j]);
-                                console.log('The old value was: ' + attribValue);
-                                console.log('The new value is: ' + newValue);
-                                console.log(newNumArray);
-                            }
-                        }
-                        console.log('DONE');
-                        
-
-                        self.attr('' + attribName, newValue);
-                    });
-                });
-            });
-                          
+                       
             if (btnID === undefined) {
                 legend.html('Fråga ' + i);
                 label.attr({for: i, id: i, class: 'question-label'});
@@ -950,7 +893,7 @@ var surveyView = {
                         input.attr({id: i,
                                     name: 'question' + i,
                                     type: 'text',
-                                    class: 'question-input',
+                                    class: 'question-input removal',
                                     placeholder: 'Skriv din fråga här'
                                    });
                     }
@@ -958,7 +901,7 @@ var surveyView = {
                         input.attr({id: parsedInteger,
                                     name: 'question' + parsedInteger,
                                     type: 'text',
-                                    class: 'question-input',
+                                    class: 'question-input removal',
                                     placeholder: 'Skriv din fråga här'
                                    });
                     }
@@ -968,7 +911,7 @@ var surveyView = {
                 else {
                     if (m === 1) {
                         var ul = surveyView.createElement('ul', fieldset);
-                            ul.attr({class: 'choose-type-ul'});
+                            ul.attr({class: 'choose-type-ul removal'});
                         
                         var subLi = surveyView.createElement('li', ul);
                     }
@@ -1050,19 +993,17 @@ var surveyView = {
                 }
             } //End of m
         } //End of i
-        
-        if ($('#survey-wrapper').find('#saveSurvey').length != 0) {
-            return;
-        }
-        else {
-            surveyView.createSubmitBtn(form);
-        }
     }
 }
 
 var surveyController = {
     
     bindElements: (function() {
+        
+        $('#lock-in').on('click', function() {
+            $('#form-container').find('.removal').remove();
+            $('#contentHolder').val($('#form-container').html());
+        });
         
         $('#addOneQuestion').on('click', function() {
             surveyView.addSingleQuestion(1, $(this).attr('id'));
@@ -1099,7 +1040,7 @@ var surveyController = {
         
         var code = e.keyCode || e.which; 
 
-        if (code  == 13) {
+        if (code == 13) {
             e.preventDefault();
             return false;
         }
@@ -1125,7 +1066,7 @@ var surveyController = {
     }
 }
 
-    
+
     
     
     
