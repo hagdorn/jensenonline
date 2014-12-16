@@ -881,7 +881,6 @@ var surveyView = {
                     btnParent.fadeOut(400, function() {
                         btnParent.remove();
                     });
-                //$("#survey-wrapper form ol li input, #survey-wrapper form ol li label")
                 
                 btnParent.nextAll('li').find('input, label').each(function () {
                     
@@ -890,14 +889,29 @@ var surveyView = {
                     $.each(this.attributes, function(i, attrib){
                         var attribValue = attrib.value;
                         var attribName = attrib.name;
-                        var intRegex = /[0-9 -()+]+$/;
+                        var intRegex = /\d+/g;
+                        //var intRegex = /[0-9 -()+]+$/;
                         var originalNum = attribValue.match(intRegex);
                         var newNum = originalNum;
-
-                        parseInt(newNum);
-                        newNum--;
-
-                        var newValue = attribValue.replace(originalNum, newNum);
+                        var newValue;
+                        
+                        console.log('The original value is: ' + attribValue + ' ' + typeof attribValue);
+                        console.log('The original num is: ' + originalNum + ' ' + typeof originalNum);
+                        
+                        
+                        if (newNum != null) {
+                            for (i = 0; i < newNum.length; i++) {
+                                parseInt(originalNum[i]);
+                                console.log(originalNum[i]);
+                                parseInt(newNum[i]);
+                                newNum[i]--;
+                                newValue = attribValue.replace(originalNum[i], newNum[i]);
+                                console.log('The new num is: ' + newNum[i] + ' ' + typeof newNum[i]);
+                                console.log('The new value is: ' + newValue + ' ' + typeof newValue);
+                            }
+                        }
+                        console.log('DONE');
+                        
 
                         self.attr('' + attribName, newValue);
                     });
@@ -1073,7 +1087,7 @@ var surveyController = {
         
         var code = e.keyCode || e.which; 
 
-        if (code  == 13) {               
+        if (code  == 13) {
             e.preventDefault();
             return false;
         }
