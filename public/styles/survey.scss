@@ -2,6 +2,7 @@
 
 .survey-buttons {
     height: 24px;
+    padding: 0 10px;
     border: 0;
     border-radius: $standard-radius;
     @extend %white-text;

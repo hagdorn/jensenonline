@@ -12,6 +12,7 @@
 
 .survey-buttons {
   height: 24px;
+  padding: 0 10px;
   border: 0;
   border-radius: 3px;
   font-weight: bold; }
