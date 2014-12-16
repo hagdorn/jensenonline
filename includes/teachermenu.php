@@ -1,7 +1,6 @@
 <?php
 menuFunction();
 ?>
-   
 
 <nav>
     <ul id='main-nav'>
