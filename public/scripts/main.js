@@ -901,7 +901,7 @@ var surveyView = {
                         
                         if (newNum != null) {
                             for (i = 0; i < newNum.length; i++) {
-                                parseInt(originalNum[i]);
+                                originalNum = parseInt(originalNum[i]);
                                 console.log(originalNum[i]);
                                 parseInt(newNum[i]);
                                 newNum[i]--;
