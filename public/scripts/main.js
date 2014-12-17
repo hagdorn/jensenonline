@@ -450,6 +450,8 @@ $(document).ready(function() {
                         
                         var td = $('<div></div>');
                             td.attr('class', 'scheme-cell');
+							td.attr('time', j + 7);
+							td.attr('room', rooms[i-1]);
                             td.appendTo(tr);
 
                         if (i === 0 && j === 0) {
@@ -480,6 +482,7 @@ $(document).ready(function() {
                                 
                                 var span = $('<span></span>');
                                     span.appendTo(td);
+									
 
                                 if (s === 0) {
                                     if (rooms[i - 1][j] != "") {
@@ -568,9 +571,13 @@ $(document).ready(function() {
                 else {
                     if (marked === false) {
                         
-                        $(this).addClass('marked-cell');
+                        $(this).addClass('marked-cell');						
                         showElements();
                         marked = true;
+						
+						//Kod för Post
+						document.getElementById("time").setAttribute("value", this.getAttribute("time"));
+						document.getElementById("class").setAttribute("value", this.getAttribute("room"));
                     }
                     else {
                         return;   
@@ -600,7 +607,7 @@ $(document).ready(function() {
             var promise = bookingController.grabInfo('day');
                 promise.done(function(data) {
                     
-                    switch (data) {
+                    switch (jsDay) {
                         
                         case 'Mon': var button = $('#Mon');
                                         bookingController.setActiveDay(button);

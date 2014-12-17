@@ -1,8 +1,61 @@
 <?php
-	    
 
+	if(!isset($_SESSION['date'])){
+		$_SESSION['date'] = date('Y-m-d');
+	}
+	$date = $_SESSION['date'];
+	setDays($date);
+
+	if (isset($_POST['day'])){
+		changeDay($_POST['day']);
+	}
+
+
+	$jsDay = date("D", strtotime($date));
+	?><script>var jsDay = '<?php print_r($jsDay);?>'; </script><?php
+	//
+	
+	function setDays($date){
+		global $date, $monday, $tuesday, $wednsday, $thursday, $friday;
+		
+		$day = date("w", strtotime($date));
+		$monday = $date = date('Y-m-d');
+	
+		for($i = 1; $i<$day; $i++){
+			$monday = date('Y-m-d', strtotime($monday. ' - 1 days'));
+		}
+
+		$tuesday = date('Y-m-d', strtotime($monday. ' + 1 days'));
+		$wednsday = date('Y-m-d', strtotime($monday. ' + 2 days'));
+		$thursday = date('Y-m-d', strtotime($monday. ' + 3 days'));
+		$friday = date('Y-m-d', strtotime($monday. ' + 4 days'));
+	}
+
+	function changeDay($day){
+		global $date, $monday, $tuesday, $wednsday, $thursday, $friday;
+		switch ($day){
+			case 'måndag':
+				$date = $monday;
+				break;
+			case 'tisdag':
+				$date = $tuesday;
+				break;
+			case 'onsdag':
+				$date = $wednsday;
+				break;
+			case 'torsdag':
+				$date = $thursday;
+				break;
+			case 'fredag':
+				$date = $friday;
+				break;
+		}
+	}
+
+
+//GET BOOKINGS FOR CURRENT DATE//
 	try{
-		$date = date('Y-m-d');
+
 		$currentRoom = "";
 		?>
 		<script>
