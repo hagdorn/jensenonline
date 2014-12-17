@@ -583,8 +583,18 @@ $(document).ready(function() {
                         marked = true;
 						
 						//Kod för Post
-						document.getElementById("time").setAttribute("value", this.getAttribute("time"));
-						document.getElementById("class").setAttribute("value", this.getAttribute("room"));
+						var timeValueCells = document.getElementsByClassName("timeValue");
+						var classValueCells = document.getElementsByClassName("classValue");
+						
+						function addValues(cells, value){
+							for(var i=0; i<cells.length;i++){
+								cells[i].setAttribute("value", value);
+							}
+						}
+						addValues(timeValueCells, this.getAttribute("time"));
+						addValues(classValueCells, this.getAttribute("room"));
+						
+						
                     }
                     else {
                         return;   

@@ -46,13 +46,15 @@
                 <form method="POST" action="classroombooking.php">
                     <label for="subject" id="course-label">Ange kurs:</label>
                     <input type="text" name="classSubject" alt="Fyll i ämne" id="classSubject">
-                    <input type="hidden" id="time" name="time">
-                    <input type="hidden" id="class" name="class">
+                    <input type="hidden" class="timeValue" name="time">
+                    <input type="hidden" class="classValue" name="class">
                     <input type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="booking-btns" value="Boka">
                 </form>
             </div>
             <div id="cancel-wrapper">
                 <form method="POST" action="classroombooking.php">
+                    <input type="hidden" class="timeValue" name="time">
+                    <input type="hidden" class="classValue" name="class">
                     <input type="submit" name="cancel" alt="Knapp för att avboka ett klassrum" id="cancel-booking" class="booking-btns" value="Avboka">
                 </form>
             </div>
