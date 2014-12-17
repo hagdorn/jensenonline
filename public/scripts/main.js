@@ -451,7 +451,14 @@ $(document).ready(function() {
                         var td = $('<div></div>');
                             td.attr('class', 'scheme-cell');
 							td.attr('time', j + 7);
-							td.attr('room', rooms[i-1]);
+							
+							if(i>0){
+								td.attr('room', rooms[i - 1][0]);
+							}
+							else{
+								td.attr('room', "header")
+							}
+							
                             td.appendTo(tr);
 
                         if (i === 0 && j === 0) {

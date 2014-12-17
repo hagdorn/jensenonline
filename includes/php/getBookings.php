@@ -1,27 +1,27 @@
 <?php
-
+	
 	if(!isset($_SESSION['date'])){
 		$_SESSION['date'] = date('Y-m-d');
 	}
-	$date = $_SESSION['date'];
-	setDays($date);
-
+	
 	if (isset($_POST['day'])){
 		changeDay($_POST['day']);
 	}
 
-
-	$jsDay = date("D", strtotime($date));
-	?><script>var jsDay = '<?php print_r($jsDay);?>'; </script><?php
-	//
+	setDays($_SESSION['date']);
 	
+	
+
+
+
+
 	function setDays($date){
 		global $date, $monday, $tuesday, $wednsday, $thursday, $friday;
 		
 		$day = date("w", strtotime($date));
 		$monday = $date = date('Y-m-d');
 	
-		for($i = 1; $i<$day; $i++){
+		for($i = 2; $i<$day; $i++){
 			$monday = date('Y-m-d', strtotime($monday. ' - 1 days'));
 		}
 
@@ -32,22 +32,23 @@
 	}
 
 	function changeDay($day){
-		global $date, $monday, $tuesday, $wednsday, $thursday, $friday;
+		global $monday, $tuesday, $wednsday, $thursday, $friday;
+		setDays($_SESSION['date']);
 		switch ($day){
 			case 'måndag':
-				$date = $monday;
+				$_SESSION['date'] = $monday;
 				break;
 			case 'tisdag':
-				$date = $tuesday;
+				$_SESSION['date'] = $tuesday;
 				break;
 			case 'onsdag':
-				$date = $wednsday;
+				$_SESSION['date'] = $wednsday;
 				break;
 			case 'torsdag':
-				$date = $thursday;
+				$_SESSION['date'] = $thursday;
 				break;
 			case 'fredag':
-				$date = $friday;
+				$_SESSION['date'] = $friday;
 				break;
 		}
 	}
@@ -63,7 +64,6 @@
 		</script>
 		<?php
         
-		require_once('connections/pdoConnect.php');
 		$db->exec("SET NAMES 'utf8'");
 		
 		$query = "SELECT roombookings.room, roombookings.hour, roombookings.description, rooms.name "; 
@@ -73,7 +73,7 @@
 		
 		$ps = $db->prepare($query);
 		$ps->execute([
-			'date'=>$date
+			'date'=>$_SESSION['date']
 		]);
 		$result = $ps -> fetchAll();
 	

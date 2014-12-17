@@ -7,9 +7,19 @@
 		header('Location: index.php');
 	}
 	
-	include_once('../includes/php/getBookings.php');
+	if (isset($_POST['book'])){
+		include('../includes/php/addBooking.php');
+	}
 
-?><pre><?php print_r($_POST); ?></pre>
+	
+	
+	include_once('../includes/php/getBookings.php');
+	
+	$jsDay = date("D", strtotime($_SESSION['date']));
+	?><script>var jsDay = '<?php print_r($jsDay);?>'; </script><?php
+
+
+?>
 <!-- body starts here -->
 
 <main>
