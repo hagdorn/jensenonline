@@ -11,6 +11,10 @@
 		include('../includes/php/addBooking.php');
 	}
 
+	if (isset($_POST['cancel'])){
+		include('../includes/php/removeBooking.php');
+	}
+
 	
 	
 	include_once('../includes/php/getBookings.php');
