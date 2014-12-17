@@ -1,0 +1,169 @@
+#calendar-container button:focus, #calendar-container input:focus {
+  outline: 0; }
+
+.action-buttons {
+  color: #fff; }
+
+.action-buttons {
+  height: 24px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 3px;
+  font-weight: bold; }
+
+.green-button {
+  background: linear-gradient(#4fef00, #3db700); }
+
+.red-button {
+  background: linear-gradient(#ff0a0a, #d10000); }
+
+.orange-button {
+  background: linear-gradient(#ffba19, #ff7119); }
+
+.standard-label {
+  font-weight: bold; }
+
+#deleteButton {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 24px;
+  font-weight: bold;
+  background: linear-gradient(#ff0a0a, #d10000);
+  color: #fff;
+  border: 0;
+  border-radius: 3px; }
+
+#calendar-header {
+  width: 84%;
+  margin: 0 8% 20px;
+  position: relative; }
+  #calendar-header button:nth-child(3) {
+    height: 24px;
+    font-weight: bold;
+    background: linear-gradient(#4fef00, #3db700);
+    color: #fff;
+    border: 0;
+    border-radius: 3px; }
+
+#pop-up {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  width: 30%;
+  height: 300px;
+  position: fixed;
+  visibility: hidden;
+  z-index: 1;
+  background: #003b65;
+  color: #fff;
+  border-radius: 15px; }
+  #pop-up span {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    cursor: pointer; }
+  #pop-up table {
+    margin: 40px auto; }
+    #pop-up table tbody tr:nth-child(5) td {
+      text-align: center; }
+  #pop-up td:nth-child(2n+1) {
+    text-align: right;
+    font-size: 15px; }
+  #pop-up input {
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 2px;
+    color: black; }
+  #pop-up label {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-right: 5px; }
+  #pop-up h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.9em; }
+  #pop-up #button {
+    background: linear-gradient(white, #c9c9c9);
+    margin-top: 30px;
+    width: 100px;
+    min-height: 30px;
+    cursor: pointer;
+    font-weight: bold; }
+
+#calendar-container {
+  max-width: 84%;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 1px; }
+  #calendar-container table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse; }
+    #calendar-container table:last-child {
+      margin-bottom: 150px; }
+  #calendar-container td {
+    width: 10%;
+    height: 130px;
+    border: 1px solid black;
+    position: relative;
+    background: #f9f9f9; }
+    #calendar-container td span:nth-child(1) {
+      font-size: 2.3em;
+      position: absolute;
+      left: 5px;
+      top: 0;
+      font-weight: normal;
+      color: #003b65; }
+    #calendar-container td p {
+      position: absolute;
+      left: 10px;
+      font-size: 1.1em; }
+      #calendar-container td p:nth-child(4) {
+        top: 30px; }
+      #calendar-container td p:nth-child(5) {
+        top: 50px; }
+      #calendar-container td p:nth-child(6) {
+        top: 70px; }
+      #calendar-container td p:nth-child(7) {
+        top: 90px; }
+    #calendar-container td button {
+      width: auto;
+      height: 20px;
+      background: none;
+      border: 0;
+      font-size: 0.8em;
+      position: absolute;
+      right: 5px;
+      top: 22px;
+      font-weight: bold; }
+      #calendar-container td button:hover {
+        color: #1ca0b4;
+        cursor: pointer; }
+      #calendar-container td button:nth-child(2) {
+        top: 5px; }
+  #calendar-container #btt {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(#ffba19, #ff7119);
+    color: #fff;
+    border: 0;
+    border-radius: 3px; }
+  #calendar-container h1 {
+    font-size: 3em;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    color: #003b65; }
+  #calendar-container button {
+    color: #003b65; }
+
+/*# sourceMappingURL=calendar.css.map */

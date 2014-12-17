@@ -1,18 +1,5 @@
 @import "data";
 
-.survey-buttons {
-    height: 24px;
-    padding: 0 10px;
-    border: 0;
-    border-radius: $standard-radius;
-    @extend %white-text;
-    font-weight: bold;
-}
-
-.choose-type-label {
-    font-weight: bold;
-}
-
 #survey-wrapper {
     
     h1, h2 {
@@ -41,9 +28,6 @@
     float: right;
 }
 
-
-
-
 /***** SURVEY CREATION *****/
 
 #survey-wrapper {
@@ -55,7 +39,6 @@
 .question-label {
     margin: 0 10px 0 0;
     font-size: 24px;
-    font-weight: bold;
     clear: both;
 }
 
@@ -73,7 +56,6 @@
 }
 
 .edit-input {
-    height: 24px;
     display: none;
 }
 
@@ -100,10 +82,19 @@
 
 .radio-edit-button {
     margin: 0 10px 0 0;
+    padding: 4px 6px;
 }
 
 .radio-remove-button {
-    margin: 0 10px;
+    margin: 0 5px;
+    padding: 4px 10px 4px 6px;
+}
+
+.radio-row {
+    
+    td:nth-child(2) {
+        padding-right: 30px;
+    }
 }
 
 .user-textfield {

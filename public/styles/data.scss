@@ -88,6 +88,16 @@ $standard-radius: 3px;
     background: $color;
 }
 
+//Button classes
+.action-buttons {
+    height: 24px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: $standard-radius;
+    @extend %white-text;
+    font-weight: bold;
+}
+
 .green-button {
     background: $green-gradient;
 }
@@ -98,4 +108,9 @@ $standard-radius: 3px;
 
 .orange-button {
     background: $orange-gradient;
+}
+
+//Label classes
+.standard-label {
+    font-weight: bold;
 }

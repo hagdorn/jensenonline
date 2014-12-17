@@ -1,5 +1,12 @@
-.survey-buttons, #survey-wrapper button, #survey-wrapper input[type="submit"] {
+.action-buttons, #survey-wrapper button, #survey-wrapper input[type="submit"] {
   color: #fff; }
+
+.action-buttons {
+  height: 24px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 3px;
+  font-weight: bold; }
 
 .green-button {
   background: linear-gradient(#4fef00, #3db700); }
@@ -10,14 +17,7 @@
 .orange-button {
   background: linear-gradient(#ffba19, #ff7119); }
 
-.survey-buttons {
-  height: 24px;
-  padding: 0 10px;
-  border: 0;
-  border-radius: 3px;
-  font-weight: bold; }
-
-.choose-type-label {
+.standard-label {
   font-weight: bold; }
 
 #survey-wrapper h1, #survey-wrapper h2 {
@@ -39,7 +39,6 @@
 .question-label {
   margin: 0 10px 0 0;
   font-size: 24px;
-  font-weight: bold;
   clear: both; }
 
 .radio-label {
@@ -52,7 +51,6 @@
   height: 25px; }
 
 .edit-input {
-  height: 24px;
   display: none; }
 
 .radio-choose-type {
@@ -72,10 +70,15 @@
   cursor: pointer; }
 
 .radio-edit-button {
-  margin: 0 10px 0 0; }
+  margin: 0 10px 0 0;
+  padding: 4px 6px; }
 
 .radio-remove-button {
-  margin: 0 10px; }
+  margin: 0 5px;
+  padding: 4px 10px 4px 6px; }
+
+.radio-row td:nth-child(2) {
+  padding-right: 30px; }
 
 .user-textfield {
   margin-top: 20px;

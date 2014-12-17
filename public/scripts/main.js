@@ -678,7 +678,7 @@ var surveyView = {
         .children('li').last().children('fieldset').children('legend').html().match(/[\d]+$/);
         
         if (lastChildNumber > 29) {
-            surveyModel.errorElement.html('Du kan inte lägga till fler frågor. Max 30 frågor tillåtet.').css({color: 'red', fontWeight: 'bold'});
+            surveyModel.errorElement.html('OBS: Max 30 frågor tillåtet.').css({color: 'red', fontWeight: 'bold'});
             return;
         }
         else {
@@ -768,7 +768,7 @@ var surveyView = {
 
                     case 1:
                         var label = surveyView.createElement('label', td);
-                            label.attr({class: 'radio-label',
+                            label.attr({class: 'radio-label standard-label',
                                         for: 'question' + currentQuestion + 'choice' + j
                                        });
                             label.text(radioOptions[j - 1]);
@@ -777,7 +777,7 @@ var surveyView = {
                     case 2:
                         var span = surveyView.createElement('span', td);
                             span.html('Ta bort');
-                            span.attr({class: 'radio-remove-button removal'});
+                            span.attr({class: 'action-buttons red-button radio-remove-button removal'});
                             span.on('click', function() {
 
                                 var parent = $(this).parent();
@@ -792,7 +792,7 @@ var surveyView = {
                     case 3:
                         var span = surveyView.createElement('span', td);
                             span.html('Redigera');
-                            span.attr({class: 'radio-edit-button removal'});
+                            span.attr({class: 'action-buttons green-button radio-edit-button removal'});
                             span.on('click', function() {
 
                                 var parent = $(this).parent();
@@ -868,6 +868,12 @@ var surveyView = {
         
         return currentQuestion;
     },
+    removeSingleQuestion: function() {
+        
+        $('#form-container').children('form').children('ol').children('li:last-child').fadeOut(400, function() {
+            $(this).remove();
+        });
+    },
     spawnQuestions: function(quantity, currentQuestion, btnID) {
         
         if (currentQuestion != undefined) {
@@ -889,11 +895,11 @@ var surveyView = {
                        
             if (btnID === undefined) {
                 legend.html('Fråga ' + i);
-                label.attr({for: i, id: i, class: 'question-label'});
+                label.attr({for: i, id: i, class: 'question-label standard-label'});
             }
             else {
                 legend.html('Fråga ' + parsedInteger);
-                label.attr({for: parsedInteger, id: parsedInteger, class: 'question-label'});
+                label.attr({for: parsedInteger, id: parsedInteger, class: 'question-label standard-label'});
             }
             
             for (m = 0; m < 3; m++) {
@@ -986,21 +992,21 @@ var surveyView = {
                     
                     if (btnID === undefined) {
                         if (m === 1) {
-                            label.attr({for: 'radio' + i, class: 'choose-type-label'});
+                            label.attr({for: 'radio' + i, class: 'choose-type-label standard-label'});
                             label.html('Kryssrutor');
                         }
                         else if (m === 2) {
-                            label.attr({for: 'text' + i, class: 'choose-type-label'});
+                            label.attr({for: 'text' + i, class: 'choose-type-label standard-label'});
                             label.html('Textfält');
                         }
                     }
                     else {
                         if (m === 1) {
-                            label.attr({for: 'radio' + parsedInteger, class: 'choose-type-label'});
+                            label.attr({for: 'radio' + parsedInteger, class: 'choose-type-label standard-label'});
                             label.html('Kryssrutor');
                         }
                         else if (m === 2) {
-                            label.attr({for: 'text' + parsedInteger, class: 'choose-type-label'});
+                            label.attr({for: 'text' + parsedInteger, class: 'choose-type-label standard-label'});
                             label.html('Textfält');
                         }
                     }
@@ -1037,6 +1043,10 @@ var surveyController = {
             else {
                 surveyView.addSingleQuestion(1, $(this).attr('id'));
             }
+        });
+        
+        $('#removeOneQuestion').on('click', function() {
+            surveyView.removeSingleQuestion();
         });
         
         surveyModel.select.change(function() {
