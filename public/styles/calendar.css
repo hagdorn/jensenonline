@@ -9,7 +9,8 @@
   padding: 0 10px;
   border: 0;
   border-radius: 3px;
-  font-weight: bold; }
+  font-weight: bold;
+  cursor: pointer; }
 
 .green-button {
   background: linear-gradient(#4fef00, #3db700); }
@@ -22,6 +23,9 @@
 
 .standard-label {
   font-weight: bold; }
+
+.clearfix {
+  clear: both; }
 
 #deleteButton {
   position: absolute;

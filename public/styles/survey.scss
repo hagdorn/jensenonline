@@ -1,6 +1,9 @@
 @import "data";
 
+//Containers
 #survey-wrapper {
+    width: $max - 20;
+    margin: $center 200px;
     
     h1, h2 {
         color: $dark-blue;
@@ -22,24 +25,19 @@
         font-weight: bold;
         padding: 0 5px;
     }
+    
+    @extend %placeholderStyles;
 }
 
 #submit-container {
+    display: none;
     float: right;
-}
-
-/***** SURVEY CREATION *****/
-
-#survey-wrapper {
-    width: $max - 20;
-    margin: $center 200px;
 }
 
 //Labels
 .question-label {
     margin: 0 10px 0 0;
     font-size: 24px;
-    clear: both;
 }
 
 .radio-label {
@@ -51,50 +49,12 @@
 }
 
 //Inputs
-.question-input {
-    height: 25px;
-}
-
 .edit-input {
-    display: none;
+    display: none; 
 }
 
 .radio-choose-type {
     margin-right: 5px;
-}
-
-//Other
-.radio-cell {
-    height: 30px;
-    padding: 0;
-}
-
-.choose-type-ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px;
-}
-
-.radio-edit-button, .radio-remove-button {
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.radio-edit-button {
-    margin: 0 10px 0 0;
-    padding: 4px 6px;
-}
-
-.radio-remove-button {
-    margin: 0 5px;
-    padding: 4px 10px 4px 6px;
-}
-
-.radio-row {
-    
-    td:nth-child(2) {
-        padding-right: 30px;
-    }
 }
 
 .user-textfield {
@@ -104,11 +64,38 @@
     float: left;
 }
 
+//Table elements
+.radio-row {
+    
+    td:nth-child(2) {
+        padding-right: 30px;
+    }
+}
+
+.radio-cell {
+    height: 30px;
+    padding: 0;
+}
+
+//Lists
+.choose-type-ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+
 .radio-ul {
     margin: 10px 10px 0;
     padding: 0;
 }
 
-#submit-container {
-    display: none;
+//Buttons
+.radio-edit-button {
+    margin: 0 5px 0 0;
+    padding: 4px 6px;
+}
+
+.radio-remove-button {
+    margin: 0 5px;
+    padding: 4px 10px 4px 6px;
 }

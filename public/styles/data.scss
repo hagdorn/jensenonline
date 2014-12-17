@@ -1,5 +1,6 @@
 //Colors
 $white: #fff;
+$black: #000;
 $soft-grey: #f7f7f7;
 $dark-blue: #003b65;
 $light-blue: #38b6ff;
@@ -40,6 +41,25 @@ $standard-radius: 3px;
 
 %white-text {
     color: $white;
+}
+
+%placeholderStyles {
+    
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        padding-left: 5px;
+        font-size: 15px;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color:    #909;
+        opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color:    #909;
+        opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+        color:    #909;
+    }
 }
 
 //Mixins
@@ -96,6 +116,7 @@ $standard-radius: 3px;
     border-radius: $standard-radius;
     @extend %white-text;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .green-button {
@@ -113,4 +134,9 @@ $standard-radius: 3px;
 //Label classes
 .standard-label {
     font-weight: bold;
+}
+
+//General classes
+.clearfix {
+    clear: both;
 }

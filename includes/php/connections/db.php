@@ -37,8 +37,6 @@ function checkUserNameAndPassword($un, $pwd){
 			$_SESSION['firstname'] = $loggedIn['firstname'];
 			$_SESSION['lastname'] = $loggedIn['lastname'];
             $_SESSION['timestamp'] = time();
-			
-			
 		}
 					 
 	}

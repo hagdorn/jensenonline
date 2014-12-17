@@ -905,11 +905,11 @@ var surveyView = {
                        
             if (btnID === undefined) {
                 legend.html('Fråga ' + i);
-                label.attr({for: i, id: i, class: 'question-label standard-label'});
+                label.attr({for: i, id: i, class: 'question-label clearfix standard-label'});
             }
             else {
                 legend.html('Fråga ' + parsedInteger);
-                label.attr({for: parsedInteger, id: parsedInteger, class: 'question-label standard-label'});
+                label.attr({for: parsedInteger, id: parsedInteger, class: 'question-label clearfix standard-label'});
             }
             
             for (m = 0; m < 3; m++) {
