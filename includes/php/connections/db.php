@@ -52,6 +52,7 @@ function checkUserNameAndPassword($un, $pwd){
 
 function addUser($username, $password, $email, $type){
 	try{	
+		global $db;
 		
         $query = "INSERT INTO useraccounts ";
         $query .= "(username, password, email, type ) ";

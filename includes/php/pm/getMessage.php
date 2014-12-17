@@ -1,7 +1,8 @@
 <?php
 
 	try{
-			
+		$db->exec("SET NAMES 'utf8'");
+		
 		$query = "SELECT CONCAT(fromU.firstname,' ', fromU.lastname)  as 'to', ";
 		$query .= "CONCAT (toU.firstname, ' ', toU.lastname) as 'from', ";
 		$query .= "message, subject, datetime, status, replied, replieddatetime ";
