@@ -4,6 +4,7 @@
 
 	try{
 		//require_once('../includes/php/connections/pdoConnect.php');
+		$db->exec("SET NAMES 'utf8'");
 		
 		if($_SESSION['box'] == 'inbox'){
 			$query = "SELECT pm.status, pm.message, pm.subject, pm.datetime, pm.id, useraccounts.firstname, useraccounts.lastname ";

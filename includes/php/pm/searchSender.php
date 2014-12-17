@@ -5,11 +5,12 @@
 		try{
 			$db->exec("SET NAMES 'utf8'");
 			
-			$query  = "SELECT * FROM useraccounts WHERE firstname LIKE :user";			
+			$query  = "SELECT * FROM useraccounts WHERE LOWER(firstname) LIKE :user OR LOWER(lastname) LIKE :user2";			
 			$ps = $db->prepare($query); //Prepared statement
 					
 			$result = $ps->execute(array(
-				'user' => "%{$_GET['q']}%",
+				'user' => strtolower("%{$_GET['q']}%"),
+				'user2' => strtolower("%{$_GET['q']}%")
 				//'class' => $_POST['class'] 
 			
 			)); 

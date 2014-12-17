@@ -1,6 +1,6 @@
 <?
 	try{
-		
+		$db->exec("SET NAMES 'utf8'");
 		
 		$query = "SELECT firstname, lastname, id FROM useraccounts ";
 		$query .= "WHERE CONCAT(firstname, ' ' , lastname) = :name ";
@@ -10,6 +10,8 @@
 		$result = $ps -> fetch(PDO::FETCH_ASSOC);
 		
 		$reciever = $result['id'];
+		
+		
 		
         $query = "INSERT ";
         $query .= "INTO pm ";
