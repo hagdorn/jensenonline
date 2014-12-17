@@ -8,16 +8,16 @@
 	}
 	
 	if (isset($_POST['book'])){
-		include('../includes/php/addBooking.php');
+		include('../includes/php/roombookings/addBooking.php');
 	}
 
 	if (isset($_POST['cancel'])){
-		include('../includes/php/removeBooking.php');
+		include('../includes/php/roombookings/removeBooking.php');
 	}
 
 	
 	
-	include_once('../includes/php/getBookings.php');
+	include_once('../includes/php/roombookings/getBookings.php');
 	
 	$jsDay = date("D", strtotime($_SESSION['date']));
 	?><script>var jsDay = '<?php print_r($jsDay);?>'; </script><?php
