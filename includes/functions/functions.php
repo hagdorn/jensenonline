@@ -40,6 +40,7 @@
 	function checkUnreadMessages(){
         global $db;
         global $inboxText;
+        global $inboxTextMenu;
 
         $query = "SELECT status, toUser FROM pm WHERE toUser = :user AND status = :status";
         $ps = $db->prepare($query);
@@ -48,6 +49,7 @@
 
         if (sizeof($unread > 0)){
             $inboxText = "Inkorg <span>" .sizeof($unread) ."</span>";
+            $inboxTextMenu = "Inkorg (" .sizeof($unread) .")";
         }
         else{
             $inboxText = "Inkorg";
@@ -57,11 +59,12 @@
 	function menuFunction(){
 	
 			checkUnreadMessages();
-			global $inboxText;
+			global $inboxTextMenu;
 
 			?>
 			<script>
-				var inboxText = '<?php echo $inboxText; ?>';
+				var inboxText = '<?php echo $inboxTextMenu; ?>';
+				var inboxText = '<?php echo $inboxTextMenu; ?>';
 			</script>
 			<?php
 	}
