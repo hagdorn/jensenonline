@@ -40,10 +40,12 @@
 		
 		while($i < $messagesPerPage * $pageNumber){
 			
-			$subject = $result[$i]['subject'];
-			$sender = $result[$i]['firstname'] . " " . $result[$i]['lastname'];
-			$datetime = $result[$i]['datetime'];
-			$id = $result[$i]['id'];
+			if(isset($result[$i]['id'])){
+				$subject = $result[$i]['subject'];
+				$sender = $result[$i]['firstname'] . " " . $result[$i]['lastname'];
+				$datetime = $result[$i]['datetime'];
+				$id = $result[$i]['id'];
+			}
 			
 			if(isset($result[$i]['status']) && $result[$i]['status'] == "unread"){
 				$subject = "<b>" . $subject . "</>";

@@ -6,10 +6,20 @@
 	if ($_SESSION['type'] != 2 && $_SESSION['type'] != 1) {
 		header('Location: index.php');
 	}
+	
+	if (isset($_POST['book'])){
+		include('../includes/php/addBooking.php');
+	}
 
+	
+	
 	include_once('../includes/php/getBookings.php');
+	
+	$jsDay = date("D", strtotime($_SESSION['date']));
+	?><script>var jsDay = '<?php print_r($jsDay);?>'; </script><?php
+
+
 ?>
-<pre><?php print_r($_POST); ?></pre>
 <!-- body starts here -->
 
 <main>
@@ -17,11 +27,11 @@
         <div id="days-wrapper">
             <form method="POST" action="classroombooking.php">
                 <div id="day-row">
-                    <input type="submit" name="monday" id="Mon" class="day-btns" value="måndag">
-                    <input type="submit" name="tuesday" id="Tue" class="day-btns" value="tisdag">
-                    <input type="submit" name="wednesday" id="Wed" class="day-btns" value="onsdag">
-                    <input type="submit" name="thursday" id="Thu" class="day-btns" value="torsdag">
-                    <input type="submit" name="friday" id="Fri" class="day-btns" value="fredag">
+                    <input type="submit" name="day" id="Mon" class="day-btns" value="måndag">
+                    <input type="submit" name="day" id="Tue" class="day-btns" value="tisdag">
+                    <input type="submit" name="day" id="Wed" class="day-btns" value="onsdag">
+                    <input type="submit" name="day" id="Thu" class="day-btns" value="torsdag">
+                    <input type="submit" name="day" id="Fri" class="day-btns" value="fredag">
                 </div>
             </form>
             <form method="POST" action="classroombooking.php" id="selects-wrapper">
@@ -36,6 +46,8 @@
                 <form method="POST" action="classroombooking.php">
                     <label for="subject" id="course-label">Ange kurs:</label>
                     <input type="text" name="classSubject" alt="Fyll i ämne" id="classSubject">
+                    <input type="hidden" id="time" name="time">
+                    <input type="hidden" id="class" name="class">
                     <input type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="booking-btns" value="Boka">
                 </form>
             </div>
@@ -48,6 +60,9 @@
     </div>
 </main>
 
+
 <?php
     include_once('../includes/footer.php');
 ?>
+
+
