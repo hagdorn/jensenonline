@@ -21,6 +21,8 @@ try {
         $stmt->bindParam(':url', $file_url);
         $stmt->bindParam(':user', $file_creator);
         $stmt->execute();
+        
+        header('Location: createsurvey.php');
     }
     
 }
