@@ -1,6 +1,7 @@
 <?
 	try{
 		
+		
 		$query = "SELECT firstname, lastname, id FROM useraccounts ";
 		$query .= "WHERE CONCAT(firstname, ' ' , lastname) = :name ";
 		

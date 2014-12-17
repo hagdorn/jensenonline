@@ -1,4 +1,6 @@
 <?php 
+	require_once('../connections/pdoConnect.php');
+
 	if($_GET['q']!== ""){
 		try{
 			$db->exec("SET NAMES 'utf8'");

@@ -44,7 +44,7 @@
                     <td class="space-down column-two">
                        
                        	<datalist id="recievers"></datalist>
-                        <input type="text" name="receiver" list="recievers" id="receiver" class="input" alt="Fält för mottagare"  onkeyup="showResult(this.value)">
+                        <input type="text" name="receiver" list="recievers" id="receiver" class="input" alt="Fält för mottagare"  onkeyup="showResult(this.value)" autocomplete="off">
                         
                         <ul id="results" class="results"></ul>
                         
@@ -55,7 +55,7 @@
                         <label for="subject">Ämne:</label>
                     </td>
                     <td class="space-down column-two">
-                        <input type="text" name="subject" id="subject" class="input" alt="Fält för ämne">
+                        <input type="text" name="subject" id="subject" class="input" alt="Fält för ämne" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
