@@ -34,6 +34,54 @@
     float: right;
 }
 
+#survey-list-wrapper {
+    width: 60%;
+    @extend %center-element;
+}
+
+//Table elements
+.radio-row {
+    
+    td:nth-child(2) {
+        padding-right: 30px;
+    }
+}
+
+.radio-cell {
+    height: 30px;
+    padding: 0;
+}
+
+#display-surveys-table {
+    width: $max;
+    border: 1px solid darkgrey;
+    
+    tr:first-child {
+        background: $blue-gradient;
+        color: $white;
+    }
+    
+    tr:nth-child(even) {
+        background: $soft-grey;
+    }
+    
+    @include link-colors($color: $black, $hover-color: $ocean-blue);
+}
+
+.survey-head {
+    height: 30px;
+}
+
+.survey-cell {
+    height: 30px;
+    border: $thin-lightgrey;
+    text-align: center;
+}
+
+.highlight-text {
+    font-weight: bold;
+}
+
 //Labels
 .question-label {
     margin: 0 10px 0 0;
@@ -64,19 +112,6 @@
     float: left;
 }
 
-//Table elements
-.radio-row {
-    
-    td:nth-child(2) {
-        padding-right: 30px;
-    }
-}
-
-.radio-cell {
-    height: 30px;
-    padding: 0;
-}
-
 //Lists
 .choose-type-ul {
     list-style: none;
@@ -98,4 +133,14 @@
 .radio-remove-button {
     margin: 0 5px;
     padding: 4px 10px 4px 6px;
+}
+
+.event-btn {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    
+    &:hover {
+        color: $ocean-blue;
+    }
 }

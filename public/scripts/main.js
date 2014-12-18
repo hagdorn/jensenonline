@@ -733,7 +733,7 @@ var surveyView = {
             
             var form = surveyView.createElement('form', surveyModel.container, true);
                 form.attr({method: 'POST',
-                           action: 'savesurvey.php',
+                           action: '../includes/php/survey/savesurvey.php',
                            id: 'survey-form'
                           });
         
@@ -1030,19 +1030,40 @@ var surveyController = {
     
     bindElements: (function() {
         
-        $('#lock-survey').on('click', function() {
-            $('#form-container').find('.removal').remove();
-            $('#contentHolder').val($('#form-container').html());
+        var lockBtn = $('#lock-survey');
+            lockBtn.on('click', function() {
+
+                if (lockBtn.html() === 'Lås enkät') {
+
+                    lockBtn.html('Lås upp enkät');
+                    $('#originalcontent').val($('#form-container').html());
+                    $('#form-container').find('.removal').remove();
+                    $('#contentHolder').val($('#form-container').html());
+                    $('#numOfQuestions').attr('disabled', 'disabled').css('color', '#ccc');
+                    $('#submit-container').stop().fadeIn();
+                }
+                else {
+                    lockBtn.html('Lås enkät');
+                    $('#form-container').html($('#originalcontent').val());
+                    $('#numOfQuestions').removeAttr('disabled').css('color', 'black');
+                    $('#submit-container').stop().fadeOut();
+                }
+
+            });
+        
+        $('.open-new-window').on('click', function() {
             
-            if ($('#numOfQuestions').is(':disabled')) {
-                $('#numOfQuestions').removeAttr('disabled').css('color', 'black');
-                $('#submit-container').stop().fadeOut();
-            }
-            else {
-                $('#numOfQuestions').attr('disabled', 'disabled').css('color', '#ccc');
-                $('#submit-container').stop().fadeIn();
-            }
-            
+                var filename = $(this).children('a').html();
+                var promise = $.ajax({
+                                url: '../includes/surveys/' + filename,
+                                type: 'POST'
+                              });
+                promise.done(function(data) {
+                    var w = window.open();
+                    //$('#view-survey').html(data);
+                    $(w.document.body).html(data);
+                    //window.open('viewsurvey.php', 'newwindow', 'width=1400, height=1000');
+                });
         });
         
         $('#addOneQuestion').on('click', function() {

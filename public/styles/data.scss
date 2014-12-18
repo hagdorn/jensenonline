@@ -43,6 +43,10 @@ $standard-radius: 3px;
     color: $white;
 }
 
+%center-element {
+    margin: $center;
+}
+
 %placeholderStyles {
     
     ::-webkit-input-placeholder { /* WebKit browsers */

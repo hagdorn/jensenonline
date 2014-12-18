@@ -70,7 +70,7 @@
 			
 			$i ++;
 		}
-	echo("</table>"); //<!--- added this directly in the markup instead, should work.
+	echo("</table>");
 		
 	//Antal meddelanden.
 	$numberOfMessages = sizeof($result);

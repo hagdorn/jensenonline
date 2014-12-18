@@ -11,12 +11,16 @@
         <select id="numOfQuestions"></select>
         <button id="addOneQuestion" class="action-buttons green-button">Lägg till en ny fråga</button>
         <button id="removeOneQuestion" class="action-buttons red-button">Ta bort en fråga</button>
-        <button id="lock-survey" class="action-buttons orange-button">Lås enkäten</button>
+        <button id="lock-survey" class="action-buttons orange-button">Lås enkät</button>
         <span id="surveyErrorMsg"></span>
         <div id="submit-container">
             <input type="submit" name="saveSurvey" form="survey-form" class="action-buttons green-button" value="Spara enkät">
             <input type="text" name="filename" form="survey-form" placeholder="Fyll i filnamn">
+            <span><?php $filenameErr?></span>
+            <input type="text" name="title" form="survey-form" placeholder="Rubrik">
+            <span><?php $titleErr?></span>
             <input type="hidden" name="content" id="contentHolder" form="survey-form">
+            <input type="hidden" name="originalcontent" id="originalcontent" form="survey-form">
         </div>
     </header>
     <div id="form-container"></div>

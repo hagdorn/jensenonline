@@ -45,9 +45,6 @@ function checkUserNameAndPassword($un, $pwd){
 	}
 }
 
-
-
-
 function addUser($username, $password, $email, $type){
 	try{	
 		global $db;
