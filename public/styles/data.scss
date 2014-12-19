@@ -144,3 +144,29 @@ $standard-radius: 3px;
 .clearfix {
     clear: both;
 }
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+.padding-box {
+    box-sizing: padding-box;
+}
+
+.hide-element {
+    display: none;
+}
+
+.nav {
+    padding: 0;
+    list-style: none;
+    font-size: 0; //Needs to be resetted in the list items with 16px
+}

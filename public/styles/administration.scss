@@ -1,0 +1,56 @@
+@import "data";
+
+div#administration-wrapper {
+    width: 90%;
+    height: $max;
+    margin: $center;
+    border: $thin-lightgrey;
+}
+
+div#changes-feed {
+    width: 20%;
+    min-height: $max;
+    border-left: $thin-lightgrey;
+    text-align: center;
+}
+
+ul.admin-nav {
+    min-width: 200px;
+    height: 100%;
+    padding: 0 0 0 30px;
+    border-right: $thin-lightgrey;
+}
+
+li.admin-nav-items {
+    font-size: 16px;
+    font-weight: bold;
+    
+    &:first-child {
+        margin-top: 25px;
+    }
+    
+    a {
+        @include vertAlign(30px);
+        font-size: 20px;
+    }
+    
+    @include link-colors($color: $dark-blue);
+}
+
+li.admin-sub-items {
+    @include vertAlign(25px);
+    font-size: 14px;
+    margin-left: 10px;
+    
+    a {
+        @include vertAlign(25px);
+        font-size: 16px;
+        padding-bottom: 2px;
+        border-bottom: $thin-lightgrey;
+    }
+}
+
+h1.feed-headers {
+    font-size: 22px;
+    color: $dark-blue;
+}

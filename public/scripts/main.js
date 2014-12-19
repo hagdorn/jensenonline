@@ -9,6 +9,7 @@ $(document).ready(function() {
         calendarView.createCalendar(0);
         calendarModel.getRedDaysFromAPI(2015);
         calendarController.addEventListeners();
+        administrationController.bindElements();
         bookingView.createScheme();
         bookingView.fillSelects();
         bookingController.setCurrentDay();
@@ -733,7 +734,7 @@ var surveyView = {
             
             var form = surveyView.createElement('form', surveyModel.container, true);
                 form.attr({method: 'POST',
-                           action: '../includes/php/survey/savesurvey.php',
+                           action: 'createsurvey.php',
                            id: 'survey-form'
                           });
         
@@ -1137,10 +1138,27 @@ var surveyController = {
     }
 }
 
+/***** administration *****/
+    
+var administrationModel = {
+    
+}
 
+var administrationView = {
     
+}
+
+var administrationController = {
     
-    
+    bindElements: function() {
+        
+        $('.admin-nav-items').on('click', administrationController.toggleDropDown);
+    },
+    toggleDropDown: function() {
+        
+        $(this).children('ul').stop().slideToggle();
+    }
+}
     
     
     

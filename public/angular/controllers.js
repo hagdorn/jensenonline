@@ -39,6 +39,10 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
             title: 'Administration',
             items: [
                 {
+                    title: 'Överblick',
+                    URL: 'overview'
+                },
+                {
                     title: 'Hantera utbildningar',
                     URL: 'mngprograms'
                 },
@@ -59,7 +63,6 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'mngfacilities'
                 }
             ],
-            URL: 'administration',
             id: 'administration'
         },
         {
@@ -111,7 +114,6 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'about'
                 }
             ],
-            URL: 'help',
             id: 'help'
         }
     ],
@@ -313,5 +315,5 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
             id: 'help'
         }
     ],
-        $scope.names = ['Hans', 'Jonas', 'Gurra', 'Snurre sprätt', 'Torsten', 'Xerxes', 'Christian', 'Christoffer']; //Test data only
+        $scope.menuItems = ['Utbildningar', 'Kurser', 'Personal', 'Lärare', 'Studenter', 'Lokaler'];
 });
