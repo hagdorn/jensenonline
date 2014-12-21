@@ -48,19 +48,22 @@ div#administration-wrapper {
   width: 90%;
   height: 100%;
   margin: 0 auto;
-  border: 1px solid #D3D3D3; }
+  border: 1px solid #D3D3D3;
+  background: linear-gradient(#f9f9f9, #ffffff); }
 
 div#changes-feed {
   width: 20%;
   min-height: 100%;
   border-left: 1px solid #D3D3D3;
-  text-align: center; }
+  text-align: center;
+  background: #fff; }
 
 ul.admin-nav {
   min-width: 200px;
   height: 100%;
   padding: 0 0 0 30px;
-  border-right: 1px solid #D3D3D3; }
+  border-right: 1px solid #D3D3D3;
+  background: #fff; }
 
 li.admin-nav-items {
   font-size: 16px;
@@ -74,7 +77,7 @@ li.admin-nav-items {
   li.admin-nav-items a {
     text-decoration: none; }
     li.admin-nav-items a:link, li.admin-nav-items a:visited, li.admin-nav-items a:focus, li.admin-nav-items a:hover, li.admin-nav-items a:active {
-      color: #003b65; }
+      color: #000; }
 
 li.admin-sub-items {
   height: 25px;
@@ -90,6 +93,6 @@ li.admin-sub-items {
 
 h1.feed-headers {
   font-size: 22px;
-  color: #003b65; }
+  color: #000; }
 
 /*# sourceMappingURL=administration.css.map */

@@ -23,6 +23,7 @@
 
         if ($currentPage != 'login') {
             include_once('searchfield.php');
+            include_once('currentuser.php');
             include_once('logoutbutton.php');
         }
 

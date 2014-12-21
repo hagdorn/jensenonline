@@ -5,6 +5,7 @@ div#administration-wrapper {
     height: $max;
     margin: $center;
     border: $thin-lightgrey;
+    background: $lightgrey-gradient;
 }
 
 div#changes-feed {
@@ -12,6 +13,7 @@ div#changes-feed {
     min-height: $max;
     border-left: $thin-lightgrey;
     text-align: center;
+    background: $white;
 }
 
 ul.admin-nav {
@@ -19,6 +21,7 @@ ul.admin-nav {
     height: 100%;
     padding: 0 0 0 30px;
     border-right: $thin-lightgrey;
+    background: $white;
 }
 
 li.admin-nav-items {
@@ -34,7 +37,7 @@ li.admin-nav-items {
         font-size: 20px;
     }
     
-    @include link-colors($color: $dark-blue);
+    @include link-colors($color: $black);
 }
 
 li.admin-sub-items {
@@ -52,5 +55,5 @@ li.admin-sub-items {
 
 h1.feed-headers {
     font-size: 22px;
-    color: $dark-blue;
+    color: $black;
 }
