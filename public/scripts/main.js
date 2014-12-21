@@ -1150,13 +1150,8 @@ var administrationView = {
 
 var administrationController = {
     
-    bindElements: function() {
+    grabInfoTable: function(filename) {
         
-        $('.admin-nav-items').on('click', administrationController.toggleDropDown);
-    },
-    toggleDropDown: function() {
-        
-        $(this).children('ul').stop().slideToggle();
     }
 }
     

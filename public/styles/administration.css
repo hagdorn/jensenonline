@@ -1,3 +1,7 @@
+.edit-btn {
+  margin: 0;
+  padding: 0; }
+
 .action-buttons {
   color: #fff; }
 
@@ -45,6 +49,7 @@
   font-size: 0; }
 
 div#administration-wrapper {
+  position: relative;
   width: 90%;
   height: 100%;
   margin: 0 auto;
@@ -52,6 +57,9 @@ div#administration-wrapper {
   background: linear-gradient(#f9f9f9, #ffffff); }
 
 div#changes-feed {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 20%;
   min-height: 100%;
   border-left: 1px solid #D3D3D3;
@@ -59,7 +67,10 @@ div#changes-feed {
   background: #fff; }
 
 ul.admin-nav {
-  min-width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 13%;
   height: 100%;
   padding: 0 0 0 30px;
   border-right: 1px solid #D3D3D3;
@@ -76,23 +87,47 @@ li.admin-nav-items {
     font-size: 20px; }
   li.admin-nav-items a {
     text-decoration: none; }
-    li.admin-nav-items a:link, li.admin-nav-items a:visited, li.admin-nav-items a:focus, li.admin-nav-items a:hover, li.admin-nav-items a:active {
-      color: #000; }
+    li.admin-nav-items a:link, li.admin-nav-items a:visited, li.admin-nav-items a:focus, li.admin-nav-items a:active {
+      color: #003b65; }
+    li.admin-nav-items a:hover {
+      color: #0097ef; }
 
-li.admin-sub-items {
-  height: 25px;
-  line-height: 25px;
-  font-size: 14px;
-  margin-left: 10px; }
-  li.admin-sub-items a {
-    height: 25px;
-    line-height: 25px;
-    font-size: 16px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #D3D3D3; }
+div#top-menu {
+  width: 84%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 0 0 16%;
+  border-bottom: 1px solid #D3D3D3;
+  background: #fff;
+  z-index: -1; }
 
-h1.feed-headers {
-  font-size: 22px;
-  color: #000; }
+.edit-btn {
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  border-radius: 3px;
+  border: 1px solid #D3D3D3;
+  background: linear-gradient(#fff, #efefef); }
+  .edit-btn:hover {
+    background: linear-gradient(#f9f9f9, #ffffff); }
+  .edit-btn img {
+    margin: -2px -1px; }
+
+/*li.admin-sub-items {
+    @include vertAlign(25px);
+    font-size: 14px;
+    margin-left: 10px;
+    
+    a {
+        @include vertAlign(25px);
+        font-size: 16px;
+        padding-bottom: 2px;
+        border-bottom: $thin-lightgrey;
+    } 
+}*/
+/*h1.feed-headers {
+    font-size: 22px;
+    color: $black;
+}*/
 
 /*# sourceMappingURL=administration.css.map */

@@ -1,6 +1,7 @@
 @import "data";
 
 div#administration-wrapper {
+    position: relative;
     width: 90%;
     height: $max;
     margin: $center;
@@ -9,6 +10,9 @@ div#administration-wrapper {
 }
 
 div#changes-feed {
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 20%;
     min-height: $max;
     border-left: $thin-lightgrey;
@@ -17,7 +21,10 @@ div#changes-feed {
 }
 
 ul.admin-nav {
-    min-width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 13%;
     height: 100%;
     padding: 0 0 0 30px;
     border-right: $thin-lightgrey;
@@ -37,10 +44,44 @@ li.admin-nav-items {
         font-size: 20px;
     }
     
-    @include link-colors($color: $black);
+    @include link-colors($color: $dark-blue, $hover-color: $ocean-blue);
 }
 
-li.admin-sub-items {
+div#top-menu {
+    width: $max - 16;
+    @include vertAlign(50px);
+    padding: 0 0 0 16%;
+    border-bottom: $thin-lightgrey;
+    background: $white;
+    z-index: -1;
+}
+
+.edit-btn {
+    width: 26px;
+    @include vertAlign(26px);
+    @extend %no-margins;
+    border-radius: $standard-radius;
+    border: $thin-lightgrey;
+    background: linear-gradient(#fff, #efefef);
+    
+    &:hover {
+        background: $lightgrey-gradient;
+    }
+    
+    img {
+        margin: -2px -1px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*li.admin-sub-items {
     @include vertAlign(25px);
     font-size: 14px;
     margin-left: 10px;
@@ -50,10 +91,10 @@ li.admin-sub-items {
         font-size: 16px;
         padding-bottom: 2px;
         border-bottom: $thin-lightgrey;
-    }
-}
+    } 
+}*/
 
-h1.feed-headers {
+/*h1.feed-headers {
     font-size: 22px;
     color: $black;
-}
+}*/

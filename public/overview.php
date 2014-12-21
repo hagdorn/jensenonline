@@ -7,17 +7,22 @@
 <main>
     <div id="administration-wrapper" class="border-box">
         <ul class="nav admin-nav float-left padding-box">
-            <li ng-repeat="item in menuItems" class="admin-nav-items"><a href="">{{item}}</a>
-                <ul class="nav admin-sub-nav hide-element">
-                    <li class="admin-sub-items"><a href="">Lägg till</a></li>
-                    <li class="admin-sub-items"><a href="">Redigera</a></li>
-                    <li class="admin-sub-items"><a href="">Ta bort</a></li>
-                </ul>
-            </li>
+            <li class="admin-nav-items"><a href="">Utbildningar</a></li>
+            <li class="admin-nav-items"><a href="">Kurser</a></li>
+            <li class="admin-nav-items"><a href="">Lokaler</a></li>
+            <li class="admin-nav-items"><a href="">Personal</a></li>
+            <li class="admin-nav-items"><a href="">Lärare</a></li>
+            <li class="admin-nav-items"><a href="">Studenter</a></li>
         </ul>
-        <div id="changes-feed" class="float-right border-box">
-            <h1 class="feed-headers">Aktivitet:</h1>
+        <div id="top-menu">
+            <form method="POST" action="">
+                <label for="system-search" class="standard-label">Sök i systemet:</label>
+                    <input type="text" name="system-search" id="system-search">
+                    <button class="edit-btn"><img src="../includes/img/edit.png" no-repeat></button>
+                    <button class="edit-btn"><img src="../includes/img/delete.png" no-repeat></button>
+            </form>
         </div>
+        <div id="changes-feed" class="float-right border-box"></div>
     </div>
 </main>
 
