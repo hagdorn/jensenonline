@@ -1047,6 +1047,7 @@ var surveyController = {
                     
                     
                     lockBtn.children('img').attr('src', '../includes/img/unlock.png');
+                    lockBtn.attr('title', 'Lås upp enkät');
                     $('#originalcontent').val($('#form-container').html());
                     $('#form-container').find('.removal').remove();
                     $('#contentHolder').val($('#form-container').html());
@@ -1055,6 +1056,7 @@ var surveyController = {
                 }
                 else {
                     lockBtn.children('img').attr('src', '../includes/img/lock.png');
+                    lockBtn.attr('title', 'Lås enkät');
                     $('#form-container').html($('#originalcontent').val());
                     $('#numOfQuestions').removeAttr('disabled').css('color', 'black');
                     $('#submit-container').stop().fadeOut();

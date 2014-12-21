@@ -10,14 +10,14 @@
         <h2>Välj hur enkäten ska se ut nedan.</h2>
         <select id="numOfQuestions"></select>
         <!--<label for="addOneQuestion" class="standard-label">Lägg till en fråga</label>-->
-        <button id="addOneQuestion" class="small-btns">
+        <button id="addOneQuestion" class="small-btns" title="Lägg till en fråga">
             <img src="../includes/img/add.png" no-repeat>
         </button>
         <!--<label for="removeOneQuestion" class="standard-label">Ta bort en fråga</label>-->
-        <button id="removeOneQuestion" class="small-btns">
+        <button id="removeOneQuestion" class="small-btns" title="Ta bort en fråga">
             <img src="../includes/img/delete.png" no-repeat>
         </button>
-        <button id="lock-survey" class="small-btns">
+        <button id="lock-survey" class="small-btns" title="Lås enkät">
             <img src="../includes/img/lock.png" no-repeat>
         </button>
         <span id="surveyErrorMsg"></span>
