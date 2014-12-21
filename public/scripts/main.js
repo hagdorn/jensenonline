@@ -9,7 +9,6 @@ $(document).ready(function() {
         calendarView.createCalendar(0);
         calendarModel.getRedDaysFromAPI(2015);
         calendarController.addEventListeners();
-        administrationController.bindElements();
         bookingView.createScheme();
         bookingView.fillSelects();
         bookingController.setCurrentDay();
@@ -699,7 +698,7 @@ var surveyView = {
     },
     createElement: function(elementToCreate, elementToAppendTo, isFadeIn) {
         
-        var noEndTagElements = ['input', 'option'];
+        var noEndTagElements = ['input', 'option', 'img'];
         
         if (noEndTagElements.indexOf(elementToCreate) === -1) {
             var element = $('<' + elementToCreate + '></' + elementToCreate + '');
@@ -786,10 +785,15 @@ var surveyView = {
                         break;
 
                     case 2:
-                        var span = surveyView.createElement('span', td);
-                            span.html('Ta bort');
-                            span.attr({class: 'action-buttons red-button radio-remove-button removal'});
-                            span.on('click', function() {
+                        var button = surveyView.createElement('button', td);
+                        var img = surveyView.createElement('img', button);
+                            img.attr({src: '../includes/img/delete.png'});
+                            button.attr({class: 'small-btns removal',
+                                         type: 'button',
+                                         title: 'Ta bort'
+                                        });
+                            button.css({marginRight: '5px'});
+                            button.on('click', function() {
 
                                 var parent = $(this).parent();
                                 var grandParent = parent.parent();
@@ -801,15 +805,20 @@ var surveyView = {
                         break;    
 
                     case 3:
-                        var span = surveyView.createElement('span', td);
-                            span.html('Redigera');
-                            span.attr({class: 'action-buttons green-button radio-edit-button removal'});
-                            span.on('click', function() {
+                        var button = surveyView.createElement('button', td);
+                        var img = surveyView.createElement('img', button);
+                            img.attr({src: '../includes/img/edit.png'});
+                            button.attr({class: 'small-btns removal',
+                                         type: 'button',
+                                         title: 'Redigera'
+                                        });
+                            button.css({marginRight: '5px'});
+                            button.on('click', function() {
 
                                 var parent = $(this).parent();
                                 var grandParent = parent.parent();
 
-                                grandParent.find('.edit-input').fadeToggle();
+                                grandParent.find('.edit-input').stop().fadeToggle();
                             });
                         break;
 
@@ -1034,9 +1043,10 @@ var surveyController = {
         var lockBtn = $('#lock-survey');
             lockBtn.on('click', function() {
 
-                if (lockBtn.html() === 'Lås enkät') {
-
-                    lockBtn.html('Lås upp enkät');
+                if (lockBtn.children('img').attr('src') === '../includes/img/lock.png') {
+                    
+                    
+                    lockBtn.children('img').attr('src', '../includes/img/unlock.png');
                     $('#originalcontent').val($('#form-container').html());
                     $('#form-container').find('.removal').remove();
                     $('#contentHolder').val($('#form-container').html());
@@ -1044,7 +1054,7 @@ var surveyController = {
                     $('#submit-container').stop().fadeIn();
                 }
                 else {
-                    lockBtn.html('Lås enkät');
+                    lockBtn.children('img').attr('src', '../includes/img/lock.png');
                     $('#form-container').html($('#originalcontent').val());
                     $('#numOfQuestions').removeAttr('disabled').css('color', 'black');
                     $('#submit-container').stop().fadeOut();

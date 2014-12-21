@@ -1,8 +1,19 @@
-#calendar-container button:focus, #calendar-container input:focus {
-  outline: 0; }
+.small-btns {
+  margin: 0;
+  padding: 0; }
 
 .action-buttons {
   color: #fff; }
+
+.small-btns {
+  border-radius: 3px;
+  border: 1px solid #D3D3D3;
+  background: linear-gradient(#fff, #efefef);
+  outline: 0; }
+  .small-btns:hover {
+    background: linear-gradient(#f9f9f9, #ffffff); }
+  .small-btns:active {
+    background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
   height: 24px;
@@ -11,6 +22,17 @@
   border-radius: 3px;
   font-weight: bold;
   cursor: pointer; }
+
+.small-btns {
+  width: 26px;
+  height: 26px;
+  line-height: 26px; }
+  .small-btns:hover {
+    background: linear-gradient(#f9f9f9, #ffffff); }
+  .small-btns:active {
+    background: linear-gradient(#fff, #efefef); }
+  .small-btns img {
+    margin: -2px -1px; }
 
 .green-button {
   background: linear-gradient(#4fef00, #3db700); }
@@ -26,6 +48,26 @@
 
 .clearfix {
   clear: both; }
+
+.float-left {
+  float: left; }
+
+.float-right {
+  float: right; }
+
+.border-box {
+  box-sizing: border-box; }
+
+.padding-box {
+  box-sizing: padding-box; }
+
+.hide-element {
+  display: none; }
+
+.nav {
+  padding: 0;
+  list-style: none;
+  font-size: 0; }
 
 #deleteButton {
   position: absolute;
@@ -169,5 +211,9 @@
     color: #003b65; }
   #calendar-container button {
     color: #003b65; }
+    #calendar-container button:focus {
+      outline: 0; }
+  #calendar-container input:focus {
+    outline: 0; }
 
 /*# sourceMappingURL=calendar.css.map */

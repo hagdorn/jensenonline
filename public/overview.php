@@ -18,8 +18,7 @@
             <form method="POST" action="">
                 <label for="system-search" class="standard-label">Sök i systemet:</label>
                     <input type="text" name="system-search" id="system-search">
-                    <button class="edit-btn"><img src="../includes/img/edit.png" no-repeat></button>
-                    <button class="edit-btn"><img src="../includes/img/delete.png" no-repeat></button>
+                    <!--<button class="small-btns"><img src="../includes/img/delete.png" no-repeat></button>-->
             </form>
         </div>
         <div id="changes-feed" class="float-right border-box"></div>

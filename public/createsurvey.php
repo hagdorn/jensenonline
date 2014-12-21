@@ -9,9 +9,17 @@
         <h1>Skapa enkät</h1>
         <h2>Välj hur enkäten ska se ut nedan.</h2>
         <select id="numOfQuestions"></select>
-        <button id="addOneQuestion" class="action-buttons green-button">Lägg till en ny fråga</button>
-        <button id="removeOneQuestion" class="action-buttons red-button">Ta bort en fråga</button>
-        <button id="lock-survey" class="action-buttons orange-button">Lås enkät</button>
+        <!--<label for="addOneQuestion" class="standard-label">Lägg till en fråga</label>-->
+        <button id="addOneQuestion" class="small-btns">
+            <img src="../includes/img/add.png" no-repeat>
+        </button>
+        <!--<label for="removeOneQuestion" class="standard-label">Ta bort en fråga</label>-->
+        <button id="removeOneQuestion" class="small-btns">
+            <img src="../includes/img/delete.png" no-repeat>
+        </button>
+        <button id="lock-survey" class="small-btns">
+            <img src="../includes/img/lock.png" no-repeat>
+        </button>
         <span id="surveyErrorMsg"></span>
         <div id="submit-container">
             <input type="submit" name="saveSurvey" form="survey-form" class="action-buttons green-button" value="Spara enkät">

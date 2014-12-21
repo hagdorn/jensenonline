@@ -13,6 +13,7 @@ $blue-gradient: linear-gradient($ocean-blue, $dark-blue);
 $rev-blue-gradient: linear-gradient($dark-blue, $ocean-blue);
 $orange-gradient: linear-gradient(#ffba19, #ff7119);
 $lightgrey-gradient: linear-gradient(#f9f9f9, #ffffff);
+$white-gradient: linear-gradient(#fff, #efefef);
 
 //Borders
 $thin-solid: 1px solid;
@@ -35,10 +36,6 @@ $standard-radius: 3px;
 %no-margins {
     margin: 0;
     padding: 0;
-}
-
-%outlining {
-    outline: 0;    
 }
 
 %white-text {
@@ -65,6 +62,21 @@ $standard-radius: 3px;
     }
     :-ms-input-placeholder { /* Internet Explorer 10+ */
         color:    #909;
+    }
+}
+
+%btn-props {
+    border-radius: $standard-radius;
+    border: $thin-lightgrey;
+    background: $white-gradient;
+    outline: 0;
+    
+    &:hover {
+        background: $lightgrey-gradient;
+    }
+    
+    &:active {
+        background: $white-gradient;
     }
 }
 
@@ -123,6 +135,25 @@ $standard-radius: 3px;
     @extend %white-text;
     font-weight: bold;
     cursor: pointer;
+}
+
+.small-btns {
+    width: 26px;
+    @include vertAlign(26px);
+    @extend %no-margins;
+    @extend %btn-props;
+    
+    &:hover {
+        background: $lightgrey-gradient;
+    }
+    
+    &:active {
+        background: $white-gradient;
+    }
+    
+    img {
+        margin: -2px -1px;
+    }
 }
 
 .green-button {

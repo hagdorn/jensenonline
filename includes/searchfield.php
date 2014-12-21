@@ -1,11 +1,6 @@
 <form method='POST' id='search-form'>
-    <input type='text' name='search' id='search-input' placeholder='Sök på webbplatsen' alt='Sökfält för att söka på webbsidan' ng-model='query'>
-    <div id='dropdown-container'>
-        <ul id='matches-list'>
-            <li class='search-matches' ng-repeat='name in names | filter: query | orderBy:" . '"toString()"' . "'>
-                <a href='#'>{{name}}</a>
-            </li>
-        </ul>
-    </div>
+    <input type='text' name='search_phrase' id='search-input' placeholder='Sök' alt='Sökfält för att söka på webbsidan'>
+    <input type="image" src="../includes/img/search.png" id="site-search-btn" title="Sök" alt="Sök">
+    <div id='dropdown-container'></div>
 </form>
 

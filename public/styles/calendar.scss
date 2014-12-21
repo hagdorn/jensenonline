@@ -192,14 +192,14 @@
         color: $dark-blue;
         
         &:focus {
-            @extend %outlining;
+            outline: 0;
         }
     }
     
     input {
         
         &:focus {
-            @extend %outlining;
+            outline: 0;
         }
     }
 }

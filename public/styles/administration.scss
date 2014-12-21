@@ -56,22 +56,7 @@ div#top-menu {
     z-index: -1;
 }
 
-.edit-btn {
-    width: 26px;
-    @include vertAlign(26px);
-    @extend %no-margins;
-    border-radius: $standard-radius;
-    border: $thin-lightgrey;
-    background: linear-gradient(#fff, #efefef);
-    
-    &:hover {
-        background: $lightgrey-gradient;
-    }
-    
-    img {
-        margin: -2px -1px;
-    }
-}
+
 
 
 
