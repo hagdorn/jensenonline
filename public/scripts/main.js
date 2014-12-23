@@ -13,6 +13,7 @@ $(document).ready(function() {
         bookingView.fillSelects();
         bookingController.setCurrentDay();
         bookingController.bindElements();
+        administrationController.bindElements();
     }
     
 /****** HEADER ******/
@@ -1162,9 +1163,39 @@ var administrationView = {
 
 var administrationController = {
     
+    bindElements: function() {
+        $('#default ul li').on('click', function() {
+            
+            $('#default span').html($(this).html());
+        });
+    },
     grabInfoTable: function(filename) {
         
-    }
+    },
+    showList: (function() {
+        
+        function changeBorderRadius(value) {
+            $('#default').parent().css({borderBottomLeftRadius: value + 'px',
+                                        borderBottomRightRadius: value + 'px'
+                                       });
+        }
+        $('#default').on('click', function() {
+            
+            if($('#default ul').is(':visible')) {
+                changeBorderRadius(3);
+            }
+            else {
+                changeBorderRadius(0);
+            }
+            
+            $('#default ul').stop().fadeToggle();
+        });
+        
+        $('#default').on('mouseleave', function() {
+            changeBorderRadius(3);
+            $('#default ul').stop().fadeOut();
+        });
+    }())
 }
     
     
