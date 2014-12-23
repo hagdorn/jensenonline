@@ -5,14 +5,14 @@
 .action-buttons {
   color: #fff; }
 
-.small-btns {
+.overview-btns, .small-btns {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .small-btns:hover {
+  .overview-btns:hover, .small-btns:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .small-btns:active {
+  .overview-btns:active, .small-btns:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -22,6 +22,15 @@
   border-radius: 3px;
   font-weight: bold;
   cursor: pointer; }
+
+.overview-btns {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin-top: 9px;
+  padding: 0; }
+  .overview-btns img {
+    margin: 3px 0 0; }
 
 .small-btns {
   width: 26px;
@@ -33,6 +42,22 @@
     background: linear-gradient(#fff, #efefef); }
   .small-btns img {
     margin: -2px -1px; }
+
+.searchfield {
+  width: 200px;
+  height: 26px;
+  padding: 0 0 0 10px;
+  border: 1px solid #D3D3D3;
+  border-radius: 3px;
+  outline: 0; }
+
+.searchfield-btn {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  outline: 0; }
 
 .green-button {
   background: linear-gradient(#4fef00, #3db700); }
@@ -71,7 +96,7 @@
 
 div#administration-wrapper {
   position: relative;
-  width: 90%;
+  width: 80%;
   height: 100%;
   margin: 0 auto;
   border: 1px solid #D3D3D3;
@@ -87,40 +112,23 @@ div#changes-feed {
   text-align: center;
   background: #fff; }
 
-ul.admin-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 13%;
-  height: 100%;
-  padding: 0 0 0 30px;
-  border-right: 1px solid #D3D3D3;
-  background: #fff; }
-
-li.admin-nav-items {
-  font-size: 16px;
-  font-weight: bold; }
-  li.admin-nav-items:first-child {
-    margin-top: 25px; }
-  li.admin-nav-items a {
-    height: 30px;
-    line-height: 30px;
-    font-size: 20px; }
-  li.admin-nav-items a {
-    text-decoration: none; }
-    li.admin-nav-items a:link, li.admin-nav-items a:visited, li.admin-nav-items a:focus, li.admin-nav-items a:active {
-      color: #003b65; }
-    li.admin-nav-items a:hover {
-      color: #0097ef; }
+div.overview-nav {
+  float: right;
+  margin-right: 20px; }
 
 div#top-menu {
-  width: 84%;
+  width: 80%;
   height: 50px;
   line-height: 50px;
-  padding: 0 0 0 16%;
   border-bottom: 1px solid #D3D3D3;
-  background: #fff;
-  z-index: -1; }
+  background: #fff; }
+  div#top-menu form {
+    position: absolute;
+    margin: 0 0 0 20px;
+    padding: 0; }
+    div#top-menu form input[type="image"] {
+      top: 17px;
+      right: 10px; }
 
 /*li.admin-sub-items {
     @include vertAlign(25px);

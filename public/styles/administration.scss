@@ -2,7 +2,7 @@
 
 div#administration-wrapper {
     position: relative;
-    width: 90%;
+    width: 80%;
     height: $max;
     margin: $center;
     border: $thin-lightgrey;
@@ -20,40 +20,27 @@ div#changes-feed {
     background: $white;
 }
 
-ul.admin-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 13%;
-    height: 100%;
-    padding: 0 0 0 30px;
-    border-right: $thin-lightgrey;
-    background: $white;
-}
-
-li.admin-nav-items {
-    font-size: 16px;
-    font-weight: bold;
-    
-    &:first-child {
-        margin-top: 25px;
-    }
-    
-    a {
-        @include vertAlign(30px);
-        font-size: 20px;
-    }
-    
-    @include link-colors($color: $dark-blue, $hover-color: $ocean-blue);
+div.overview-nav {
+    float: right;
+    margin-right: 20px;
 }
 
 div#top-menu {
-    width: $max - 16;
+    width: $max - 20;
     @include vertAlign(50px);
-    padding: 0 0 0 16%;
     border-bottom: $thin-lightgrey;
     background: $white;
-    z-index: -1;
+    
+    form {
+        position: absolute;
+        margin: 0 0 0 20px;
+        padding: 0;
+        
+        input[type="image"] {
+            top: 17px;
+            right: 10px;
+        }
+    }
 }
 
 

@@ -137,6 +137,18 @@ $standard-radius: 3px;
     cursor: pointer;
 }
 
+.overview-btns {
+    width: 32px;
+    @include vertAlign(32px);
+    margin-top: 9px;
+    padding: 0;
+    @extend %btn-props;
+    
+    img {
+        margin: 3px 0 0;
+    }
+}
+
 .small-btns {
     width: 26px;
     @include vertAlign(26px);
@@ -154,6 +166,24 @@ $standard-radius: 3px;
     img {
         margin: -2px -1px;
     }
+}
+
+.searchfield {
+    width: 200px;
+    height: 26px;
+    padding: 0 0 0 10px;
+    border: $thin-lightgrey;
+    border-radius: $standard-radius;
+    outline: 0;
+}
+
+.searchfield-btn {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    outline: 0;
 }
 
 .green-button {
