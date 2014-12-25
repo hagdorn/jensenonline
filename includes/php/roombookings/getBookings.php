@@ -10,11 +10,6 @@
 
 	setDays($_SESSION['date']);
 	
-	
-
-
-
-
 	function setDays($date){
 		global $date, $monday, $tuesday, $wednsday, $thursday, $friday;
 		
