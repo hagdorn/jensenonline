@@ -24,6 +24,7 @@
             </form>
             <?php include_once('../includes/overviewmenu.php'); ?>
         </div>
+        <div id="table-holder"></div>
         <div id="changes-feed" class="float-right border-box">
             <div class="activity-box">
                 <span class="activity-header">

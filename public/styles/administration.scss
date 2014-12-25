@@ -2,9 +2,9 @@
 
 div#administration-wrapper {
     position: relative;
-    width: 80%;
+    width: 90%;
     height: $max;
-    margin: $center;
+    margin: $center 100px;
     border: $thin-lightgrey;
 }
 
@@ -31,6 +31,45 @@ div#top-menu {
     }
 }
 
+div#table-holder {
+    width: 80%;
+    height: -moz-calc(100% - 50px); /* Firefox */
+    height: -webkit-calc(100% - 50px); /* WebKit */
+    height: -o-calc(100% - 50px); /* Opera */
+    height: calc(100% - 50px); /* Standard */
+    overflow: auto;
+    
+    table {
+        width: 90%;
+        margin: 50px auto;
+        border: $thin-lightgrey;
+        
+        tr:first-child {
+            background: $blue-gradient;
+        }
+        
+        tr:nth-child(even) {
+            background: $soft-grey;
+        }
+        
+    }
+    .small-btns {
+        width: 22px;
+        @include vertAlign(22px);
+    }
+}
+
+th.info-head {
+    height: 35px;
+    color: $white;
+}
+
+td.info-cell {
+    height: 30px;
+    text-align: center;
+    border: $thin-lightgrey;
+}
+
 div#changes-feed {
     position: absolute;
     top: 0;
@@ -42,7 +81,7 @@ div#changes-feed {
     overflow: auto;
     
     div:first-child {
-        margin-top: 10px;
+        margin-top: 9px;
     }
 }
 
@@ -86,7 +125,7 @@ span.timestamp {
 form#sort-form {
     position: absolute;
     top: 8px;
-    right: 580px;
+    right: 600px;
 }
 
 ul#sort-options {

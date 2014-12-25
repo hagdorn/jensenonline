@@ -96,9 +96,9 @@
 
 div#administration-wrapper {
   position: relative;
-  width: 90%;
+  width: 80%;
   height: 100%;
-  margin: 0 auto 100px;
+  margin: 0 auto;
   border: 1px solid #D3D3D3; }
 
 div.overview-nav {
@@ -118,39 +118,6 @@ div#top-menu {
       top: 6px;
       right: 10px; }
 
-div#table-holder {
-  width: 80%;
-  height: -moz-calc(100% - 50px);
-  /* Firefox */
-  height: -webkit-calc(100% - 50px);
-  /* WebKit */
-  height: -o-calc(100% - 50px);
-  /* Opera */
-  height: calc(100% - 50px);
-  /* Standard */
-  overflow: auto; }
-  div#table-holder table {
-    width: 90%;
-    margin: 50px auto;
-    border: 1px solid #D3D3D3; }
-    div#table-holder table tr:first-child {
-      background: linear-gradient(#0097ef, #003b65); }
-    div#table-holder table tr:nth-child(even) {
-      background: #f7f7f7; }
-  div#table-holder .small-btns {
-    width: 22px;
-    height: 22px;
-    line-height: 22px; }
-
-th.info-head {
-  height: 35px;
-  color: #fff; }
-
-td.info-cell {
-  height: 30px;
-  text-align: center;
-  border: 1px solid #D3D3D3; }
-
 div#changes-feed {
   position: absolute;
   top: 0;
@@ -161,7 +128,7 @@ div#changes-feed {
   background: #f7f7f7;
   overflow: auto; }
   div#changes-feed div:first-child {
-    margin-top: 9px; }
+    margin-top: 10px; }
 
 div.activity-box {
   position: relative;
@@ -198,7 +165,7 @@ span.timestamp {
 form#sort-form {
   position: absolute;
   top: 8px;
-  right: 600px; }
+  right: 580px; }
 
 ul#sort-options {
   width: 80px;
@@ -247,4 +214,4 @@ ul#sort-options {
   .sub-options:hover {
     background-color: #f7f7f7; }
 
-/*# sourceMappingURL=administration.css.map */
+/*# sourceMappingURL=adminitration.css.map */

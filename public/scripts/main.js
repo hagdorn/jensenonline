@@ -13,7 +13,6 @@ $(document).ready(function() {
         bookingView.fillSelects();
         bookingController.setCurrentDay();
         bookingController.bindElements();
-        administrationController.bindElements();
     }
     
 /****** HEADER ******/
@@ -1163,14 +1162,29 @@ var administrationView = {
 
 var administrationController = {
     
-    bindElements: function() {
+    bindElements: (function() {
         $('#default ul li').on('click', function() {
             
             $('#default span').html($(this).html());
         });
-    },
+        
+        $('.overview-nav').on('click', '.overview-btns', function() {
+            var tableToGet = $(this).attr('id');
+            var wrapper = $('#table-holder');
+                wrapper.children().remove();
+            
+            var promise = administrationController.grabInfoTable(tableToGet);
+                promise.done(function(data) {
+                    wrapper.append(data).hide().fadeIn();
+                });
+        });
+    }()),
     grabInfoTable: function(filename) {
         
+        return $.ajax({
+                   url: 'ajax/get' + filename + '.php',
+                   post: 'POST'
+               });
     },
     showList: (function() {
         
@@ -1181,7 +1195,7 @@ var administrationController = {
         }
         $('#default').on('click', function() {
             
-            if($('#default ul').is(':visible')) {
+            if ($('#default ul').is(':visible')) {
                 changeBorderRadius(3);
             }
             else {
