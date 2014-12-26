@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../public/styles/normalize.css">
     <link rel="stylesheet" href="../public/styles/style.css">
-    
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700|Dosis|Domine|PT+Sans|Roboto' rel='stylesheet' type='text/css'>
     <!--<link rel="stylesheet" href="styles/responsive.css">-->
     <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
     <title>Jensen Online Yrkeshögskola</title>

@@ -2,12 +2,28 @@
     require_once('../../includes/php/connections/pdoConnect.php');
     //require_once('../../includes/functions/functions.php');
     
-    $stmt = 'SELECT * FROM rooms';
+    $sort_by = $_REQUEST['sort_by'];
+    $stmt = get_facilities('ASC');
+
+    //Move this to functions.php when it works
+    function get_facilities($sort_by) {
+        $stmt = 'SELECT * FROM rooms ';
+        $stmt .= 'ORDER BY name ' . $sort_by;
+        
+        return $stmt;
+    }
+    
+    if ($sort_by === 'A-Ö') {
+        $stmt = get_facilities('ASC');
+    }
+    else if ($sort_by === 'Ö-A') {
+        $stmt = get_facilities('DESC');
+    }
 
     $prep_stmt = $db->prepare($stmt);
     $prep_stmt->execute();
 
-    echo '<table>';
+    echo '<table id="facilities">';
     echo '<tr>';
     echo '<th class="info-head">Namn</th>';
     echo '<th class="info-head">Våning</th>';

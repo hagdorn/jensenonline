@@ -2,26 +2,32 @@
 
 div#administration-wrapper {
     position: relative;
-    width: 90%;
+    width: 95%;
     height: $max;
     margin: $center 100px;
     border: $thin-lightgrey;
 }
 
-div.overview-nav {
-    float: right;
-    margin-right: 20px;
+div#menu-wrapper {
+    width: $max - 20;
+    display: table;
+    border-bottom: $thin-lightgrey;
 }
 
 div#top-menu {
-    width: $max - 20;
+    position: relative;
     height: 50px;
-    border-bottom: $thin-lightgrey;
-    background: $white;
+    display: table-row;
+    z-index: 1000;
+}
+
+div#search-wrapper {
+    width: 20%;
+    display: table-cell;
     
     form:first-child {
         position: absolute;
-        margin: 11px 0 0 20px;
+        margin: 11px 0 0 10px;
         padding: 0;
         
         input[type="image"] {
@@ -29,6 +35,46 @@ div#top-menu {
             right: 10px;
         }
     }
+}
+
+div#add-wrapper {
+    position: relative;
+    width: 15%;
+    display: table-cell;
+    
+    label {
+        font-size: 15px;
+    }
+}
+
+div#sort-wrapper {
+    position: relative;
+    width: 25%;
+    display: table-cell;
+    
+    label {
+        font-size: 15px;
+    }
+}
+
+div#btns-wrapper {
+    position: relative;
+    width: 40%;
+    display: table-cell;
+}
+
+div.overview-nav {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    text-align: justify;
+    font-size: 0.1px; //IE 9/10 fix, it doesn't like font-size: 0;
+}
+
+overview-nav:after {
+    content: '';
+    width: 100%;
+    display: inline-block;
 }
 
 div#table-holder {
@@ -40,7 +86,7 @@ div#table-holder {
     overflow: auto;
     
     table {
-        width: 90%;
+        width: 95%;
         margin: 50px auto;
         border: $thin-lightgrey;
         
@@ -62,6 +108,7 @@ div#table-holder {
 th.info-head {
     height: 35px;
     color: $white;
+    font-size: 15px;
 }
 
 td.info-cell {
@@ -104,7 +151,7 @@ span.activity-header {
 
 .highlight-text {
     font-weight: bold;
-    acolor: $dark-blue;
+    //color: $dark-blue;
 }
 
 p.changes-made {
@@ -122,14 +169,8 @@ span.timestamp {
     font-style: italic;
 }
 
-form#sort-form {
-    position: absolute;
-    top: 8px;
-    right: 600px;
-}
-
-ul#sort-options {
-    width: 80px;
+.options-dropdown {
+    width: 100px;
     margin: 0;
     padding: 0;
     border: $thin-lightgrey;
@@ -156,7 +197,13 @@ ul#sort-options {
     }
 }
 
-#default {
+form.dropdown-form {
+    position: absolute;
+    top: 8px;
+    left: 0;
+}
+
+.default {
     position: relative;
     width: inherit;
     @include vertAlign(32px);
@@ -171,6 +218,7 @@ ul#sort-options {
 .sub-options {
     width: inherit;
     @include vertAlign(32px);
+    font-size: 13px;
     
     &:first-child {
         border-top: $thin-lightgrey;    
@@ -181,7 +229,7 @@ ul#sort-options {
         border-bottom-right-radius: $standard-radius;
     }
     
-    &:nth-child(-n+3) {
+    &:nth-child(-n+7) {
         border-bottom: $thin-lightgrey;
         border-left: $thin-lightgrey;
         border-right: $thin-lightgrey;

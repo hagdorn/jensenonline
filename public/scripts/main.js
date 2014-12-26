@@ -1160,57 +1160,92 @@ var administrationView = {
     
 }
 
-var administrationController = {
-    
-    bindElements: (function() {
-        $('#default ul li').on('click', function() {
-            
-            $('#default span').html($(this).html());
-        });
-        
-        $('.overview-nav').on('click', '.overview-btns', function() {
-            var tableToGet = $(this).attr('id');
+    var administrationController = {
+
+        bindElements: (function() {
+
             var wrapper = $('#table-holder');
-                wrapper.children().remove();
-            
-            var promise = administrationController.grabInfoTable(tableToGet);
-                promise.done(function(data) {
-                    wrapper.append(data).hide().fadeIn();
-                });
-        });
-    }()),
-    grabInfoTable: function(filename) {
-        
-        return $.ajax({
-                   url: 'ajax/get' + filename + '.php',
-                   post: 'POST'
-               });
-    },
-    showList: (function() {
-        
-        function changeBorderRadius(value) {
-            $('#default').parent().css({borderBottomLeftRadius: value + 'px',
-                                        borderBottomRightRadius: value + 'px'
-                                       });
-        }
-        $('#default').on('click', function() {
-            
-            if ($('#default ul').is(':visible')) {
-                changeBorderRadius(3);
+
+            $('.default ul li').on('click', function() {
+
+                $(this).parent().parent().children('span').html($(this).html());
+            });
+
+            $('.overview-nav').on('click', '.overview-btns', function() {
+
+                var tableToGet = $(this).attr('id');
+
+                wrapper.children('table').remove();
+
+                var promise = administrationController.grabInfoTable(tableToGet);
+                    promise.done(function(data) {
+                        wrapper.append(data).hide().fadeIn();
+                    });
+
+                $('#sort-options .default').children('span').html('A-Ö');
+            });
+
+            $('#sort-options .sub-options').on('click', function() {
+
+                var currentTable = $('#table-holder').children('table').attr('id');
+                
+                if (currentTable === undefined) {
+                    return; //Don't attempt to sort a table if there is no table
+                }
+                
+                var chosenSorting = $(this).html();
+                var promise = administrationController.grabInfoTable(currentTable, chosenSorting);
+
+                    promise.done(function(data) {
+                        wrapper.children('table').remove();
+                        wrapper.append(data).hide().fadeIn();
+                    });
+            });
+
+        }()),
+        grabInfoTable: function(filename, sortBy) {
+
+            return $.ajax({
+                       url: 'ajax/get' + filename + '.php',
+                       post: 'POST',
+                       data: 'sort_by=' + sortBy
+                   });
+        },
+        showList: (function() {
+
+            function changeBorderRadius(value, element) {
+                element.parent().css({borderBottomLeftRadius: value + 'px',
+                                            borderBottomRightRadius: value + 'px'
+                                           });
             }
-            else {
-                changeBorderRadius(0);
-            }
-            
-            $('#default ul').stop().fadeToggle();
-        });
-        
-        $('#default').on('mouseleave', function() {
-            changeBorderRadius(3);
-            $('#default ul').stop().fadeOut();
-        });
-    }())
-}
+
+            $('.default').on('click', function(e) {
+                
+                var thisDefault = $(this);
+                
+                //Prevent the dropdown ul from reappearing on mouseenter while fading out
+                e.stopPropagation();
+
+                if ($('#sort-options .default ul').is(':visible')) {
+                    changeBorderRadius(3, thisDefault);
+                }
+                else {
+                    changeBorderRadius(0, thisDefault);
+                }
+
+                $(this).children('ul').stop().fadeToggle();
+
+            }).on('mouseleave', function() {
+                
+                var thisDefault = $(this);
+                
+                changeBorderRadius(3, thisDefault);
+                
+                $('.default ul').fadeOut();
+            });
+
+        }())
+    }
     
     
     

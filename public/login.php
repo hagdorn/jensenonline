@@ -41,9 +41,6 @@
                     </tr>
                 </table>
             </form>
-
-        
-        
     </div>
 
 </main>

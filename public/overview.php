@@ -6,23 +6,48 @@
 
 <main>
     <div id="administration-wrapper" class="border-box">
-        <div id="top-menu">
-            <form method="POST">
-                <?php include('../includes/searchfield.php'); ?> <!-- cannot be include_once -->
-            </form>
-            <form id="sort-form">
-                <label for="sort-options" class="standard-label">Sortera efter:</label>
-                <ul id="sort-options">
-                    <li id="default"><span>A-Ö</span>
-                        <ul>
-                            <li class="sub-options">A-Ö</li>
-                            <li class="sub-options">Ö-A</li>
-                            <li class="sub-options">Klass</li>
+        <div id="menu-wrapper">
+            <div id="top-menu">
+                <div id="search-wrapper">
+                    <form method="POST">
+                        <?php include('../includes/searchfield.php'); ?>
+                    </form>
+                </div>
+                <div id="add-wrapper">
+                    <form class="dropdown-form">
+                        <label class="standard-label">Lägg till:</label>
+                        <ul id="add-options" class="options-dropdown">
+                            <li class="default"><span>Välj ämne</span>
+                                <ul>
+                                    <li class="sub-options">Utbildning</li>
+                                    <li class="sub-options">Program</li>
+                                    <li class="sub-options">Lokal</li>
+                                    <li class="sub-options">Anställd</li>
+                                    <li class="sub-options">Admin</li>
+                                    <li class="sub-options">Lärare</li>
+                                    <li class="sub-options">Student</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                </ul>
-            </form>
-            <?php include_once('../includes/overviewmenu.php'); ?>
+                    </form>
+                </div>
+                <div id="sort-wrapper">
+                    <form class="dropdown-form">
+                        <label class="standard-label">Sortera efter:</label>
+                        <ul id="sort-options" class="options-dropdown">
+                            <li class="default"><span>A-Ö</span>
+                                <ul>
+                                    <li class="sub-options">A-Ö</li>
+                                    <li class="sub-options">Ö-A</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div id="btns-wrapper">
+                    <?php include_once('../includes/overviewmenu.php'); ?>
+                </div>
+            </div>
         </div>
         <div id="table-holder"></div>
         <div id="changes-feed" class="float-right border-box">

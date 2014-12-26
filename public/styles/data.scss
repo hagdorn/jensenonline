@@ -138,11 +138,14 @@ $standard-radius: 3px;
 }
 
 .overview-btns {
+    position: relative;
     width: 32px;
     @include vertAlign(32px);
-    margin-top: 9px;
+    margin-left: 3px;
     padding: 0;
+    display: inline-block;
     @extend %btn-props;
+    
     
     img {
         margin: 3px 0 0;

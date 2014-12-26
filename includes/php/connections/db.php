@@ -10,12 +10,9 @@
 		checkUserNameAndPassword($_POST['username'],$encPassword);
 	}
 
-
 	if(!isset($_SESSION['id'])){
 		header('Location: ../public/login.php');
 	}
-	
-
 
 function checkUserNameAndPassword($un, $pwd){
 	try{
