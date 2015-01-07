@@ -41,7 +41,7 @@ try {
             $file_url = '../../surveys/' . $filename . '.txt';
             $file_creator = $_SESSION['firstname'] . ' ' . $_SESSION['lastname'];
 
-            $stmt = 'INSERT INTO uploads (url, creator, filename, title)';
+            $stmt = 'INSERT INTO uploads (url, creator, filename, title) ';
             $stmt .= 'VALUES (:url, :user, :filename, :title)';
 
             $prep_stmt = $db->prepare($stmt);
