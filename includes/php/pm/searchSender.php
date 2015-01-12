@@ -3,7 +3,6 @@
 
 	if($_GET['q']!== ""){
 		try{
-			$db->exec("SET NAMES 'utf8'");
 			
 			$query  = "SELECT * FROM useraccounts WHERE LOWER(firstname) LIKE :user OR LOWER(lastname) LIKE :user2";			
 			$ps = $db->prepare($query); //Prepared statement

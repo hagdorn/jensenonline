@@ -17,6 +17,9 @@
 function checkUserNameAndPassword($un, $pwd){
 	try{
 		global $db;
+		$db->exec("SET NAMES 'latin1'");
+		
+		
 		
         $query = "SELECT * ";
         $query .= "FROM useraccounts ";
@@ -27,17 +30,17 @@ function checkUserNameAndPassword($un, $pwd){
         $ps->execute(array('username'=>$un, 'password'=>$pwd));
         $loggedIn = $ps -> fetch(PDO::FETCH_ASSOC); // Assosiative array
 		
+		$db->exec("SET NAMES 'utf8'");
+		
 		if($loggedIn){
-			
 			$_SESSION['id'] = $loggedIn['id'];
 			$_SESSION['type'] = $loggedIn['type'];
-			$_SESSION['username'] = $loggedIn['username'];
-			$_SESSION['firstname'] = $loggedIn['firstname'];
-			$_SESSION['lastname'] = $loggedIn['lastname'];
+			$_SESSION['username'] = utf8_encode($loggedIn['username']);
+			$_SESSION['firstname'] =  utf8_encode($loggedIn['firstname']);
+			$_SESSION['lastname'] = utf8_encode($loggedIn['lastname']);
             //$_SESSION['gender'] = $loggedIn['gender'];
             $_SESSION['timestamp'] = time();
 			
-			$db->exec("SET NAMES 'utf8'");
 		}
 					 
 	}
