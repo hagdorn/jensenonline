@@ -16,15 +16,16 @@
 
 
 	try{
-		$query = "INSERT INTO roombookings (room, date, hour, description) ";
-		$query .= "VALUES (:room, :date, :hour, :description)";
+		$query = "INSERT INTO roombookings (room, date, hour, description, booker) ";
+		$query .= "VALUES (:room, :date, :hour, :description, :booker)";
 		
 		$ps = $db->prepare($query);
 		$ps->execute([
 			'room'=>$room,
 			'date'=>$_SESSION['date'],
 			'hour'=>$_POST['time'],
-			'description'=>$_POST['classSubject']
+			'description'=>$_POST['classSubject'],
+			'booker'=>$_SESSION['firstname'] . " " . $_SESSION['lastname']
 		]);
 		
 		

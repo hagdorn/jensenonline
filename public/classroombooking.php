@@ -39,8 +39,8 @@
                 </div>
             </form>
             <form method="POST" action="classroombooking.php" id="selects-wrapper">
-                <select id="sel-week" class="dropdown-selects"></select>
-                <select id="sel-year" class="dropdown-selects"></select>
+                <select id="sel-week" name="week" class="dropdown-selects"></select>
+                <select id="sel-year" name="year" class="dropdown-selects"></select>
                 <input type="submit" name="show-week" id="show-week" class="booking-btns" value="Visa">
             </form>
         </div>

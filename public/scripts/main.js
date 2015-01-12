@@ -493,7 +493,7 @@ $(document).ready(function() {
 
                                 if (s === 0) {
                                     if (rooms[i - 1][j] != "") {
-                                        span.html(rooms[i - 1][j]);
+                                        span.html(rooms[i - 1][j][0]);
                                     }
                                     else {
                                         span.html('LEDIG');
@@ -502,8 +502,15 @@ $(document).ready(function() {
                                     span.attr('class', 'subject');
                                 }
                                 else {
-                                    span.html('Inte bokad');
-                                    span.attr('class', 'booked-by');
+                                    if (rooms[i - 1][j] != "") {
+                                        span.html(rooms[i - 1][j][1]);
+										span.attr('class', 'booked-by');
+                                    }
+									else {
+										span.html('Inte bokad');
+										span.attr('class', 'booked-by');
+									}
+									
                                 }
                             }
                         }
@@ -621,7 +628,7 @@ $(document).ready(function() {
             buttonsParent.on('click', 'input', selectDay);
         },
         setCurrentDay: function() {
-            var promise = bookingController.grabInfo('day');
+            var promise = bookingController.grabInfo('day');	
                 promise.done(function(data) {
                     
                     switch (jsDay) {
@@ -654,7 +661,15 @@ $(document).ready(function() {
         displayData: function(element, promise) {
             //If the AJAX call executed properly, append the data
             promise.done(function(data) {
-                element.append('Vecka ' + data);
+				element.append('Vecka ' + data);
+               
+				if (newWeek != null){
+					if (newWeek < 10){
+						newWeek = "0" + newWeek;
+					}
+					
+					document.getElementById("scheme-date").innerHTML = ('Vecka ' + newWeek);
+				}
             });
         },
         grabInfo: function(filename) {

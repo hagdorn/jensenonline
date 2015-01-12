@@ -8,6 +8,24 @@
 		changeDay($_POST['day']);
 	}
 
+	if (isset($_POST['show-week'])){
+		//Hitta måndagens datum för angiven vecka
+		$year = $_POST['year'];
+		$week = $_POST['week'];
+		
+		$timestamp_for_monday = mktime( 0, 0, 0, 1, 1,  $year ) + ((7+1-(date( 'N', mktime( 0, 0, 0, 1, 1,  $year ) )))*86400) + ($week-2)*7*86400 + 1 ;
+		$date_for_monday = date( 'Y-m-d', $timestamp_for_monday );
+		$_SESSION['date'] = $date_for_monday;
+		
+		//Ändra js-vecka
+		?>
+			<script>var newWeek = <?php echo $week; ?></script>
+		<?php
+	}	
+
+
+
+
 	setDays($_SESSION['date']);
 	
 	function setDays($date){
@@ -61,7 +79,7 @@
         
 		$db->exec("SET NAMES 'utf8'");
 		
-		$query = "SELECT roombookings.room, roombookings.hour, roombookings.description, rooms.name "; 
+		$query = "SELECT roombookings.room, roombookings.hour, roombookings.description, rooms.name, roombookings.booker "; 
 		$query .= "FROM roombookings LEFT JOIN rooms ON (roombookings.room = rooms.id) ";
 		$query .= "WHERE roombookings.date = :date " ;
 		$query .= "ORDER BY roombookings.room ASC" ;
@@ -80,7 +98,7 @@
 					</script><?php
 				}
 				?><script>
-					var roomDay = ['<?php echo $row['name']; ?>','','','','','','','','',''];
+					var roomDay = ['<?php echo $row['name']; ?>',[],[],[],[],[],[],[],[],[]];
 				</script><?php				
 				$currentRoom = $row['name'];
 			}
@@ -88,7 +106,7 @@
 			$row['hour'] -= 7;
 			$roomDay[$row['hour']] = $row['description'];
 			?><script>
-				roomDay[<?php echo $row['hour'];?>] = '<?php echo $row['description'];?>';
+				roomDay[<?php echo $row['hour'];?>] = ['<?php echo $row['description'];?>', '<?php echo $row['booker'];?>'];
 			</script><?php
 		}
 
