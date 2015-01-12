@@ -28,9 +28,6 @@
 	window.onload=showResult("");
 </script>
 
-
-
-
 <main>
 	
     <?php include_msg_template(); ?>
@@ -70,7 +67,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" name="sendmessage"  id="send-msg-btn" alt="Knapp för att skicka iväg meddelandet" value="Skicka">
+                        <input type="submit" name="sendmessage" id="send-msg-btn" class="ui-box-shadow" alt="Knapp för att skicka iväg meddelandet" value="Skicka">
                     </td>
                 </tr>
             </table>

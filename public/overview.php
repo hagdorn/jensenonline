@@ -16,7 +16,7 @@
                 <div id="add-wrapper">
                     <form class="dropdown-form">
                         <label class="standard-label">Lägg till:</label>
-                        <ul id="add-options" class="options-dropdown">
+                        <ul id="add-options" class="options-dropdown ui-box-shadow">
                             <li class="default"><span>Välj ämne</span>
                                 <ul>
                                     <li class="sub-options">Utbildning</li>
@@ -34,7 +34,7 @@
                 <div id="sort-wrapper">
                     <form class="dropdown-form">
                         <label class="standard-label">Sortera efter:</label>
-                        <ul id="sort-options" class="options-dropdown">
+                        <ul id="sort-options" class="options-dropdown ui-box-shadow">
                             <li class="default"><span>A-Ö</span>
                                 <ul>
                                     <li class="sub-options">A-Ö</li>
@@ -142,8 +142,8 @@
                     </span> raderade ett objekt:
                 </span>
                 <p class="changes-made">
-                    <span class="highlight-text">Isaac Rooth</span>
-                    <span> har tagits bort ur systemet på grund av att det kommer hända förr eller senare.</span>
+                    <span class="highlight-text">Klas Göran Svenssons</span>
+                    <span> uppgifter har ändrats.</span>
                 </p>
                 <span class="timestamp">
                     <?php echo date('d-m-y H:i:s'); ?>

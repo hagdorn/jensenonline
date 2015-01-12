@@ -23,7 +23,7 @@
     $prep_stmt = $db->prepare($stmt);
     $prep_stmt->execute();
 
-    echo '<table id="employees">';
+    echo '<table id="positions">';
     echo '<tr>';
     echo '<th class="info-head">Tjänst</th>';
     echo '<th class="info-head">Anställd</th>';
@@ -39,7 +39,7 @@
         echo '<td class="info-cell">' . $db_row['employee'] . '</td>';
         echo '<td class="info-cell">' . $db_row['hired_since'] . '</td>';
         echo '<td class="info-cell">
-                  <button class="small-btns"><img src="../includes/img/edit.png"></button>
+                  <button data-id="' . $db_row['id'] . '" class="small-btns edit"><img src="../includes/img/edit.png"></button>
               </td>';
         echo '<td class="info-cell">
                   <button data-id="' . $db_row['id'] . '" class="small-btns delete"><img src="../includes/img/delete.png"></button>

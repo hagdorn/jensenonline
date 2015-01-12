@@ -146,9 +146,55 @@ $standard-radius: 3px;
     display: inline-block;
     @extend %btn-props;
     
-    
     img {
         margin: 3px 0 0;
+    }
+}
+
+.inline-btn {
+    width: auto;
+    @include vertAlign(32px);
+    margin-right: 10px;
+    padding: 1px 5px;
+    display: inline-block;
+    @extend %btn-props;
+    font-size: 16px;
+    font-weight: bold;
+    
+    @include link-colors($ocean-blue);
+    
+    &:hover {
+        background: $lightgrey-gradient;
+    }
+    
+    &:active {
+        background: $white-gradient;
+    }
+    
+    &:nth-child(4) {
+        
+        img {
+            margin-bottom: 0px;
+        }
+    }
+    
+    img {
+        width: 16px;
+        height: 16px;
+        margin: -2px 0;
+    }
+    
+    span {
+        padding: 2px 6px;
+        border-radius: 12px;
+        color: $white;
+        background: $green-gradient;
+    }
+    
+    &:after {
+        content: '';
+        width: 100%;
+        display: inline-block;
     }
 }
 
@@ -223,10 +269,6 @@ $standard-radius: 3px;
     box-sizing: border-box;
 }
 
-.padding-box {
-    box-sizing: padding-box;
-}
-
 .hide-element {
     display: none;
 }
@@ -235,4 +277,8 @@ $standard-radius: 3px;
     padding: 0;
     list-style: none;
     font-size: 0; //Needs to be resetted in the list items with 16px
+}
+
+.ui-box-shadow {
+    box-shadow: 1px 1px 3px rgba(0,0,0,.15);
 }

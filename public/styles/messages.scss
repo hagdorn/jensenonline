@@ -16,44 +16,12 @@
 }
 
 #msg-menu-container {
-    margin-bottom: 40px;
-    border-bottom: $thin-lightgrey;
+    margin-bottom: 20px;
 }
 
-#msg-menu {
-    width: $max - 50;
-    margin: 0;
-    padding: 0;
-    display: table;
-    list-style: none;
-}
-
-.msg-items {
-    width: auto;
-    @include vertAlign(35px);
-    margin: 0;
-    padding: 0 2.5%;
-    display: table-cell;
-    text-align: center;
-    font-weight: bold;
-    
-    @include link-colors($color: $dark-blue);
-    
-    &:first-child {
-        border-left: $thin-lightgrey;
-    }
-    
-    &:hover {
-        background: $soft-grey;
-    }
-    
-    span {
-        padding: 2px 6px;
-        border-radius: 12px;
-        box-sizing: padding-box;
-        color: $white;
-        background: $green-gradient;
-    }
+#btn-menu-wrapper {
+    font-size: 0.1px;
+    text-align: justify;
 }
 
 /***** MAIN CONTENT -> SEND MESSAGE FORM *****/
@@ -94,6 +62,7 @@
     
     #send-msg-btn {
         height: 25px;
+        margin-top: 20px;
         font-weight: bold;
     }
 }

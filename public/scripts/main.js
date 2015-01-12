@@ -862,7 +862,7 @@ var surveyView = {
                 
                 var code = e.keyCode || e.which; 
                 
-                if (code  == 13) {               
+                if (code == 13) {               
                     e.preventDefault();
                     return false;
                 }
@@ -1189,11 +1189,34 @@ var administrationView = {
                 
                 var promise = administrationController.removeRowFromDb(tableID, btnID);
                     promise.done(function(data) {
-                        button.parent().parent().parent().fadeOut('slow', function() {
+                        button.parent().parent().parent().fadeOut('fast', function() {
                             button.parent().parent().parent().remove();
                         });
                     });
                 
+            });
+            
+            wrapper.on('click', '.edit img', function() {
+                
+                var button = $(this).parent();
+                var tableID = wrapper.children('table:first-child').attr('id');
+                var btnID = button.data('id');
+                
+                button.parent().parent().prop('contenteditable', true);
+                button.parent().parent().keypress(function(e) {
+                    
+                    var code = e.keyCode || e.which;
+                    
+                    if (code === 13) {
+                        
+                        var promise = administrationController.updateRowInDb(tableID, btnID);
+                            promise.done(function(data) {
+                                button.parent().parent().prop('contenteditable', false);
+                            });
+                        
+                        return e.which != 13;
+                    }
+                });
             });
             
             $('.default ul li').on('click', function() {
@@ -1239,12 +1262,20 @@ var administrationView = {
                        url: 'ajax/get' + filename + '.php',
                        post: 'POST',
                        data: 'sort_by=' + sortBy
-                   });
+            });
         },
         removeRowFromDb: function(table, id) {
             
             return $.ajax({
                         url: 'ajax/removeid.php',
+                        type: 'POST',
+                        data: 'table_name=' + table + '&row_id=' + id
+            });
+        },
+        updateRowInDb: function(table, id) {
+            
+            return $.ajax({
+                        url: 'ajax/updateid.php',
                         type: 'POST',
                         data: 'table_name=' + table + '&row_id=' + id
             });

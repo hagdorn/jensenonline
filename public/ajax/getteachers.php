@@ -22,7 +22,7 @@
 
     $prep_stmt = $db->prepare($stmt);
     $prep_stmt->execute();
-
+    
     echo '<table id="teachers">';
     echo '<tr>';
     echo '<th class="info-head">Efternamn</th>';
@@ -45,7 +45,7 @@
         echo '<td class="info-cell">' . $db_row['phone_number'] . '</td>';
         echo '<td class="info-cell">' . $db_row['teacher_for'] . '</td>';
         echo '<td class="info-cell">
-                  <button class="small-btns"><img src="../includes/img/edit.png"></button>
+                  <button data-id="' . $db_row['id'] . '" class="small-btns edit"><img src="../includes/img/edit.png"></button>
               </td>';
         echo '<td class="info-cell">
                   <button data-id="' . $db_row['id'] . '" class="small-btns delete"><img src="../includes/img/delete.png"></button>

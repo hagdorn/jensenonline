@@ -37,7 +37,7 @@
         echo '<td class="info-cell">' . $db_row['name'] . '</td>';
         echo '<td class="info-cell">' . $db_row['floor'] . '</td>';
         echo '<td class="info-cell">
-                  <button class="small-btns"><img src="../includes/img/edit.png"></button>
+                  <button data-id="' . $db_row['id'] . '" class="small-btns edit"><img src="../includes/img/edit.png"></button>
               </td>';
         echo '<td class="info-cell">
                   <button data-id="' . $db_row['id'] . '" class="small-btns delete"><img src="../includes/img/delete.png"></button>

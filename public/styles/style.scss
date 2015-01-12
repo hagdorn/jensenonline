@@ -49,13 +49,14 @@ main {
 .logo-text {
     position: absolute;
     left: 15%;
-    color: $dark-blue;
+    color: $ocean-blue;
 }
 
 #school-name {
     top: 40%; 
     font-size: 38px;
     font-weight: bold;
+    text-shadow: 1px 1px $dark-blue;
 }
 
 #slogan {
@@ -75,7 +76,7 @@ span#current-user {
     position: absolute;
     right: 60px;
     top: 20px;
-    color: $dark-blue;
+    color: $black;
     font-weight: bold;
     
     img {
