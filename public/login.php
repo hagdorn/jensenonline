@@ -29,7 +29,20 @@
                             <input type="password" name="password" id="password" alt="Skriv ditt lösenord">
                         </td>
                     </tr>
-                    <tr>
+                    
+                   	<?php if(isset($_SESSION['loginError'])){
+							?>
+							<!-- Displaya loginerror en gång -->				
+								<tr>
+									<td><?php echo $_SESSION['loginError']; ?><br><br></td>
+								</tr>
+								
+							<?php
+							//Unset loginError för att inte visa igen. 
+							unset($_SESSION['loginError']);
+					}
+					?>
+                    <tr>                                           
                         <td>
                             <a href="#">Glömt lösenord?</a>
                         </td>

@@ -1,13 +1,22 @@
 <?php
 	if(isset($_POST['submit'])){
-		
-		//kryptera lösen innan koll
-		require_once('../includes/php/security/hash.php');
-		$hash = new Hash;
-		$encPassword = $hash->passwordEncrypt($_POST['username'],$_POST['password']);
-			
-		//addUser($_POST['username'],$encPassword, 'mail@jensen.se', 1);
-		checkUserNameAndPassword($_POST['username'],$encPassword);
+		if (!$_POST['username']){
+			$_SESSION['loginError'] = "Du måste ange ett användarnamn";
+		}
+		else if (!$_POST['password']){
+			$_SESSION['loginError'] = "Då måste ange ett lösenord";
+		}
+		else{
+
+
+			//kryptera lösen innan koll
+			require_once('../includes/php/security/hash.php');
+			$hash = new Hash;
+			$encPassword = $hash->passwordEncrypt($_POST['username'],$_POST['password']);
+
+			//addUser($_POST['username'],$encPassword, 'mail@jensen.se', 1);
+			checkUserNameAndPassword($_POST['username'],$encPassword);
+		}
 	}
 
 	if(!isset($_SESSION['id'])){
@@ -40,8 +49,11 @@ function checkUserNameAndPassword($un, $pwd){
 			$_SESSION['lastname'] = utf8_encode($loggedIn['lastname']);
             //$_SESSION['gender'] = $loggedIn['gender'];
             $_SESSION['timestamp'] = time();
-			
 		}
+		else{
+			$_SESSION['loginError'] = "Felaktigt användarnamn eller lösenord angivet";
+		}
+		
 					 
 	}
 	catch(Exception $exception){
