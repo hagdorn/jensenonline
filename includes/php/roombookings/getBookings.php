@@ -17,26 +17,31 @@
 		$date_for_monday = date( 'Y-m-d', $timestamp_for_monday );
 		$_SESSION['date'] = $date_for_monday;
 		
+		$_SESSION['week'] = $week;  
+	}
+
+	if (isset ($_SESSION['week'])){
 		//Ändra js-vecka
 		?>
-			<script>var newWeek = <?php echo $week; ?></script>
+			<script>var newWeek = <?php echo $_SESSION['week']; ?></script>
 		<?php
-	}	
+	}
 
 
 
 
 	setDays($_SESSION['date']);
 	
-	function setDays($date){
+	function setDays($dateSet){
 		global $date, $monday, $tuesday, $wednsday, $thursday, $friday;
 		
-		$day = date("w", strtotime($date));
-		$monday = $date = date('Y-m-d');
-	
-		for($i = 2; $i<$day; $i++){
-			$monday = date('Y-m-d', strtotime($monday. ' - 1 days'));
+		$day = date("w", strtotime($dateSet));
+		$monday = $dateSet;
+		
+		if ($day > 1){
+			$monday = date('Y-m-d', strtotime($dateSet. ' - ' . ($day - 1) . ' days'));
 		}
+
 
 		$tuesday = date('Y-m-d', strtotime($monday. ' + 1 days'));
 		$wednsday = date('Y-m-d', strtotime($monday. ' + 2 days'));
@@ -64,6 +69,8 @@
 				$_SESSION['date'] = $friday;
 				break;
 		}
+		
+		
 	}
 
 
