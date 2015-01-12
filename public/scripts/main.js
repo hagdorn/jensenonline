@@ -1181,6 +1181,21 @@ var administrationView = {
 
             var wrapper = $('#table-holder');
 
+            wrapper.on('click', '.delete img', function() {
+                
+                var button = $(this);
+                var tableID = wrapper.children('table:first-child').attr('id');
+                var btnID = $(this).parent().data('id');
+                
+                var promise = administrationController.removeRowFromDb(tableID, btnID);
+                    promise.done(function(data) {
+                        button.parent().parent().parent().fadeOut('slow', function() {
+                            button.parent().parent().parent().remove();
+                        });
+                    });
+                
+            });
+            
             $('.default ul li').on('click', function() {
 
                 $(this).parent().parent().children('span').html($(this).html());
@@ -1225,6 +1240,14 @@ var administrationView = {
                        post: 'POST',
                        data: 'sort_by=' + sortBy
                    });
+        },
+        removeRowFromDb: function(table, id) {
+            
+            return $.ajax({
+                        url: 'ajax/removeid.php',
+                        type: 'POST',
+                        data: 'table_name=' + table + '&row_id=' + id
+            });
         },
         showList: (function() {
 

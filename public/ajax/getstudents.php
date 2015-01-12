@@ -53,9 +53,9 @@
                   <button class="small-btns"><img src="../includes/img/edit.png"></button>
               </td>';
         echo '<td class="info-cell">
-                  <button class="small-btns"><img src="../includes/img/delete.png"></button>
+                  <button data-id="' . $db_row['id'] . '" class="small-btns delete"><img src="../includes/img/delete.png"></button>
               </td>';
-        echo '</tr>';  
+        echo '</tr>';
     }
 
     echo '</table>';
