@@ -28,13 +28,16 @@ function checkUserNameAndPassword($un, $pwd){
         $loggedIn = $ps -> fetch(PDO::FETCH_ASSOC); // Assosiative array
 		
 		if($loggedIn){
+			
 			$_SESSION['id'] = $loggedIn['id'];
 			$_SESSION['type'] = $loggedIn['type'];
 			$_SESSION['username'] = $loggedIn['username'];
 			$_SESSION['firstname'] = $loggedIn['firstname'];
 			$_SESSION['lastname'] = $loggedIn['lastname'];
-            $_SESSION['gender'] = $loggedIn['gender'];
+            //$_SESSION['gender'] = $loggedIn['gender'];
             $_SESSION['timestamp'] = time();
+			
+			$db->exec("SET NAMES 'utf8'");
 		}
 					 
 	}
