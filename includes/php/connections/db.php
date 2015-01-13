@@ -1,21 +1,26 @@
 <?php
 	if(isset($_POST['submit'])){
-		if (!$_POST['username']){
+		
+		$username = trim($_POST['username']);
+		$pwd = trim($_POST['password']);
+		
+		//Validation
+		if (!$username){
 			$_SESSION['loginError'] = "Du måste ange ett användarnamn";
 		}
-		else if (!$_POST['password']){
+		else if (!$pwd){
 			$_SESSION['loginError'] = "Då måste ange ett lösenord";
 		}
+		
 		else{
 
 
 			//kryptera lösen innan koll
 			require_once('../includes/php/security/hash.php');
 			$hash = new Hash;
-			$encPassword = $hash->passwordEncrypt($_POST['username'],$_POST['password']);
+			$encPassword = $hash->passwordEncrypt($username, $pwd);
 
-			//addUser($_POST['username'],$encPassword, 'mail@jensen.se', 1);
-			checkUserNameAndPassword($_POST['username'],$encPassword);
+			checkUserNameAndPassword($username,$encPassword);
 		}
 	}
 
