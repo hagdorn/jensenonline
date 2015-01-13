@@ -1309,6 +1309,132 @@ var administrationView = {
     }
     
     
+var model = {
+    ajaxURLs: {
+        addNote: '../includes/notepages/addnote.php',
+        editNote: '../includes/notepages/editnote.php',
+        deleteNote: '../includes/notepages/deletenote.php',
+        allNotes: '../includes/notepages/allnotes.php',
+    },
+    wrappers: {
+        topBar: $('#top-bar'),
+        content: $('#content-wrapper'),
+        timestamp: undefined
+    }
+}
+
+var ctrl = {
+
+    bindElements: (function() {
+        model.wrappers.topBar.on('click', '#add-note', function() {
+
+            var promise = ctrl.functions.restCall(model.ajaxURLs.addNote);
+                promise.done(function(data) {
+
+                    $('#add-note').hide();
+                    $('#all-notes').show();
+                    $('#done-btn').show();
+
+                    ctrl.functions.appendData(data);
+                });
+        });
+
+        model.wrappers.topBar.on('click', '#all-notes', function() {
+
+            var allNotesPromise = ctrl.functions.restCall(model.ajaxURLs.allNotes);
+                allNotesPromise.done(function(data) {
+
+                    $('#done-btn').hide();
+                    $('#all-notes').hide();
+                    $('#edit').hide();
+                    $('#add-note').show();
+
+                    ctrl.functions.appendData(data);
+                });
+        });
+
+        model.wrappers.topBar.on('click', '#done-btn', function() {
+
+            var textarea = $('#notes-area');
+
+            if (textarea.val().length === 0) {
+                return false;
+            }
+
+            var allNotesPromise = ctrl.functions.restCall(model.ajaxURLs.allNotes);
+                allNotesPromise.done(function(data) {
+
+                    $('#done-btn').hide();
+                    $('#all-notes').hide();
+                    $('#add-note').show();
+                    ctrl.functions.appendData(data);
+                });
+        });
+
+        model.wrappers.topBar.on('click', '#edit', function() {
+
+            $('#notes-area').attr('disabled', false);
+
+            $('#edit').hide();
+            $('#done-btn').show();
+        });
+
+        model.wrappers.content.on('click', '#notes-list li', function() {
+
+            model.timestamp = $(this).children('.notes-timestamp').html();
+            
+            var editPromise = ctrl.functions.restCall(model.ajaxURLs.editNote, 'timestamp', model.timestamp);
+                editPromise.done(function(data) {
+
+                    ctrl.functions.appendData(data);
+                    $('#timestamp-input').attr('value', model.timestamp);
+                });
+
+            $('#add-note').hide();
+            $('#all-notes').show();
+            $('#edit').show();
+        });
+
+        model.wrappers.content.on('click', '#trashcan', function() {
+
+            var deletePromise = ctrl.functions.restCall(model.ajaxURLs.deleteNote, 'timestamp', model.timestamp);
+                deletePromise.done(function(data) {
+
+                    var allNotesPromise = ctrl.functions.restCall(model.ajaxURLs.allNotes);
+                        allNotesPromise.done(function(data) {
+
+                            ctrl.functions.appendData(data);
+                        });
+
+                    $('#edit').hide();
+                    $('#add-note').show();
+                });
+        });
+    }()),
+    functions: {
+
+        onPageLoad: function() {
+            var promise = ctrl.functions.restCall('../includes/notepages/allnotes.php');
+                promise.done(function(data) {
+                    ctrl.functions.appendData(data);
+                });
+        },
+        restCall: function(url, dataVar, data) {
+
+            return $.ajax({
+                url: url,
+                method: 'post',
+                data: '' + dataVar + '=' + data
+            });
+        },
+        appendData: function(data) {
+            model.wrappers.content.children().remove();
+            model.wrappers.content.append(data).hide().fadeIn();
+        }
+    }
+}  
+    
+ctrl.functions.onPageLoad();
     
     
     
@@ -1317,14 +1443,6 @@ var administrationView = {
     
     
     
+init();
     
-    
-    
-    
-    
-    
-    
-    
-    
-    window.onload = init;
 });

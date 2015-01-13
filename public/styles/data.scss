@@ -33,6 +33,26 @@ $fontFamily: Arial, sans-serif;
 $center: 0 auto;
 $standard-radius: 3px;
 
+//Colors
+$notes-yellow: #f5f293;
+$notes-brown: #ab5839;
+$dark-brown: #3f2b26;
+$light-brown: #7d574a;
+
+//Gradients
+$brown-gradient: linear-gradient($light-brown, $dark-brown);
+$rev-brown-gradient: linear-gradient($dark-brown, $light-brown);
+
+//Borders
+$thin-grey: 1px solid grey;
+$thin-darkbrown: 1px solid $dark-brown;
+
+//Other
+$center: 0 auto;
+$li-margin: 3px;
+$std-radius: 5px;
+
+
 //Placeholders
 %no-margins {
     margin: 0;
@@ -125,6 +145,38 @@ $standard-radius: 3px;
     text-align: center;
     color: $white;
     background: $color;
+}
+
+@mixin placeholderColor($col: #000) {
+    
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color: $col;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+       color: $col;
+       opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+       color: $col;
+       opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+       color: $col;
+    }
+}
+
+@mixin smoothEdges($topLeft: null, $topRight: null, $bottomLeft: null, $bottomRight: null) {
+    @if ($topLeft != null) { border-top-left-radius: $topLeft; }
+    @if ($topRight != null) { border-top-right-radius: $topRight; }
+    @if ($bottomLeft != null) { border-bottom-left-radius: $bottomLeft; }
+    @if ($bottomRight != null) { border-bottom-right-radius: $bottomRight; }
+}
+
+//Fonts
+@font-face {
+    font-family: notesworthy;
+    font-weight: bold;
+    src: url("../fonts/Noteworthy-Bold.otf") format("opentype");
 }
 
 //Button classes

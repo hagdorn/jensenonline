@@ -15,6 +15,10 @@
   .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active {
     background: linear-gradient(#fff, #efefef); }
 
+@font-face {
+  font-family: notesworthy;
+  font-weight: bold;
+  src: url("../fonts/Noteworthy-Bold.otf") format("opentype"); }
 .action-buttons {
   height: 24px;
   padding: 0 10px;

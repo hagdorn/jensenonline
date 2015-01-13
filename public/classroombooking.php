@@ -15,8 +15,6 @@
 		include('../includes/php/roombookings/removeBooking.php');
 	}
 
-	
-	
 	include_once('../includes/php/roombookings/getBookings.php');
 	
 	$jsDay = date("D", strtotime($_SESSION['date']));

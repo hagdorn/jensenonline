@@ -79,6 +79,10 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 {
                     title: 'Kalender',
                     URL: 'calendar'
+                },
+                {
+                    title: 'Anteckningar',
+                    URL: 'notes'
                 }
             ],
             id: 'applications',
@@ -187,6 +191,10 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 {
                     title: 'Kalender',
                     URL: 'calendar'
+                },
+                {
+                    title: 'Anteckningar',
+                    URL: 'notes'
                 }
             ],
             id: 'applications',
