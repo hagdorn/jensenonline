@@ -107,6 +107,8 @@
 		else{
 			echo ("<li>></li>");
 		}
+		
+		
 		//Sista sidan
 		if ($pageNumber < $numberOfPages){
 			echo ("<a href='?page=" . $numberOfPages ."'><li>>|</li></a>");
@@ -117,12 +119,6 @@
 			
 			
 		echo ("</ul></div>");
-	}
-	else{
-		echo ("<div class='inboxpageslist'>");
-		echo ("<ul>");
-		echo ("<li>Sida 1 av 1 |< < > >|");
-		
 	}
 	
 		
