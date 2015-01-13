@@ -1,7 +1,7 @@
 /* To watch the files: sass --watch style.scss:style.css */
 /***** IMPORTED FILES *****/
 @import url(ch_style.css);
-.small-btns, body, #dropdown-nav {
+.small-btns, body, .dropdown-nav {
   margin: 0;
   padding: 0; }
 
@@ -27,14 +27,14 @@
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #save-survey-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #save-survey-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #save-survey-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 @font-face {
@@ -150,7 +150,7 @@
 .ui-box-shadow {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); }
 
-.small-btns, body, #dropdown-nav {
+.small-btns, body, .dropdown-nav {
   margin: 0;
   padding: 0; }
 
@@ -176,14 +176,14 @@
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #save-survey-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #save-survey-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #save-survey-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 @font-face {
@@ -489,7 +489,7 @@ form.dropdown-form {
   .sub-options:hover {
     background-color: #f7f7f7; }
 
-.small-btns, body, #dropdown-nav {
+.small-btns, body, .dropdown-nav {
   margin: 0;
   padding: 0; }
 
@@ -515,14 +515,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #save-survey-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #save-survey-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #save-survey-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 @font-face {
@@ -762,46 +762,48 @@ form.dropdown-form {
   box-sizing: padding-box; }
 
 #book-wrapper {
-  position: absolute;
-  right: 80px;
-  display: inline-block; }
+  float: right; }
 
 #course-label {
   display: none;
   font-weight: bold; }
 
 #cancel-wrapper {
-  position: absolute;
-  right: 10px;
-  display: inline-block; }
+  float: right;
+  margin-left: 5px; }
 
 .booking-btns {
   height: 30px;
   line-height: 30px;
-  font-weight: bold; }
+  font-weight: bold;
+  margin: 0; }
   .booking-btns img {
-    margin: 0 5px -3px; }
+    margin: 0 0 -5px 5px; }
 
-#book {
-  margin-right: 22px; }
+#book img {
+  margin: 0 0 -2px 5px; }
+
+#cancel-booking {
+  display: inline-block; }
 
 .marked-cell {
   background: #afafaf; }
 
 #selects-wrapper {
   position: absolute;
-  right: 0; }
+  right: 0;
+  max-height: 30px;
+  line-height: 30px; }
 
 .dropdown-selects {
   height: 30px;
   font-weight: bold; }
 
-#show-week {
+#classSubject {
   height: 30px;
-  font-weight: bold;
-  background: linear-gradient(#4fef00, #3db700); }
+  display: none; }
 
-.small-btns, body, #dropdown-nav {
+.small-btns, body, .dropdown-nav {
   margin: 0;
   padding: 0; }
 
@@ -827,14 +829,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #save-survey-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #save-survey-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #save-survey-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 @font-face {
@@ -1094,7 +1096,7 @@ form.dropdown-form {
     outline: 0; }
 
 /***** LOGIN.PHP *****/
-.small-btns, body, #dropdown-nav {
+.small-btns, body, .dropdown-nav {
   margin: 0;
   padding: 0; }
 
@@ -1120,14 +1122,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #save-survey-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #save-survey-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #save-survey-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 @font-face {
@@ -1281,7 +1283,7 @@ form.dropdown-form {
   font-weight: bold; }
 
 /***** INBOX.PHP, SENDMSG.PHP, READMSG.PHP, REMOVED.PHP, SENT.PHP *****/
-.small-btns, body, #dropdown-nav {
+.small-btns, body, .dropdown-nav {
   margin: 0;
   padding: 0; }
 
@@ -1307,14 +1309,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #save-survey-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #save-survey-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #save-survey-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 @font-face {
@@ -1486,7 +1488,7 @@ form.dropdown-form {
     #inbox-container a:link, #inbox-container a:visited, #inbox-container a:focus, #inbox-container a:hover, #inbox-container a:active {
       color: #000; }
 
-.small-btns, body, #dropdown-nav {
+.small-btns, body, .dropdown-nav {
   margin: 0;
   padding: 0; }
 
@@ -1512,14 +1514,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #save-survey-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #save-survey-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #save-survey-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 @font-face {
@@ -1823,7 +1825,7 @@ div.vertical-stripes {
 #trashcan {
   cursor: pointer; }
 
-.small-btns, body, #dropdown-nav {
+.small-btns, body, .dropdown-nav {
   margin: 0;
   padding: 0; }
 
@@ -1849,14 +1851,14 @@ div.vertical-stripes {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #save-survey-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #save-survey-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #save-survey-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 @font-face {
@@ -1981,6 +1983,15 @@ div.vertical-stripes {
     font-weight: bold;
     padding: 0 5px; }
 
+#survey-btn-wrapper {
+  text-align: justify;
+  font-size: 0.1px;
+  display: inline-block; }
+  #survey-btn-wrapper:after {
+    content: '';
+    width: 100%;
+    display: inline-block; }
+
 #submit-container {
   display: none;
   float: right; }
@@ -2015,6 +2026,7 @@ div.vertical-stripes {
 
 .survey-cell {
   height: 30px;
+  line-height: 30px;
   border: 1px solid #D3D3D3;
   text-align: center; }
 
@@ -2044,7 +2056,18 @@ div.vertical-stripes {
   float: left; }
 
 #numOfQuestions {
-  height: 26px; }
+  height: 26px;
+  float: left; }
+
+.survey-inputs {
+  height: 30px;
+  line-height: 30px;
+  margin-left: 5px;
+  padding: 0;
+  border: 1px solid #D3D3D3;
+  box-sizing: border-box;
+  border-radius: 3px;
+  float: right; }
 
 .choose-type-ul {
   list-style: none;
@@ -2061,6 +2084,20 @@ div.vertical-stripes {
   cursor: pointer; }
   .event-btn:hover {
     color: #0097ef; }
+
+#save-survey-btn {
+  height: 30px;
+  line-height: 30px;
+  color: #000 !important;
+  font-weight: bold; }
+  #save-survey-btn img {
+    margin: 0 0 -2px 3px; }
+
+.survey-btns {
+  margin-left: 5px;
+  display: inline-block; }
+  .survey-btns img {
+    margin-bottom: -7px; }
 
 /***** GENERAL STYLES *****/
 html, body, main {
@@ -2155,7 +2192,7 @@ span#current-user {
   .nav-items img {
     margin-bottom: -2px; }
 
-#dropdown-nav {
+.dropdown-nav {
   position: absolute;
   width: 100%;
   display: none;

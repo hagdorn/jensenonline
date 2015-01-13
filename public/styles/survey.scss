@@ -25,6 +25,18 @@
     @extend %placeholderStyles;
 }
 
+#survey-btn-wrapper {
+    text-align: justify;
+    font-size: 0.1px;
+    display: inline-block;
+    
+    &:after {
+        content: '';
+        width: 100%;
+        display: inline-block;
+    }
+}
+
 #submit-container {
     display: none;
     float: right;
@@ -70,6 +82,7 @@
 
 .survey-cell {
     height: 30px;
+    line-height: 30px;
     border: $thin-lightgrey;
     text-align: center;
 }
@@ -110,6 +123,17 @@
 
 #numOfQuestions {
     height: 26px;
+    float: left;
+}
+
+.survey-inputs {
+    @include vertAlign(30px);
+    margin-left: 5px;
+    padding: 0;
+    border: 1px solid #D3D3D3;
+    box-sizing: border-box;
+    border-radius: 3px;
+    float: right;
 }
 
 //Lists
@@ -133,5 +157,26 @@
     
     &:hover {
         color: $ocean-blue;
+    }
+}
+
+#save-survey-btn {
+    @extend %btn-props;
+    height: 30px;
+    line-height: 30px;
+    color: $black !important;
+    font-weight: bold;
+    
+    img {
+        margin: 0 0 -2px 3px;
+    }
+}
+
+.survey-btns {
+    margin-left: 5px;
+    display: inline-block;
+    
+    img {
+        margin-bottom: -7px;
     }
 }

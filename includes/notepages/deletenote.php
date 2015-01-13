@@ -1,5 +1,5 @@
 <?php
-    require_once('../connections/pdoConnect.php');
+    require_once('../php/connections/pdoConnect.php');
 
     $timestamp = $_REQUEST['timestamp'];
     

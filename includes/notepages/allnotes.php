@@ -1,7 +1,6 @@
 <div id="list-container">
     <ul id="notes-list" class="reset">
         <?php
-
             require_once('../php/connections/pdoConnect.php');
 
             $query = 'SELECT * FROM notes ORDER BY timestamp DESC';

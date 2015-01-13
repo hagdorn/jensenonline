@@ -514,7 +514,7 @@ $(document).ready(function() {
             
             var weeks = $('#sel-week');
             var years = $('#sel-year');
-            
+                
             var weekPromise = bookingController.grabInfo('week');
                 weekPromise.done(function(week) {
                     
@@ -740,7 +740,7 @@ var surveyView = {
             
             var form = surveyView.createElement('form', surveyModel.container, true);
                 form.attr({method: 'POST',
-                           action: 'createsurvey.php',
+                           action: '../includes/php/survey/savesurvey.php',
                            id: 'survey-form'
                           });
         

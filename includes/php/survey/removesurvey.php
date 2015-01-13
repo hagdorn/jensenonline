@@ -6,7 +6,7 @@
         
         $title = $_POST['title'];
         
-        $stmt = 'DELETE FROM uploads ';
+        $stmt = 'DELETE FROM surveys ';
         $stmt .= 'WHERE title= :title';
         
         $prep_stmt = $db->prepare($stmt);

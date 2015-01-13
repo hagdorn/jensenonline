@@ -6,8 +6,9 @@
     $timestamp = $_POST['timestamp'];
     
     $query = 'UPDATE notes ';
-    $query .= 'SET cut_off_topic = :topic, text = :text WHERE timestamp = :timestamp';
-    
+    $query .= 'SET cut_off_topic = :topic, text = :text '; 
+    $query .= 'WHERE timestamp = :timestamp';
+
     $prep_stmt = $db->prepare($query);
     $prep_stmt->bindParam(':topic', $topic);
     $prep_stmt->bindParam(':text', $note);

@@ -147,9 +147,7 @@
 }
 
 #book-wrapper {
-    position: absolute;
-    right: 80px;
-    display: inline-block;
+    float: right;
 }
 
 #course-label {
@@ -158,23 +156,30 @@
 }
 
 #cancel-wrapper {
-    position: absolute;
-    right: 10px;
-    display: inline-block;
+    float: right;
+    margin-left: 5px;
 }
 
 .booking-btns {
     @include vertAlign(30px);
     @extend %btn-props;
     font-weight: bold;
+    margin: 0;
     
     img {
-        margin: 0 5px -3px;
+        margin: 0 0 -5px 5px;
     }
 }
 
 #book {
-    margin-right: 22px;    
+    
+    img {
+        margin: 0 0 -2px 5px;
+    }
+}
+
+#cancel-booking {
+    display: inline-block;
 }
 
 .marked-cell {
@@ -184,6 +189,8 @@
 #selects-wrapper {
     position: absolute;
     right: 0;
+    max-height: 30px;
+    line-height: 30px;
 }
 
 .dropdown-selects {
@@ -191,8 +198,7 @@
     font-weight: bold;
 }
 
-#show-week {
+#classSubject {
     height: 30px;
-    font-weight: bold;
-    background: $green-gradient;
+    display: none;
 }

@@ -252,43 +252,45 @@
   box-sizing: padding-box; }
 
 #book-wrapper {
-  position: absolute;
-  right: 80px;
-  display: inline-block; }
+  float: right; }
 
 #course-label {
   display: none;
   font-weight: bold; }
 
 #cancel-wrapper {
-  position: absolute;
-  right: 10px;
-  display: inline-block; }
+  float: right;
+  margin-left: 5px; }
 
 .booking-btns {
   height: 30px;
   line-height: 30px;
-  font-weight: bold; }
+  font-weight: bold;
+  margin: 0; }
   .booking-btns img {
-    margin: 0 5px -3px; }
+    margin: 0 0 -5px 5px; }
 
-#book {
-  margin-right: 22px; }
+#book img {
+  margin: 0 0 -2px 5px; }
+
+#cancel-booking {
+  display: inline-block; }
 
 .marked-cell {
   background: #afafaf; }
 
 #selects-wrapper {
   position: absolute;
-  right: 0; }
+  right: 0;
+  max-height: 30px;
+  line-height: 30px; }
 
 .dropdown-selects {
   height: 30px;
   font-weight: bold; }
 
-#show-week {
+#classSubject {
   height: 30px;
-  font-weight: bold;
-  background: linear-gradient(#4fef00, #3db700); }
+  display: none; }
 
 /*# sourceMappingURL=booking.css.map */

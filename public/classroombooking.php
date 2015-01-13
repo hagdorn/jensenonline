@@ -39,25 +39,26 @@
             <form method="POST" action="classroombooking.php" id="selects-wrapper">
                 <select id="sel-week" name="week" class="dropdown-selects"></select>
                 <select id="sel-year" name="year" class="dropdown-selects"></select>
-                <input type="submit" name="show-week" id="show-week" class="booking-btns" value="Visa">
+                <button type="submit" name="show-week" class="booking-btns">Visa</button>
             </form>
         </div>
         <div id="scheme-table"></div>
         <div id="scheme-footer">
+            <div id="cancel-wrapper">
+                <form method="POST" action="classroombooking.php">
+                    <input type="hidden" class="timeValue" name="time">
+                    <input type="hidden" class="classValue" name="class">
+                    <button type="submit" name="cancel" id="cancel-booking" class="booking-btns">Avboka<img src="../includes/img/cancel-booking.png"></button>
+                </form>
+            </div>
             <div id="book-wrapper">
                 <form method="POST" action="classroombooking.php">
                     <label for="subject" id="course-label">Ange kurs:</label>
                     <input type="text" id="classSubject" name="classSubject" alt="Fyll i ämne" id="classSubject">
                     <input type="hidden" class="timeValue" name="time">
                     <input type="hidden" class="classValue" name="class">
-                    <input type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="booking-btns" value="Boka">
-                </form>
-            </div>
-            <div id="cancel-wrapper">
-                <form method="POST" action="classroombooking.php">
-                    <input type="hidden" class="timeValue" name="time">
-                    <input type="hidden" class="classValue" name="class">
-                    <button type="submit" name="cancel" id="cancel-booking" class="booking-btns">Avboka<img src="../includes/img/cancel-booking.png"></button>
+                    <button type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="booking-btns">Boka<img src="../includes/img/accept-booking.png">
+                    </button>
                 </form>
             </div>
         </div>
