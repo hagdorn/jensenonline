@@ -10,6 +10,7 @@
 		}
 		else if (!$pwd){
 			$_SESSION['loginError'] = "Då måste ange ett lösenord";
+			$_SESSION['errorUsername'] = $username;
 		}
 		
 		else{
@@ -33,8 +34,6 @@ function checkUserNameAndPassword($un, $pwd){
 		global $db;
 		$db->exec("SET NAMES 'latin1'");
 		
-		
-		
         $query = "SELECT * ";
         $query .= "FROM useraccounts ";
         $query .= "WHERE username = :username ";
@@ -57,6 +56,7 @@ function checkUserNameAndPassword($un, $pwd){
 		}
 		else{
 			$_SESSION['loginError'] = "Felaktigt användarnamn eller lösenord angivet";
+			$_SESSION['errorUsername'] = $un;
 		}
 		
 					 
