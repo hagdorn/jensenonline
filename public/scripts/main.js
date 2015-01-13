@@ -84,17 +84,9 @@ $(document).ready(function() {
         mainHoverEffect: (function () {
             
             $('.nav-items').hover(function() {
-                $(this).stop().animate({ top: 5 }, 'fast');
+                $(this).stop().animate({ top: 2 }, 'fast');
             }, function() {
                 $(this).stop().animate({ top: 0 }, 'fast');
-            });
-        }()),
-        subMenuHoverEffect: (function () {
-            
-            $('.dropdown-items').hover(function() {
-                $(this).stop().animate({ left: 10 }, 'fast');
-            }, function() {
-                $(this).stop().animate({ left: 0 }, 'fast');
             });
         }())
     }
@@ -268,13 +260,13 @@ $(document).ready(function() {
             var addEventButton = $('#button'); 
                 addEventButton.on('click', calendarController.validateInput);
 
-            var deleteButton = $('#deleteButton');
+            var deleteButton = $('#delete-all-btn');
                 deleteButton.on('click', calendarController.confirmDelete);
 
-            var showButton = $('#showButton');
+            var showButton = $('#show-btn');
                 showButton.on('click', calendarController.scrollToMonth);
 
-            var backToTopButton = $('#btt');
+            var backToTopButton = $('#scroll-top-btn');
                 backToTopButton.on('click', calendarController.scrollToTop);
         },
         validateInput: function() {

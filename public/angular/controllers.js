@@ -6,11 +6,13 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
 
         {
             title: 'Startsida',
-            URL: 'home'
+            URL: 'index',
+            image: 'home'
         },
         {
             title: 'Nyheter',
-            URL: 'news'
+            URL: 'news',
+            image: 'news'
         },
         {
             title: 'Meddelanden',
@@ -33,7 +35,8 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 }
             ],
             URL: 'inbox',
-            id: 'msg'
+            id: 'msg',
+            image: 'messages'
         },
         {
             title: 'Administration',
@@ -63,7 +66,8 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'mngfacilities'
                 }
             ],
-            id: 'administration'
+            id: 'administration',
+            image: 'administration'
         },
         {
             title: 'Applikationer',
@@ -77,12 +81,14 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'calendar'
                 }
             ],
-            id: 'applications'
+            id: 'applications',
+            image: 'apps'
         },
         {
             title: 'Boka lokal',
             URL: 'classroombooking',
-            id: 'bookclassroom'
+            id: 'bookclassroom',
+            image: 'booking'
         },
         {
             title: 'Enkäter',
@@ -96,7 +102,8 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'savedsurveys'
                 }
             ],
-            id: 'surveys'
+            id: 'surveys',
+            image: 'survey'
         },
         {
             title: 'Hjälp',
@@ -114,18 +121,21 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                     URL: 'about'
                 }
             ],
-            id: 'help'
+            id: 'help',
+            image: 'help'
         }
     ],
     $scope.teachermenu = [
     
         {
             title: 'Startsida',
-            URL: 'home'
+            URL: 'index',
+            image: 'home'
         },
         {
             title: 'Nyheter',
-            URL: 'news'
+            URL: 'news',
+            image: 'news'
         },
         {
             title: 'Meddelanden',
@@ -148,7 +158,8 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 }
             ],
             URL: 'inbox',
-            id: 'msg'
+            id: 'msg',
+            image: 'messages'
         },
         {
             title: 'Utbildning',
@@ -160,22 +171,31 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 {
                     title: 'Sätt eller ändra betyg',
                     URL: 'editgrades'
-                },
-                {
-                    title: 'Boka eller avboka lokaler',
-                    URL: 'classroombooking'
                 }
             ],
             URL: 'education',
-            id: 'education'
+            id: 'education',
+            image: 'educations'
         },
         {
-            title: 'Forum',
-            URL: 'forum'
+            title: 'Applikationer',
+            items: [
+                {
+                    title: 'Forum',
+                    URL: 'forum'
+                },
+                {
+                    title: 'Kalender',
+                    URL: 'calendar'
+                }
+            ],
+            id: 'applications',
+            image: 'apps'
         },
         {
-            title: 'Kalender',
-            URL: 'calendar'
+            title: 'Boka lokal',
+            URL: 'classroombooking',
+            image: 'booking'
         },
         {
             title: 'Kontaktuppgifter',
@@ -190,7 +210,8 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 }
             ],
             URL: 'contactinfo',
-            id: 'contactinfo'
+            id: 'contactinfo',
+            image: 'contactinfo'
         },
         {
             title: 'Hjälp',
@@ -209,18 +230,21 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 }
             ],
             URL: 'help',
-            id: 'help'
+            id: 'help',
+            image: 'help'
         }
     ],
     $scope.studentmenu = [
         
         {
             title: 'Startsida',
-            URL: 'home'
+            URL: 'index',
+            image: 'home'
         },
         {
             title: 'Nyheter',
-            URL: 'news'
+            URL: 'news',
+            image: 'news'
         },
         {
             title: 'Meddelanden',
@@ -243,7 +267,8 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 }
             ],
             URL: 'inbox',
-            id: 'msg'
+            id: 'msg',
+            image: 'messages'
         },
         {
             title: 'Mina sidor',
@@ -267,22 +292,30 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 {
                     title: 'Min klasslista',
                     URL: 'classlist'
-                },
-                {
-                    title: 'Mina anteckningar',
-                    URL: 'notes'
                 }
             ],
             URL: 'mypages',
-            id: 'mypages'
+            id: 'mypages',
+            image: 'mypages'
         },
         {
-            title: 'Forum',
-            URL: 'forum'
-        },
-        {
-            title: 'Kalender',
-            URL: 'calendar'
+            title: 'Applikationer',
+            items: [
+                {
+                    title: 'Forum',
+                    URL: 'forum'
+                },
+                {
+                    title: 'Kalender',
+                    URL: 'calendar'
+                },
+                {
+                    title: 'Anteckningar',
+                    URL: 'notes'
+                }
+            ],
+            id: 'applications',
+            image: 'apps'
         },
         {
             title: 'Verktyg',
@@ -293,7 +326,13 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 }
             ],
             URL: 'tools',
-            id: 'tools'
+            id: 'tools',
+            image: 'tools'
+        },
+        {
+            title: 'Inställningar',
+            URL: 'settings',
+            image: 'settings'
         },
         {
             title: 'Hjälp',
@@ -312,7 +351,8 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
                 }
             ],
             URL: 'help',
-            id: 'help'
+            id: 'help',
+            image: 'help'
         }
     ],
         $scope.menuItems = ['Utbildningar', 'Kurser', 'Personal', 'Lärare', 'Studenter', 'Lokaler'];

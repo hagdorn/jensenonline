@@ -5,14 +5,14 @@
 .action-buttons {
   color: #fff; }
 
-.overview-btns, .inline-btn, .small-btns {
+.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -94,16 +94,11 @@
   height: 16px;
   outline: 0; }
 
-.green-button {
-  background: linear-gradient(#4fef00, #3db700); }
-
-.red-button {
-  background: linear-gradient(#ff0a0a, #d10000); }
-
-.orange-button {
-  background: linear-gradient(#ffba19, #ff7119); }
-
 .standard-label {
+  font-weight: bold; }
+
+.warning-text {
+  color: red;
   font-weight: bold; }
 
 .clearfix {
@@ -129,28 +124,33 @@
 .ui-box-shadow {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); }
 
-#deleteButton {
+#delete-all-btn {
   position: absolute;
   right: 0;
   bottom: 0;
-  height: 24px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  font-weight: bold; }
+  #delete-all-btn img {
+    margin: 0 0 -3px 7px; }
+
+#show-btn {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 4px;
   font-weight: bold;
-  background: linear-gradient(#ff0a0a, #d10000);
-  color: #fff;
-  border: 0;
-  border-radius: 3px; }
+  display: inline-block; }
 
 #calendar-header {
   width: 84%;
   margin: 0 8% 20px;
   position: relative; }
-  #calendar-header button:nth-child(3) {
-    height: 24px;
-    font-weight: bold;
-    background: linear-gradient(#4fef00, #3db700);
-    color: #fff;
-    border: 0;
-    border-radius: 3px; }
+  #calendar-header select {
+    height: 30px;
+    font-weight: bold; }
 
 #pop-up {
   position: absolute;
@@ -162,15 +162,14 @@
   height: 300px;
   position: fixed;
   visibility: hidden;
+  border: 1px solid #D3D3D3;
   z-index: 1;
-  background: #003b65;
-  color: #fff;
-  border-radius: 15px; }
+  background: linear-gradient(#f9f9f9, #ffffff);
+  border-radius: 3px; }
   #pop-up span {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: white;
     cursor: pointer; }
   #pop-up table {
     margin: 40px auto; }
@@ -216,14 +215,13 @@
     height: 130px;
     border: 1px solid black;
     position: relative;
-    background: #f9f9f9; }
+    background: linear-gradient(#fff, #efefef); }
     #calendar-container td span:nth-child(1) {
       font-size: 2.3em;
       position: absolute;
       left: 5px;
       top: 0;
-      font-weight: normal;
-      color: #003b65; }
+      font-weight: normal; }
     #calendar-container td p {
       position: absolute;
       left: 10px;
@@ -247,32 +245,25 @@
       top: 22px;
       font-weight: bold; }
       #calendar-container td button:hover {
-        color: #1ca0b4;
+        color: #0097ef;
         cursor: pointer; }
       #calendar-container td button:nth-child(2) {
         top: 5px; }
-  #calendar-container #btt {
+  #calendar-container #scroll-top-btn {
     position: absolute;
     bottom: 30px;
-    right: 20px;
-    height: 30px;
-    line-height: 30px;
+    right: 0;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
     padding: 0 10px;
-    cursor: pointer;
-    font-weight: bold;
-    background: linear-gradient(#ffba19, #ff7119);
-    color: #fff;
-    border: 0;
-    border-radius: 3px; }
+    font-weight: bold; }
   #calendar-container h1 {
     font-size: 3em;
     margin-top: 30px;
-    margin-bottom: 40px;
-    color: #003b65; }
-  #calendar-container button {
-    color: #003b65; }
-    #calendar-container button:focus {
-      outline: 0; }
+    margin-bottom: 40px; }
+  #calendar-container button:focus {
+    outline: 0; }
   #calendar-container input:focus {
     outline: 0; }
 

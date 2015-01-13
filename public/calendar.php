@@ -55,12 +55,15 @@
     <div id="calendar-header">
         <select id="month"></select>
         <select id="year"></select>
-        <button id="showButton">Visa</button>
-        <button id="deleteButton">Radera alla händelser</button>
+        <button id="show-btn">Visa</button>
+        <button id="delete-all-btn">Ta bort allt<img src="../includes/img/deleteall.png" no-repeat>
+        </button>
     </div>
 
     <div id="calendar-container">
-        <span id="btt">Gå till toppen av sidan</span>
+        <button id="scroll-top-btn" class="inline-btn">Tillbaks till toppen
+            <img src="../includes/img/arrow-up.png" no-repeat>
+        </button>
     </div>
 </main>
 

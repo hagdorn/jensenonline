@@ -95,16 +95,11 @@
   height: 16px;
   outline: 0; }
 
-.green-button {
-  background: linear-gradient(#4fef00, #3db700); }
-
-.red-button {
-  background: linear-gradient(#ff0a0a, #d10000); }
-
-.orange-button {
-  background: linear-gradient(#ffba19, #ff7119); }
-
 .standard-label {
+  font-weight: bold; }
+
+.warning-text {
+  color: red;
   font-weight: bold; }
 
 .clearfix {

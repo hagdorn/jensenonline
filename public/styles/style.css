@@ -26,14 +26,14 @@
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #logout {
+.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -115,16 +115,11 @@
   height: 16px;
   outline: 0; }
 
-.green-button {
-  background: linear-gradient(#4fef00, #3db700); }
-
-.red-button {
-  background: linear-gradient(#ff0a0a, #d10000); }
-
-.orange-button {
-  background: linear-gradient(#ffba19, #ff7119); }
-
 .standard-label {
+  font-weight: bold; }
+
+.warning-text {
+  color: red;
   font-weight: bold; }
 
 .clearfix {
@@ -176,14 +171,14 @@
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #logout {
+.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -265,16 +260,11 @@
   height: 16px;
   outline: 0; }
 
-.green-button {
-  background: linear-gradient(#4fef00, #3db700); }
-
-.red-button {
-  background: linear-gradient(#ff0a0a, #d10000); }
-
-.orange-button {
-  background: linear-gradient(#ffba19, #ff7119); }
-
 .standard-label {
+  font-weight: bold; }
+
+.warning-text {
+  color: red;
   font-weight: bold; }
 
 .clearfix {
@@ -516,14 +506,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #logout {
+.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -605,16 +595,11 @@ form.dropdown-form {
   height: 16px;
   outline: 0; }
 
-.green-button {
-  background: linear-gradient(#4fef00, #3db700); }
-
-.red-button {
-  background: linear-gradient(#ff0a0a, #d10000); }
-
-.orange-button {
-  background: linear-gradient(#ffba19, #ff7119); }
-
 .standard-label {
+  font-weight: bold; }
+
+.warning-text {
+  color: red;
   font-weight: bold; }
 
 .clearfix {
@@ -833,14 +818,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #logout {
+.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -922,16 +907,11 @@ form.dropdown-form {
   height: 16px;
   outline: 0; }
 
-.green-button {
-  background: linear-gradient(#4fef00, #3db700); }
-
-.red-button {
-  background: linear-gradient(#ff0a0a, #d10000); }
-
-.orange-button {
-  background: linear-gradient(#ffba19, #ff7119); }
-
 .standard-label {
+  font-weight: bold; }
+
+.warning-text {
+  color: red;
   font-weight: bold; }
 
 .clearfix {
@@ -957,28 +937,33 @@ form.dropdown-form {
 .ui-box-shadow {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); }
 
-#deleteButton {
+#delete-all-btn {
   position: absolute;
   right: 0;
   bottom: 0;
-  height: 24px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  font-weight: bold; }
+  #delete-all-btn img {
+    margin: 0 0 -3px 7px; }
+
+#show-btn {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 4px;
   font-weight: bold;
-  background: linear-gradient(#ff0a0a, #d10000);
-  color: #fff;
-  border: 0;
-  border-radius: 3px; }
+  display: inline-block; }
 
 #calendar-header {
   width: 84%;
   margin: 0 8% 20px;
   position: relative; }
-  #calendar-header button:nth-child(3) {
-    height: 24px;
-    font-weight: bold;
-    background: linear-gradient(#4fef00, #3db700);
-    color: #fff;
-    border: 0;
-    border-radius: 3px; }
+  #calendar-header select {
+    height: 30px;
+    font-weight: bold; }
 
 #pop-up {
   position: absolute;
@@ -990,15 +975,14 @@ form.dropdown-form {
   height: 300px;
   position: fixed;
   visibility: hidden;
+  border: 1px solid #D3D3D3;
   z-index: 1;
-  background: #003b65;
-  color: #fff;
-  border-radius: 15px; }
+  background: linear-gradient(#f9f9f9, #ffffff);
+  border-radius: 3px; }
   #pop-up span {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: white;
     cursor: pointer; }
   #pop-up table {
     margin: 40px auto; }
@@ -1044,14 +1028,13 @@ form.dropdown-form {
     height: 130px;
     border: 1px solid black;
     position: relative;
-    background: #f9f9f9; }
+    background: linear-gradient(#fff, #efefef); }
     #calendar-container td span:nth-child(1) {
       font-size: 2.3em;
       position: absolute;
       left: 5px;
       top: 0;
-      font-weight: normal;
-      color: #003b65; }
+      font-weight: normal; }
     #calendar-container td p {
       position: absolute;
       left: 10px;
@@ -1075,32 +1058,25 @@ form.dropdown-form {
       top: 22px;
       font-weight: bold; }
       #calendar-container td button:hover {
-        color: #1ca0b4;
+        color: #0097ef;
         cursor: pointer; }
       #calendar-container td button:nth-child(2) {
         top: 5px; }
-  #calendar-container #btt {
+  #calendar-container #scroll-top-btn {
     position: absolute;
     bottom: 30px;
-    right: 20px;
-    height: 30px;
-    line-height: 30px;
+    right: 0;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
     padding: 0 10px;
-    cursor: pointer;
-    font-weight: bold;
-    background: linear-gradient(#ffba19, #ff7119);
-    color: #fff;
-    border: 0;
-    border-radius: 3px; }
+    font-weight: bold; }
   #calendar-container h1 {
     font-size: 3em;
     margin-top: 30px;
-    margin-bottom: 40px;
-    color: #003b65; }
-  #calendar-container button {
-    color: #003b65; }
-    #calendar-container button:focus {
-      outline: 0; }
+    margin-bottom: 40px; }
+  #calendar-container button:focus {
+    outline: 0; }
   #calendar-container input:focus {
     outline: 0; }
 
@@ -1131,14 +1107,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #logout {
+.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -1220,16 +1196,11 @@ form.dropdown-form {
   height: 16px;
   outline: 0; }
 
-.green-button {
-  background: linear-gradient(#4fef00, #3db700); }
-
-.red-button {
-  background: linear-gradient(#ff0a0a, #d10000); }
-
-.orange-button {
-  background: linear-gradient(#ffba19, #ff7119); }
-
 .standard-label {
+  font-weight: bold; }
+
+.warning-text {
+  color: red;
   font-weight: bold; }
 
 .clearfix {
@@ -1319,14 +1290,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #logout {
+.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -1408,16 +1379,11 @@ form.dropdown-form {
   height: 16px;
   outline: 0; }
 
-.green-button {
-  background: linear-gradient(#4fef00, #3db700); }
-
-.red-button {
-  background: linear-gradient(#ff0a0a, #d10000); }
-
-.orange-button {
-  background: linear-gradient(#ffba19, #ff7119); }
-
 .standard-label {
+  font-weight: bold; }
+
+.warning-text {
+  color: red;
   font-weight: bold; }
 
 .clearfix {
@@ -1526,14 +1492,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #logout {
+.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -1615,16 +1581,11 @@ form.dropdown-form {
   height: 16px;
   outline: 0; }
 
-.green-button {
-  background: linear-gradient(#4fef00, #3db700); }
-
-.red-button {
-  background: linear-gradient(#ff0a0a, #d10000); }
-
-.orange-button {
-  background: linear-gradient(#ffba19, #ff7119); }
-
 .standard-label {
+  font-weight: bold; }
+
+.warning-text {
+  color: red;
   font-weight: bold; }
 
 .clearfix {
@@ -1808,11 +1769,11 @@ span#current-user {
 #main-nav {
   margin: 20px 0 60px;
   padding: 0;
-  list-style: none; }
-  #main-nav a {
-    text-decoration: none; }
-    #main-nav a:link, #main-nav a:visited, #main-nav a:focus, #main-nav a:hover, #main-nav a:active {
-      color: white; }
+  border-top: 1px solid #D3D3D3;
+  border-bottom: 1px solid #D3D3D3;
+  box-sizing: border-box;
+  list-style: none;
+  background: linear-gradient(#f9f9f9, #ffffff); }
 
 .nav-items {
   position: relative;
@@ -1820,25 +1781,41 @@ span#current-user {
   height: 40px;
   line-height: 40px;
   display: inline-block;
+  margin-top: 4px;
   text-align: center;
-  font-weight: bold;
-  background: linear-gradient(#0097ef, #003b65); }
+  font-weight: bold; }
+  .nav-items a {
+    text-decoration: none; }
+    .nav-items a:link, .nav-items a:visited, .nav-items a:focus, .nav-items a:active {
+      color: #0097ef; }
+    .nav-items a:hover {
+      color: #000; }
+  .nav-items img {
+    margin-bottom: -2px; }
 
 #dropdown-nav {
   position: absolute;
   width: 100%;
   display: none;
-  background: #003b65;
+  margin-top: -1px;
+  box-sizing: border-box;
+  border-left: 1px solid #D3D3D3;
+  border-bottom: 1px solid #D3D3D3;
+  border-right: 1px solid #D3D3D3;
+  background: linear-gradient(#f9f9f9, #ffffff);
   z-index: 500; }
 
 .dropdown-items {
   height: 25px;
   line-height: 25px;
-  width: 90%;
+  width: calc($max - 5%);
   display: block;
   text-align: left;
   font-size: 13px;
-  padding-left: 5%; }
+  padding-left: 5%;
+  border-bottom: 1px solid #D3D3D3; }
+  .dropdown-items:last-child {
+    border-bottom: 0; }
   .dropdown-items span {
     padding: 2px 6px;
     border-radius: 12px;

@@ -2,16 +2,28 @@
 
 
 //THIS NEEDS TO BE CLEARED UP AND REWRITTEN
-#deleteButton {
+#delete-all-btn {
     position: absolute;
     right: 0;
     bottom: 0;
-    height: 24px;
+    @include vertAlign(30px);
+    padding: 0 10px;
     font-weight: bold;
-    background: $red-gradient;
-    color: $white;
-    border: 0;
-    border-radius: $standard-radius;
+    @extend %btn-props;
+    
+    img {
+        margin: 0 0 -3px 7px;
+    }
+}
+
+#show-btn {
+    position: absolute;
+    bottom: 0;
+    @extend %btn-props;
+    @include vertAlign(30px);
+    margin-left: 4px;
+    font-weight: bold;
+    display: inline-block;
 }
 
 #calendar-header {
@@ -19,79 +31,74 @@
     margin: 0 8% 20px;
     position: relative;
     
-    button:nth-child(3) {
-        height: 24px;
+    select {
+        height: 30px;
         font-weight: bold;
-        background: $green-gradient;
-        color: $white;
-        border: 0;
-        border-radius: $standard-radius;
     }
 }
 
 #pop-up {
-        @include center($top: 40%);
-        width: 30%;
-        height: 300px;
-        position: fixed;
-        visibility: hidden;
-        z-index: 1;
-        background: $dark-blue;
-        color: $white;
-        border-radius: 15px;
-        
-        span {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            cursor: pointer;
-        }
-    
-        table {
-            margin: 40px auto;
-            
-            tbody {
-                tr:nth-child(5) {
-                    td {
-                        text-align: center;
-                    }
+    @include center($top: 40%);
+    width: 30%;
+    height: 300px;
+    position: fixed;
+    visibility: hidden;
+    border: $thin-lightgrey;
+    z-index: 1;
+    background: $lightgrey-gradient;
+    border-radius: 3px;
+
+    span {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    table {
+        margin: 40px auto;
+
+        tbody {
+            tr:nth-child(5) {
+                td {
+                    text-align: center;
                 }
             }
         }
-        
-        td:nth-child(2n+1) {
-            text-align: right;
-            font-size: $small-font;
-        }
-        
-        input {
-            height: 20px;
-            border: 1px solid black;
-            border-radius: 2px;
-            color: black;
-        }
-        
-        label {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-right: 5px;
-        }
-        
-        h2 {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 1.9em;
-        }
-    
-        #button {
-            background: linear-gradient(white, #c9c9c9);
-            margin-top: 30px;
-            width: 100px;
-            min-height: 30px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+    }
+
+    td:nth-child(2n+1) {
+        text-align: right;
+        font-size: $small-font;
+    }
+
+    input {
+        height: 20px;
+        border: 1px solid black;
+        border-radius: 2px;
+        color: black;
+    }
+
+    label {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 1.9em;
+    }
+
+    #button {
+        background: linear-gradient(white, #c9c9c9);
+        margin-top: 30px;
+        width: 100px;
+        min-height: 30px;
+        cursor: pointer;
+        font-weight: bold;
+    }
 }
 
 #calendar-container {
@@ -115,7 +122,7 @@
         height: 130px;
         border: 1px solid black;
         position: relative;
-        background: #f9f9f9;
+        background: $white-gradient;
         
         span:nth-child(1) {
             font-size: 2.3em;
@@ -123,7 +130,6 @@
             left: 5px;
             top: 0;
             font-weight: normal;
-            color: $dark-blue;
         }
         
         p {
@@ -156,7 +162,7 @@
             font-weight: bold;
             
             &:hover {
-                color: #1ca0b4;
+                color: $ocean-blue;
                 cursor: pointer;
             }
             
@@ -166,30 +172,24 @@
         }
     }
     
-    #btt {
+    #scroll-top-btn {
         position: absolute;
         bottom: 30px;
-        right: 20px;
-        height: 30px;
-        line-height: 30px;
+        right: 0;
+        @include vertAlign(40px);
+        margin: 0;
         padding: 0 10px;
-        cursor: pointer;
         font-weight: bold;
-        background: $orange-gradient;
-        color: $white;
-        border: 0;
-        border-radius: $standard-radius;
+        @extend %btn-props;
     }
     
     h1 {
         font-size: 3em;
         margin-top: 30px;
         margin-bottom: 40px;
-        color: $dark-blue;
     }
     
     button {
-        color: $dark-blue;
         
         &:focus {
             outline: 0;

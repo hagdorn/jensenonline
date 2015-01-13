@@ -235,20 +235,15 @@ $standard-radius: 3px;
     outline: 0;
 }
 
-.green-button {
-    background: $green-gradient;
-}
-
-.red-button {
-    background: $red-gradient;
-}
-
-.orange-button {
-    background: $orange-gradient;
-}
-
 //Label classes
 .standard-label {
+    font-weight: bold;
+}
+
+//text classes 
+
+.warning-text {
+    color: red;
     font-weight: bold;
 }
 
