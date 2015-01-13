@@ -3,6 +3,14 @@
 	if(!isset($_SESSION['date'])){
 		$_SESSION['date'] = date('Y-m-d');
 	}
+
+	if(!isset($_SESSION['week'])){
+		$date = new DateTime(date('Y-m-d'));
+		$week = $date->format("W");
+		$_SESSION['week'] = date("W");
+	}
+	
+
 	
 	if (isset($_POST['day'])){
 		changeDay($_POST['day']);
