@@ -164,18 +164,17 @@
 }
 
 .booking-btns {
-    height: 30px;
-    border-radius: 3px;
-    border: none;
-    color: $white;
+    @include vertAlign(30px);
+    @extend %btn-props;
+    font-weight: bold;
+    
+    img {
+        margin: 0 5px -3px;
+    }
 }
 
 #book {
-    background: $green-gradient;
-}
-
-#cancel-booking {
-    background: $red-gradient;
+    margin-right: 22px;    
 }
 
 .marked-cell {

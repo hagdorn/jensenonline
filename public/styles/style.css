@@ -27,14 +27,14 @@
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -172,14 +172,14 @@
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -507,14 +507,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -765,15 +765,13 @@ form.dropdown-form {
 
 .booking-btns {
   height: 30px;
-  border-radius: 3px;
-  border: none;
-  color: #fff; }
+  line-height: 30px;
+  font-weight: bold; }
+  .booking-btns img {
+    margin: 0 5px -3px; }
 
 #book {
-  background: linear-gradient(#4fef00, #3db700); }
-
-#cancel-booking {
-  background: linear-gradient(#ff0a0a, #d10000); }
+  margin-right: 22px; }
 
 .marked-cell {
   background: #afafaf; }
@@ -817,14 +815,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -1106,14 +1104,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -1289,14 +1287,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {
@@ -1490,14 +1488,14 @@ form.dropdown-form {
   /* Internet Explorer 10+ */
   color: #909; }
 
-.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
+.overview-btns, .inline-btn, .small-btns, .booking-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn, #logout {
   border-radius: 3px;
   border: 1px solid #D3D3D3;
   background: linear-gradient(#fff, #efefef);
   outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, .booking-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover, #logout:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
+  .overview-btns:active, .inline-btn:active, .small-btns:active, .booking-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active, #logout:active {
     background: linear-gradient(#fff, #efefef); }
 
 .action-buttons {

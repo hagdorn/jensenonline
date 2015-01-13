@@ -59,7 +59,7 @@
                 <form method="POST" action="classroombooking.php">
                     <input type="hidden" class="timeValue" name="time">
                     <input type="hidden" class="classValue" name="class">
-                    <input type="submit" name="cancel" alt="Knapp för att avboka ett klassrum" id="cancel-booking" class="booking-btns" value="Avboka">
+                    <button type="submit" name="cancel" id="cancel-booking" class="booking-btns">Avboka<img src="../includes/img/cancel-booking.png"></button>
                 </form>
             </div>
         </div>
