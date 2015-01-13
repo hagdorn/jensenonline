@@ -7,7 +7,7 @@
 <?php
     require_once('../includes/php/connections/pdoConnect.php');
     
-    $stmt = 'SELECT * FROM uploads ORDER BY timestamp DESC';
+    $stmt = 'SELECT * FROM surveys ORDER BY timestamp DESC';
     $prep_stmt = $db->prepare($stmt);
     $prep_stmt->execute();
 ?>
