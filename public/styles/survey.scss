@@ -5,10 +5,6 @@
     width: $max - 20;
     margin: $center 200px;
     
-    h1, h2 {
-        color: $dark-blue;
-    }
-    
     button {
         @extend %white-text;
     }
@@ -110,6 +106,10 @@
     width: 350px;
     height: 170px;
     float: left;
+}
+
+#numOfQuestions {
+    height: 26px;
 }
 
 //Lists

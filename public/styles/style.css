@@ -1617,8 +1617,6 @@ form.dropdown-form {
 #survey-wrapper {
   width: 80%;
   margin: 0 auto 200px; }
-  #survey-wrapper h1, #survey-wrapper h2 {
-    color: #003b65; }
   #survey-wrapper fieldset {
     margin-bottom: 30px; }
   #survey-wrapper legend {
@@ -1686,6 +1684,9 @@ form.dropdown-form {
   width: 350px;
   height: 170px;
   float: left; }
+
+#numOfQuestions {
+  height: 26px; }
 
 .choose-type-ul {
   list-style: none;

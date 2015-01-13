@@ -141,7 +141,7 @@ onlinePlatform.controller('onlinePlatformCtrl', function ($scope) {
             title: 'Meddelanden',
             items: [
                 {
-                    title: 'Inkorg',
+                    title: inboxText,
                     URL: 'inbox'
                 },
                 {
