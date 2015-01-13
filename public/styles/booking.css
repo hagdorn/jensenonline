@@ -169,7 +169,7 @@
   height: 30px;
   display: table-cell;
   border: 0;
-  color: #003b65;
+  color: #0097ef;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -177,7 +177,7 @@
 
 .active {
   color: #fff;
-  background: #003b65; }
+  background: #000; }
 
 #scheme-table {
   width: 100%;
@@ -195,7 +195,7 @@
   position: relative;
   width: 10%;
   display: table-cell;
-  background-color: #f7f7f7;
+  background: linear-gradient(#fff, #efefef);
   box-sizing: border-box;
   border: 2px solid #fff; }
 
@@ -205,7 +205,7 @@
   font-size: 18px;
   text-align: center;
   color: #fff;
-  background: #003b65; }
+  background: #000; }
 
 .scheme-classroom {
   width: 11%;
@@ -215,27 +215,29 @@
   font-weight: bold;
   text-align: center;
   color: #fff;
-  background: #003b65; }
+  background: #000; }
 
 .scheme-time {
   line-height: 40px;
   border: 0;
   text-align: center;
   color: #fff;
-  background: #003b65;
+  background: #000;
   font-size: 15px; }
 
 .subject {
   position: absolute;
   top: 15px;
   left: 20px;
-  font-size: 15px; }
+  font-size: 15px;
+  font-weight: bold; }
 
 .booked-by {
   position: absolute;
   top: 35px;
   left: 20px;
-  font-size: 14px; }
+  font-size: 14px;
+  color: #0097ef; }
 
 #scheme-footer {
   position: relative;
