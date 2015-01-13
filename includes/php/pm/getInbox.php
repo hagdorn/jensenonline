@@ -1,10 +1,9 @@
 <?php
 	//Antal meddelanden per sida. Kanske ska sättas någon annanstans senare med tanke på design.
-	$messagesPerPage = 20;
+	$messagesPerPage = 10;
 
 	try{
 		//require_once('../includes/php/connections/pdoConnect.php');
-
 		
 		if($_SESSION['box'] == 'inbox'){
 			$query = "SELECT pm.status, pm.message, pm.subject, pm.datetime, pm.id, useraccounts.firstname, useraccounts.lastname ";
@@ -56,10 +55,13 @@
 			
 			
 			if(isset($result[$i]['id'])){
-				echo("<tr>");
-				echo("<td><form method='' action=''><input type='checkbox' id='" . $id ."'></td><td><label for='" . $id . "'>" .$sender ."</label></form></td>");
-				echo("<td><a href='readmsg.php?message=". $id . "'>" . $subject);
-				echo("</td><td><span>" . $datetime . "</span></a></td></tr>");
+				echo("<tr class='inboxrow'>");
+					echo("<td class='inboxcheckbox'><form method='' action=''><input type='checkbox' id='" . $id ."'><label for='" . $id . "'></label></form></td>");
+				
+					echo("<td class='inboxsender'><a href='readmsg.php?message=". $id . "'> ". $sender . "</a></td>");
+					echo("<td class='inboxsubject'><a href='readmsg.php?message=". $id . "'> ". $subject . "</a></td>");
+					echo("<td class='inboxdate'><a href='readmsg.php?message=". $id . "'>" . $datetime . "</a></td>");
+				echo("</tr>");
 			}
 			else{
 				echo("<tr>");
@@ -80,6 +82,7 @@
 		
 	//Kod för att kunna växla mellan sidor.
 	if ($numberOfPages > 1){
+		echo ("<div class='inboxpageslist'>");
 		echo ("<ul>");
 		echo ("<li>Sida " . $pageNumber . " av " . $numberOfPages);
 		
@@ -115,7 +118,7 @@
 		}
 			
 			
-		echo ("</ul>");
+		echo ("</ul></div>");
 	}
 	
 		

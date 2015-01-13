@@ -12,7 +12,7 @@
 <main>
     <?php include('../includes/msgtemplate.php'); ?>
         <div id="inbox-container">
-            <table>
+            <table class='inboxtable'>
                 <?php include('../includes/php/pm/getInbox.php');?>
             
         </div>

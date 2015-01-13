@@ -10,10 +10,10 @@
 <!-- body starts here -->
 
 <main>
-    <?php include_msg_template(); ?>
+    <?php include('../includes/msgtemplate.php'); ?>
     
-        <div id="inbox">
-            <table>
+        <div id="inbox-container">
+            <table class='inboxtable'>
                 <?php require_once('../includes/php/pm/getInbox.php');?>
             
         </div>

@@ -1,0 +1,65 @@
+/*Inbox stajling*/
+.inboxtable{
+	width: 100%;
+}
+
+.inboxrow{
+	height: 25px;
+	font-size: 1.08em;
+	width:100%;
+	display:table;
+}
+.inboxrow:nth-child(even){
+	background-color: #fdfdfd;
+}
+.inboxcheckbox{
+	width: 2%;
+}
+
+
+.inboxsender{
+	width:37%;	
+}
+
+.inboxsubject {
+	width: 41%;	
+}
+
+.inboxdate{ 
+	text-align: right;
+	width: 20%;	
+}
+td a {
+  display: block;
+  height:100%;
+  width:100%;
+}
+
+.inboxpageslist{	
+	width: 100%;
+	margin: auto;
+	list-style-type: none;
+}
+
+.inboxpageslist ul{
+	padding: 0;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.inboxpageslist li{
+	margin: 3px;
+	display: inline;
+}
+
+/* Read message styling */ 
+
+.messageheaders{
+	font-size: 1.18em
+}
+
+.messagebody{
+	max-width: 900px;
+	font-size: 1.15;
+}
