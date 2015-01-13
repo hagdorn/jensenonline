@@ -57,7 +57,6 @@
 			if(isset($result[$i]['id'])){
 				echo("<tr class='inboxrow'>");
 					echo("<td class='inboxcheckbox'><form method='' action=''><input type='checkbox' id='" . $id ."'><label for='" . $id . "'></label></form></td>");
-				
 					echo("<td class='inboxsender'><a href='readmsg.php?message=". $id . "'> ". $sender . "</a></td>");
 					echo("<td class='inboxsubject'><a href='readmsg.php?message=". $id . "'> ". $subject . "</a></td>");
 					echo("<td class='inboxdate'><a href='readmsg.php?message=". $id . "'>" . $datetime . "</a></td>");

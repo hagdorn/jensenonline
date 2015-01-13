@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Tid vid skapande: 13 jan 2015 kl 13:58
+-- Tid vid skapande: 13 jan 2015 kl 14:49
 -- Serverversion: 5.6.20
 -- PHP-version: 5.5.15
 
@@ -177,6 +177,20 @@ INSERT INTO `rooms` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabellstruktur `surveys`
+--
+
+CREATE TABLE IF NOT EXISTS `surveys` (
+`id` int(11) NOT NULL,
+  `user` varchar(50) COLLATE utf8_bin NOT NULL,
+  `title` varchar(50) COLLATE utf8_bin NOT NULL,
+  `filename` varchar(100) COLLATE utf8_bin NOT NULL,
+  `url` varchar(100) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellstruktur `useraccounts`
 --
 
@@ -249,6 +263,12 @@ ALTER TABLE `rooms`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Index för tabell `surveys`
+--
+ALTER TABLE `surveys`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Index för tabell `useraccounts`
 --
 ALTER TABLE `useraccounts`
@@ -284,6 +304,11 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
 --
 ALTER TABLE `rooms`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT för tabell `surveys`
+--
+ALTER TABLE `surveys`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT för tabell `useraccounts`
 --
