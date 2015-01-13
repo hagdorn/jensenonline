@@ -49,7 +49,8 @@
             <div id="book-wrapper">
                 <form method="POST" action="classroombooking.php">
                     <label for="subject" id="course-label">Ange kurs:</label>
-                    <input type="text" name="classSubject" alt="Fyll i ämne" id="classSubject">
+                    <input type="text" id="wholeday-box" name="classSubject" alt="Fyll i ämne" id="classSubject">
+                    <input type="checkbox" name="wholeDay" value="false">heldag
                     <input type="hidden" class="timeValue" name="time">
                     <input type="hidden" class="classValue" name="class">
                     <input type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="booking-btns" value="Boka">
