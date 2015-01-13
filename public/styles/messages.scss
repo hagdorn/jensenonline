@@ -71,12 +71,8 @@
 
 #inbox-container {
     width: $max;
-    height: $max;
+    min-height: $max;
     margin: $center;
-    padding: 5px;
-    border-left: $thin-lightgrey;
-    border-right: $thin-lightgrey;
-    border-top: $thin-lightgrey;
     
-    @include link-colors($color: $dark-blue);
+    @include link-colors($color: $ocean-blue);
 }

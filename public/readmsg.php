@@ -7,7 +7,7 @@
 <!-- body starts here -->
 
 <main>
-    <div id="inbox-container" class="msg-menu msg-container">
+    <div class="msg-menu msg-container">
         <?php 
             include_once('../includes/msgmenu.php');
             require_once('../includes/php/pm/getMessage.php');
