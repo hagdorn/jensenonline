@@ -671,7 +671,7 @@ form.dropdown-form {
   height: 30px;
   display: table-cell;
   border: 0;
-  color: #003b65;
+  color: #0097ef;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -679,7 +679,7 @@ form.dropdown-form {
 
 .active {
   color: #fff;
-  background: #003b65; }
+  background: #000; }
 
 #scheme-table {
   width: 100%;
@@ -697,7 +697,7 @@ form.dropdown-form {
   position: relative;
   width: 10%;
   display: table-cell;
-  background-color: #f7f7f7;
+  background: linear-gradient(#fff, #efefef);
   box-sizing: border-box;
   border: 2px solid #fff; }
 
@@ -707,7 +707,7 @@ form.dropdown-form {
   font-size: 18px;
   text-align: center;
   color: #fff;
-  background: #003b65; }
+  background: #000; }
 
 .scheme-classroom {
   width: 11%;
@@ -717,27 +717,29 @@ form.dropdown-form {
   font-weight: bold;
   text-align: center;
   color: #fff;
-  background: #003b65; }
+  background: #000; }
 
 .scheme-time {
   line-height: 40px;
   border: 0;
   text-align: center;
   color: #fff;
-  background: #003b65;
+  background: #000;
   font-size: 15px; }
 
 .subject {
   position: absolute;
   top: 15px;
   left: 20px;
-  font-size: 15px; }
+  font-size: 15px;
+  font-weight: bold; }
 
 .booked-by {
   position: absolute;
   top: 35px;
   left: 20px;
-  font-size: 14px; }
+  font-size: 14px;
+  color: #0097ef; }
 
 #scheme-footer {
   position: relative;
@@ -1460,7 +1462,7 @@ form.dropdown-form {
   #inbox-container a {
     text-decoration: none; }
     #inbox-container a:link, #inbox-container a:visited, #inbox-container a:focus, #inbox-container a:hover, #inbox-container a:active {
-      color: #0097ef; }
+      color: #000; }
 
 .small-btns, body, #dropdown-nav {
   margin: 0;

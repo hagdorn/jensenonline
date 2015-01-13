@@ -63,7 +63,7 @@
     height: 30px;
     display: table-cell;
     border: 0;
-    color: $dark-blue;
+    color: $ocean-blue;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -72,7 +72,7 @@
 
 .active {
     color: $white;
-    background: $dark-blue;
+    background: $black;
 }
 
 #scheme-table {
@@ -94,7 +94,7 @@
     position: relative;
     width: 10%;
     display: table-cell;
-    background-color: $soft-grey;
+    background: $white-gradient;
     box-sizing: border-box;
     border: 2px solid $white;
 }
@@ -103,7 +103,7 @@
     border: 0;
     font-weight: bold;
     font-size: 18px;
-    @include standardStyle($color: $dark-blue);
+    @include standardStyle($color: $black);
 }
 
 .scheme-classroom {
@@ -112,13 +112,13 @@
     border: $dark-blue;
     border-right: 2px solid $white;
     font-weight: bold;
-    @include standardStyle($color: $dark-blue);
+    @include standardStyle($color: $black);
 }
 
 .scheme-time {
     line-height: 40px;
     border: 0;
-    @include standardStyle($color: $dark-blue);
+    @include standardStyle($color: $black);
     font-size: 15px;
 }
 
@@ -127,6 +127,7 @@
     top: 15px;
     left: 20px;
     font-size: 15px;
+    font-weight: bold;
 }
 
 .booked-by {
@@ -134,6 +135,7 @@
     top: 35px;
     left: 20px;
     font-size: 14px;
+    color: $ocean-blue;
 }
 
 #scheme-footer {

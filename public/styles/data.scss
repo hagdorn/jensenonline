@@ -9,6 +9,7 @@ $ocean-blue: #0097ef;
 //Gradient colors
 $green-gradient: linear-gradient(#4fef00, #3db700);
 $red-gradient: linear-gradient(#ff0a0a, #d10000);
+$light-blue-gradient: linear-gradient($light-blue, $ocean-blue);
 $blue-gradient: linear-gradient($ocean-blue, $dark-blue);
 $rev-blue-gradient: linear-gradient($dark-blue, $ocean-blue);
 $orange-gradient: linear-gradient(#ffba19, #ff7119);
