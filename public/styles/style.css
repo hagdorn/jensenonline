@@ -756,14 +756,6 @@ form.dropdown-form {
   display: none;
   font-weight: bold; }
 
-#classSubject {
-  height: 24px;
-  display: none; }
-
-#wholeDayBox {
-  height: 24px;
-  display: none; }
-
 #cancel-wrapper {
   position: absolute;
   right: 10px;
