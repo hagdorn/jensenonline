@@ -48,16 +48,16 @@
                 <form method="POST" action="classroombooking.php">
                     <input type="hidden" class="timeValue" name="time">
                     <input type="hidden" class="classValue" name="class">
-                    <button type="submit" name="cancel" id="cancel-booking" class="booking-btns">Avboka<img src="../includes/img/cancel-booking.png"></button>
+                    <button type="submit" name="cancel" id="cancel-booking" class="ui-box-shadow booking-btns">Avboka<img src="../includes/img/cancel-booking.png"></button>
                 </form>
             </div>
             <div id="book-wrapper">
                 <form method="POST" action="classroombooking.php">
                     <label for="subject" id="course-label">Ange kurs:</label>
-                    <input type="text" id="classSubject" name="classSubject" alt="Fyll i ämne" id="classSubject">
+                    <input type="text" id="classSubject" class="ui-box-shadow" name="classSubject" alt="Fyll i ämne">
                     <input type="hidden" class="timeValue" name="time">
                     <input type="hidden" class="classValue" name="class">
-                    <button type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="booking-btns">Boka<img src="../includes/img/accept-booking.png">
+                    <button type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="ui-box-shadow booking-btns">Boka<img src="../includes/img/accept-booking.png">
                     </button>
                 </form>
             </div>

@@ -153,6 +153,8 @@
 #course-label {
     display: none;
     font-weight: bold;
+    float: left;
+    margin-top: -2px;
 }
 
 #cancel-wrapper {
@@ -172,6 +174,8 @@
 }
 
 #book {
+    margin: 3px 0 0 5px;
+    float: right;
     
     img {
         margin: 0 0 -2px 5px;
@@ -200,5 +204,11 @@
 
 #classSubject {
     height: 30px;
+    margin: 3px 0 0 5px;
+    padding: 0;
+    border: 1px solid #D3D3D3;
+    border-radius: 3px;
+    box-sizing: border-box;
     display: none;
+    float: left;
 }

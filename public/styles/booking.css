@@ -256,7 +256,9 @@
 
 #course-label {
   display: none;
-  font-weight: bold; }
+  font-weight: bold;
+  float: left;
+  margin-top: -2px; }
 
 #cancel-wrapper {
   float: right;
@@ -270,8 +272,11 @@
   .booking-btns img {
     margin: 0 0 -5px 5px; }
 
-#book img {
-  margin: 0 0 -2px 5px; }
+#book {
+  margin: 3px 0 0 5px;
+  float: right; }
+  #book img {
+    margin: 0 0 -2px 5px; }
 
 #cancel-booking {
   display: inline-block; }
@@ -291,6 +296,12 @@
 
 #classSubject {
   height: 30px;
-  display: none; }
+  margin: 3px 0 0 5px;
+  padding: 0;
+  border: 1px solid #D3D3D3;
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: none;
+  float: left; }
 
 /*# sourceMappingURL=booking.css.map */
