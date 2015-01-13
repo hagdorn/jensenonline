@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Tid vid skapande: 13 jan 2015 kl 14:49
+-- Tid vid skapande: 13 jan 2015 kl 14:58
 -- Serverversion: 5.6.20
 -- PHP-version: 5.5.15
 
@@ -19,6 +19,53 @@ SET time_zone = "+00:00";
 --
 -- Databas: `jensenOnline`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `admins`
+--
+
+CREATE TABLE IF NOT EXISTS `admins` (
+`id` int(11) NOT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
+  `position` varchar(30) NOT NULL,
+  `social_security_nr` varchar(11) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `phone_number` varchar(15) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumpning av Data i tabell `admins`
+--
+
+INSERT INTO `admins` (`id`, `firstname`, `lastname`, `position`, `social_security_nr`, `email`, `phone_number`) VALUES
+(1, 'Johan', 'Bessing', '', '580125-1025', 'johan@gmail.com', '0732459438'),
+(2, 'Åsa', 'Blåsa', '', '540125-5292', 'åsa@gmail.com', '0730871284');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `courses`
+--
+
+CREATE TABLE IF NOT EXISTS `courses` (
+`id` int(11) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `curriculum_url` varchar(80) NOT NULL,
+  `rating_criteria` varchar(80) NOT NULL,
+  `main_teacher` varchar(60) NOT NULL,
+  `secondary_teacher` varchar(60) NOT NULL,
+  `for_programme` varchar(30) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumpning av Data i tabell `courses`
+--
+
+INSERT INTO `courses` (`id`, `name`, `curriculum_url`, `rating_criteria`, `main_teacher`, `secondary_teacher`, `for_programme`) VALUES
+(2, 'Grundläggande programmeringskunskap', 'asdasdasd', 'asdasdasdasd', '2', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -101,6 +148,49 @@ INSERT INTO `pm` (`id`, `datetime`, `touser`, `fromuser`, `subject`, `message`, 
 -- --------------------------------------------------------
 
 --
+-- Tabellstruktur `positions`
+--
+
+CREATE TABLE IF NOT EXISTS `positions` (
+`id` int(11) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `employee` varchar(80) NOT NULL,
+  `hired_since` date NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumpning av Data i tabell `positions`
+--
+
+INSERT INTO `positions` (`id`, `name`, `employee`, `hired_since`) VALUES
+(1, 'Rektor?', 'Åsa Blåsa', '2015-01-04'),
+(2, 'Ja vad är han?', 'Johan Bessing', '2015-01-16');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `programmes`
+--
+
+CREATE TABLE IF NOT EXISTS `programmes` (
+`id` int(11) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `founded` date NOT NULL,
+  `next_year` tinyint(1) NOT NULL,
+  `length` varchar(3) NOT NULL,
+  `next_start` date NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumpning av Data i tabell `programmes`
+--
+
+INSERT INTO `programmes` (`id`, `name`, `founded`, `next_year`, `length`, `next_start`) VALUES
+(1, 'Webbutveckling', '2015-01-14', 1, '2', '2015-01-14');
+
+-- --------------------------------------------------------
+
+--
 -- Tabellstruktur `roombookings`
 --
 
@@ -177,6 +267,23 @@ INSERT INTO `rooms` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabellstruktur `students`
+--
+
+CREATE TABLE IF NOT EXISTS `students` (
+`id` int(11) NOT NULL,
+  `firstname` varchar(40) NOT NULL,
+  `lastname` varchar(40) NOT NULL,
+  `social_security_nr` varchar(20) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `programme` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellstruktur `surveys`
 --
 
@@ -187,6 +294,30 @@ CREATE TABLE IF NOT EXISTS `surveys` (
   `filename` varchar(100) COLLATE utf8_bin NOT NULL,
   `url` varchar(100) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `teachers`
+--
+
+CREATE TABLE IF NOT EXISTS `teachers` (
+`id` int(11) NOT NULL,
+  `firstname` varchar(40) NOT NULL,
+  `lastname` varchar(40) NOT NULL,
+  `social_security_nr` varchar(20) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `teacher_for` varchar(100) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumpning av Data i tabell `teachers`
+--
+
+INSERT INTO `teachers` (`id`, `firstname`, `lastname`, `social_security_nr`, `email`, `phone_number`, `teacher_for`) VALUES
+(1, 'Sibari', 'Al-ani', '920520-2830', 'sibar.alani@gmail.com', '0732029349', 'Webbutveckling'),
+(2, 'Roberto', 'Karlsson', '850325-9420', 'robert.karlsson@zocom.se', '0720340392', 'Webbutveckling');
 
 -- --------------------------------------------------------
 
@@ -239,6 +370,18 @@ CREATE TABLE IF NOT EXISTS `usertypes` (
 --
 
 --
+-- Index för tabell `admins`
+--
+ALTER TABLE `admins`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Index för tabell `courses`
+--
+ALTER TABLE `courses`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Index för tabell `educations`
 --
 ALTER TABLE `educations`
@@ -248,6 +391,18 @@ ALTER TABLE `educations`
 -- Index för tabell `pm`
 --
 ALTER TABLE `pm`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Index för tabell `positions`
+--
+ALTER TABLE `positions`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Index för tabell `programmes`
+--
+ALTER TABLE `programmes`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -263,9 +418,21 @@ ALTER TABLE `rooms`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Index för tabell `students`
+--
+ALTER TABLE `students`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Index för tabell `surveys`
 --
 ALTER TABLE `surveys`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Index för tabell `teachers`
+--
+ALTER TABLE `teachers`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -285,6 +452,16 @@ ALTER TABLE `usertypes`
 --
 
 --
+-- AUTO_INCREMENT för tabell `admins`
+--
+ALTER TABLE `admins`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT för tabell `courses`
+--
+ALTER TABLE `courses`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT för tabell `educations`
 --
 ALTER TABLE `educations`
@@ -294,6 +471,16 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `pm`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
+--
+-- AUTO_INCREMENT för tabell `positions`
+--
+ALTER TABLE `positions`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT för tabell `programmes`
+--
+ALTER TABLE `programmes`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT för tabell `roombookings`
 --
@@ -305,10 +492,20 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
 ALTER TABLE `rooms`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT för tabell `students`
+--
+ALTER TABLE `students`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT för tabell `surveys`
 --
 ALTER TABLE `surveys`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT för tabell `teachers`
+--
+ALTER TABLE `teachers`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT för tabell `useraccounts`
 --
