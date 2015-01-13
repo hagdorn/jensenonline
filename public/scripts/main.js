@@ -552,6 +552,7 @@ $(document).ready(function() {
             var cellParents = $('.scheme-click-row');
             var childrenOfRow = cellParents.children('div:nth-child(1n+2)');
             var courseLabel = $('#course-label');
+            var wholeDayBox = $('#wholeDayBox');
             var marked = false;
             var subjectInput = $('#classSubject');
             var schemeTable = $('#scheme-table');
@@ -559,11 +560,13 @@ $(document).ready(function() {
             function hideElements() {
                 courseLabel.stop().fadeOut();
                 subjectInput.stop().fadeOut();
+                wholeDayBox.stop().fadeOut();
             }
             
             function showElements() {
                 courseLabel.stop().fadeIn();
                 subjectInput.stop().fadeIn();
+                wholeDayBox.stop().fadeIn();
             }
             
             function markCell() {
