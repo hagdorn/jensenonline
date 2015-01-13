@@ -1,4 +1,4 @@
-<?
+<?php
 	try{
 		
 		$query = "SELECT firstname, lastname, id FROM useraccounts ";

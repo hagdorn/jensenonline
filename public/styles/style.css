@@ -1421,7 +1421,7 @@ form.dropdown-form {
   border-top: 1px solid #D3D3D3; }
 
 #msg-menu-container {
-  margin-bottom: 20px; }
+  margin-bottom: 40px; }
 
 #btn-menu-wrapper {
   font-size: 0.1px;
@@ -1460,7 +1460,10 @@ form.dropdown-form {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  border: 1px solid #D3D3D3; }
+  padding: 5px;
+  border-left: 1px solid #D3D3D3;
+  border-right: 1px solid #D3D3D3;
+  border-top: 1px solid #D3D3D3; }
   #inbox-container a {
     text-decoration: none; }
     #inbox-container a:link, #inbox-container a:visited, #inbox-container a:focus, #inbox-container a:hover, #inbox-container a:active {

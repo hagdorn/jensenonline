@@ -12,10 +12,10 @@
 .inboxrow:nth-child(even){
 	background-color: #fdfdfd;
 }
+
 .inboxcheckbox{
 	width: 2%;
 }
-
 
 .inboxsender{
 	width:37%;	
