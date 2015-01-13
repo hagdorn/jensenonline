@@ -120,6 +120,11 @@
 			
 		echo ("</ul></div>");
 	}
+	else{
+		echo ("<div class='inboxpageslist'>");
+		echo ("<ul>");
+		echo ("<li>Sida 1 av 1 |< < > >|</li></ul>");
+	}
 	
 		
 	}
