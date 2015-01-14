@@ -11,29 +11,28 @@
     <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
     <title>Jensen Online Yrkeshögskola</title>
 </head>
-
 <body>
-    <header id="site-header">
-        <img id="school-logo" src="../public/img/logo.jpg" no-repeat>
-        <span id="school-name" class="logo-text">JENSEN Yrkeshögskola</span>
-        <span id="slogan" class="logo-text">Träning för verkligheten</span>
+    <header>
+        <div id="header-wrapper">
+            <img id="company-logo" src="../public/img/logo.jpg" no-repeat>
+            <span id="company-name" class="company-text text-thick">JENSEN Yrkeshögskola</span>
+            <span id="company-slogan" class="company-text">Träning för verkligheten</span>
 
-    <?php
-		require_once('../includes/functions/functions.php');
-        $currentPage = check_current_page();
+            <?php
+                require_once('../includes/functions/functions.php');
+                $currentPage = check_current_page();
 
-        if ($currentPage != 'login') {
-            include_once('searchfield.php');
-            include_once('currentuser.php');
-            include_once('logoutbutton.php');
-        }
+                if ($currentPage != 'login') {
+                    include_once('headercontent.php');
+                }
 
-        if (isset($_POST['logout'])) {		
-            session_start();
-            session_destroy();
-            header('Location: ../public/login.php');
-        }
+                if (isset($_POST['logout'])) {		
+                    session_start();
+                    session_destroy();
+                    header('Location: ../public/login.php');
+                }
 
-        //include_once('php/security/autologout.php');
-    ?>
+                //include_once('php/security/autologout.php');
+            ?>
+        </div>
     </header>

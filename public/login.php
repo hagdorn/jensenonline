@@ -4,8 +4,7 @@
     include_once('../includes/header.php');
 ?>
 
-<main>
-
+<main class="content">
     <div id="login-container">
             <form method="post" action="index.php" id="login-form">
                 <table>

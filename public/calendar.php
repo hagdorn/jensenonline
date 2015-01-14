@@ -6,9 +6,8 @@
 
 <!-- body starts here -->
 
-<main>
+<main class="content">
     <div id="pop-up">
-
         <h2>Fyll i ny händelse</h2>
         <span>Stäng</span>
         <table>

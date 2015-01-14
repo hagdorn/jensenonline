@@ -1,274 +1,74 @@
-.small-btns {
-  margin: 0;
-  padding: 0; }
+/*
+Error: Undefined mixin 'vertAlign'.
+        on line 9 of ./calendar.scss, in `vertAlign'
+        from line 9 of ./calendar.scss
 
-.action-buttons {
-  color: #fff; }
+4: //THIS NEEDS TO BE CLEARED UP AND REWRITTEN
+5: #delete-all-btn {
+6:     position: absolute;
+7:     right: 0;
+8:     bottom: 0;
+9:     @include vertAlign(30px);
+10:     padding: 0 10px;
+11:     font-weight: bold;
+12:     @extend %btn-props;
+13:     
+14:     img {
 
-.overview-btns, .inline-btn, .small-btns, #delete-all-btn, #show-btn, #calendar-container #scroll-top-btn {
-  border-radius: 3px;
-  border: 1px solid #D3D3D3;
-  background: linear-gradient(#fff, #efefef);
-  outline: 0; }
-  .overview-btns:hover, .inline-btn:hover, .small-btns:hover, #delete-all-btn:hover, #show-btn:hover, #calendar-container #scroll-top-btn:hover {
-    background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active, .inline-btn:active, .small-btns:active, #delete-all-btn:active, #show-btn:active, #calendar-container #scroll-top-btn:active {
-    background: linear-gradient(#fff, #efefef); }
-
-@font-face {
-  font-family: notesworthy;
-  font-weight: bold;
-  src: url("../fonts/Noteworthy-Bold.otf") format("opentype"); }
-.action-buttons {
-  height: 24px;
-  padding: 0 10px;
-  border: 0;
-  border-radius: 3px;
-  font-weight: bold;
-  cursor: pointer; }
-
-.overview-btns {
-  position: relative;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  margin-left: 3px;
-  padding: 0;
-  display: inline-block; }
-  .overview-btns img {
-    margin: 3px 0 0; }
-
-.inline-btn {
-  width: auto;
-  height: 32px;
-  line-height: 32px;
-  margin-right: 10px;
-  padding: 1px 5px;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold; }
-  .inline-btn a {
-    text-decoration: none; }
-    .inline-btn a:link, .inline-btn a:visited, .inline-btn a:focus, .inline-btn a:hover, .inline-btn a:active {
-      color: #0097ef; }
-  .inline-btn:hover {
-    background: linear-gradient(#f9f9f9, #ffffff); }
-  .inline-btn:active {
-    background: linear-gradient(#fff, #efefef); }
-  .inline-btn:nth-child(4) img {
-    margin-bottom: 0px; }
-  .inline-btn img {
-    width: 16px;
-    height: 16px;
-    margin: -2px 0; }
-  .inline-btn span {
-    padding: 2px 6px;
-    border-radius: 12px;
-    color: #fff;
-    background: linear-gradient(#4fef00, #3db700); }
-  .inline-btn:after {
-    content: '';
-    width: 100%;
-    display: inline-block; }
-
-.small-btns {
-  width: 26px;
-  height: 26px;
-  line-height: 26px; }
-  .small-btns:hover {
-    background: linear-gradient(#f9f9f9, #ffffff); }
-  .small-btns:active {
-    background: linear-gradient(#fff, #efefef); }
-  .small-btns img {
-    margin: -2px -1px; }
-
-.searchfield {
-  width: 200px;
-  height: 26px;
-  padding: 0 0 0 10px;
-  border: 1px solid #D3D3D3;
-  border-radius: 3px;
-  outline: 0; }
-
-.searchfield-btn {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  width: 16px;
-  height: 16px;
-  outline: 0; }
-
-.standard-label {
-  font-weight: bold; }
-
-.warning-text {
-  color: red;
-  font-weight: bold; }
-
-.clearfix {
-  clear: both; }
-
-.float-left {
-  float: left; }
-
-.float-right {
-  float: right; }
-
-.border-box {
-  box-sizing: border-box; }
-
-.hide-element {
-  display: none; }
-
-.nav {
-  padding: 0;
-  list-style: none;
-  font-size: 0; }
-
-.ui-box-shadow {
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); }
-
-#delete-all-btn {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 10px;
-  font-weight: bold; }
-  #delete-all-btn img {
-    margin: 0 0 -3px 7px; }
-
-#show-btn {
-  position: absolute;
-  bottom: 0;
-  height: 30px;
-  line-height: 30px;
-  margin-left: 4px;
-  font-weight: bold;
-  display: inline-block; }
-
-#calendar-header {
-  width: 84%;
-  margin: 0 8% 20px;
-  position: relative; }
-  #calendar-header select {
-    height: 30px;
-    font-weight: bold; }
-
-#pop-up {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translateY(-50%);
-  transform: translateX(-50%);
-  width: 30%;
-  height: 300px;
-  position: fixed;
-  visibility: hidden;
-  border: 1px solid #D3D3D3;
-  z-index: 1;
-  background: linear-gradient(#f9f9f9, #ffffff);
-  border-radius: 3px; }
-  #pop-up span {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer; }
-  #pop-up table {
-    margin: 40px auto; }
-    #pop-up table tbody tr:nth-child(5) td {
-      text-align: center; }
-  #pop-up td:nth-child(2n+1) {
-    text-align: right;
-    font-size: 15px; }
-  #pop-up input {
-    height: 20px;
-    border: 1px solid black;
-    border-radius: 2px;
-    color: black; }
-  #pop-up label {
-    font-size: 1.3em;
-    font-weight: bold;
-    margin-right: 5px; }
-  #pop-up h2 {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 1.9em; }
-  #pop-up #button {
-    background: linear-gradient(white, #c9c9c9);
-    margin-top: 30px;
-    width: 100px;
-    min-height: 30px;
-    cursor: pointer;
-    font-weight: bold; }
-
-#calendar-container {
-  max-width: 84%;
-  margin: 0 auto;
-  position: relative;
-  padding-bottom: 1px; }
-  #calendar-container table {
-    width: 100%;
-    margin: 0 auto;
-    border-collapse: collapse; }
-    #calendar-container table:last-child {
-      margin-bottom: 150px; }
-  #calendar-container td {
-    width: 10%;
-    height: 130px;
-    border: 1px solid black;
-    position: relative;
-    background: linear-gradient(#fff, #efefef); }
-    #calendar-container td span:nth-child(1) {
-      font-size: 2.3em;
-      position: absolute;
-      left: 5px;
-      top: 0;
-      font-weight: normal; }
-    #calendar-container td p {
-      position: absolute;
-      left: 10px;
-      font-size: 1.1em; }
-      #calendar-container td p:nth-child(4) {
-        top: 30px; }
-      #calendar-container td p:nth-child(5) {
-        top: 50px; }
-      #calendar-container td p:nth-child(6) {
-        top: 70px; }
-      #calendar-container td p:nth-child(7) {
-        top: 90px; }
-    #calendar-container td button {
-      width: auto;
-      height: 20px;
-      background: none;
-      border: 0;
-      font-size: 0.8em;
-      position: absolute;
-      right: 5px;
-      top: 22px;
-      font-weight: bold; }
-      #calendar-container td button:hover {
-        color: #0097ef;
-        cursor: pointer; }
-      #calendar-container td button:nth-child(2) {
-        top: 5px; }
-  #calendar-container #scroll-top-btn {
-    position: absolute;
-    bottom: 30px;
-    right: 0;
-    height: 40px;
-    line-height: 40px;
-    margin: 0;
-    padding: 0 10px;
-    font-weight: bold; }
-  #calendar-container h1 {
-    font-size: 3em;
-    margin-top: 30px;
-    margin-bottom: 40px; }
-  #calendar-container button:focus {
-    outline: 0; }
-  #calendar-container input:focus {
-    outline: 0; }
-
-/*# sourceMappingURL=calendar.css.map */
+Backtrace:
+./calendar.scss:9:in `vertAlign'
+./calendar.scss:9
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:338:in `block in visit_mixin'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:98:in `block in with_mixin'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:98:in `with_mixin'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:336:in `visit_mixin'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:420:in `map'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `map'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:157:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:8:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/engine.rb:285:in `render_with_sourcemap'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:489:in `update_stylesheet'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:469:in `on_file_changed'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:328:in `block in watch'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/listener.rb:252:in `call'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined mixin 'vertAlign'.\A         on line 9 of ./calendar.scss, in `vertAlign'\A         from line 9 of ./calendar.scss\A \A 4: //THIS NEEDS TO BE CLEARED UP AND REWRITTEN\A 5: #delete-all-btn {\A 6:     position: absolute;\A 7:     right: 0;\A 8:     bottom: 0;\A 9:     @include vertAlign(30px);\A 10:     padding: 0 10px;\A 11:     font-weight: bold;\A 12:     @extend %btn-props;\A 13:     \A 14:     img {"; }

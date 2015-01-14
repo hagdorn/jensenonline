@@ -2,8 +2,8 @@
 menuFunction();
 ?>
 <nav>
-    <ul id='main-nav'>
-        <li id='{{menu.id}}' class='nav-items' ng-repeat='menu in adminmenu'>
+    <ul id='main-nav' class="text-thick nav">
+        <li id='{{menu.id}}' class='main-nav-items' ng-repeat='menu in adminmenu'>
             <a href='{{menu.URL}}.php'>{{menu.title}}</a>
             <img src="../includes/img/{{menu.image}}.png" no-repeat>
             <ul class='dropdown-nav' ng-if='menu.items'>

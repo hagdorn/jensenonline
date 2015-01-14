@@ -19,11 +19,12 @@
     }
     
     label {
-        font-size: $big-font;
+        font-size: 20px;
     }
     
     table {
-        @include center($top: 25%);
+        @include centerXY($top: 25%);
+        left: 50%;
         width: $max - 75;
         text-align: center;
         
@@ -42,5 +43,4 @@
     border-radius: 0;
     font-size: 14px;
     font-weight: bold;
-    
 }

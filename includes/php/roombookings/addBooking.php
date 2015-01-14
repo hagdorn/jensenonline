@@ -24,7 +24,7 @@
 			'room'=>$room,
 			'date'=>$_SESSION['date'],
 			'hour'=>$_POST['time'],
-			'description'=>$_POST['classSubject'],
+			'description'=>$_POST['booking-title'],
 			'booker'=>$_SESSION['firstname'] . " " . $_SESSION['lastname']
 		]);
 		

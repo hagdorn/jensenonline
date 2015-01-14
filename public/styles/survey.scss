@@ -5,12 +5,8 @@
     width: $max - 20;
     margin: $center 200px;
     
-    button {
-        @extend %white-text;
-    }
-    
-    input[type="submit"] {
-        @extend %white-text;
+    button, input[type="submit"] {
+        color: $white;
     }
     
     fieldset {
@@ -44,7 +40,7 @@
 
 #survey-list-wrapper {
     width: 60%;
-    @extend %center-element;
+    margin: $center;
 }
 
 //Table elements
@@ -65,7 +61,7 @@
     border: 1px solid darkgrey;
     
     tr:first-child {
-        background: $blue-gradient;
+        background: blue;
         color: $white;
     }
     
@@ -127,7 +123,7 @@
 }
 
 .survey-inputs {
-    @include vertAlign(30px);
+    @include center-textY(30px);
     margin-left: 5px;
     padding: 0;
     border: 1px solid #D3D3D3;
@@ -161,7 +157,7 @@
 }
 
 #save-survey-btn {
-    @extend %btn-props;
+    @include common-btn;
     height: 30px;
     line-height: 30px;
     color: $black !important;

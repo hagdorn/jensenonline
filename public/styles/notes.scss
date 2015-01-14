@@ -13,7 +13,7 @@ body {
 /** generic classes **/
 
 .btn {
-    border-radius: $std-radius;
+    border-radius: $standard-radius;
     outline: 0;
     padding: 5px 10px;
 }
@@ -144,7 +144,7 @@ div.wrapper {
 
         li {
             position: relative;
-            @include vertAlign(35px);
+            @include center-textY(35px);
             border-bottom: $thin-grey;
             background-color: $notes-yellow;
             cursor: pointer;

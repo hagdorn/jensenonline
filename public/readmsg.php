@@ -6,7 +6,7 @@
 
 <!-- body starts here -->
 
-<main>
+<main class="content">
     <div class="msg-menu msg-container">
         <?php 
             include_once('../includes/msgmenu.php');

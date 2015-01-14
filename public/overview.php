@@ -4,7 +4,7 @@
     include_header_files();
 ?>
 
-<main>
+<main class="content">
     <div id="administration-wrapper" class="border-box">
         <div id="menu-wrapper">
             <div id="top-menu">

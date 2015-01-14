@@ -80,15 +80,7 @@ $(document).ready(function() {
             $('#main-nav' + ' #' + id + '').hover(function() {
                 $('#' + id + ' ul').stop().slideToggle();
             });
-        },
-        mainHoverEffect: (function () {
-            
-            $('.nav-items').hover(function() {
-                $(this).stop().animate({ top: 2 }, 'fast');
-            }, function() {
-                $(this).stop().animate({ top: 0 }, 'fast');
-            });
-        }())
+        }
     }
   
 /****** CALENDAR ******/
@@ -512,8 +504,8 @@ $(document).ready(function() {
         },
         fillSelects: function() {
             
-            var weeks = $('#sel-week');
-            var years = $('#sel-year');
+            var weeks = $('#week-booking');
+            var years = $('#year-booking');
                 
             var weekPromise = bookingController.grabInfo('week');
                 weekPromise.done(function(week) {
@@ -553,7 +545,7 @@ $(document).ready(function() {
             var childrenOfRow = cellParents.children('div:nth-child(1n+2)');
             var courseLabel = $('#course-label');
             var marked = false;
-            var subjectInput = $('#classSubject');
+            var subjectInput = $('#booking-title-input');
             var schemeTable = $('#scheme-table');
             
             function hideElements() {

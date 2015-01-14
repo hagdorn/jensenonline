@@ -5,90 +5,73 @@
 @import "data";
 @import "administration";
 @import "booking";
-@import "calendar";
+//@import "calendar"; //Under scrutiny
 @import "login";
 @import "messages";
 @import "notes";
 @import "survey";
 @import "ch_style.css";
 
-/***** GENERAL STYLES *****/
+/***** GLOBAL STYLES *****/
 
 html {
     height: $max;
 }
 
 body {
-    @extend %no-margins;
+    @extend %reset;
     @extend html;
     width: $max;
     font-family: $fontFamily;
+    color: $black;
 }
 
-main {
-    @extend html;
+.company-text, #current-user, .day-btns {
+    color: $ocean-blue;
 }
 
 /***** HEADER *****/
 
-#site-header {
+#header-wrapper {
     position: relative;
-    width: 100%;
-    height: 160px;
-    margin: 0;
+    height: 200px;
 }
 
 /***** HEADER -> LOGO SECTION *****/
 
-#school-logo {
+.company-text {
     position: absolute;
-    top: 20px;
-    left: 80px;
+    left: 13%;
+}
+
+#company-logo {
+    @include centerY;
+    left: 3%;
     width: 8.5%;
-    height: 90%;
+    max-height: 80%;
 }
 
-.logo-text {
-    position: absolute;
-    left: 15%;
-    color: $ocean-blue;
-}
-
-#school-name {
+#company-name {
     top: 40%; 
     font-size: 38px;
-    font-weight: bold;
-    text-shadow: 1px 1px $dark-blue;
+    text-shadow: 1.5px 1.5px $dark-blue;
 }
 
-#slogan {
-    top: 68%;
-    font-size: 1.4em;
+#company-slogan {
+    top: 65%;
+    font-size: 22px;
 }
 
 /***** HEADER -> SITE SEARCH AND LOGOUT SECTION *****/
 
-#search-form {
-    position: absolute;
-    top: 140px;
-    right: 15px;
-}
-
-span#current-user {
+#greetings-text {
     position: absolute;
     right: 60px;
     top: 20px;
-    color: $black;
-    font-weight: bold;
-    
-    img {
-        margin-left: 7px;
-    }
-    
-    span {
-        margin-left: 5px;
-        color: $ocean-blue;
-    }
+}
+
+#current-user {
+    margin: 0 5px;
 }
 
 #logout {
@@ -97,34 +80,33 @@ span#current-user {
     top: 10px;
     width: 34px;
     height: 34px;
-    @extend %btn-props;
-    
-    img {
-        margin: 2px 0 0;
-    }
+    @include common-btn;
+}
+
+#global-search-form {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
 }
 
 /***** HEADER -> MAIN MENU SECTION *****/
 
 #main-nav {
-    margin: 20px 0 60px;
+    margin: 0 0 60px;
     padding: 0;
+    box-sizing: border-box;
     border-top: $thin-lightgrey;
     border-bottom: $thin-lightgrey;
-    box-sizing: border-box;
-    list-style: none;
     background: $lightgrey-gradient;
+    font-size: 16px;
 }
 
-.nav-items {
+.main-nav-items {
     position: relative;
     width: ($max / 8);
-    height: 40px;
-    line-height: 40px;
+    @include center-textY(40px);
     display: inline-block;
-    margin-top: 4px;
-    text-align: center;
-    font-weight: bold;
+    margin-top: 4px; //Allow some space for taller icons
     
     @include link-colors($color: $ocean-blue, $hover-color: $black);
     
@@ -136,20 +118,16 @@ span#current-user {
 .dropdown-nav {
     position: absolute;
     width: $max;
-    @extend %no-margins;
+    @extend %reset;
     display: none;
-    margin-top: -1px;
     box-sizing: border-box;
-    border-left: $thin-lightgrey;
-    border-bottom: $thin-lightgrey;
-    border-right: $thin-lightgrey;
+    border: $thin-lightgrey;
     background: $lightgrey-gradient;
-    z-index: 500;
+    z-index: 9999;
 }
 
 .dropdown-items {
-    @include vertAlign(25px);
-    width: calc($max - 5%);
+    @include center-textY(25px);
     display: block;
     text-align: left;
     font-size: 13px;
@@ -159,22 +137,6 @@ span#current-user {
     &:last-child {
         border-bottom: 0;    
     }
-    
-    span {
-        padding: 2px 6px;
-        border-radius: 12px;
-        box-sizing: padding-box;
-        color: $white;
-        background: $green-gradient;
-    }
 }
 
 /***** END OF HEADER *****/
-
-/***** MAIN CONTENT *****/
-
-
-
-
-
-
