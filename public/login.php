@@ -15,7 +15,15 @@
                     </tr>
                     <tr>
                         <td class="space-down">
-                            <input type="text" name="username" id="username" alt="Skriv ditt användarnamn">
+                            <?php
+								if(isset($_SESSION['errorUsername'])){
+									echo "<input type='text' name='username' id='username' alt='Skriv ditt användarnamn' value='".$_SESSION['errorUsername']."'>";
+									unset($_SESSION['errorUsername']);
+								}
+								else{
+									echo "<input type='text' name='username' id='username' alt='Skriv ditt användarnamn'>";
+								}
+                            ?>               
                         </td>
                     </tr>
                     <tr>

@@ -515,10 +515,16 @@ $(document).ready(function() {
                         var option = $('<option></option>');
                             option.html('Vecka ' + i);
                             option.val(i);
-                            option.appendTo(weeks);
+							
+							
+							option.appendTo(weeks);
+							
                     }
-                    
+					//Set active week to selected week
+                    //weeks.selectedIndex =
+					
                     weeks.val(week);
+					document.getElementById("sel-week").selectedIndex =  (newWeek - 1);;
                 });
             
             var yearPromise = bookingController.grabInfo('year');
