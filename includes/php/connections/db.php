@@ -69,7 +69,8 @@ function checkUserNameAndPassword($un, $pwd){
 function addUser($username, $password, $email, $type){
 	try{	
 		global $db;
-		
+		$db->exec("SET NAMES 'latin1'");
+
         $query = "INSERT INTO useraccounts ";
         $query .= "(username, password, email, type ) ";
         $query .= "VALUES ";
