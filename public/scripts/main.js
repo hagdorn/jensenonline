@@ -239,8 +239,8 @@ $(document).ready(function() {
 
                         if (redDay === 'Ja') {
                             var currentDate = $('#' + propertyObject.datum + '');
-                            var firstSpan = $('span:first', currentDate);
-                                firstSpan.css('color', 'red');
+                            var $firstSpan = $('span:first', currentDate);
+                                $firstSpan.css('color', 'red');
                             break;
                         }
                     }
@@ -249,17 +249,17 @@ $(document).ready(function() {
         },
         addEventListeners: function() {
 
-            var addEventButton = $('#button'); 
-                addEventButton.on('click', calendarController.validateInput);
+            var $addEventButton = $('#button'); 
+                $addEventButton.on('click', calendarController.validateInput);
 
-            var deleteButton = $('#delete-all-btn');
-                deleteButton.on('click', calendarController.confirmDelete);
+            var $deleteButton = $('#delete-all-btn');
+                $deleteButton.on('click', calendarController.confirmDelete);
 
-            var showButton = $('#show-btn');
-                showButton.on('click', calendarController.scrollToMonth);
+            var $showButton = $('#show-btn');
+                $showButton.on('click', calendarController.scrollToMonth);
 
-            var backToTopButton = $('#scroll-top-btn');
-                backToTopButton.on('click', calendarController.scrollToTop);
+            var $backToTopButton = $('#scroll-top-btn');
+                $backToTopButton.on('click', calendarController.scrollToTop);
         },
         validateInput: function() {
 
@@ -420,79 +420,79 @@ $(document).ready(function() {
             
             for (i = 0; i < 1 + rooms.length; i++) {
                 
-                var tr = $('<div></div>');
-                    tr.attr('class', 'scheme-row');
-                    tr.appendTo(bookingModel.bookingContainer);
+                var $tr = $('<div></div>');
+                    $tr.attr('class', 'scheme-row');
+                    $tr.appendTo(bookingModel.bookingContainer);
                 
                 if (i === 0) { 
-                    tr.attr('id', 'scheme-head');
+                    $tr.attr('id', 'scheme-head');
                 }
                 
                 if (i < 1 + rooms.length) {
                     
                     for (j = 0; j < 10; j++) {
                         
-                        var td = $('<div></div>');
-                            td.attr('class', 'scheme-cell');
-							td.attr('time', j + 7);
+                        var $td = $('<div></div>');
+                            $td.attr('class', 'scheme-cell');
+							$td.attr('time', j + 7);
 							
 							if(i>0){
-								td.attr('room', rooms[i - 1][0]);
+								$td.attr('room', rooms[i - 1][0]);
 							}
 							else{
-								td.attr('room', "header")
+								$td.attr('room', "header")
 							}
 							
-                            td.appendTo(tr);
+                            $td.appendTo($tr);
 
                         if (i === 0 && j === 0) {
-                            td.attr({id: 'scheme-date',
-                                     class: 'scheme-cell'
-                                    });
+                            $td.attr({id: 'scheme-date',
+                                      class: 'scheme-cell'
+                                     });
 
                             //Store the AJAX call as a promise
                             var promise = bookingController.grabInfo('week');
 
                             //Display the data in the promise
-                            bookingController.displayData(td, promise);
+                            bookingController.displayData($td, promise);
                         }
                         else if (j === 0) {
-                            td.attr('class', 'scheme-cell scheme-classroom');
-                            td.html(rooms[i - 1][0]);
+                            $td.attr('class', 'scheme-cell scheme-classroom');
+                            $td.html(rooms[i - 1][0]);
                         }
                         else if (i === 0 && j > 0) {
-                            td.attr('class', 'scheme-cell scheme-time');
-                            td.html(bookingModel.hours[j - 1]);
+                            $td.attr('class', 'scheme-cell scheme-time');
+                            $td.html(bookingModel.hours[j - 1]);
                         }
 
                         if (i > 0 && j > 0) {
                             
-                            tr.attr('class', 'scheme-row scheme-click-row');
+                            $tr.attr('class', 'scheme-row scheme-click-row');
 
                             for (s = 0; s < 2; s++) {
                                 
-                                var span = $('<span></span>');
-                                    span.appendTo(td);
+                                var $span = $('<span></span>');
+                                    $span.appendTo($td);
 									
 
                                 if (s === 0) {
                                     if (rooms[i - 1][j] != "") {
-                                        span.html(rooms[i - 1][j][0]);
+                                        $span.html(rooms[i - 1][j][0]);
                                     }
                                     else {
-                                        span.html('LEDIG');
+                                        $span.html('LEDIG');
                                     }
                                     
-                                    span.attr('class', 'subject');
+                                    $span.attr('class', 'subject');
                                 }
                                 else {
                                     if (rooms[i - 1][j] != "") {
-                                        span.html(rooms[i - 1][j][1]);
-										span.attr('class', 'booked-by');
+                                        $span.html(rooms[i - 1][j][1]);
+										$span.attr('class', 'booked-by');
                                     }
 									else {
-										span.html('Inte bokad');
-										span.attr('class', 'booked-by');
+										$span.html('Inte bokad');
+										$span.attr('class', 'booked-by');
 									}
 									
                                 }
@@ -504,27 +504,27 @@ $(document).ready(function() {
         },
         fillSelects: function() {
             
-            var weeks = $('#week-booking');
-            var years = $('#year-booking');
+            var $weeks = $('#week-booking');
+            var $years = $('#year-booking');
                 
             var weekPromise = bookingController.grabInfo('week');
                 weekPromise.done(function(week) {
                     
                     for (i = 1; i < 53; i++) {
 
-                        var option = $('<option></option>');
-                            option.html('Vecka ' + i);
-                            option.val(i);
+                        var $option = $('<option></option>');
+                            $option.html('Vecka ' + i);
+                            $option.val(i);
 							
 							
-							option.appendTo(weeks);
+							$option.appendTo($weeks);
 							
                     }
 					//Set active week to selected week
                     //weeks.selectedIndex =
 					
-                    weeks.val(week);
-					document.getElementById("sel-week").selectedIndex =  (newWeek - 1);;
+                    $weeks.val(week);
+					$weeks.selectedIndex = (newWeek - 1);;
                 });
             
             var yearPromise = bookingController.grabInfo('year');
@@ -532,9 +532,9 @@ $(document).ready(function() {
                     
                     for (i = 0; i < 3; i++) {
 
-                        var option = $('<option></option>');
-                            option.val = option.text(parseInt(year) + i);
-                            option.appendTo(years);
+                        var $option = $('<option></option>');
+                            $option.val = $option.text(parseInt(year) + i);
+                            $option.appendTo($years);
                     }
                 });
         }
@@ -544,24 +544,24 @@ $(document).ready(function() {
         
         bindElements: function() {
             
-            var bookBtn = $('#book');
-            var buttonsParent = $('#day-row');
-            var cancelBookingBtn = $('#cancel-booking');
-            var cellParents = $('.scheme-click-row');
-            var childrenOfRow = cellParents.children('div:nth-child(1n+2)');
-            var courseLabel = $('#course-label');
+            var $bookBtn = $('#book');
+            var $buttonsParent = $('#day-row');
+            var $cancelBookingBtn = $('#cancel-booking');
+            var $cellParents = $('.scheme-click-row');
+            var $childrenOfRow = $cellParents.children('div:nth-child(1n+2)');
+            var $courseLabel = $('#course-label');
+            var $subjectInput = $('#booking-title-input');
+            var $schemeTable = $('#scheme-table');
             var marked = false;
-            var subjectInput = $('#booking-title-input');
-            var schemeTable = $('#scheme-table');
             
             function hideElements() {
-                courseLabel.stop().fadeOut();
-                subjectInput.stop().fadeOut();
+                $courseLabel.stop().fadeOut();
+                $subjectInput.stop().fadeOut();
             }
             
             function showElements() {
-                courseLabel.stop().fadeIn();
-                subjectInput.stop().fadeIn();
+                $courseLabel.stop().fadeIn();
+                $subjectInput.stop().fadeIn();
             }
             
             function markCell() {
@@ -580,16 +580,16 @@ $(document).ready(function() {
                         marked = true;
 						
 						//Kod för Post
-						var timeValueCells = document.getElementsByClassName("timeValue");
-						var classValueCells = document.getElementsByClassName("classValue");
+						var $timeValueCells = document.getElementsByClassName("timeValue");
+						var $classValueCells = document.getElementsByClassName("classValue");
 						
 						function addValues(cells, value){
 							for(var i=0; i<cells.length;i++){
 								cells[i].setAttribute("value", value);
 							}
 						}
-						addValues(timeValueCells, this.getAttribute("time"));
-						addValues(classValueCells, this.getAttribute("room"));
+						addValues($timeValueCells, this.getAttribute("time"));
+						addValues($classValueCells, this.getAttribute("room"));
 						
 						
                     }
@@ -600,7 +600,7 @@ $(document).ready(function() {
             }
             
             function selectDay() {
-                buttonsParent.find('.active').removeClass('active');
+                $buttonsParent.find('.active').removeClass('active');
                 $(this).addClass('active');
             }
             
@@ -610,12 +610,12 @@ $(document).ready(function() {
                 marked = false;
             }
             
-            childrenOfRow.css({cursor: 'pointer'});
+            $childrenOfRow.css({cursor: 'pointer'});
             
-            cancelBookingBtn.on('click', unMark);
-            cellParents.on('click', 'div:nth-child(1n+2)', markCell);
-            bookBtn.on('click', unMark);
-            buttonsParent.on('click', 'input', selectDay);
+            $cancelBookingBtn.on('click', unMark);
+            $cellParents.on('click', 'div:nth-child(1n+2)', markCell);
+            $bookBtn.on('click', unMark);
+            $buttonsParent.on('click', 'input', selectDay);
         },
         setCurrentDay: function() {
             var promise = bookingController.grabInfo('day');	
@@ -623,24 +623,24 @@ $(document).ready(function() {
                     
                     switch (jsDay) {
                         
-                        case 'Mon': var button = $('#Mon');
-                                        bookingController.setActiveDay(button);
+                        case 'Mon': var $button = $('#Mon');
+                                        bookingController.setActiveDay($button);
                                     break;
                         
-                        case 'Tue': var button = $('#Tue');
-                                        bookingController.setActiveDay(button);
+                        case 'Tue': var $button = $('#Tue');
+                                        bookingController.setActiveDay($button);
                                     break;
                             
-                        case 'Wed': var button = $('#Wed');
-                                        bookingController.setActiveDay(button);
+                        case 'Wed': var $button = $('#Wed');
+                                        bookingController.setActiveDay($button);
                                     break;
                             
-                        case 'Thu': var button = $('#Thu');
-                                        bookingController.setActiveDay(button);
+                        case 'Thu': var $button = $('#Thu');
+                                        bookingController.setActiveDay($button);
                                     break;
                             
-                        case 'Fri': var button = $('#Fri');
-                                        bookingController.setActiveDay(button);
+                        case 'Fri': var $button = $('#Fri');
+                                        bookingController.setActiveDay($button);
                                     break;
                         
                         default:    
@@ -648,17 +648,17 @@ $(document).ready(function() {
                     }
                 });
         },
-        displayData: function(element, promise) {
+        displayData: function($element, promise) {
             //If the AJAX call executed properly, append the data
             promise.done(function(data) {
-				element.append('Vecka ' + data);
+				$element.append('Vecka ' + data);
                
 				if (newWeek != null){
 					if (newWeek < 10){
 						newWeek = "0" + newWeek;
 					}
 					
-					document.getElementById("scheme-date").innerHTML = ('Vecka ' + newWeek);
+                    $('#scheme-date').html('Vecka ' + newWeek);
 				}
             });
         },
@@ -670,8 +670,8 @@ $(document).ready(function() {
                 type: "POST"
             });
         },
-        setActiveDay: function(button) {
-            button.addClass('active');
+        setActiveDay: function($button) {
+            $button.addClass('active');
         }
     }
     
@@ -1432,15 +1432,7 @@ var ctrl = {
     }
 }  
     
-ctrl.functions.onPageLoad();
-    
-    
-    
-    
-    
-    
-    
-    
+ctrl.functions.onPageLoad();  
 init();
     
 });
