@@ -8,7 +8,7 @@
     <button id="facilities" class="overview-btns ui-box-shadow" title="Lokaler">
         <img src="../includes/img/facilities.png" no-repeat>
     </button>
-    <button id="employees" class="overview-btns ui-box-shadow" title="Alla anställda">
+    <button id="positions" class="overview-btns ui-box-shadow" title="Alla anställda">
         <img src="../includes/img/employees.png" no-repeat>
     </button>
     <button id="admins" class="overview-btns ui-box-shadow" title="Admins">

@@ -1179,6 +1179,7 @@ var administrationView = {
                 
                 var promise = administrationController.removeRowFromDb(tableID, btnID);
                     promise.done(function(data) {
+                        console.log(data);
                         button.parent().parent().parent().fadeOut('fast', function() {
                             button.parent().parent().parent().remove();
                         });
