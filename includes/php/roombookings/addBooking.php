@@ -14,38 +14,22 @@
 		echo("Error<br><br>$e");
 	}
 
-	if(trim($_POST['time']) > "" && trim($_POST['booking-title']) > ""){
-		try {
-			$query = "INSERT INTO roombookings (room, date, hour, description, booker) ";
-			$query .= "VALUES (:room, :date, :hour, :description, :booker)";
 
-            try {
-                $query = "INSERT INTO roombookings (room, date, hour, description, booker) ";
-                $query .= "VALUES (:room, :date, :hour, :description, :booker)";
-
-                $ps = $db->prepare($query);
-                $ps->execute([
-                    'room'=>$room,
-                    'date'=>$_SESSION['date'],
-                    'hour'=>$_POST['time'],
-                    'description'=>$_POST['booking-title'],
-                    'booker'=>$_SESSION['firstname'] . " " . $_SESSION['lastname']
-                ]);
-            }
-            catch(Exception $e){
-                echo("Error<br><br>$e");
-
-                $ps = $db->prepare($query);
-                $ps->execute([
-                    'room'=>$room,
-                    'date'=>$_SESSION['date'],
-                    'hour'=>$_POST['time'],
-                    'description'=>$_POST['classSubject'],
-                    'booker'=>$_SESSION['firstname'] . " " . $_SESSION['lastname']
-                ]);
-            }
-	   }
-        catch(Exception $e) {
-            echo ("Error<br><br>$e");
-        }
-    }
+	try{
+		$query = "INSERT INTO roombookings (room, date, hour, description, booker) ";
+		$query .= "VALUES (:room, :date, :hour, :description, :booker)";
+		
+		$ps = $db->prepare($query);
+		$ps->execute([
+			'room'=>$room,
+			'date'=>$_SESSION['date'],
+			'hour'=>$_POST['time'],
+			'description'=>$_POST['classSubject'],
+			'booker'=>$_SESSION['firstname'] . " " . $_SESSION['lastname']
+		]);
+		
+		
+	}
+	catch(Exception $e){
+		echo("Error<br><br>$e");
+	}

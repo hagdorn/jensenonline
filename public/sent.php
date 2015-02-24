@@ -9,7 +9,7 @@
 
 <!-- body starts here -->
 
-<main class="content">
+<main>
     <?php include('../includes/msgtemplate.php'); ?>
     
         <div id="inbox-container">

@@ -2,107 +2,117 @@
 $white: #fff;
 $black: #000;
 $soft-grey: #f7f7f7;
-$hard-grey: #D3D3D3;
 $dark-blue: #003b65;
 $light-blue: #38b6ff;
 $ocean-blue: #0097ef;
-$notes-yellow: #f5f293;
-$notes-brown: #ab5839;
-$dark-brown: #3f2b26;
-$light-brown: #7d574a;
 
 //Gradient colors
+$green-gradient: linear-gradient(#4fef00, #3db700);
+$red-gradient: linear-gradient(#ff0a0a, #d10000);
+$light-blue-gradient: linear-gradient($light-blue, $ocean-blue);
+$blue-gradient: linear-gradient($ocean-blue, $dark-blue);
+$rev-blue-gradient: linear-gradient($dark-blue, $ocean-blue);
+$orange-gradient: linear-gradient(#ffba19, #ff7119);
 $lightgrey-gradient: linear-gradient(#f9f9f9, #ffffff);
 $white-gradient: linear-gradient(#fff, #efefef);
-$brown-gradient: linear-gradient($light-brown, $dark-brown);
-$rev-brown-gradient: linear-gradient($dark-brown, $light-brown);
 
 //Borders
 $thin-solid: 1px solid;
-$thin-black: $thin-solid $black;
-$thin-lightgrey: $thin-solid $hard-grey;
-$thin-grey: $thin-solid grey;
-$thin-darkbrown: $thin-solid $dark-brown;
+$thin-black: $thin-solid #000;
+$thin-lightgrey: $thin-solid #D3D3D3;
 
 //Measurements
 $max: 100%;
 
 //Font styles
+$small-font: 15px;
+$big-font: 20px;
 $fontFamily: Arial, sans-serif;
 
 //Other
 $center: 0 auto;
 $standard-radius: 3px;
+
+//Colors
+$notes-yellow: #f5f293;
+$notes-brown: #ab5839;
+$dark-brown: #3f2b26;
+$light-brown: #7d574a;
+
+//Gradients
+$brown-gradient: linear-gradient($light-brown, $dark-brown);
+$rev-brown-gradient: linear-gradient($dark-brown, $light-brown);
+
+//Borders
+$thin-grey: 1px solid grey;
+$thin-darkbrown: 1px solid $dark-brown;
+
+//Other
+$center: 0 auto;
 $li-margin: 3px;
+$std-radius: 5px;
+
 
 //Placeholders
-%reset {
+%no-margins {
     margin: 0;
     padding: 0;
 }
 
+%white-text {
+    color: $white;
+}
+
+%center-element {
+    margin: $center;
+}
+
 %placeholderStyles {
+    
     ::-webkit-input-placeholder { /* WebKit browsers */
-        color: $black;
         padding-left: 5px;
+        font-size: 15px;
     }
     :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-        color: $black;
-        padding-left: 5px;
+        color:    #909;
         opacity:  1;
     }
     ::-moz-placeholder { /* Mozilla Firefox 19+ */
-        color: $black;
-        padding-left: 5px;
+        color:    #909;
         opacity:  1;
     }
     :-ms-input-placeholder { /* Internet Explorer 10+ */
-        color: $black;
+        color:    #909;
+    }
+}
+
+%btn-props {
+    border-radius: $standard-radius;
+    border: $thin-lightgrey;
+    background: $white-gradient;
+    outline: 0;
+    
+    &:hover {
+        background: $lightgrey-gradient;
+    }
+    
+    &:active {
+        background: $white-gradient;
     }
 }
 
 //Mixins
-
-@mixin common-btn($bg-color: $white-gradient, $h-color: $lightgrey-gradient, $border: $thin-lightgrey) {
-    
-    border-radius: $standard-radius;
-    border: $border;
-    outline: 0;
-    background: $white-gradient;
-    box-shadow: 1px 1px 3px rgba(0,0,0,.15);
-    
-    &:hover {
-        background: $h-color;
-    }
-    
-    &:active {
-        background: $bg-color;
-    }
-}
-
-@mixin center-textY($height) {
+@mixin vertAlign($height) {
     height: $height;
     line-height: $height;
 }
 
-@mixin centerXY($top: 50%, $left: 50%) {
+@mixin center($top: 50%) {
     position: absolute;
     top: $top;
-    left: $left;
+    left: $max - 50;
     transform: translateY(-50%);
     transform: translateX(-50%);
-}
-
-@mixin centerY($top: 50%) {
-    position: absolute;
-    top: $top;
-    transform: translateY(-50%);
-}
-
-@mixin semantic-inheritance($height: null) {
-    width: 100%;
-    height: $height;
-    @extend %reset;
 }
 
 @mixin link-colors($color: #000, $decoration: none, $hover-color: null) {
@@ -137,7 +147,8 @@ $li-margin: 3px;
     background: $color;
 }
 
-@mixin placeholderColor($col: $black) {
+@mixin placeholderColor($col: #000) {
+    
     ::-webkit-input-placeholder { /* WebKit browsers */
         color: $col;
     }
@@ -174,7 +185,7 @@ $li-margin: 3px;
     padding: 0 10px;
     border: 0;
     border-radius: $standard-radius;
-    color: white;
+    @extend %white-text;
     font-weight: bold;
     cursor: pointer;
 }
@@ -182,11 +193,11 @@ $li-margin: 3px;
 .overview-btns {
     position: relative;
     width: 32px;
-    @include center-textY(32px);
+    @include vertAlign(32px);
     margin-left: 3px;
     padding: 0;
     display: inline-block;
-    @include common-btn;
+    @extend %btn-props;
     
     img {
         margin: 3px 0 0;
@@ -195,15 +206,23 @@ $li-margin: 3px;
 
 .inline-btn {
     width: auto;
-    @include center-textY(32px);
+    @include vertAlign(32px);
     margin-right: 10px;
     padding: 1px 5px;
     display: inline-block;
-    @include common-btn;
+    @extend %btn-props;
     font-size: 16px;
     font-weight: bold;
     
     @include link-colors($ocean-blue);
+    
+    &:hover {
+        background: $lightgrey-gradient;
+    }
+    
+    &:active {
+        background: $white-gradient;
+    }
     
     &:nth-child(4) {
         
@@ -222,6 +241,7 @@ $li-margin: 3px;
         padding: 2px 6px;
         border-radius: 12px;
         color: $white;
+        background: $green-gradient;
     }
     
     &:after {
@@ -233,9 +253,17 @@ $li-margin: 3px;
 
 .small-btns {
     width: 26px;
-    @include center-textY(26px);
-    @extend %reset;
-    @include common-btn;
+    @include vertAlign(26px);
+    @extend %no-margins;
+    @extend %btn-props;
+    
+    &:hover {
+        background: $lightgrey-gradient;
+    }
+    
+    &:active {
+        background: $white-gradient;
+    }
     
     img {
         margin: -2px -1px;
@@ -273,30 +301,6 @@ $li-margin: 3px;
 }
 
 //General classes
-.content {
-    @extend html;
-}
-
-.selects-wrapper {
-    position: absolute;
-    right: 0;
-    height: 30px;
-    line-height: 30px;
-    
-    select {
-        margin-right: 5px;
-    }
-}
-
-//Treat semantic markup as if it wasn't there
-.ignore-markup {
-    @include semantic-inheritance;
-}
-
-.text-thick {
-    font-weight: bold;
-}
-
 .clearfix {
     clear: both;
 }
@@ -318,10 +322,9 @@ $li-margin: 3px;
 }
 
 .nav {
-    @extend %reset;
+    padding: 0;
     list-style: none;
-    text-align: center;
-    font-size: 0; //Needs to re-initiated to the wanted font size
+    font-size: 0; //Needs to be resetted in the list items with 16px
 }
 
 .ui-box-shadow {

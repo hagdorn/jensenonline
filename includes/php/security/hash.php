@@ -1,7 +1,7 @@
 <?php
 class Hash {
     function passwordEncrypt($userName, $pwd){
-		
+
         while (sizeof(str_split($pwd)) < 30){
             $pwd = $pwd . $pwd;
         }

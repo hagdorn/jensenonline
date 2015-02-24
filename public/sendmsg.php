@@ -9,8 +9,6 @@
 ?>
 
 <!-- body starts here -->
-
-<!-- Needs to be removed from inline -->
 <script>
 	function showResult(str) {
 	  if (window.XMLHttpRequest) {
@@ -30,7 +28,7 @@
 	window.onload=showResult("");
 </script>
 
-<main class="content">
+<main>
 	
     <?php include_msg_template(); ?>
     

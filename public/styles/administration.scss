@@ -91,7 +91,7 @@ div#table-holder {
         border: $thin-lightgrey;
         
         tr:first-child {
-            background: blue;
+            background: $blue-gradient;
         }
         
         tr:nth-child(even) {
@@ -101,7 +101,7 @@ div#table-holder {
     }
     .small-btns {
         width: 22px;
-        @include center-textY(22px);
+        @include vertAlign(22px);
     }
 }
 
@@ -206,7 +206,7 @@ form.dropdown-form {
 .default {
     position: relative;
     width: inherit;
-    @include center-textY(32px);
+    @include vertAlign(32px);
     text-align: center;
     font-weight: bold;
     
@@ -217,7 +217,7 @@ form.dropdown-form {
 
 .sub-options {
     width: inherit;
-    @include center-textY(32px);
+    @include vertAlign(32px);
     font-size: 13px;
     
     &:first-child {

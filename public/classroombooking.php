@@ -19,64 +19,53 @@
 	
 	$jsDay = date("D", strtotime($_SESSION['date']));
 	?><script>var jsDay = '<?php print_r($jsDay);?>'; </script><?php
+
+
 ?>
 <!-- body starts here -->
+
 <main>
-    <div id="booking-app-wrapper">
-        <header class="ignore-markup">
-            <div id="days-nav-wrapper">
-                <nav class="ignore-markup" id="days-nav">
-                    <form method="POST" action="classroombooking.php" id="days-nav-form">
-                        <input type="submit" name="day" value="måndag" id="Mon"
-                               class="day-btns text-thick">
-                        <input type="submit" name="day" value="tisdag" id="Tue"
-                               class="day-btns text-thick">
-                        <input type="submit" name="day" value="onsdag" id="Wed"
-                               class="day-btns text-thick">
-                        <input type="submit" name="day" value="torsdag" id="Thu"
-                               class="day-btns text-thick">
-                        <input type="submit" name="day" value="fredag" id="Fri"
-                               class="day-btns text-thick">
-                    </form>
-                </nav>
-                <div class="selects-wrapper">
-                    <form method="POST" action="classroombooking.php">
-                        <select id="week-booking" name="week" 
-                                class="ui-box-shadow dropdown-select text-thick"></select>
-                        <select id="year-booking" name="year" 
-                                class="ui-box-shadow dropdown-select text-thick"></select>
-                        <button type="submit" name="show-week" 
-                                class="action-btn text-thick float-right">Visa</button>
-                    </form>
+    <div id="booking-container">
+        <div id="days-wrapper">
+            <form method="POST" action="classroombooking.php">
+                <div id="day-row">
+                    <input type="submit" name="day" id="Mon" class="day-btns" value="måndag">
+                    <input type="submit" name="day" id="Tue" class="day-btns" value="tisdag">
+                    <input type="submit" name="day" id="Wed" class="day-btns" value="onsdag">
+                    <input type="submit" name="day" id="Thu" class="day-btns" value="torsdag">
+                    <input type="submit" name="day" id="Fri" class="day-btns" value="fredag">
                 </div>
-            </div>
-        </header>
+            </form>
+            <form method="POST" action="classroombooking.php" id="selects-wrapper">
+                <select id="sel-week" name="week" class="dropdown-selects"></select>
+                <select id="sel-year" name="year" class="dropdown-selects"></select>
+                <button type="submit" name="show-week" class="booking-btns">Visa</button>
+            </form>
+        </div>
         <div id="scheme-table"></div>
         <div id="scheme-footer">
             <div id="cancel-wrapper">
                 <form method="POST" action="classroombooking.php">
                     <input type="hidden" class="timeValue" name="time">
                     <input type="hidden" class="classValue" name="class">
-                    <button type="submit" name="cancel" id="cancel-booking" 
-                            class="ui-box-shadow action-btn text-thick" 
-                            alt="Knapp för att avboka ett klassrum">Avboka<img src="../includes/img/cancel-booking.png"></button>
+                    <button type="submit" name="cancel" id="cancel-booking" class="ui-box-shadow booking-btns">Avboka<img src="../includes/img/cancel-booking.png"></button>
                 </form>
             </div>
             <div id="book-wrapper">
                 <form method="POST" action="classroombooking.php">
-                    <label for="subject" id="course-label">Rubrik:</label>
-                    <input type="text" name="booking-title" id="booking-title-input" 
-                           class="ui-box-shadow" alt="Fyll i en rubrik för bokningen">
+                    <label for="subject" id="course-label">Ange kurs:</label>
+                    <input type="text" id="classSubject" class="ui-box-shadow" name="classSubject" alt="Fyll i ämne">
                     <input type="hidden" class="timeValue" name="time">
                     <input type="hidden" class="classValue" name="class">
-                    <button type="submit" name="book" alt="Knapp för att boka ett klassrum" 
-                            id="book" class="ui-box-shadow action-btn text-thick">Boka<img src="../includes/img/accept-booking.png">
+                    <button type="submit" name="book" alt="Knapp för att boka ett klassrum" id="book" class="ui-box-shadow booking-btns">Boka<img src="../includes/img/accept-booking.png">
                     </button>
                 </form>
             </div>
         </div>
     </div>
 </main>
+
+
 <?php
     include_once('../includes/footer.php');
 ?>

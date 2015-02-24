@@ -1,25 +1,60 @@
 @import "data";
 
+#booking-container {
+    width: $max;
+    height: 100%;
+    position: relative;
+    
+    table {
+        width: 50%;
+        height: 100%;
+        margin: $center 100px;
+        
+        tr {
+            
+            td:nth-child(6n+1) {
+                border: 0;
+                font-weight: bold;
+                background: white;
+                text-align: right;
+                padding-right: 2%;
+            }
+            
+            td, td.available {
+                width: $max / 6;
+                height: 200px;
+                border: 1px solid black;
+                background: #8cf178;
+            }
+            
+            td.booked {
+                background: #c80d0d;
+            }
+        }
+    }
+}
+
 /***** BOOKING SYSTEM *****/
 
-#booking-app-wrapper {
+#booking-container {
     width: $max - 10;
     margin: $center;
 }
 
-#days-nav-wrapper {
+#days-wrapper {
     position: relative;
     width: $max;
     margin: $center 30px;
+    
+    form:first-child {
+        width: $max - 50;
+        margin: $center;
+        display: table;
+    }
 }
 
-#days-nav {
-    width: $max - 50;
-    margin: $center;
-    display: table;
-}
-
-#days-nav-form {
+#day-row {
+    width: 100%;
     display: table-row;
 }
 
@@ -28,12 +63,15 @@
     height: 30px;
     display: table-cell;
     border: 0;
-    background: none;
+    color: $ocean-blue;
     font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background: none;
 }
 
 .active {
-    color: $white !important;
+    color: $white;
     background: $black;
 }
 
@@ -103,7 +141,7 @@
 #scheme-footer {
     position: relative;
     width: $max;
-    @include center-textY(40px);
+    @include vertAlign(40px);
     margin: 20px 0 0;
     box-sizing: padding-box;
 }
@@ -124,9 +162,10 @@
     margin-left: 5px;
 }
 
-.action-btn {
-    @include center-textY(30px);
-    @include common-btn;
+.booking-btns {
+    @include vertAlign(30px);
+    @extend %btn-props;
+    font-weight: bold;
     margin: 0;
     
     img {
@@ -151,12 +190,19 @@
     background: #afafaf;
 }
 
-.dropdown-select {
-    height: 30px;
-    border-radius: $standard-radius;
+#selects-wrapper {
+    position: absolute;
+    right: 0;
+    max-height: 30px;
+    line-height: 30px;
 }
 
-#booking-title-input {
+.dropdown-selects {
+    height: 30px;
+    font-weight: bold;
+}
+
+#classSubject {
     height: 30px;
     margin: 3px 0 0 5px;
     padding: 0;

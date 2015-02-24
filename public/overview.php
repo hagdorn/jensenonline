@@ -4,7 +4,7 @@
     include_header_files();
 ?>
 
-<main class="content">
+<main>
     <div id="administration-wrapper" class="border-box">
         <div id="menu-wrapper">
             <div id="top-menu">
@@ -51,48 +51,104 @@
         </div>
         <div id="table-holder"></div>
         <div id="changes-feed" class="float-right border-box">
-<?php
-
-    $query = 'SELECT * FROM activities ';
-    $query .= 'ORDER BY timestamp DESC LIMIT 10';
-
-    $prepared_stmt = $db->prepare($query);
-    $prepared_stmt->execute();
-    
-    while ($db_row = $prepared_stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo "<div class='activity-box'>";
-        echo "<span class='activity-header'>";
-        echo "<span class='highlight-text'>";
-        echo $db_row['user'];
-        
-        switch ($db_row['action']) {
-            
-            case 'added': echo " lade till ett objekt:";
-                          break;
-            
-            case 'edit': echo " redigerade ett objekt:";
-                         break;
-            
-            case 'removal': echo " raderade ett objekt:";
-                            break;
-        }
-        
-        echo "</span>";
-        echo "</span>";
-        echo "<p class='changes-made'>";
-        echo "<span class='highlight-text'>";
-        echo $db_row['affected_object'];
-        echo "</span>";
-        echo "<span> har tagits bort ur systemet.</span>";
-        echo "</p>";
-        echo "<span class='timestamp'>";
-        echo $db_row['timestamp'];
-        echo "</span>";
-        echo "</div>";
-    }
-?>
-            
-            
+            <div class="activity-box">
+                <span class="activity-header">
+                    <span class="highlight-text">
+                        <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>
+                    </span> lade till ett objekt:
+                </span>
+                <p class="changes-made">
+                    <span class="highlight-text">Christian Hagdorn</span>
+                    <span> har lagts till i studenter.</span>
+                </p>
+                <span class="timestamp">
+                    <?php echo date('d-m-y H:i:s'); ?>
+                </span>
+            </div>
+            <div class="activity-box">
+                <span class="activity-header">
+                    <span class="highlight-text">
+                        <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>
+                    </span> raderade ett objekt:
+                </span>
+                <p class="changes-made">
+                    <span class="highlight-text">Robert Karlsson</span>
+                    <span> har tagits bort ur systemet på grund av inaktivitet.</span>
+                </p>
+                <span class="timestamp">
+                    <?php echo date('d-m-y H:i:s'); ?>
+                </span>
+            </div>
+            <div class="activity-box">
+                <span class="activity-header">
+                    <span class="highlight-text">
+                        <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>
+                    </span> redigerade ett objekt:
+                </span>
+                <p class="changes-made">
+                    <span class="highlight-text">Christoffer Skoghs</span>
+                    <span> addressuppgifter har ändrats.</span>
+                </p>
+                <span class="timestamp">
+                    <?php echo date('d-m-y H:i:s'); ?>
+                </span>
+            </div>
+            <div class="activity-box">
+                <span class="activity-header">
+                    <span class="highlight-text">
+                        <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>
+                    </span> redigerade ett objekt:
+                </span>
+                <p class="changes-made">
+                    <span class="highlight-text">Sibar Al-Ani</span>
+                    <span> har utsetts till PHP guru.</span>
+                </p>
+                <span class="timestamp">
+                    <?php echo date('d-m-y H:i:s'); ?>
+                </span>
+            </div>
+            <div class="activity-box">
+                <span class="activity-header">
+                    <span class="highlight-text">
+                        <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>
+                    </span> lade till ett objekt:
+                </span>
+                <p class="changes-made">
+                    <span class="highlight-text">Kalle Sandin</span>
+                    <span> har lagts till i studenter.</span>
+                </p>
+                <span class="timestamp">
+                    <?php echo date('d-m-y H:i:s'); ?>
+                </span>
+            </div>
+            <div class="activity-box">
+                <span class="activity-header">
+                    <span class="highlight-text">
+                        <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>
+                    </span> raderade ett objekt:
+                </span>
+                <p class="changes-made">
+                    <span class="highlight-text">Charlie Ohlin</span>
+                    <span> har tagits bort ur systemet på grund av undviken kontakt.</span>
+                </p>
+                <span class="timestamp">
+                    <?php echo date('d-m-y H:i:s'); ?>
+                </span>
+            </div>
+            <div class="activity-box">
+                <span class="activity-header">
+                    <span class="highlight-text">
+                        <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>
+                    </span> raderade ett objekt:
+                </span>
+                <p class="changes-made">
+                    <span class="highlight-text">Klas Göran Svenssons</span>
+                    <span> uppgifter har ändrats.</span>
+                </p>
+                <span class="timestamp">
+                    <?php echo date('d-m-y H:i:s'); ?>
+                </span>
+            </div>
         </div>
     </div>
 </main>

@@ -1,6 +1,19 @@
-.small-btns, .ignore-markup, .nav {
+.small-btns {
   margin: 0;
   padding: 0; }
+
+.action-buttons {
+  color: #fff; }
+
+.overview-btns, .inline-btn, .small-btns {
+  border-radius: 3px;
+  border: 1px solid #D3D3D3;
+  background: linear-gradient(#fff, #efefef);
+  outline: 0; }
+  .overview-btns:hover, .inline-btn:hover, .small-btns:hover {
+    background: linear-gradient(#f9f9f9, #ffffff); }
+  .overview-btns:active, .inline-btn:active, .small-btns:active {
+    background: linear-gradient(#fff, #efefef); }
 
 @font-face {
   font-family: notesworthy;
@@ -11,7 +24,6 @@
   padding: 0 10px;
   border: 0;
   border-radius: 3px;
-  color: white;
   font-weight: bold;
   cursor: pointer; }
 
@@ -22,16 +34,7 @@
   line-height: 32px;
   margin-left: 3px;
   padding: 0;
-  display: inline-block;
-  border-radius: 3px;
-  border: 1px solid #D3D3D3;
-  outline: 0;
-  background: linear-gradient(#fff, #efefef);
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); }
-  .overview-btns:hover {
-    background: linear-gradient(#f9f9f9, #ffffff); }
-  .overview-btns:active {
-    background: linear-gradient(#fff, #efefef); }
+  display: inline-block; }
   .overview-btns img {
     margin: 3px 0 0; }
 
@@ -42,21 +45,16 @@
   margin-right: 10px;
   padding: 1px 5px;
   display: inline-block;
-  border-radius: 3px;
-  border: 1px solid #D3D3D3;
-  outline: 0;
-  background: linear-gradient(#fff, #efefef);
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
   font-size: 16px;
   font-weight: bold; }
-  .inline-btn:hover {
-    background: linear-gradient(#f9f9f9, #ffffff); }
-  .inline-btn:active {
-    background: linear-gradient(#fff, #efefef); }
   .inline-btn a {
     text-decoration: none; }
     .inline-btn a:link, .inline-btn a:visited, .inline-btn a:focus, .inline-btn a:hover, .inline-btn a:active {
       color: #0097ef; }
+  .inline-btn:hover {
+    background: linear-gradient(#f9f9f9, #ffffff); }
+  .inline-btn:active {
+    background: linear-gradient(#fff, #efefef); }
   .inline-btn:nth-child(4) img {
     margin-bottom: 0px; }
   .inline-btn img {
@@ -66,7 +64,8 @@
   .inline-btn span {
     padding: 2px 6px;
     border-radius: 12px;
-    color: #fff; }
+    color: #fff;
+    background: linear-gradient(#4fef00, #3db700); }
   .inline-btn:after {
     content: '';
     width: 100%;
@@ -75,12 +74,7 @@
 .small-btns {
   width: 26px;
   height: 26px;
-  line-height: 26px;
-  border-radius: 3px;
-  border: 1px solid #D3D3D3;
-  outline: 0;
-  background: linear-gradient(#fff, #efefef);
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); }
+  line-height: 26px; }
   .small-btns:hover {
     background: linear-gradient(#f9f9f9, #ffffff); }
   .small-btns:active {
@@ -111,20 +105,6 @@
   color: red;
   font-weight: bold; }
 
-.selects-wrapper {
-  position: absolute;
-  right: 0;
-  height: 30px;
-  line-height: 30px; }
-  .selects-wrapper select {
-    margin-right: 5px; }
-
-.ignore-markup {
-  width: 100%; }
-
-.text-thick {
-  font-weight: bold; }
-
 .clearfix {
   clear: both; }
 
@@ -141,15 +121,15 @@
   display: none; }
 
 .nav {
+  padding: 0;
   list-style: none;
-  text-align: center;
   font-size: 0; }
 
 .ui-box-shadow {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); }
 
 /** global scope **/
-html, .content,
+html,
 body {
   width: 100%;
   height: 100%; }
@@ -174,7 +154,7 @@ body {
 
 /** generic classes **/
 .btn {
-  border-radius: 3px;
+  border-radius: 5px;
   outline: 0;
   padding: 5px 10px; }
 

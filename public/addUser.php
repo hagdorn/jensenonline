@@ -17,10 +17,11 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
 </head>
+
 <body>
 	<form action="addUser.php" method="POST">
 		<table>
@@ -43,6 +44,10 @@
 				<td><input type="reset" value="reset"></td>
 			</tr>
 		</table>
+	
+	
+	
 	</form>
+		
 </body>
 </html>
